@@ -269,6 +269,14 @@ html, body {
   transform: translateY(-1px);
 }
 
+/* ── Ecosystem Search Bar ──────────────────────────────── */
+#ecosystem-search-box {
+  transition: border-color .2s, box-shadow .2s;
+}
+[data-chip-skill] button:hover {
+  opacity: 1 !important;
+}
+
 /* ── Mobile overrides ───────────────────────────────────── */
 @media (max-width: 767px) {
   .text-5xl { font-size: 1.875rem !important; line-height: 2.25rem !important; }

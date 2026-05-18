@@ -16,6 +16,30 @@ const discoveryItems = [
   { id: 'skillset', title: 'Full Skillset Overview', category: 'About', description: 'A complete map of technical, professional, and creative competencies.', skills: ['International Partnership', 'Student Mobility', 'Project Management', 'Leadership', 'UI/UX Design', 'Full-Stack Development', 'Branding', 'Systems Thinking', 'Writing'], page: 'skillset', accent: '#1C1C1E' },
 ];
 
+const searchIndex = (function() {
+  const manual = [
+    { title: 'About Me', subtitle: 'Profile Overview', page: 'about-overview', accent: '#1E3A5F', keywords: 'about profile overview background zefanya specialist' },
+    { title: 'Experience', subtitle: 'Career Timeline', page: 'experience', accent: '#1E3A5F', keywords: 'experience career work history timeline professional years' },
+    { title: 'Expertise', subtitle: 'Core Competencies', page: 'expertise', accent: '#1E3A5F', keywords: 'expertise skills competencies areas specialization core' },
+    { title: 'Education', subtitle: 'Academic Profile', page: 'education', accent: '#1E3A5F', keywords: 'education university degree airlangga international relations academic' },
+    { title: 'Skillset', subtitle: 'Full Skills List', page: 'skillset', accent: '#1E3A5F', keywords: 'skills all competencies full list technical professional creative' },
+    { title: 'Contact', subtitle: 'Get in Touch', page: 'contact', accent: '#1C1C1E', keywords: 'contact email message collaborate hire reach' },
+    { title: 'Projects Overview', subtitle: 'All Projects', page: 'projects-overview', accent: '#6B4F32', keywords: 'projects portfolio all overview work amerta aci aero' },
+    { title: 'Writing & Reflections', subtitle: 'Articles & Essays', page: 'writing', accent: '#5C5C5C', keywords: 'writing articles essays blog reflections thoughts journal insights' },
+    { title: 'CroissantsMoon', subtitle: 'Creative Studio', page: 'croissantsmoon', accent: '#8B7355', keywords: 'croissantsmoon creative studio design branding identity moon boutique' },
+    { title: 'Web Development', subtitle: 'Creative Services', page: 'websites', accent: '#8B7355', keywords: 'websites web development frontend responsive html css javascript' },
+    { title: 'Graphic Design', subtitle: 'Creative Services', page: 'designs', accent: '#8B7355', keywords: 'graphic design branding visual identity print digital' },
+    { title: 'Partnerships', subtitle: 'Global Engagement', page: 'partnerships', accent: '#4A6B8A', keywords: 'partnerships international global institutional promotion mou moa agreements' },
+    { title: 'Student Onboarding', subtitle: 'Student Services', page: 'onboarding', accent: '#4A5235', keywords: 'onboarding students support welfare orientation arrival housing immigration' },
+    { title: 'Student Engagement', subtitle: 'Student Services', page: 'engagement', accent: '#4A5235', keywords: 'engagement students activities cultural support community exchange' },
+  ];
+  const seen = new Set(manual.map(m => m.page));
+  const fromItems = discoveryItems
+    .filter(item => !seen.has(item.page))
+    .map(item => ({ title: item.title, subtitle: item.category, page: item.page, accent: item.accent, keywords: [...item.skills, item.description].join(' ').toLowerCase() }));
+  return [...manual, ...fromItems];
+})();
+
 let selectedSkills = [];
 
 function toggleSkill(btn) {
@@ -23,51 +47,56 @@ function toggleSkill(btn) {
   if (selectedSkills.includes(skill)) {
     selectedSkills = selectedSkills.filter(s => s !== skill);
     btn.classList.remove('selected');
+    btn.style.opacity = '1';
+    removeChipFromSearchBar(skill);
   } else {
     selectedSkills.push(skill);
     btn.classList.add('selected');
+    btn.style.opacity = '0.45';
+    animateTagToSearchBar(btn);
   }
-  const discoverBtn = document.getElementById('discover-btn');
-  const clearBtn = document.getElementById('clear-skills-btn');
-  if (selectedSkills.length > 0) {
-    discoverBtn.style.opacity = '1';
-    discoverBtn.style.pointerEvents = 'auto';
-    if (clearBtn) clearBtn.style.display = 'inline';
-  } else {
-    discoverBtn.style.opacity = '.45';
-    discoverBtn.style.pointerEvents = 'none';
-    if (clearBtn) clearBtn.style.display = 'none';
-  }
+  updateClearBtn();
 }
 
 function clearSkills() {
   selectedSkills = [];
-  document.querySelectorAll('.skill-tag').forEach(t => t.classList.remove('selected'));
-  const discoverBtn = document.getElementById('discover-btn');
+  document.querySelectorAll('#skill-tags-container .skill-tag').forEach(t => {
+    t.classList.remove('selected');
+    t.style.opacity = '1';
+  });
+  document.querySelectorAll('[data-chip-skill]').forEach(c => c.remove());
+  const input = document.getElementById('ecosystem-search-input');
+  if (input) input.value = '';
+  hideSearchDropdown();
   const clearBtn = document.getElementById('clear-skills-btn');
-  if (discoverBtn) { discoverBtn.style.opacity = '.45'; discoverBtn.style.pointerEvents = 'none'; }
   if (clearBtn) clearBtn.style.display = 'none';
 }
 
 function discoverRelatedWorks() {
   if (selectedSkills.length === 0) return;
-  renderDiscoveryResults(selectedSkills);
-  goToPage('skill-discovery');
+  executeEcosystemSearch();
 }
 
-function renderDiscoveryResults(skills) {
+function renderDiscoveryResults(skills, textQuery) {
+  textQuery = textQuery || '';
   const display = document.getElementById('selected-skills-display');
   const grid = document.getElementById('results-grid');
   const noResults = document.getElementById('no-results');
   if (!display || !grid) return;
 
-  display.innerHTML = skills.map(s => `<span class="skill-tag selected">${s}</span>`).join('');
+  display.innerHTML = skills.map(s => '<span class="skill-tag selected">' + s + '</span>').join('');
+  if (textQuery) {
+    display.innerHTML += '<span class="skill-tag" style="background:rgba(28,28,30,0.08);color:#5C5C5C">“' + textQuery + '”</span>';
+  }
 
-  const matches = discoveryItems.filter(item =>
-    item.skills.some(s => skills.includes(s))
-  ).sort((a, b) => {
-    const aScore = a.skills.filter(s => skills.includes(s)).length;
-    const bScore = b.skills.filter(s => skills.includes(s)).length;
+  const q = textQuery.toLowerCase();
+  const matches = discoveryItems.filter(function(item) {
+    var skillMatch = skills.length === 0 || item.skills.some(function(s) { return skills.includes(s); });
+    var textMatch = !q || item.title.toLowerCase().includes(q) || item.description.toLowerCase().includes(q) || item.category.toLowerCase().includes(q) || item.skills.some(function(s) { return s.toLowerCase().includes(q); });
+    return skillMatch && textMatch;
+  }).sort(function(a, b) {
+    var aScore = a.skills.filter(function(s) { return skills.includes(s); }).length;
+    var bScore = b.skills.filter(function(s) { return skills.includes(s); }).length;
     return bScore - aScore;
   });
 
@@ -78,16 +107,144 @@ function renderDiscoveryResults(skills) {
   }
   if (noResults) noResults.classList.add('hidden');
 
-  grid.innerHTML = matches.map(item => `
-    <button onclick="goToPage('${item.page}')" class="result-card p-7 text-left w-full" style="border-left:3px solid ${item.accent}">
-      <div style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:${item.accent};margin-bottom:10px">${item.category}</div>
-      <h3 class="font-heading font-semibold text-base mb-3 leading-snug" style="color:#1C1C1E">${item.title}</h3>
-      <p class="text-xs leading-relaxed mb-4" style="color:#5C5C5C">${item.description}</p>
-      <div class="flex flex-wrap gap-1.5 mb-4">${item.skills.filter(s => skills.includes(s)).map(s => `<span class="tag">${s}</span>`).join('')}</div>
-      <div class="flex items-center gap-2 text-xs font-medium" style="color:${item.accent}">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
-    </button>
-  `).join('');
+  grid.innerHTML = matches.map(function(item) {
+    var matchedSkills = item.skills.filter(function(s) { return skills.includes(s); });
+    return '<button onclick="goToPage(\'' + item.page + '\')" class="result-card p-7 text-left w-full" style="border-left:3px solid ' + item.accent + '">' +
+      '<div style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:' + item.accent + ';margin-bottom:10px">' + item.category + '</div>' +
+      '<h3 class="font-heading font-semibold text-base mb-3 leading-snug" style="color:#1C1C1E">' + item.title + '</h3>' +
+      '<p class="text-xs leading-relaxed mb-4" style="color:#5C5C5C">' + item.description + '</p>' +
+      '<div class="flex flex-wrap gap-1.5 mb-4">' + matchedSkills.map(function(s) { return '<span class="tag">' + s + '</span>'; }).join('') + '</div>' +
+      '<div class="flex items-center gap-2 text-xs font-medium" style="color:' + item.accent + '">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>' +
+      '</button>';
+  }).join('');
   lucide.createIcons();
+}
+
+function animateTagToSearchBar(btn) {
+  var tagRect = btn.getBoundingClientRect();
+  var searchBox = document.getElementById('ecosystem-search-box');
+  var catClass = btn.className.split(' ').find(function(c) { return c.startsWith('cat-'); }) || '';
+  var skill = btn.dataset.skill;
+  if (!searchBox) { addChipToSearchBar(skill, catClass); return; }
+  var searchRect = searchBox.getBoundingClientRect();
+
+  var clone = document.createElement('span');
+  clone.textContent = btn.textContent;
+  clone.className = btn.className;
+  clone.style.cssText = [
+    'position:fixed',
+    'left:' + tagRect.left + 'px',
+    'top:' + tagRect.top + 'px',
+    'width:' + tagRect.width + 'px',
+    'height:' + tagRect.height + 'px',
+    'z-index:9999',
+    'pointer-events:none',
+    'margin:0',
+    'box-sizing:border-box',
+    'transition:left .3s cubic-bezier(0.4,0,0.2,1),top .3s cubic-bezier(0.4,0,0.2,1),opacity .3s,transform .3s'
+  ].join(';');
+  document.body.appendChild(clone);
+
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      clone.style.left = (searchRect.left + 12) + 'px';
+      clone.style.top = (searchRect.top + Math.max(0, (searchRect.height - tagRect.height) / 2)) + 'px';
+      clone.style.opacity = '0';
+      clone.style.transform = 'scale(0.7)';
+    });
+  });
+
+  setTimeout(function() {
+    clone.remove();
+    addChipToSearchBar(skill, catClass);
+  }, 300);
+}
+
+function addChipToSearchBar(skill, catClass) {
+  var input = document.getElementById('ecosystem-search-input');
+  if (!input) return;
+  if (Array.from(document.querySelectorAll('[data-chip-skill]')).some(function(el) { return el.dataset.chipSkill === skill; })) return;
+
+  var chip = document.createElement('span');
+  chip.className = 'skill-tag ' + (catClass || '') + ' selected';
+  chip.dataset.chipSkill = skill;
+  chip.style.cssText = 'cursor:default;display:inline-flex;align-items:center;gap:3px;padding:4px 10px;font-size:.72rem;flex-shrink:0';
+
+  chip.appendChild(document.createTextNode(skill));
+
+  var removeBtn = document.createElement('button');
+  removeBtn.textContent = '×';
+  removeBtn.style.cssText = 'border:none;background:none;cursor:pointer;color:inherit;padding:0;margin-left:2px;line-height:1;font-size:1.05em;opacity:.65;display:inline-flex;align-items:center';
+  removeBtn.title = 'Remove';
+  removeBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    removeChipFromSearchBar(skill);
+    var tagBtn = Array.from(document.querySelectorAll('#skill-tags-container [data-skill]')).find(function(el) { return el.dataset.skill === skill; });
+    if (tagBtn) { tagBtn.classList.remove('selected'); tagBtn.style.opacity = '1'; }
+    selectedSkills = selectedSkills.filter(function(s) { return s !== skill; });
+    updateClearBtn();
+  });
+
+  chip.appendChild(removeBtn);
+  input.parentElement.insertBefore(chip, input);
+  updateClearBtn();
+}
+
+function removeChipFromSearchBar(skill) {
+  var chips = Array.from(document.querySelectorAll('[data-chip-skill]'));
+  var chip = chips.find(function(el) { return el.dataset.chipSkill === skill; });
+  if (chip) chip.remove();
+}
+
+function updateClearBtn() {
+  var clearBtn = document.getElementById('clear-skills-btn');
+  if (!clearBtn) return;
+  var input = document.getElementById('ecosystem-search-input');
+  var hasChips = document.querySelector('[data-chip-skill]');
+  var hasText = input && input.value.trim().length > 0;
+  clearBtn.style.display = (hasChips || hasText) ? 'inline' : 'none';
+}
+
+function onEcosystemSearchInput(value) {
+  var q = value.trim().toLowerCase();
+  if (!q) { hideSearchDropdown(); updateClearBtn(); return; }
+  updateClearBtn();
+  var results = searchIndex.filter(function(item) {
+    var haystack = (item.title + ' ' + item.subtitle + ' ' + (item.keywords || '')).toLowerCase();
+    return haystack.includes(q);
+  }).slice(0, 7);
+
+  var dropdown = document.getElementById('search-dropdown');
+  if (!results.length) { dropdown.style.display = 'none'; return; }
+
+  dropdown.innerHTML = results.map(function(r) {
+    return '<button onclick="goToPage(\'' + r.page + '\');hideSearchDropdown()"' +
+      ' style="display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 14px;background:transparent;border:none;cursor:pointer;border-bottom:1px solid rgba(28,28,30,0.05);transition:background .15s;font-family:\'Inter\',sans-serif"' +
+      ' onmouseover="this.style.background=\'rgba(28,28,30,0.04)\'" onmouseout="this.style.background=\'transparent\'">' +
+      '<span style="width:8px;height:8px;border-radius:50%;background:' + r.accent + ';flex-shrink:0;display:inline-block"></span>' +
+      '<div style="flex:1;text-align:left">' +
+      '<div style="font-size:.82rem;font-weight:600;color:#1C1C1E;font-family:inherit">' + r.title + '</div>' +
+      '<div style="font-size:.7rem;color:#9A9A9A;margin-top:1px">' + r.subtitle + '</div>' +
+      '</div>' +
+      '<i data-lucide="arrow-right" style="width:12px;height:12px;color:#C0B9AD;flex-shrink:0"></i>' +
+      '</button>';
+  }).join('');
+  dropdown.style.display = 'block';
+  lucide.createIcons();
+}
+
+function hideSearchDropdown() {
+  var d = document.getElementById('search-dropdown');
+  if (d) d.style.display = 'none';
+}
+
+function executeEcosystemSearch() {
+  var input = document.getElementById('ecosystem-search-input');
+  var q = input ? input.value.trim() : '';
+  hideSearchDropdown();
+  if (selectedSkills.length === 0 && !q) return;
+  renderDiscoveryResults(selectedSkills, q);
+  goToPage('skill-discovery');
 }
 
 function filterArticles(category) {

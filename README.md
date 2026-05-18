@@ -4,13 +4,14 @@ Personal portfolio website for Zefanya Kharisma Nugroho, International Partnersh
 
 ## Overview
 
-A single-page application showcasing professional work across four areas:
+A single-page application with an editorial premium aesthetic, organized into the following sections:
 
-- **About Me** — Overview, expertise, experience, and skillset
-- **Project Management** — AMERTA, ACI, and AERO program documentation
-- **Student Services** — Student onboarding/orientation and engagement initiatives
-- **Global Partnerships** — International partnership work
-- **Creative Services** — Creative project portfolio
+- **About** — Overview, expertise, experience, and skillset
+- **Projects** — AMERTA, ACI, AERO, PCU Global, and Graphic Design
+- **Intl. Education** — Student onboarding, student engagement, partnership development, and MoU/MoA coordination
+- **CroissantsMoon** — Personal creative space
+- **Writing** — Written work and essays
+- **Web Dev** — Web development projects
 - **Contact** — Contact information
 
 ## Tech Stack
@@ -19,7 +20,7 @@ A single-page application showcasing professional work across four areas:
 - [Tailwind CSS](https://tailwindcss.com/) v3.4 (CDN)
 - [Lucide Icons](https://lucide.dev/) v0.263 (CDN)
 - Vanilla JavaScript (no framework)
-- Google Fonts: Sora, DM Sans
+- Google Fonts: Playfair Display, Inter
 
 ## Project Structure
 
@@ -31,13 +32,31 @@ A single-page application showcasing professional work across four areas:
 │   ├── main.js         # Page routing and shared logic
 │   └── pages/          # Page-specific JS modules
 │       ├── about-me/
+│       │   ├── about-me-overview.js
+│       │   ├── expertise.js
+│       │   ├── experience.js
+│       │   └── skillset.js
 │       ├── contact-me/
+│       │   └── contact-me.js
 │       ├── creative-services/
+│       │   ├── croissantsmoon.js
+│       │   ├── graphic-designs.js
+│       │   └── websites.js
 │       ├── global-partnership/
+│       │   ├── partnership-development.js
+│       │   └── mou-moa-coordination.js
 │       ├── project-management/
+│       │   ├── project-management-overview.js
+│       │   ├── amerta.js
+│       │   ├── aci.js
+│       │   ├── aero.js
+│       │   └── pcu-global.js
 │       └── student-services/
+│           ├── student-onboarding-orientation.js
+│           └── student-engagement-initiatives.js
 └── assets/
     ├── images/         # Section images
+    ├── graphics/       # Graphic design assets
     └── data/           # Program data files (XLSX, DOCX)
 ```
 

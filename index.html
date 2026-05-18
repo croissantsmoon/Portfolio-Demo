@@ -316,11 +316,25 @@
         <div class="lg:col-span-2" style="position:sticky;top:80px">
          <div class="flex items-center gap-3 mb-5"><span class="accent-line"></span><span class="label-small">Skill Discovery</span></div>
          <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,4vw,2.8rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Explore My<br><em style="font-style:italic;color:#8B7355">Ecosystem</em></h2>
-         <p class="text-sm leading-relaxed mb-8" style="color:#5C5C5C;max-width:300px">Select skills that interest you, then discover related work and projects curated for those areas.</p>
-         <div class="flex items-center gap-4 flex-wrap">
-          <button id="discover-btn" onclick="discoverRelatedWorks()" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="opacity:.45;pointer-events:none">Discover <i data-lucide="compass" style="width:15px;height:15px"></i></button>
-          <button id="clear-skills-btn" onclick="clearSkills()" class="text-sm" style="color:#9A9A9A;display:none">Clear</button>
+         <p class="text-sm leading-relaxed mb-6" style="color:#5C5C5C;max-width:300px">Click a skill to add it to the search bar, or type to find any page or project.</p>
+         <!-- Ecosystem Search Bar -->
+         <div style="position:relative;margin-top:4px">
+          <div id="ecosystem-search-box" style="display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:#fff;border:1.5px solid rgba(28,28,30,0.12);border-radius:14px;padding:8px 8px 8px 14px;min-height:52px;cursor:text" onclick="document.getElementById('ecosystem-search-input').focus()">
+           <input id="ecosystem-search-input" type="text" placeholder="Search pages, projects…"
+            style="border:none;outline:none;background:transparent;font-size:.83rem;color:#1C1C1E;flex:1 1 80px;min-width:80px;padding:3px 0;font-family:'Inter',sans-serif;line-height:1.4"
+            oninput="onEcosystemSearchInput(this.value)"
+            onkeydown="if(event.key==='Enter')executeEcosystemSearch()"
+            onfocus="document.getElementById('ecosystem-search-box').style.borderColor='#8B7355';document.getElementById('ecosystem-search-box').style.boxShadow='0 0 0 3px rgba(139,115,85,0.1)'"
+            onblur="setTimeout(function(){var b=document.getElementById('ecosystem-search-box');if(b){b.style.borderColor='rgba(28,28,30,0.12)';b.style.boxShadow='none';}hideSearchDropdown()},180)"
+           />
+           <button id="search-exec-btn" onclick="executeEcosystemSearch()"
+            style="background:#1C1C1E;color:#fff;border:none;cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;margin-left:2px"
+            onmouseover="this.style.background='#8B7355'" onmouseout="this.style.background='#1C1C1E'"
+           ><i data-lucide="search" style="width:15px;height:15px"></i></button>
+          </div>
+          <div id="search-dropdown" style="display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:200;background:#fff;border:1px solid rgba(28,28,30,0.1);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.1);overflow:hidden"></div>
          </div>
+         <button id="clear-skills-btn" onclick="clearSkills()" class="text-sm mt-3 inline-block" style="color:#9A9A9A;display:none">Clear all</button>
         </div>
         <!-- Tag cloud column -->
         <div class="lg:col-span-3">
