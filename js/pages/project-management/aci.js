@@ -751,6 +751,44 @@ function aciInitPage() {
     <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">End-to-End Responsibilities</h2>
     <div class="mt-6">${stepsHtml}</div>
    </div>
+   <div style="background:#0D0D0B;padding-top:96px">
+    <div class="max-w-6xl mx-auto px-6" style="padding-bottom:60px">
+     <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <span style="display:block;width:28px;height:1.5px;background:rgba(255,255,255,0.2)"></span>
+      <span style="color:rgba(255,255,255,0.38);font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Photo Diary</span>
+     </div>
+     <h2 class="font-heading" style="font-weight:700;font-size:clamp(2rem,5vw,3rem);color:#fff;letter-spacing:-0.02em;margin:0 0 10px">Moments from the Field</h2>
+     <p style="color:rgba(255,255,255,0.32);font-size:0.875rem;margin:0">Four batches &middot; Three cities &middot; 191 participants &middot; 2024–2025</p>
+    </div>
+    <style>
+     .aci-gal{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:260px;gap:3px;grid-auto-flow:dense}
+     .aci-gi{overflow:hidden;position:relative;background:#1a1a18}
+     .aci-gi img{width:100%;height:100%;object-fit:cover;transition:transform .75s cubic-bezier(.25,.46,.45,.94);display:block}
+     .aci-gi:hover img{transform:scale(1.06)}
+     .aci-gi::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%);opacity:0;transition:opacity .45s ease;pointer-events:none}
+     .aci-gi:hover::after{opacity:1}
+     .aci-gi.w2{grid-column:span 2}
+     .aci-gi.h2{grid-row:span 2}
+     @media(max-width:640px){.aci-gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}.aci-gi.h2{grid-row:span 1}.aci-gi.w2{grid-column:span 2}}
+    </style>
+    <div class="aci-gal">
+     <div class="aci-gi w2 h2"><img src="assets/images/aci/aci-1.JPEG" alt="ACI 2024 Malang — opening batch" loading="lazy"></div>
+     <div class="aci-gi h2"><img src="assets/images/aci/aci-2.JPEG" alt="ACI cultural activity" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-3.jpeg" alt="ACI participants" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-4.JPEG" alt="ACI destination" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-5.JPEG" alt="ACI program moment" loading="lazy"></div>
+     <div class="aci-gi w2"><img src="assets/images/aci/aci-6.JPEG" alt="ACI group activity" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-7.jpeg" alt="ACI immersion" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-8.jpeg" alt="ACI event" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-9.jpeg" alt="ACI on-site" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-10.jpeg" alt="ACI batch highlight" loading="lazy"></div>
+     <div class="aci-gi w2"><img src="assets/images/aci/aci-11.jpeg" alt="ACI 2025 batch" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-12.JPEG" alt="ACI cultural visit" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-13.JPEG" alt="ACI Mojokerto heritage" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-14.JPG" alt="ACI Solo edition" loading="lazy"></div>
+     <div class="aci-gi"><img src="assets/images/aci/aci-15.jpeg" alt="ACI closing moments" loading="lazy"></div>
+    </div>
+   </div>
    <div style="background:#F2ECE4;border-top:1px solid rgba(28,28,30,0.07)">
     <div class="max-w-6xl mx-auto px-6 py-16">
      <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#4A5235">Data &amp; Analytics</span></div>
