@@ -690,6 +690,95 @@ function aciBuildAnalysis(d) {
   </div>`;
 }
 
+// ── Gallery Rotation ──────────────────────────────────────────────────────────
+
+const ACI_GALLERY_IMGS = [
+  'assets/images/aci/aci-1.JPEG',
+  'assets/images/aci/aci-2.JPEG',
+  'assets/images/aci/aci-3.jpeg',
+  'assets/images/aci/aci-4.JPEG',
+  'assets/images/aci/aci-5.JPEG',
+  'assets/images/aci/aci-6.JPEG',
+  'assets/images/aci/aci-7.jpeg',
+  'assets/images/aci/aci-8.jpeg',
+  'assets/images/aci/aci-9.jpeg',
+  'assets/images/aci/aci-10.jpeg',
+  'assets/images/aci/aci-11.jpeg',
+  'assets/images/aci/aci-12.JPEG',
+  'assets/images/aci/aci-13.JPEG',
+  'assets/images/aci/aci-14.JPG',
+  'assets/images/aci/aci-15.jpeg',
+];
+
+let _aciGalTimer = null;
+let _aciGalSlot  = 0;
+let _aciGalShown = [];
+let _aciGalQueue = [];
+
+function _aciShuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function aciStartGallery() {
+  if (_aciGalTimer) { clearInterval(_aciGalTimer); _aciGalTimer = null; }
+
+  const imgs = document.querySelectorAll('.aci-gs-img');
+  if (!imgs.length) return;
+
+  _aciGalQueue = _aciShuffle(ACI_GALLERY_IMGS);
+  _aciGalShown = [];
+  let qi = 0;
+
+  imgs.forEach(img => {
+    const src = _aciGalQueue[qi % _aciGalQueue.length];
+    img.src = src;
+    _aciGalShown.push(src);
+    qi++;
+  });
+
+  _aciGalSlot = 0;
+
+  _aciGalTimer = setInterval(() => {
+    const imgEls = document.querySelectorAll('.aci-gs-img');
+    if (!imgEls.length) { clearInterval(_aciGalTimer); return; }
+
+    const slot = _aciGalSlot % imgEls.length;
+    const imgEl = imgEls[slot];
+
+    // Advance queue, skip images already visible
+    let next = _aciGalQueue[qi % _aciGalQueue.length];
+    let tries = 0;
+    while (_aciGalShown.includes(next) && tries < ACI_GALLERY_IMGS.length) {
+      qi++;
+      if (qi >= _aciGalQueue.length) {
+        _aciGalQueue = _aciShuffle(ACI_GALLERY_IMGS);
+        qi = 0;
+      }
+      next = _aciGalQueue[qi % _aciGalQueue.length];
+      tries++;
+    }
+    const nextSrc = next;
+    qi++;
+
+    imgEl.style.opacity = '0';
+    setTimeout(() => {
+      if (!document.body.contains(imgEl)) return;
+      _aciGalShown[slot] = nextSrc;
+      imgEl.src = nextSrc;
+      const show = () => { imgEl.style.opacity = '1'; };
+      if (imgEl.complete && imgEl.naturalWidth) show();
+      else { imgEl.onload = show; imgEl.onerror = show; }
+    }, 500);
+
+    _aciGalSlot++;
+  }, 3000);
+}
+
 // ── Page Shell ────────────────────────────────────────────────────────────────
 
 function aciInitPage() {
@@ -751,42 +840,25 @@ function aciInitPage() {
     <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">End-to-End Responsibilities</h2>
     <div class="mt-6">${stepsHtml}</div>
    </div>
-   <div style="background:#0D0D0B;padding-top:96px">
-    <div class="max-w-6xl mx-auto px-6" style="padding-bottom:60px">
-     <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+   <div style="background:#0D0D0B;padding-top:80px">
+    <div class="max-w-6xl mx-auto px-6" style="padding-bottom:48px">
+     <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
       <span style="display:block;width:28px;height:1.5px;background:rgba(255,255,255,0.2)"></span>
       <span style="color:rgba(255,255,255,0.38);font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Photo Diary</span>
      </div>
      <h2 class="font-heading" style="font-weight:700;font-size:clamp(2rem,5vw,3rem);color:#fff;letter-spacing:-0.02em;margin:0 0 10px">Moments from the Field</h2>
      <p style="color:rgba(255,255,255,0.32);font-size:0.875rem;margin:0">Four batches &middot; Three cities &middot; 191 participants &middot; 2024–2025</p>
     </div>
-    <style>
-     .aci-gal{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:260px;gap:3px;grid-auto-flow:dense}
-     .aci-gi{overflow:hidden;position:relative;background:#1a1a18}
-     .aci-gi img{width:100%;height:100%;object-fit:cover;transition:transform .75s cubic-bezier(.25,.46,.45,.94);display:block}
-     .aci-gi:hover img{transform:scale(1.06)}
-     .aci-gi::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%);opacity:0;transition:opacity .45s ease;pointer-events:none}
-     .aci-gi:hover::after{opacity:1}
-     .aci-gi.w2{grid-column:span 2}
-     .aci-gi.h2{grid-row:span 2}
-     @media(max-width:640px){.aci-gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}.aci-gi.h2{grid-row:span 1}.aci-gi.w2{grid-column:span 2}}
-    </style>
-    <div class="aci-gal">
-     <div class="aci-gi w2 h2"><img src="assets/images/aci/aci-1.JPEG" alt="ACI 2024 Malang — opening batch" loading="lazy"></div>
-     <div class="aci-gi h2"><img src="assets/images/aci/aci-2.JPEG" alt="ACI cultural activity" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-3.jpeg" alt="ACI participants" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-4.JPEG" alt="ACI destination" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-5.JPEG" alt="ACI program moment" loading="lazy"></div>
-     <div class="aci-gi w2"><img src="assets/images/aci/aci-6.JPEG" alt="ACI group activity" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-7.jpeg" alt="ACI immersion" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-8.jpeg" alt="ACI event" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-9.jpeg" alt="ACI on-site" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-10.jpeg" alt="ACI batch highlight" loading="lazy"></div>
-     <div class="aci-gi w2"><img src="assets/images/aci/aci-11.jpeg" alt="ACI 2025 batch" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-12.JPEG" alt="ACI cultural visit" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-13.JPEG" alt="ACI Mojokerto heritage" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-14.JPG" alt="ACI Solo edition" loading="lazy"></div>
-     <div class="aci-gi"><img src="assets/images/aci/aci-15.jpeg" alt="ACI closing moments" loading="lazy"></div>
+    <div id="aci-gallery" style="display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;height:75vh;gap:3px">
+     <div class="aci-gs" style="grid-row:span 2;overflow:hidden;background:#111">
+      <img class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
+     <div class="aci-gs" style="overflow:hidden;background:#111">
+      <img class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
+     <div class="aci-gs" style="overflow:hidden;background:#111">
+      <img class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
     </div>
    </div>
    <div style="background:#F2ECE4;border-top:1px solid rgba(28,28,30,0.07)">
@@ -860,4 +932,5 @@ document.addEventListener('DOMContentLoaded', function () {
     tab.addEventListener('click', function () { aciRenderBatch(this.dataset.batch); });
   });
   aciRenderBatch('all');
+  aciStartGallery();
 });

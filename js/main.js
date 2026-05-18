@@ -223,7 +223,7 @@ function applyConfig(config) {
   if (mouTitle) mouTitle.textContent = c('mou_title');
 }
 
-window.elementSdk.init({
+if (window.elementSdk) window.elementSdk.init({
   defaultConfig,
   onConfigChange: async (config) => applyConfig(config),
   mapToCapabilities: (config) => ({
@@ -272,7 +272,6 @@ const heroConfigs = {
   'expertise': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Areas of Expertise', desc: 'Core competencies built through hands-on experience in international higher education.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
   'experience': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Professional Experience', desc: '3+ years building international partnerships and supporting student mobility across Surabaya.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
   'skillset': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Skillset', desc: 'Core competencies and professional capabilities.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
-  'projects-overview': { back: 'home', backLabel: 'Back', category: 'Project Management', title: "Programs I've Led", desc: 'End-to-end management of flagship exchange programs with IDR 50-90M budgets per program.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
   'amerta': { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AMERTA', desc: "Universitas Airlangga's flagship semester exchange program — 120+ students, IDR 50-100M budget.", gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
   'aci': { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'ACI', desc: 'Airlangga Cultural Immersion — structured engagement program connecting international and local students.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
   'aero': { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AERO', desc: 'Annual exhibition at Universitas Airlangga showcasing global partnerships and international programs.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
@@ -377,3 +376,4 @@ lucide.createIcons();
     slides[current].classList.add('active');
   }, 5000);
 })();
+

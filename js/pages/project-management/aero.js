@@ -189,6 +189,103 @@ const AERO_RUNDOWN = [
 ];
 
 
+// ── Gallery ──────────────────────────────────────────────────────────────────
+
+const AERO_GALLERY_IMGS = [
+  'assets/images/aero/aero-1.jpg',
+  'assets/images/aero/aero-2.jpg',
+  'assets/images/aero/aero-3.jpg',
+  'assets/images/aero/aero-4.jpg',
+  'assets/images/aero/aero-5.jpg',
+  'assets/images/aero/aero-6.jpg',
+  'assets/images/aero/aero-7.jpg',
+  'assets/images/aero/aero-8.jpg',
+  'assets/images/aero/aero-9.jpg',
+  'assets/images/aero/aero-10.jpg',
+  'assets/images/aero/aero-11.jpg',
+  'assets/images/aero/aero-12.jpg',
+  'assets/images/aero/aero-14.jpg',
+  'assets/images/aero/aero-15.jpg',
+  'assets/images/aero/aero-16.jpg',
+  'assets/images/aero/aero-20.JPEG',
+  'assets/images/aero/aero-21.JPEG',
+  'assets/images/aero/aero-22.JPEG',
+  'assets/images/aero/aero-23.JPEG',
+  'assets/images/aero/aero-24.JPEG',
+  'assets/images/aero/aero-25.JPEG',
+  'assets/images/aero/aero-promotional-1.png',
+  'assets/images/aero/aero-promotional-2.PNG',
+  'assets/images/aero/aero-promotional-3.JPG',
+];
+
+let _aeroGalTimer = null;
+let _aeroGalSlot  = 0;
+let _aeroGalShown = [];
+let _aeroGalQueue = [];
+
+function _aeroShuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function aeroStartGallery() {
+  if (_aeroGalTimer) { clearInterval(_aeroGalTimer); _aeroGalTimer = null; }
+
+  const imgs = document.querySelectorAll('.aero-gs-img');
+  if (!imgs.length) return;
+
+  _aeroGalQueue = _aeroShuffle(AERO_GALLERY_IMGS);
+  _aeroGalShown = [];
+  let qi = 0;
+
+  imgs.forEach(img => {
+    const src = _aeroGalQueue[qi % _aeroGalQueue.length];
+    img.src = src;
+    _aeroGalShown.push(src);
+    qi++;
+  });
+
+  _aeroGalSlot = 0;
+
+  _aeroGalTimer = setInterval(() => {
+    const imgEls = document.querySelectorAll('.aero-gs-img');
+    if (!imgEls.length) { clearInterval(_aeroGalTimer); return; }
+
+    const slot = _aeroGalSlot % imgEls.length;
+    const imgEl = imgEls[slot];
+
+    let next = _aeroGalQueue[qi % _aeroGalQueue.length];
+    let tries = 0;
+    while (_aeroGalShown.includes(next) && tries < AERO_GALLERY_IMGS.length) {
+      qi++;
+      if (qi >= _aeroGalQueue.length) {
+        _aeroGalQueue = _aeroShuffle(AERO_GALLERY_IMGS);
+        qi = 0;
+      }
+      next = _aeroGalQueue[qi % _aeroGalQueue.length];
+      tries++;
+    }
+    const nextSrc = next;
+    qi++;
+
+    imgEl.style.opacity = '0';
+    setTimeout(() => {
+      if (!document.body.contains(imgEl)) return;
+      _aeroGalShown[slot] = nextSrc;
+      imgEl.src = nextSrc;
+      const show = () => { imgEl.style.opacity = '1'; };
+      if (imgEl.complete && imgEl.naturalWidth) show();
+      else { imgEl.onload = show; imgEl.onerror = show; }
+    }, 500);
+
+    _aeroGalSlot++;
+  }, 3000);
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function aeroEsc(s) {
@@ -383,6 +480,28 @@ function aeroInitPage() {
     <div class="mt-6">${buildAeroContributions()}</div>
    </div>
 
+   <div style="background:#0D0D0B;padding-top:80px">
+    <div class="max-w-6xl mx-auto px-6" style="padding-bottom:48px">
+     <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="display:block;width:28px;height:1.5px;background:rgba(255,255,255,0.2)"></span>
+      <span style="color:rgba(255,255,255,0.38);font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Photo Diary</span>
+     </div>
+     <h2 class="font-heading" style="font-weight:700;font-size:clamp(2rem,5vw,3rem);color:#fff;letter-spacing:-0.02em;margin:0 0 10px">Moments from the Event</h2>
+     <p style="color:rgba(255,255,255,0.32);font-size:0.875rem;margin:0">19 booths &middot; 12 partner universities &middot; 50+ stakeholders &middot; 9–10 May 2025</p>
+    </div>
+    <div id="aero-gallery" style="display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;height:75vh;gap:3px">
+     <div class="aero-gs" style="grid-row:span 2;overflow:hidden;background:#111">
+      <img class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
+     <div class="aero-gs" style="overflow:hidden;background:#111">
+      <img class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
+     <div class="aero-gs" style="overflow:hidden;background:#111">
+      <img class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
+    </div>
+   </div>
+
    <div style="background:#F2ECE4;border-top:1px solid rgba(28,28,30,0.07)">
     <div class="max-w-6xl mx-auto px-6 py-16">
 
@@ -409,4 +528,5 @@ function aeroInitPage() {
 
 document.addEventListener('DOMContentLoaded', function () {
   aeroInitPage();
+  aeroStartGallery();
 });

@@ -104,7 +104,7 @@
       <div class="hero-slide" style="background-image:url('./assets/images/self-portrait/profile-15.JPG')"></div>
       <div class="hero-slide-overlay"></div>
       <!-- Background gradients -->
-      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 70% 30%,rgba(139,115,85,0.09),transparent 55%),radial-gradient(ellipse at 10% 85%,rgba(74,107,138,0.05),transparent 45%)"></div>
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 70% 30%,rgba(139,115,85,0.09),transparent 55%),radial-gradient(ellipse at 10% 85%,rgba(74,107,138,0.05),transparent 50%)"></div>
       <!-- Giant watermark letter -->
       <div class="absolute right-0 top-0 h-full hidden lg:flex items-center pointer-events-none overflow-hidden" style="width:42%">
        <span style="font-family:'Playfair Display',serif;font-size:clamp(18rem,26vw,34rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%)">Z</span>
@@ -113,36 +113,50 @@
       <div class="absolute hidden lg:block pointer-events-none" style="right:15%;top:15%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(139,115,85,0.11)"></div>
       <div class="absolute hidden lg:block pointer-events-none" style="right:18%;top:22%;width:110px;height:110px;border-radius:50%;border:1px solid rgba(139,115,85,0.07)"></div>
 
-      <div class="max-w-6xl mx-auto relative z-10">
-       <!-- Status pill -->
-       <div class="flex flex-wrap items-center gap-3 mb-12" style="animation:fadeUp .5s ease both">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full" style="background:rgba(28,28,30,0.05);border:1px solid rgba(28,28,30,0.09)">
-         <span style="width:6px;height:6px;border-radius:50%;background:#8B7355;display:inline-block"></span>
-         <span class="label-small" style="color:#5C5C5C">International Education &amp; Creative Digital</span>
+      <div class="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+
+       <!-- Display Picture -->
+       <div class="hidden md:block flex-shrink-0" style="animation:fadeUp .5s ease both">
+        <div class="relative" style="width:270px">
+         <div style="width:270px;height:350px;border-radius:1.5rem;overflow:hidden;box-shadow:0 24px 64px rgba(28,28,30,0.14)">
+          <img src="./assets/images/self-portrait/profile-14.JPEG" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(2.2);transform-origin:center 75%">
+         </div>
+         <div style="position:absolute;bottom:-10px;left:20px;width:48px;height:2px;background:#8B7355;border-radius:2px"></div>
         </div>
-        <span class="label-small" style="color:#C0B8AD">· Surabaya, Indonesia</span>
        </div>
 
-       <!-- Name headline -->
-       <h1 class="hero-large-text mb-6" style="animation:fadeUp .55s ease .08s both">
-        Zefanya<br>
-        <em style="color:#8B7355;font-style:italic;font-family:'Playfair Display',serif">Kharisma</em><br>
-        Nugroho
-       </h1>
+       <!-- Text content -->
+       <div>
+        <!-- Status pill -->
+        <div class="flex flex-wrap items-center gap-3 mb-12" style="animation:fadeUp .5s ease both">
+         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full" style="background:rgba(28,28,30,0.05);border:1px solid rgba(28,28,30,0.09)">
+          <span style="width:6px;height:6px;border-radius:50%;background:#8B7355;display:inline-block"></span>
+          <span class="label-small" style="color:#5C5C5C">International Education &amp; Creative Digital</span>
+         </div>
+         <span class="label-small" style="color:#7A7068">· Surabaya, Indonesia</span>
+        </div>
 
-       <!-- Accent line -->
-       <div style="width:52px;height:2px;background:#8B7355;border-radius:2px;margin-bottom:28px;animation:fadeUp .55s ease .14s both"></div>
+        <!-- Name headline -->
+        <h1 class="hero-large-text mb-6" style="animation:fadeUp .55s ease .08s both">
+         Zefanya<br>
+         <em style="color:#8B7355;font-style:italic;font-family:'Playfair Display',serif">Kharisma</em><br>
+         Nugroho
+        </h1>
 
-       <!-- Supporting statement -->
-       <div class="max-w-md mb-11" style="animation:fadeUp .55s ease .18s both">
-        <p class="font-editorial text-xl mb-2.5" style="color:#1C1C1E;line-height:1.4">Bridging global engagement &amp; digital creativity.</p>
-        <p class="text-sm leading-relaxed" style="color:#9A9A9A">International Education Professional · Creative Technologist · Surabaya</p>
-       </div>
+        <!-- Accent line -->
+        <div style="width:52px;height:2px;background:#8B7355;border-radius:2px;margin-bottom:28px;animation:fadeUp .55s ease .14s both"></div>
 
-       <!-- CTAs -->
-       <div class="flex flex-col sm:flex-row gap-3" style="animation:fadeUp .55s ease .22s both">
-        <button onclick="goToPage('about-overview')" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2">Explore My Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i></button>
-        <button onclick="goToPage('croissantsmoon')" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="font-family:'Playfair Display',serif;font-style:italic">CroissantsMoon <i data-lucide="moon" style="width:15px;height:15px"></i></button>
+        <!-- Supporting statement -->
+        <div class="max-w-md mb-11" style="animation:fadeUp .55s ease .18s both">
+         <p class="font-editorial text-xl mb-2.5" style="color:#1C1C1E;line-height:1.4">Bridging global engagement &amp; digital creativity.</p>
+         <p class="text-sm leading-relaxed" style="color:#4A4A4A">International Education Professional · Creative Technologist · Surabaya</p>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-3" style="animation:fadeUp .55s ease .22s both">
+         <button onclick="goToPage('about-overview')" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2">Explore My Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i></button>
+         <button onclick="goToPage('croissantsmoon')" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="font-family:'Playfair Display',serif;font-style:italic">CroissantsMoon <i data-lucide="moon" style="width:15px;height:15px"></i></button>
+        </div>
        </div>
       </div>
 
@@ -1350,144 +1364,7 @@
       </div>
      </div>
     </div><!-- PROJECT MANAGEMENT OVERVIEW PAGE -->
-    <div id="page-projects-overview" class="page py-20" style="background:#FAFAF8">
-     <div class="max-w-6xl mx-auto px-6 py-16">
-
-      <!-- Stats strip -->
-      <div class="flex flex-wrap gap-10 mb-16 pb-12" style="border-bottom:1px solid rgba(28,28,30,0.08)">
-       <div>
-        <div class="font-heading font-bold text-4xl" style="color:#1C1C1E">3</div>
-        <div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Flagship Programs</div>
-       </div>
-       <div>
-        <div class="font-heading font-bold text-4xl" style="color:#1C1C1E">IDR 150–290M</div>
-        <div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Budget Managed</div>
-       </div>
-       <div>
-        <div class="font-heading font-bold text-4xl" style="color:#1C1C1E">200+</div>
-        <div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Students Supported</div>
-       </div>
-       <div>
-        <div class="font-heading font-bold text-4xl" style="color:#1C1C1E">50+</div>
-        <div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Stakeholders Engaged</div>
-       </div>
-      </div>
-
-      <!-- Section label -->
-      <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#8B7355">Featured Programs</span></div>
-      <h2 class="font-heading font-bold text-3xl mb-12" style="color:#1C1C1E">Programs I've Managed End-to-End</h2>
-
-      <!-- AMERTA — large featured horizontal card -->
-      <div class="card rounded-2xl overflow-hidden mb-6 cursor-pointer group" onclick="goToPage('amerta')" style="border:1px solid rgba(28,28,30,0.08)">
-       <div class="grid md:grid-cols-5" style="min-height:220px">
-        <div class="md:col-span-2 relative overflow-hidden" style="min-height:180px">
-         <img src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="absolute inset-0 w-full h-full object-cover">
-         <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(30,58,95,0.72),rgba(74,107,138,0.58))"></div>
-         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6" style="min-height:180px">
-          <div class="font-heading font-bold text-4xl mb-1" style="color:#fff;letter-spacing:-.02em">AMERTA</div>
-          <div class="text-xs uppercase tracking-widest mt-2" style="color:rgba(255,255,255,0.6)">Semester Exchange · Since 2024</div>
-         </div>
-        </div>
-        <div class="md:col-span-3 p-8 flex flex-col justify-between">
-         <div>
-          <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full inline-block mb-4" style="background:rgba(74,107,138,0.1);color:#4A6B8A">Student Mobility</span>
-          <h3 class="font-heading font-bold text-2xl mb-3" style="color:#1C1C1E">Airlangga Mobility, Exchange, Research &amp; Transfer Academic</h3>
-          <p class="text-sm leading-relaxed mb-5" style="color:#5C5C5C">Universitas Airlangga's flagship semester exchange — I managed end-to-end coordination: promotion, pre-departure preparation, arrival logistics, and post-program completion for 120+ inbound students per cohort with a budget of IDR 50–100M.</p>
-          <div class="flex flex-wrap gap-1.5"><span class="tag">Student Mobility</span><span class="tag">Project Management</span><span class="tag">Leadership</span></div>
-         </div>
-         <div class="flex flex-wrap items-end gap-6 pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
-          <div><div class="font-heading font-bold text-xl" style="color:#1C1C1E">120+</div><div class="text-xs" style="color:#9A9A9A">Students / cohort</div></div>
-          <div><div class="font-heading font-bold text-xl" style="color:#1C1C1E">IDR 50–100M</div><div class="text-xs" style="color:#9A9A9A">Budget / program</div></div>
-          <div><div class="font-heading font-bold text-xl" style="color:#1C1C1E">10+</div><div class="text-xs" style="color:#9A9A9A">Stakeholders</div></div>
-          <div class="ml-auto">
-           <span class="flex items-center gap-2 font-medium text-sm transition-all" style="color:#8B7355">View Details <i data-lucide="arrow-right" style="width:16px;height:16px"></i></span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </div>
-
-      <!-- ACI + AERO — side by side -->
-      <div class="grid md:grid-cols-2 gap-6 mb-20">
-
-       <!-- ACI -->
-       <div class="card rounded-2xl overflow-hidden cursor-pointer group" onclick="goToPage('aci')" style="border:1px solid rgba(28,28,30,0.08)">
-        <div class="relative flex items-end overflow-hidden px-6 pb-5" style="height:140px">
-         <img src="assets/images/aci/aci-4.JPEG" alt="ACI" class="absolute inset-0 w-full h-full object-cover">
-         <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(74,82,53,0.85) 0%,rgba(74,82,53,0.4) 100%)"></div>
-         <div class="relative z-10">
-          <div class="font-heading font-bold text-3xl" style="color:#fff">ACI</div>
-          <div class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.6)">Cultural Immersion</div>
-         </div>
-        </div>
-        <div class="p-6">
-         <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Bringing together international and local students through collaborative activities, site visits, and structured engagement throughout the semester.</p>
-         <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">Student Support</span><span class="tag">Cross-Cultural</span><span class="tag">Project Management</span></div>
-         <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
-          <div><div class="font-heading font-bold text-lg" style="color:#1C1C1E">100+ Students</div><div class="text-xs" style="color:#9A9A9A">Per program</div></div>
-          <span class="flex items-center gap-2 text-sm font-medium" style="color:#8B7355">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
-         </div>
-        </div>
-       </div>
-
-       <!-- AERO -->
-       <div class="card rounded-2xl overflow-hidden cursor-pointer group" onclick="goToPage('aero')" style="border:1px solid rgba(28,28,30,0.08)">
-        <div class="relative flex items-end overflow-hidden px-6 pb-5" style="height:140px">
-         <img src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="absolute inset-0 w-full h-full object-cover">
-         <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(28,28,30,0.85) 0%,rgba(28,28,30,0.4) 100%)"></div>
-         <div class="relative z-10">
-          <div class="font-heading font-bold text-3xl" style="color:#fff">AERO</div>
-          <div class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.5)">Annual Exhibition</div>
-         </div>
-        </div>
-        <div class="p-6">
-         <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Annual exhibition at Universitas Airlangga showcasing global partnerships — coordinated logistics, vendor management, and event planning across 50+ stakeholders.</p>
-         <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">International Partnership</span><span class="tag">Branding</span><span class="tag">Creative Direction</span></div>
-         <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
-          <div><div class="font-heading font-bold text-lg" style="color:#1C1C1E">50+ Stakeholders</div><div class="text-xs" style="color:#9A9A9A">Coordinated</div></div>
-          <span class="flex items-center gap-2 text-sm font-medium" style="color:#8B7355">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
-         </div>
-        </div>
-       </div>
-      </div>
-
-      <!-- Digital Projects section -->
-      <div style="border-top:1px solid rgba(28,28,30,0.08)" class="pt-16">
-       <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#003087">Digital Projects</span></div>
-       <h2 class="font-heading font-bold text-3xl mb-3" style="color:#1C1C1E">Digital Transformation</h2>
-       <p class="text-base mb-10 max-w-2xl" style="color:#5C5C5C">Rebuilding institutional web presence for higher education — from research and diagnosis through to full-stack delivery.</p>
-
-       <!-- PCU Global — full-width horizontal card -->
-       <div class="card rounded-2xl overflow-hidden cursor-pointer group" onclick="goToPage('pcu-global')" style="border:1px solid rgba(28,28,30,0.08)">
-        <div class="grid md:grid-cols-5" style="min-height:200px">
-         <div class="md:col-span-2 relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(135deg,#003087,#1a56a0);min-height:160px">
-          <div class="absolute inset-0" style="background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.15),transparent)"></div>
-          <div class="absolute inset-0 flex items-center justify-center" style="overflow:hidden">
-           <span class="font-heading font-bold select-none" style="font-size:clamp(3rem,7vw,5.5rem);color:rgba(255,255,255,0.07);letter-spacing:-.03em;white-space:nowrap">PCU Global</span>
-          </div>
-          <div class="relative z-10 text-center px-6">
-           <div class="font-heading font-bold text-4xl mb-0.5" style="color:#fff;letter-spacing:-.02em">PCU Global</div>
-           <div class="text-xs uppercase tracking-widest mt-2" style="color:rgba(255,255,255,0.55)">International Office</div>
-          </div>
-         </div>
-         <div class="md:col-span-3 p-8 flex flex-col justify-between">
-          <div>
-           <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full inline-block mb-4" style="background:rgba(0,48,135,0.08);color:#003087">Web Application</span>
-           <h3 class="font-heading font-bold text-2xl mb-3" style="color:#1C1C1E">PCU Global — International Office Website</h3>
-           <p class="text-sm leading-relaxed mb-5" style="color:#5C5C5C">Rebuilding and rebranding PCU's International Office through a purpose-built web presence — designed for inbound students, outbound programs, and institutional partners. Full-stack delivery including news CMS, partnership directory, and mobile-first design.</p>
-           <div class="flex flex-wrap gap-1.5"><span class="tag">Full-Stack Development</span><span class="tag">UI/UX Design</span><span class="tag">Digital Strategy</span><span class="tag">Branding</span></div>
-          </div>
-          <div class="flex items-center justify-between pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
-           <div class="text-xs uppercase tracking-wider" style="color:#9A9A9A">Petra Christian University · 2026</div>
-           <span class="flex items-center gap-2 text-sm font-medium" style="color:#003087">View Details <i data-lucide="arrow-right" style="width:16px;height:16px"></i></span>
-          </div>
-         </div>
-        </div>
-       </div>
-      </div>
-
-     </div>
-    </div><!-- PROJECT PAGES -->
+    <div id="page-projects-overview" class="page" style="background:#FAFAF8"></div><!-- PROJECT PAGES -->
     <div id="page-amerta" class="page py-20"></div>
     <div id="page-aci" class="page py-20"></div>
     <div id="page-aero" class="page py-20"></div>
