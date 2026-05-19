@@ -43,8 +43,9 @@
       <div class="relative group">
        <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition">Intl. Education</button>
        <div class="absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-1 pb-1" style="border-color:rgba(28,28,30,0.08)">
+        <button onclick="goToPage('engagement')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Overview</button>
         <button onclick="goToPage('onboarding')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">International Student Support</button>
-        <button onclick="goToPage('engagement')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Student Engagement</button>
+        <button onclick="goToPage('engagement-detail')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Student Engagement</button>
         <button onclick="goToPage('partnerships')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Partnership Development</button>
         <button onclick="goToPage('mou')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">MoU / MoA</button>
        </div>
@@ -79,8 +80,9 @@
      </div>
      <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="intl" style="color:#5C5C5C"> <span>Intl. Education</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
      <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="intl-menu">
+      <button onclick="goToPage('engagement')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Overview</button>
       <button onclick="goToPage('onboarding')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">International Student Support</button>
-      <button onclick="goToPage('engagement')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Student Engagement</button>
+      <button onclick="goToPage('engagement-detail')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Student Engagement</button>
       <button onclick="goToPage('partnerships')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Partnership Development</button>
       <button onclick="goToPage('mou')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">MoU / MoA</button>
      </div>
@@ -1384,8 +1386,32 @@
     <div id="page-aero" class="page py-20"></div>
     <div id="page-pcu-global" class="page py-20" style="background:#FAFAF8"></div><!-- STUDENT SERVICES PAGES -->
     <div id="page-onboarding" class="page" style="background:#FAFAF8">
-     <div class="max-w-6xl mx-auto px-6">
-      <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
+     <!-- Hero -->
+     <div style="background:linear-gradient(160deg,#1C1C1E 0%,#1E3A5F 55%,#2C4A72 100%);padding:clamp(48px,8vh,72px) 24px 0;position:relative;overflow:hidden">
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 20%,rgba(139,115,85,0.18),transparent 55%)"></div>
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
+      <div class="max-w-6xl mx-auto relative z-10">
+       <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
+       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">Student Welfare &amp; Mobility</div>
+       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">International<br><em style="font-style:italic;color:#8B7355">Student Support</em></h1>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">From the moment students land to the day they depart — providing holistic support for 100+ international students per semester across academic, visa, welfare, and peer ecosystems in Indonesia.</p>
+       <div class="flex flex-wrap gap-8 pb-8">
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">480+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Students</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Countries</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">10+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Stakeholder Types</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">4</p><p class="label-small" style="color:rgba(255,255,255,0.35)">AMERTA Batches</p></div>
+       </div>
+       <!-- Tab Nav -->
+       <div class="flex gap-0 border-t" style="border-color:rgba(255,255,255,0.08)">
+        <button onclick="goToPage('engagement')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Overview</button>
+        <button onclick="goToPage('engagement-detail')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Student Engagement</button>
+        <button onclick="goToPage('partnerships')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Partnerships</button>
+       </div>
+      </div>
+     </div>
+     <!-- Content Sections -->
+     <div style="padding:72px 24px 72px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
       <!-- Support Ecosystem -->
       <div class="mb-20">
        <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#059669">Holistic Support</span></div>
@@ -1660,102 +1686,160 @@
         </div>
        </div>
       </div>
+      </div>
      </div>
     </div>
-    <div id="page-engagement" class="page py-20" style="background:#FAFAF8">
-     <div class="max-w-6xl mx-auto px-6">
-      <button onclick="goToPage('home')" class="flex items-center gap-2 mb-8" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <div class="mb-16">
-       <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#1E3A5F">Student Services</span>
+    <div id="page-engagement" class="page" style="background:#FAFAF8">
+     <!-- Hero -->
+     <div style="background:linear-gradient(160deg,#1C1C1E 0%,#1E3A5F 55%,#2C4A72 100%);padding:clamp(48px,8vh,72px) 24px 0;position:relative;overflow:hidden">
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 20%,rgba(139,115,85,0.18),transparent 55%)"></div>
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
+      <div class="max-w-6xl mx-auto relative z-10">
+       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">International Education</div>
+       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">Building Global Connections,<br><em style="font-style:italic;color:#8B7355">One Student at a Time</em></h1>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">A track record of supporting 480+ international students across welfare, mobility, and engagement programs — through holistic roles at Airlangga Global Engagement and Petra Christian University.</p>
+       <div class="flex flex-wrap gap-8 pb-8">
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">480+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Students</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Partners</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">25+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">MoUs Monthly</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">5</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Programs</p></div>
        </div>
-       <h1 class="font-heading font-bold text-4xl mb-4" style="color:#1C1C1E">International Student Support</h1>
-       <p class="text-lg max-w-3xl" style="color:#5C5C5C">A track record of supporting 200+ international students across welfare, mobility, and engagement programs — built through hands-on roles at Airlangga Global Engagement.</p>
+       <!-- Tab Nav -->
+       <div class="flex gap-0 border-t" style="border-color:rgba(255,255,255,0.08)">
+        <button onclick="goToPage('onboarding')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Student Support</button>
+        <button onclick="goToPage('engagement-detail')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Student Engagement</button>
+        <button onclick="goToPage('partnerships')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Partnerships</button>
+        <button onclick="goToPage('mou')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">MoU / MoA</button>
+       </div>
       </div>
-      <div class="space-y-8">
-       <!-- Onboarding Card -->
-       <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1" style="border:1px solid rgba(28,28,30,0.08);background:#FFFFFF">
-        <div class="grid md:grid-cols-2 gap-0">
-         <!-- Icon Section -->
-         <div class="flex items-center justify-center p-12 relative overflow-hidden" style="background:linear-gradient(135deg,#4A5235,#6B7455)">
-          <div class="absolute inset-0" style="background:radial-gradient(circle at 30% 60%,rgba(255,255,255,0.2),transparent)"></div>
-          <div class="relative z-10 flex items-center justify-center h-full"><i data-lucide="log-in" style="width:96px;height:96px;color:#fff;opacity:0.85"></i>
+     </div>
+     <!-- Areas of Work -->
+     <div style="padding:72px 24px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Areas of Work</span></div>
+       <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Four Pillars of International Education</h2>
+       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">From welcoming students at the airport to formalizing global partnerships — each area represents a critical dimension of international education management.</p>
+       <div class="grid md:grid-cols-2 gap-6">
+        <!-- ISS Card -->
+        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="goToPage('onboarding')" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="p-6 relative overflow-hidden" style="background:linear-gradient(135deg,#1E3A5F,#2C4A72)">
+          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,0.08),transparent 60%)"></div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative z-10" style="background:rgba(255,255,255,0.12)"><i data-lucide="log-in" style="width:24px;height:24px;color:#fff"></i></div>
+          <h3 class="font-heading font-bold text-xl mb-2 relative z-10" style="color:#fff">International Student Support</h3>
+          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Holistic care for 480+ students from arrival to departure — visa, welfare, scholarships, and peer mentoring.</p>
+         </div>
+         <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-4">
+           <span class="tag">Airport Pick-Up</span>
+           <span class="tag">Immigration</span>
+           <span class="tag">Welfare</span>
+           <span class="tag">Best Buddies</span>
           </div>
-         </div><!-- Content Section -->
-         <div class="p-8 md:p-12 flex flex-col justify-center">
-          <h3 class="font-heading font-bold text-2xl mb-3" style="color:#1C1C1E">International Student Support</h3>
-          <p class="text-base mb-6 leading-relaxed" style="color:#5C5C5C">From airport pick-up to farewell celebrations, I supported 100+ international students per semester through every stage of their journey — coordinating across academic, visa, welfare, and peer support ecosystems to ensure a holistic experience in Indonesia.</p>
-          <div class="flex flex-wrap gap-3 mb-8">
-           <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" style="width:18px;height:18px;color:#4A6B8A"></i> <span class="text-sm font-medium" style="color:#5C5C5C">Airport pick-up &amp; onboarding</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" style="width:18px;height:18px;color:#4A6B8A"></i> <span class="text-sm font-medium" style="color:#5C5C5C">Immigration, welfare &amp; scholarship admin</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" style="width:18px;height:18px;color:#4A6B8A"></i> <span class="text-sm font-medium" style="color:#5C5C5C">Peer mentoring &amp; farewell programs</span>
-           </div>
-          </div><button onclick="goToPage('onboarding')" class="flex items-center gap-2 font-heading font-semibold text-sm transition-all duration-300 hover:gap-3" style="color:#4A6B8A"> <span>Explore Program</span><i data-lucide="arrow-right" style="width:16px;height:16px"></i> </button>
+          <div class="flex items-center gap-1.5" style="color:#1E3A5F"><span class="text-xs font-semibold">Explore Program</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
          </div>
         </div>
-       </div><!-- Engagement Card -->
-       <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1" style="border:1px solid rgba(28,28,30,0.08);background:#FFFFFF">
-        <div class="grid md:grid-cols-2 gap-0">
-         <!-- Icon Section -->
-         <div class="flex items-center justify-center p-12 relative overflow-hidden order-2 md:order-1" style="background:linear-gradient(135deg,#4A5235,#6B7455)">
-          <div class="absolute inset-0" style="background:radial-gradient(circle at 70% 40%,rgba(255,255,255,0.2),transparent)"></div>
-          <div class="relative z-10 flex items-center justify-center h-full"><i data-lucide="heart-handshake" style="width:96px;height:96px;color:#fff;opacity:0.85"></i>
+        <!-- Engagement Card -->
+        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="goToPage('engagement-detail')" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="p-6 relative overflow-hidden" style="background:linear-gradient(135deg,#064E3B,#059669)">
+          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,0.08),transparent 60%)"></div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative z-10" style="background:rgba(255,255,255,0.12)"><i data-lucide="heart-handshake" style="width:24px;height:24px;color:#fff"></i></div>
+          <h3 class="font-heading font-bold text-xl mb-2 relative z-10" style="color:#fff">Student Engagement</h3>
+          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Creating meaningful cultural experiences through immersion programs, community engagement, and experiential learning.</p>
+         </div>
+         <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-4">
+           <span class="tag">City Tour</span>
+           <span class="tag">Cultural Events</span>
+           <span class="tag">Volunteering</span>
+           <span class="tag">Best Buddies</span>
           </div>
-         </div><!-- Content Section -->
-         <div class="p-8 md:p-12 flex flex-col justify-center order-1 md:order-2">
-          <h3 class="font-heading font-bold text-2xl mb-3" style="color:#1C1C1E">Student Engagement Initiatives</h3>
-          <p class="text-base mb-6 leading-relaxed" style="color:#5C5C5C">Through the AMERTA and ACI programs at Airlangga Global Engagement, I coordinated structured engagement activities that helped 120+ exchange students each semester connect with local students, explore Indonesian culture, and build lasting international friendships.</p>
-          <div class="flex flex-wrap gap-3 mb-8">
-           <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" style="width:18px;height:18px;color:#4A6B8A"></i> <span class="text-sm font-medium" style="color:#5C5C5C">Cultural immersion activities</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" style="width:18px;height:18px;color:#4A6B8A"></i> <span class="text-sm font-medium" style="color:#5C5C5C">Cross-cultural peer engagement</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <i data-lucide="check-circle-2" style="width:18px;height:18px;color:#4A6B8A"></i> <span class="text-sm font-medium" style="color:#5C5C5C">Site visits &amp; events</span>
-           </div>
-          </div><button onclick="goToPage('engagement-detail')" class="flex items-center gap-2 font-heading font-semibold text-sm transition-all duration-300 hover:gap-3" style="color:#4A6B8A"> <span>Explore Initiatives</span><i data-lucide="arrow-right" style="width:16px;height:16px"></i> </button>
+          <div class="flex items-center gap-1.5" style="color:#059669"><span class="text-xs font-semibold">Explore Initiatives</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
+         </div>
+        </div>
+        <!-- Partnerships Card -->
+        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="goToPage('partnerships')" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="p-6 relative overflow-hidden" style="background:linear-gradient(135deg,#2D3B1F,#4A5235)">
+          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,0.08),transparent 60%)"></div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative z-10" style="background:rgba(255,255,255,0.12)"><i data-lucide="handshake" style="width:24px;height:24px;color:#fff"></i></div>
+          <h3 class="font-heading font-bold text-xl mb-2 relative z-10" style="color:#fff">Partnership Development</h3>
+          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Managing 30+ institutional partners and facilitating 15+ strategic meetings per month at PCU.</p>
+         </div>
+         <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-4">
+           <span class="tag">Research</span>
+           <span class="tag">Exchange</span>
+           <span class="tag">Faculty Dev</span>
+           <span class="tag">Curriculum</span>
+          </div>
+          <div class="flex items-center gap-1.5" style="color:#4A5235"><span class="text-xs font-semibold">Explore Partnerships</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
+         </div>
+        </div>
+        <!-- MoU Card -->
+        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="goToPage('mou')" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="p-6 relative overflow-hidden" style="background:linear-gradient(135deg,#3B0764,#7C3AED)">
+          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,0.08),transparent 60%)"></div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative z-10" style="background:rgba(255,255,255,0.12)"><i data-lucide="file-text" style="width:24px;height:24px;color:#fff"></i></div>
+          <h3 class="font-heading font-bold text-xl mb-2 relative z-10" style="color:#fff">MoU / MoA Coordination</h3>
+          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Reviewing 25+ partnership agreements per month — ensuring compliance, alignment, and timely processing.</p>
+         </div>
+         <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-4">
+           <span class="tag">Drafting</span>
+           <span class="tag">Compliance</span>
+           <span class="tag">Renewals</span>
+           <span class="tag">Monitoring</span>
+          </div>
+          <div class="flex items-center gap-1.5" style="color:#7C3AED"><span class="text-xs font-semibold">View Portfolio</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
          </div>
         </div>
        </div>
-      </div><!-- Additional Info Section -->
-      <div class="mt-16 pt-12 border-t" style="border-color:rgba(28,28,30,0.1)">
-       <div class="grid md:grid-cols-3 gap-6">
-        <div class="text-center">
-         <div class="w-16 h-16 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(74,107,138,0.08)"><i data-lucide="users" style="width:32px;height:32px;color:#4A6B8A"></i>
-         </div>
-         <p class="font-heading font-semibold mb-1" style="color:#1C1C1E">200+</p>
-         <p class="text-sm" style="color:#5C5C5C">International Students Supported</p>
+       <!-- Bottom Stats Row -->
+       <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t" style="border-color:rgba(28,28,30,0.1)">
+        <div class="card p-6 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto" style="background:rgba(5,150,105,0.08)"><i data-lucide="users" style="width:24px;height:24px;color:#059669"></i></div>
+         <p class="font-heading font-bold text-3xl mb-1" style="color:#1C1C1E">480+</p>
+         <p class="text-sm" style="color:#5C5C5C">Students Supported</p>
         </div>
-        <div class="text-center">
-         <div class="w-16 h-16 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(74,107,138,0.08)"><i data-lucide="globe" style="width:32px;height:32px;color:#4A6B8A"></i>
-         </div>
-         <p class="font-heading font-semibold mb-1" style="color:#1C1C1E">10+</p>
-         <p class="text-sm" style="color:#5C5C5C">Stakeholder Types Coordinated</p>
+        <div class="card p-6 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto" style="background:rgba(30,58,95,0.08)"><i data-lucide="globe" style="width:24px;height:24px;color:#1E3A5F"></i></div>
+         <p class="font-heading font-bold text-3xl mb-1" style="color:#1C1C1E">30+</p>
+         <p class="text-sm" style="color:#5C5C5C">Institutional Partners</p>
         </div>
-        <div class="text-center">
-         <div class="w-16 h-16 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(74,107,138,0.08)"><i data-lucide="calendar" style="width:32px;height:32px;color:#4A6B8A"></i>
-         </div>
-         <p class="font-heading font-semibold mb-1" style="color:#1C1C1E">5</p>
-         <p class="text-sm" style="color:#5C5C5C">Exchange Programs Managed End-to-End</p>
+        <div class="card p-6 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto" style="background:rgba(139,115,85,0.08)"><i data-lucide="calendar" style="width:24px;height:24px;color:#8B7355"></i></div>
+         <p class="font-heading font-bold text-3xl mb-1" style="color:#1C1C1E">15+</p>
+         <p class="text-sm" style="color:#5C5C5C">Meetings / Month</p>
+        </div>
+        <div class="card p-6 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto" style="background:rgba(124,58,237,0.08)"><i data-lucide="file-check" style="width:24px;height:24px;color:#7C3AED"></i></div>
+         <p class="font-heading font-bold text-3xl mb-1" style="color:#1C1C1E">25+</p>
+         <p class="text-sm" style="color:#5C5C5C">Agreements / Month</p>
         </div>
        </div>
       </div>
      </div>
     </div><!-- Engagement Detail Page -->
     <div id="page-engagement-detail" class="page" style="background:#FAFAF8">
-     <div class="max-w-6xl mx-auto px-6">
-      <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <!-- Intro -->
-      <div class="mb-16">
-       <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#059669">Cultural Engagement</span></div>
-       <p class="text-base max-w-3xl" style="color:#5C5C5C">Through cultural immersion programs, local community engagement, and experience-driven activities, I helped international students discover Indonesia in ways that went far beyond academic coursework — building empathy, curiosity, and lasting memories that shaped their global perspective.</p>
+     <!-- Hero -->
+     <div style="background:linear-gradient(160deg,#1C1C1E 0%,#1E3A5F 55%,#2C4A72 100%);padding:clamp(48px,8vh,72px) 24px 0;position:relative;overflow:hidden">
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 20%,rgba(139,115,85,0.18),transparent 55%)"></div>
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
+      <div class="max-w-6xl mx-auto relative z-10">
+       <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
+       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">Cultural Engagement</div>
+       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">Student Engagement<br><em style="font-style:italic;color:#8B7355">Initiatives</em></h1>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">Creating meaningful cultural experiences for international students — through immersion programs, local community engagement, and experiential learning across Indonesia.</p>
+       <div class="flex flex-wrap gap-8 pb-8">
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">6+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Programs</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">5</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Community Partners</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">120+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Students/Semester</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">20+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Countries</p></div>
+       </div>
       </div>
+     </div>
+     <!-- Content -->
+     <div style="padding:72px 24px 72px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
       <!-- Cultural Engagement Activities -->
       <div class="mb-20">
        <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#059669">What I Organized</span></div>
@@ -1849,77 +1933,113 @@
         </div>
        </div>
       </div>
+      </div>
      </div>
     </div><!-- GLOBAL PARTNERSHIPS PAGE -->
-    <div id="page-partnerships" class="page py-20 relative" style="background:#FAFAF8;overflow:hidden"><!-- World Map Background -->
-     <div class="absolute inset-0 pointer-events-none" style="opacity:0.03">
-      <svg viewbox="0 0 1200 600" class="w-full h-full" style="min-width:100%;min-height:100%"><!-- Simplified World Map Continents --> <path d="M 100 150 Q 150 120 200 140 L 220 160 Q 200 180 180 170 Z" fill="currentColor" /> <path d="M 250 100 Q 320 90 350 140 Q 340 180 300 190 Q 260 180 250 140 Z" fill="currentColor" /> <path d="M 400 80 Q 500 70 550 120 L 560 200 Q 500 220 420 180 Z" fill="currentColor" /> <path d="M 600 150 Q 700 140 750 180 L 760 250 Q 700 280 640 240 Z" fill="currentColor" /> <path d="M 800 120 Q 900 110 950 170 Q 940 220 880 230 Q 820 200 800 160 Z" fill="currentColor" /> <path d="M 1000 140 Q 1050 135 1080 180 Q 1070 210 1020 215 Z" fill="currentColor" /> <!-- Circles representing key regions --> <circle cx="150" cy="200" r="15" fill="currentColor" /> <circle cx="350" cy="250" r="12" fill="currentColor" /> <circle cx="550" cy="280" r="18" fill="currentColor" /> <circle cx="750" cy="220" r="14" fill="currentColor" /> <circle cx="950" cy="200" r="16" fill="currentColor" />
-      </svg>
-     </div><!-- Content -->
-     <div class="max-w-6xl mx-auto px-6 relative z-10"><button onclick="goToPage('home')" class="flex items-center gap-2 mb-8" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <div class="mb-16 text-center">
-       <div class="flex items-center justify-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#1E3A5F">Global Network</span> <span class="accent-line"></span>
+    <div id="page-partnerships" class="page" style="background:#FAFAF8">
+     <!-- Hero -->
+     <div style="background:linear-gradient(160deg,#1C1C1E 0%,#1E3A5F 55%,#2C4A72 100%);padding:clamp(48px,8vh,72px) 24px 0;position:relative;overflow:hidden">
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 20%,rgba(139,115,85,0.18),transparent 55%)"></div>
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
+      <div class="max-w-6xl mx-auto relative z-10">
+       <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
+       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">Global Partnerships</div>
+       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">Partnership<br><em style="font-style:italic;color:#8B7355">Development</em></h1>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">Managing 30+ institutional partners and facilitating 15+ strategic meetings per month at Petra Christian University — building collaborations that drive academic excellence and global opportunity.</p>
+       <div class="flex flex-wrap gap-8 pb-8">
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Partners</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">15+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Meetings/Month</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">Multiple</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Countries</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">5</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Programs</p></div>
        </div>
-       <h1 class="font-heading font-bold text-4xl mb-4" style="color:#1C1C1E">Global Partnerships &amp; Promotion</h1>
-       <p class="text-lg max-w-3xl mx-auto" style="color:#5C5C5C">Managing 30+ institutional partners at Petra Christian University — reviewing 25+ agreements monthly and facilitating 15+ strategic partnership meetings per month</p>
-      </div><!-- Partnership Cards Grid -->
-      <div class="grid md:grid-cols-2 gap-8"><!-- Partnership Development Card -->
-       <div class="card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" style="border:1px solid rgba(28,28,30,0.08);background:#FFFFFF">
-        <div class="p-8">
-         <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,rgba(30,58,95,0.08),rgba(74,107,138,0.08))"><i data-lucide="handshake" style="width:32px;height:32px;color:#1E3A5F"></i>
-         </div>
-         <h3 id="partnership-title" class="font-heading font-bold text-2xl mb-3" style="color:#1C1C1E">Partnership Development</h3>
-         <p class="text-base mb-6 leading-relaxed" style="color:#5C5C5C">At Petra Christian University, I manage communication with 30+ institutional partners monthly, facilitate 15+ strategic partnership meetings, and initiate new collaborations to strengthen PCU's global presence and expand access to international grants and joint academic initiatives.</p>
-         <div class="space-y-3 mb-8">
-          <div class="flex items-start gap-3"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#1E3A5F;flex-shrink:0;margin-top:2px"></i> <span class="text-sm" style="color:#5C5C5C">Research collaborations and joint initiatives</span>
-          </div>
-          <div class="flex items-start gap-3"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#1E3A5F;flex-shrink:0;margin-top:2px"></i> <span class="text-sm" style="color:#5C5C5C">Student exchange and mobility programs</span>
-          </div>
-          <div class="flex items-start gap-3"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#1E3A5F;flex-shrink:0;margin-top:2px"></i> <span class="text-sm" style="color:#5C5C5C">Faculty development and capacity building</span>
-          </div>
-          <div class="flex items-start gap-3"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#1E3A5F;flex-shrink:0;margin-top:2px"></i> <span class="text-sm" style="color:#5C5C5C">Curriculum internationalization initiatives</span>
-          </div>
-         </div><button onclick="goToPage('partnership-detail')" class="flex items-center gap-2 font-heading font-semibold text-sm transition-all duration-300 hover:gap-3" style="color:#1E3A5F"> <span>Explore Partnerships</span><i data-lucide="arrow-right" style="width:16px;height:16px"></i> </button>
+       <!-- Tab Nav -->
+       <div class="flex gap-0 border-t" style="border-color:rgba(255,255,255,0.08)">
+        <button onclick="goToPage('engagement')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Overview</button>
+        <button onclick="goToPage('onboarding')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Student Support</button>
+        <button onclick="goToPage('mou')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">MoU / MoA</button>
+       </div>
+      </div>
+     </div>
+     <!-- Strategic Approach -->
+     <div style="padding:72px 24px 40px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Strategic Approach</span></div>
+       <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">How We Build Partnerships</h2>
+       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">A structured, four-phase approach to identifying, building, and sustaining international academic collaborations that create lasting value for both institutions.</p>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-8 rounded-2xl border-l-4 hover:shadow-lg transition" style="border-color:#1E3A5F">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(30,58,95,0.08)"><i data-lucide="search" style="width:24px;height:24px;color:#1E3A5F"></i></div>
+         <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">Strategic Identification</h3>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Identifying partner institutions aligned with our mission and academic strengths through rigorous evaluation and due diligence</p>
         </div>
-       </div><!-- MoU / MoA Coordination Card -->
-       <div class="card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" style="border:1px solid rgba(28,28,30,0.08);background:#FFFFFF">
-        <div class="p-8">
-         <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,rgba(74,107,138,0.08),rgba(107,116,85,0.08))"><i data-lucide="file-text" style="width:32px;height:32px;color:#4A6B8A"></i>
-         </div>
-         <h3 id="mou-title" class="font-heading font-bold text-2xl mb-3" style="color:#1C1C1E">MoU / MoA Coordination</h3>
-         <p class="text-base mb-6 leading-relaxed" style="color:#5C5C5C">I review an average of 25 MoU/MoA agreements per month at PCU, ensuring each one meets compliance requirements, aligns with institutional goals, and is processed on time. Clear, well-structured agreements are the foundation of sustainable international partnerships.</p>
-         <div class="space-y-3 mb-8">
-          <div class="flex items-start gap-3"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i> <span class="text-sm" style="color:#5C5C5C">Negotiating and drafting partnership agreements</span>
-          </div>
-          <div class="flex items-start gap-3"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i> <span class="text-sm" style="color:#5C5C5C">Managing renewals and agreement updates</span>
-          </div>
-          <div class="flex items-start gap-3"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i> <span class="text-sm" style="color:#5C5C5C">Ensuring institutional policy compliance</span>
-          </div>
-          <div class="flex items-start gap-3"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i> <span class="text-sm" style="color:#5C5C5C">Partnership activation and monitoring</span>
-          </div>
-         </div><button onclick="goToPage('mou-detail')" class="flex items-center gap-2 font-heading font-semibold text-sm transition-all duration-300 hover:gap-3" style="color:#4A6B8A"> <span>View Our Portfolio</span><i data-lucide="arrow-right" style="width:16px;height:16px"></i> </button>
+        <div class="card p-8 rounded-2xl border-l-4 hover:shadow-lg transition" style="border-color:#4A6B8A">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(74,107,138,0.08)"><i data-lucide="users" style="width:24px;height:24px;color:#4A6B8A"></i></div>
+         <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">Engagement &amp; Negotiation</h3>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Building relationships and negotiating terms that benefit both institutions and advance shared educational goals</p>
+        </div>
+        <div class="card p-8 rounded-2xl border-l-4 hover:shadow-lg transition" style="border-color:#8B7355">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(139,115,85,0.08)"><i data-lucide="book-open" style="width:24px;height:24px;color:#8B7355"></i></div>
+         <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">Program Development</h3>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Co-designing exchange programs, research collaborations, and joint curriculum initiatives with partner institutions</p>
+        </div>
+        <div class="card p-8 rounded-2xl border-l-4 hover:shadow-lg transition" style="border-color:#059669">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(5,150,105,0.08)"><i data-lucide="trending-up" style="width:24px;height:24px;color:#059669"></i></div>
+         <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">Activation &amp; Growth</h3>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Implementing programs, monitoring progress, and fostering long-term partnership growth through continuous engagement</p>
         </div>
        </div>
-      </div><!-- Global Stats Section -->
-      <div class="mt-16 pt-12 border-t" style="border-color:rgba(28,28,30,0.1)">
-       <h3 class="font-heading font-semibold text-lg mb-8 text-center" style="color:#1C1C1E">By the Numbers</h3>
-       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="card p-8 text-center rounded-xl hover:shadow-lg transition">
+      </div>
+     </div>
+     <!-- Partnership Categories -->
+     <div style="padding:40px 24px 40px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Partnership Categories</span></div>
+       <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">What We Collaborate On</h2>
+       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">Our partnerships span a diverse range of academic and institutional collaboration types — each designed to create mutual value and advance internationalization goals.</p>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-6 rounded-2xl hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="p-4 rounded-xl mb-4" style="background:rgba(30,58,95,0.05);border-left:4px solid #1E3A5F">
+          <p class="font-heading font-semibold mb-1" style="color:#1C1C1E">Research Collaborations</p>
+          <p class="text-sm" style="color:#5C5C5C">Joint research projects, interdisciplinary initiatives, and scientific partnerships advancing knowledge</p>
+         </div>
+         <div class="p-4 rounded-xl" style="background:rgba(30,58,95,0.05);border-left:4px solid #1E3A5F">
+          <p class="font-heading font-semibold mb-1" style="color:#1C1C1E">Student Exchange Programs</p>
+          <p class="text-sm" style="color:#5C5C5C">Semester abroad, dual-degree, and degree-level mobility opportunities for students</p>
+         </div>
+        </div>
+        <div class="card p-6 rounded-2xl hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="p-4 rounded-xl mb-4" style="background:rgba(30,58,95,0.05);border-left:4px solid #1E3A5F">
+          <p class="font-heading font-semibold mb-1" style="color:#1C1C1E">Faculty Development</p>
+          <p class="text-sm" style="color:#5C5C5C">Teaching capacity, research mentoring, and professional development initiatives</p>
+         </div>
+         <div class="p-4 rounded-xl" style="background:rgba(30,58,95,0.05);border-left:4px solid #1E3A5F">
+          <p class="font-heading font-semibold mb-1" style="color:#1C1C1E">Curriculum Development</p>
+          <p class="text-sm" style="color:#5C5C5C">Joint program design, curriculum internationalization, and academic innovation</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Stats Row -->
+     <div style="padding:40px 24px 72px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
+       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-12 border-t" style="border-color:rgba(28,28,30,0.1)">
+        <div class="card p-8 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
          <p class="font-heading font-bold text-4xl mb-2" style="color:#1E3A5F">30+</p>
-         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Institutional Partners</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Partners</p>
          <p class="text-xs" style="color:#5C5C5C">Managed monthly at PCU</p>
         </div>
-        <div class="card p-8 text-center rounded-xl hover:shadow-lg transition">
-         <p class="font-heading font-bold text-4xl mb-2" style="color:#4A6B8A">25+</p>
-         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">MoU/MoA Reviewed</p>
+        <div class="card p-8 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold text-4xl mb-2" style="color:#4A6B8A">15+</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Meetings/Month</p>
+         <p class="text-xs" style="color:#5C5C5C">Strategic meetings facilitated</p>
+        </div>
+        <div class="card p-8 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold text-4xl mb-2" style="color:#8B7355">25+</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">MoUs Reviewed</p>
          <p class="text-xs" style="color:#5C5C5C">Per month for compliance</p>
         </div>
-        <div class="card p-8 text-center rounded-xl hover:shadow-lg transition">
-         <p class="font-heading font-bold text-4xl mb-2" style="color:#8B7355">15+</p>
-         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Strategic Meetings</p>
-         <p class="text-xs" style="color:#5C5C5C">Facilitated per month</p>
-        </div>
-        <div class="card p-8 text-center rounded-xl hover:shadow-lg transition">
+        <div class="card p-8 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
          <p class="font-heading font-bold text-4xl mb-2" style="color:#8B7355">120+</p>
          <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Exchange Students</p>
          <p class="text-xs" style="color:#5C5C5C">Supported per semester</p>
@@ -2050,36 +2170,99 @@
       </div>
      </div>
     </div><!-- MOU/MoA PAGE (kept for backward compatibility) -->
-    <div id="page-mou" class="page py-20" style="background:#FAFAF8">
-     <div class="max-w-6xl mx-auto px-6">
-      <button onclick="goToPage('home')" class="flex items-center gap-2 mb-6" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E">MoU / MoA Coordination</h1>
-      <p class="text-lg mb-12" style="color:#5C5C5C">Formalizing academic partnerships through strategic agreements</p>
-      <div class="card p-8">
-       <h2 class="font-heading font-semibold text-2xl mb-4" style="color:#1C1C1E">Framework &amp; Process</h2>
-       <p class="text-base mb-8" style="color:#5C5C5C">Memoranda of Understanding (MoU) and Agreements (MoA) form the foundation of our international partnerships. We manage a portfolio of strategic agreements ensuring clear expectations and mutual benefits.</p>
-       <h3 class="font-heading font-semibold text-lg mb-4" style="color:#1C1C1E">Our Portfolio</h3>
-       <div class="grid md:grid-cols-3 gap-4 mb-8">
-        <div class="p-4 text-center rounded-lg" style="background:rgba(30,58,95,0.05)">
-         <p class="font-heading font-bold text-3xl" style="color:#1E3A5F">40+</p>
-         <p style="color:#5C5C5C">Active Partnership Agreements</p>
+    <div id="page-mou" class="page" style="background:#FAFAF8">
+     <!-- Hero -->
+     <div style="background:linear-gradient(160deg,#1C1C1E 0%,#1E3A5F 55%,#2C4A72 100%);padding:clamp(48px,8vh,72px) 24px 0;position:relative;overflow:hidden">
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 20%,rgba(139,115,85,0.18),transparent 55%)"></div>
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
+      <div class="max-w-6xl mx-auto relative z-10">
+       <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
+       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">Agreement Management</div>
+       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">MoU / MoA<br><em style="font-style:italic;color:#8B7355">Coordination</em></h1>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">Reviewing 25+ partnership agreements per month at PCU — ensuring compliance, institutional alignment, and timely processing across a diverse global network.</p>
+       <div class="flex flex-wrap gap-8 pb-8">
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">25+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Monthly Reviews</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Partners</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">40+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Total Agreements</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">24h</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Meeting Minutes</p></div>
+       </div>
+       <!-- Tab Nav -->
+       <div class="flex gap-0 border-t" style="border-color:rgba(255,255,255,0.08)">
+        <button onclick="goToPage('engagement')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Overview</button>
+        <button onclick="goToPage('partnerships')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Partnership Dev</button>
+       </div>
+      </div>
+     </div>
+     <!-- Coordination Framework -->
+     <div style="padding:72px 24px 40px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Coordination Framework</span></div>
+       <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">How Agreements Are Managed</h2>
+       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">A rigorous end-to-end process ensures every MoU and MoA is handled with precision — from initial drafting through to activation and ongoing monitoring.</p>
+       <div class="card rounded-2xl overflow-hidden" style="border:1px solid rgba(28,28,30,0.08)">
+        <div class="flex gap-4 p-6 border-b" style="border-color:rgba(28,28,30,0.1)">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="file-check" style="width:24px;height:24px;color:#4A6B8A"></i></div>
+         <div>
+          <h3 class="font-heading font-semibold mb-1" style="color:#1C1C1E">Drafting &amp; Negotiation</h3>
+          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Collaboratively developing MoU/MoA documents that clearly define partnership scope, objectives, and mutual commitments</p>
+         </div>
         </div>
-        <div class="p-4 text-center rounded-lg" style="background:rgba(30,58,95,0.05)">
-         <p class="font-heading font-bold text-3xl" style="color:#1E3A5F">12</p>
-         <p style="color:#5C5C5C">Countries Represented</p>
+        <div class="flex gap-4 p-6 border-b" style="border-color:rgba(28,28,30,0.1)">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="check-square" style="width:24px;height:24px;color:#4A6B8A"></i></div>
+         <div>
+          <h3 class="font-heading font-semibold mb-1" style="color:#1C1C1E">Compliance &amp; Approval</h3>
+          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Ensuring all agreements comply with institutional policies and securing necessary approvals from relevant authorities</p>
+         </div>
         </div>
-        <div class="p-4 text-center rounded-lg" style="background:rgba(30,58,95,0.05)">
-         <p class="font-heading font-bold text-3xl" style="color:#1E3A5F">8</p>
-         <p style="color:#5C5C5C">ASEAN Nations</p>
+        <div class="flex gap-4 p-6 border-b" style="border-color:rgba(28,28,30,0.1)">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="refresh-cw" style="width:24px;height:24px;color:#4A6B8A"></i></div>
+         <div>
+          <h3 class="font-heading font-semibold mb-1" style="color:#1C1C1E">Renewal &amp; Updates</h3>
+          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Managing agreement lifecycle including renewals, amendments, and updates to reflect evolving partnership priorities</p>
+         </div>
+        </div>
+        <div class="flex gap-4 p-6">
+         <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="bar-chart-2" style="width:24px;height:24px;color:#4A6B8A"></i></div>
+         <div>
+          <h3 class="font-heading font-semibold mb-1" style="color:#1C1C1E">Monitoring &amp; Activation</h3>
+          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Tracking implementation progress and ensuring both parties meet agreed commitments and leverage opportunities</p>
+         </div>
         </div>
        </div>
-       <h3 class="font-heading font-semibold text-lg mb-4" style="color:#1C1C1E">Coordination Responsibilities</h3>
-       <ul class="space-y-2" style="color:#5C5C5C">
-        <li class="flex gap-3"><i data-lucide="check" style="width:20px;height:20px;color:#4A6B8A;flex-shrink:0"></i>Negotiating and drafting partnership agreements</li>
-        <li class="flex gap-3"><i data-lucide="check" style="width:20px;height:20px;color:#4A6B8A;flex-shrink:0"></i>Managing agreement renewals and updates</li>
-        <li class="flex gap-3"><i data-lucide="check" style="width:20px;height:20px;color:#4A6B8A;flex-shrink:0"></i>Ensuring compliance with institutional policies</li>
-        <li class="flex gap-3"><i data-lucide="check" style="width:20px;height:20px;color:#4A6B8A;flex-shrink:0"></i>Facilitating partnership activation and monitoring</li>
-       </ul>
+      </div>
+     </div>
+     <!-- Agreement Portfolio Stats -->
+     <div style="padding:40px 24px 40px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Agreement Portfolio</span></div>
+       <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-8 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold text-4xl mb-2" style="color:#4A6B8A">25+</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Agreements Reviewed Monthly</p>
+         <p class="text-xs" style="color:#5C5C5C">Consistent monthly throughput at PCU</p>
+        </div>
+        <div class="card p-8 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold text-4xl mb-2" style="color:#4A6B8A">30+</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Institutional Partners Managed</p>
+         <p class="text-xs" style="color:#5C5C5C">Across multiple countries and regions</p>
+        </div>
+        <div class="card p-8 rounded-2xl text-center hover:shadow-lg transition" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold text-4xl mb-2" style="color:#8B7355">24h</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Meeting Minutes Turnaround</p>
+         <p class="text-xs" style="color:#5C5C5C">Timely documentation for all meetings</p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Process Overview -->
+     <div style="padding:40px 24px 72px;background:#FAFAF8">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Process Overview</span></div>
+       <div class="card p-8 rounded-2xl" style="border:1px solid rgba(28,28,30,0.08)">
+        <h2 class="font-heading font-semibold text-2xl mb-4" style="color:#1C1C1E">Framework &amp; Portfolio</h2>
+        <p class="text-base mb-6" style="color:#5C5C5C">Memoranda of Understanding (MoU) and Agreements (MoA) form the foundation of our international partnerships. We manage a portfolio of 40+ strategic agreements — spanning 12 countries and 8 ASEAN nations — ensuring clear expectations, mutual benefits, and timely renewal cycles for each partnership.</p>
+        <p class="text-base" style="color:#5C5C5C">Each agreement is tracked through its full lifecycle: from initial scoping and drafting, through compliance review and institutional approval, to activation, monitoring, and eventual renewal or termination. This structured approach allows PCU to maintain a high-quality, active portfolio of partnerships that deliver real academic and professional value.</p>
+       </div>
       </div>
      </div>
     </div><!-- CREATIVE SERVICES PAGES -->
