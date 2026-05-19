@@ -1,0 +1,349 @@
+function homeInitPage() {
+  var el = document.getElementById('page-home');
+  if (!el) return;
+  el.innerHTML = `
+
+     <!-- ═══ EDITORIAL HERO ═══ -->
+     <div class="hero-editorial px-6 md:px-16 lg:px-24" style="min-height:92vh;padding-top:clamp(4rem,10vh,7rem);padding-bottom:clamp(3rem,6vh,5rem)">
+      <!-- Slideshow background -->
+      <div class="hero-slide" style="background-image:url('./assets/images/aci/aci-4.JPEG')"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/aero/aero-1.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/student-services/tailor-made/griffith-unair-3.JPEG')"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/student-services/tailor-made/ljmu-unair-2.JPEG')"></div>
+      <div class="hero-slide" style="background-image:url('./assets/images/self-portrait/profile-15.JPG')"></div>
+      <div class="hero-slide-overlay"></div>
+      <!-- Background gradients -->
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 70% 30%,rgba(139,115,85,0.09),transparent 55%),radial-gradient(ellipse at 10% 85%,rgba(74,107,138,0.05),transparent 50%)"></div>
+      <!-- Giant watermark letter -->
+      <div class="absolute right-0 top-0 h-full hidden lg:flex items-center pointer-events-none overflow-hidden" style="width:42%">
+       <span style="font-family:'Playfair Display',serif;font-size:clamp(18rem,26vw,34rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%)">Z</span>
+      </div>
+      <!-- Geometric ring accents -->
+      <div class="absolute hidden lg:block pointer-events-none" style="right:15%;top:15%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(139,115,85,0.11)"></div>
+      <div class="absolute hidden lg:block pointer-events-none" style="right:18%;top:22%;width:110px;height:110px;border-radius:50%;border:1px solid rgba(139,115,85,0.07)"></div>
+
+      <div class="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+
+       <!-- Display Picture -->
+       <div class="hidden md:block flex-shrink-0" style="animation:fadeUp .5s ease both">
+        <div class="relative" style="width:270px">
+         <div style="width:270px;height:350px;border-radius:1.5rem;overflow:hidden;box-shadow:0 24px 64px rgba(28,28,30,0.14)">
+          <img src="./assets/images/self-portrait/profile-14.JPEG" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(2.2);transform-origin:center 75%">
+         </div>
+         <div style="position:absolute;bottom:-10px;left:20px;width:48px;height:2px;background:#8B7355;border-radius:2px"></div>
+        </div>
+       </div>
+
+       <!-- Text content -->
+       <div>
+        <!-- Status pill -->
+        <div class="flex flex-wrap items-center gap-3 mb-12" style="animation:fadeUp .5s ease both">
+         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full" style="background:rgba(28,28,30,0.05);border:1px solid rgba(28,28,30,0.09)">
+          <span style="width:6px;height:6px;border-radius:50%;background:#8B7355;display:inline-block"></span>
+          <span class="label-small" style="color:#5C5C5C">International Education &amp; Creative Digital</span>
+         </div>
+         <span class="label-small" style="color:#7A7068">· Surabaya, Indonesia</span>
+        </div>
+
+        <!-- Name headline -->
+        <h1 class="hero-large-text mb-6" style="animation:fadeUp .55s ease .08s both">
+         Zefanya<br>
+         <em style="color:#8B7355;font-style:italic;font-family:'Playfair Display',serif">Kharisma</em><br>
+         Nugroho
+        </h1>
+
+        <!-- Accent line -->
+        <div style="width:52px;height:2px;background:#8B7355;border-radius:2px;margin-bottom:28px;animation:fadeUp .55s ease .14s both"></div>
+
+        <!-- Supporting statement -->
+        <div class="max-w-md mb-11" style="animation:fadeUp .55s ease .18s both">
+         <p class="font-editorial text-xl mb-2.5" style="color:#1C1C1E;line-height:1.4">Bridging global engagement &amp; digital creativity.</p>
+         <p class="text-sm leading-relaxed" style="color:#4A4A4A">International Education Professional · Creative Technologist · Surabaya</p>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-3" style="animation:fadeUp .55s ease .22s both">
+         <button onclick="goToPage('about-overview')" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2">Explore My Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i></button>
+         <button onclick="goToPage('croissantsmoon')" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="font-family:'Playfair Display',serif;font-style:italic">CroissantsMoon <i data-lucide="moon" style="width:15px;height:15px"></i></button>
+        </div>
+       </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-6 hidden md:flex flex-col items-center gap-2" style="opacity:.28">
+       <div style="width:1px;height:40px;background:#1C1C1E"></div>
+       <span class="label-small" style="writing-mode:vertical-rl;letter-spacing:.14em">Scroll</span>
+      </div>
+     </div>
+
+     <!-- ═══ STATS BAND ═══ -->
+     <div style="background:#1C1C1E;padding:36px 24px">
+      <div class="max-w-6xl mx-auto">
+       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">480+</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.3)">Students Supported</p>
+        </div>
+        <div class="text-center">
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#8B7355;letter-spacing:-.02em;line-height:1">505+</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.3)">Global Partners</p>
+        </div>
+        <div class="text-center">
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">3+</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.3)">Years Experience</p>
+        </div>
+        <div class="text-center">
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">5</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.3)">Programs Led</p>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <!-- ═══ MARQUEE STRIP ═══ -->
+     <div style="background:#F2ECE4;border-bottom:1px solid rgba(28,28,30,0.07);padding:13px 0;overflow:hidden">
+      <div style="display:flex;animation:cmMarquee 32s linear infinite;width:max-content">
+       <div style="display:flex;align-items:center;white-space:nowrap">
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">International Partnership</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Student Mobility</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#8B7355;font-size:.67rem;font-weight:600;letter-spacing:.06em;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Creative Direction</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Digital Strategy</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Web Development</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">MoU / MoA</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Surabaya, Indonesia</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+       </div>
+       <div style="display:flex;align-items:center;white-space:nowrap" aria-hidden="true">
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">International Partnership</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Student Mobility</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#8B7355;font-size:.67rem;font-weight:600;letter-spacing:.06em;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Creative Direction</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Digital Strategy</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Web Development</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">MoU / MoA</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Surabaya, Indonesia</span>
+        <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
+       </div>
+      </div>
+     </div>
+
+     <!-- ═══ SELECTED WORK ═══ -->
+     <div style="background:#FAFAF8;padding:80px 24px">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-end justify-between gap-4 flex-wrap mb-12">
+        <div>
+         <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="label-small">Selected Work</span></div>
+         <h2 class="font-heading font-bold" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Where I Make an Impact</h2>
+        </div>
+        <button onclick="goToPage('projects-overview')" class="text-sm font-medium inline-flex items-center gap-2 transition-all hover:gap-3" style="color:#8B7355">All Projects <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
+       </div>
+       <!-- Top row: large + small -->
+       <div class="grid lg:grid-cols-3 gap-4 mb-4">
+        <button onclick="goToPage('amerta')" class="lg:col-span-2 group relative overflow-hidden rounded-2xl text-left" style="padding:44px;min-height:260px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 20px 60px rgba(30,58,95,0.25)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+         <img src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="absolute inset-0 w-full h-full object-cover">
+         <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(30,58,95,0.88),rgba(74,107,138,0.72))"></div>
+         <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 90% 10%,rgba(139,115,85,0.18),transparent 50%)"></div>
+         <div class="relative z-10 h-full flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+           <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.38)">Exchange Program</span>
+           <span style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'"><i data-lucide="arrow-up-right" style="width:16px;height:16px;color:rgba(255,255,255,0.7)"></i></span>
+          </div>
+          <div>
+           <h3 class="font-heading font-bold text-2xl mb-2" style="color:#fff;letter-spacing:-.01em;line-height:1.2">AMERTA Exchange<br>Program</h3>
+           <p class="text-sm" style="color:rgba(255,255,255,0.45)">120+ students · IDR 50–100M per cohort · Universitas Airlangga</p>
+          </div>
+         </div>
+        </button>
+        <button onclick="goToPage('pcu-global')" class="group relative overflow-hidden rounded-2xl text-left" style="background:#F2ECE4;padding:36px;min-height:260px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 20px 60px rgba(28,28,30,0.09)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+         <div class="h-full flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+           <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#9A9A9A">Web Project</span>
+           <span style="width:38px;height:38px;border-radius:50%;background:rgba(28,28,30,0.06);display:flex;align-items:center;justify-content:center;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.11)'" onmouseout="this.style.background='rgba(28,28,30,0.06)'"><i data-lucide="arrow-up-right" style="width:16px;height:16px;color:#5C5C5C"></i></span>
+          </div>
+          <div>
+           <div style="width:36px;height:3px;background:#003087;border-radius:2px;margin-bottom:16px"></div>
+           <h3 class="font-heading font-bold text-xl mb-2" style="color:#1C1C1E;letter-spacing:-.01em;line-height:1.2">PCU Global<br>Website</h3>
+           <p class="text-sm" style="color:#9A9A9A">Full-stack · CMS · Mobile-first</p>
+          </div>
+         </div>
+        </button>
+       </div>
+       <!-- Bottom row: three equal -->
+       <div class="grid sm:grid-cols-3 gap-4">
+        <button onclick="goToPage('aci')" class="group relative overflow-hidden rounded-2xl text-left" style="min-height:160px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(28,28,30,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+         <img src="assets/images/aci/aci-4.JPEG" alt="ACI" class="absolute inset-0 w-full h-full object-cover">
+         <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(74,82,53,0.92) 0%,rgba(74,82,53,0.45) 100%)"></div>
+         <div class="relative z-10 h-full flex flex-col justify-between p-7">
+          <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.5)">Cultural Program</span>
+          <div>
+           <h3 class="font-heading font-semibold text-base leading-snug mb-2" style="color:#fff">ACI — Airlangga<br>Cultural Immersion</h3>
+           <div class="flex items-center gap-2 text-xs font-medium" style="color:rgba(255,255,255,0.65)">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
+          </div>
+         </div>
+        </button>
+        <button onclick="goToPage('aero')" class="group relative overflow-hidden rounded-2xl text-left" style="min-height:160px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(28,28,30,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+         <img src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 30%">
+         <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(28,28,30,0.92) 0%,rgba(28,28,30,0.45) 100%)"></div>
+         <div class="relative z-10 h-full flex flex-col justify-between p-7">
+          <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.5)">Exhibition</span>
+          <div>
+           <h3 class="font-heading font-semibold text-base leading-snug mb-2" style="color:#fff">AERO Exhibition</h3>
+           <div class="flex items-center gap-2 text-xs font-medium" style="color:rgba(255,255,255,0.65)">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
+          </div>
+         </div>
+        </button>
+        <button onclick="goToPage('croissantsmoon')" class="group relative overflow-hidden rounded-2xl text-left" style="background:#1C1C1E;padding:28px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(28,28,30,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+         <div style="width:28px;height:3px;background:#8B7355;border-radius:2px;margin-bottom:18px"></div>
+         <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.3);display:block;margin-bottom:10px">Creative Studio</span>
+         <h3 class="font-heading font-semibold text-base leading-snug" style="color:#fff;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</h3>
+         <div class="mt-4 flex items-center gap-2 text-xs font-medium" style="color:#8B7355;opacity:0;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">Explore <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
+        </button>
+       </div>
+      </div>
+     </div>
+
+     <!-- ═══ INTERACTIVE SKILL DISCOVERY ═══ -->
+     <div style="background:#F2ECE4;padding:80px 24px">
+      <div class="max-w-6xl mx-auto">
+       <div class="grid lg:grid-cols-5 gap-12 items-start">
+        <!-- Sticky heading column -->
+        <div class="lg:col-span-2" style="position:sticky;top:80px">
+         <div class="flex items-center gap-3 mb-5"><span class="accent-line"></span><span class="label-small">Skill Discovery</span></div>
+         <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,4vw,2.8rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Explore My<br><em style="font-style:italic;color:#8B7355">Ecosystem</em></h2>
+         <p class="text-sm leading-relaxed mb-6" style="color:#5C5C5C;max-width:300px">Click a skill to add it to the search bar, or type to find any page or project.</p>
+         <!-- Ecosystem Search Bar -->
+         <div style="position:relative;margin-top:4px">
+          <div id="ecosystem-search-box" style="display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:#fff;border:1.5px solid rgba(28,28,30,0.12);border-radius:14px;padding:8px 8px 8px 14px;min-height:52px;cursor:text" onclick="document.getElementById('ecosystem-search-input').focus()">
+           <input id="ecosystem-search-input" type="text" placeholder="Search pages, projects…"
+            style="border:none;outline:none;background:transparent;font-size:.83rem;color:#1C1C1E;flex:1 1 80px;min-width:80px;padding:3px 0;font-family:'Inter',sans-serif;line-height:1.4"
+            oninput="onEcosystemSearchInput(this.value)"
+            onkeydown="if(event.key==='Enter')executeEcosystemSearch()"
+            onfocus="document.getElementById('ecosystem-search-box').style.borderColor='#8B7355';document.getElementById('ecosystem-search-box').style.boxShadow='0 0 0 3px rgba(139,115,85,0.1)'"
+            onblur="setTimeout(function(){var b=document.getElementById('ecosystem-search-box');if(b){b.style.borderColor='rgba(28,28,30,0.12)';b.style.boxShadow='none';}hideSearchDropdown()},180)"
+           />
+           <button id="search-exec-btn" onclick="executeEcosystemSearch()"
+            style="background:#1C1C1E;color:#fff;border:none;cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;margin-left:2px"
+            onmouseover="this.style.background='#8B7355'" onmouseout="this.style.background='#1C1C1E'"
+           ><i data-lucide="search" style="width:15px;height:15px"></i></button>
+          </div>
+          <div id="search-dropdown" style="display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:200;background:#fff;border:1px solid rgba(28,28,30,0.1);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.1);overflow:hidden"></div>
+         </div>
+         <button id="clear-skills-btn" onclick="clearSkills()" class="text-sm mt-3 inline-block" style="color:#9A9A9A;display:none">Clear all</button>
+        </div>
+        <!-- Tag cloud column -->
+        <div class="lg:col-span-3">
+         <!-- Legend -->
+         <div class="flex flex-wrap gap-4 mb-6">
+          <div class="flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:#2B4F6E;display:inline-block"></span><span class="label-small">Intl. Education</span></div>
+          <div class="flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:#1E3A5F;display:inline-block"></span><span class="label-small">Leadership</span></div>
+          <div class="flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:#6B4F32;display:inline-block"></span><span class="label-small">Creative &amp; Digital</span></div>
+          <div class="flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:#4A5235;display:inline-block"></span><span class="label-small">Technology</span></div>
+         </div>
+         <!-- Skill tags -->
+         <div id="skill-tags-container" class="flex flex-wrap gap-2.5">
+          <button class="skill-tag cat-education" data-skill="International Partnership" onclick="toggleSkill(this)">International Partnership</button>
+          <button class="skill-tag cat-education" data-skill="Student Mobility" onclick="toggleSkill(this)">Student Mobility</button>
+          <button class="skill-tag cat-education" data-skill="Internationalization" onclick="toggleSkill(this)">Internationalization</button>
+          <button class="skill-tag cat-education" data-skill="Student Support" onclick="toggleSkill(this)">Student Support</button>
+          <button class="skill-tag cat-education" data-skill="Cross-Cultural Communication" onclick="toggleSkill(this)">Cross-Cultural Communication</button>
+          <button class="skill-tag cat-leadership" data-skill="Project Management" onclick="toggleSkill(this)">Project Management</button>
+          <button class="skill-tag cat-leadership" data-skill="Leadership" onclick="toggleSkill(this)">Leadership</button>
+          <button class="skill-tag cat-leadership" data-skill="Systems Thinking" onclick="toggleSkill(this)">Systems Thinking</button>
+          <button class="skill-tag cat-creative" data-skill="UI/UX Design" onclick="toggleSkill(this)">UI/UX Design</button>
+          <button class="skill-tag cat-creative" data-skill="Branding" onclick="toggleSkill(this)">Branding</button>
+          <button class="skill-tag cat-creative" data-skill="Creative Direction" onclick="toggleSkill(this)">Creative Direction</button>
+          <button class="skill-tag cat-creative" data-skill="Digital Strategy" onclick="toggleSkill(this)">Digital Strategy</button>
+          <button class="skill-tag cat-creative" data-skill="Writing" onclick="toggleSkill(this)">Writing</button>
+          <button class="skill-tag cat-tech" data-skill="Full-Stack Development" onclick="toggleSkill(this)">Full-Stack Development</button>
+          <button class="skill-tag cat-tech" data-skill="Front-End Development" onclick="toggleSkill(this)">Front-End Development</button>
+          <button class="skill-tag cat-tech" data-skill="Web Experience" onclick="toggleSkill(this)">Web Experience</button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <!-- ═══ CORE COMPETENCY LIST ═══ -->
+     <div style="background:#FAFAF8;padding:80px 24px">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-center gap-3 mb-12"><span class="accent-line"></span><span class="label-small">Core Competencies</span></div>
+       <div>
+        <button onclick="goToPage('partnerships')" class="w-full group flex items-start gap-6 py-7 text-left" style="border-top:1px solid rgba(28,28,30,0.1);background:transparent;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.018)'" onmouseout="this.style.background='transparent'">
+         <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#8B7355;min-width:32px;margin-top:3px">01</span>
+         <div class="flex-1 min-w-0">
+          <span class="label-small block mb-1.5" style="color:#9A9A9A">Global Partnerships</span>
+          <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">International Partnership Management</h3>
+         </div>
+         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Managing 30+ institutional partners and reviewing 25+ MoU/MoA agreements monthly</p>
+         <span class="flex items-center gap-2 text-sm font-medium flex-shrink-0 transition-opacity" style="color:#8B7355;margin-top:22px;opacity:0" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </button>
+        <button onclick="goToPage('onboarding')" class="w-full group flex items-start gap-6 py-7 text-left" style="border-top:1px solid rgba(28,28,30,0.1);background:transparent;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.018)'" onmouseout="this.style.background='transparent'">
+         <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#4A6B8A;min-width:32px;margin-top:3px">02</span>
+         <div class="flex-1 min-w-0">
+          <span class="label-small block mb-1.5" style="color:#9A9A9A">Student Services</span>
+          <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">International Student Support</h3>
+         </div>
+         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">End-to-end welfare, mobility, and onboarding for 200+ international students across Surabaya</p>
+         <span class="flex items-center gap-2 text-sm font-medium flex-shrink-0 transition-opacity" style="color:#4A6B8A;margin-top:22px;opacity:0" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </button>
+        <button onclick="goToPage('projects-overview')" class="w-full group flex items-start gap-6 py-7 text-left" style="border-top:1px solid rgba(28,28,30,0.1);background:transparent;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.018)'" onmouseout="this.style.background='transparent'">
+         <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#6B4F32;min-width:32px;margin-top:3px">03</span>
+         <div class="flex-1 min-w-0">
+          <span class="label-small block mb-1.5" style="color:#9A9A9A">Program Management</span>
+          <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">Exchange Program Management</h3>
+         </div>
+         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">5 end-to-end exchange programs — AMERTA, ACI, AERO — with IDR 50–90M per-program budgets</p>
+         <span class="flex items-center gap-2 text-sm font-medium flex-shrink-0 transition-opacity" style="color:#6B4F32;margin-top:22px;opacity:0" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </button>
+        <button onclick="goToPage('croissantsmoon')" class="w-full group flex items-start gap-6 py-7 text-left" style="border-top:1px solid rgba(28,28,30,0.1);border-bottom:1px solid rgba(28,28,30,0.1);background:transparent;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.018)'" onmouseout="this.style.background='transparent'">
+         <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#1C1C1E;min-width:32px;margin-top:3px;font-style:italic">CM</span>
+         <div class="flex-1 min-w-0">
+          <span class="label-small block mb-1.5" style="color:#9A9A9A">Creative Identity</span>
+          <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</h3>
+         </div>
+         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Creative digital experiences &amp; a future studio identity in development</p>
+         <span class="flex items-center gap-2 text-sm font-medium flex-shrink-0 transition-opacity" style="color:#8B7355;margin-top:22px;opacity:0" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">Explore <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </button>
+       </div>
+      </div>
+     </div>
+
+     <!-- ═══ CTA SECTION ═══ -->
+     <div style="background:#1C1C1E;padding:100px 24px;position:relative;overflow:hidden">
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 50%,rgba(139,115,85,0.11),transparent 50%),radial-gradient(ellipse at 15% 50%,rgba(74,107,138,0.06),transparent 45%)"></div>
+      <!-- Background typographic watermark -->
+      <div class="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden" style="opacity:.025">
+       <span style="font-family:'Playfair Display',serif;font-size:clamp(10rem,18vw,22rem);font-weight:800;font-style:italic;color:#fff;user-select:none;white-space:nowrap;line-height:1">Let's talk</span>
+      </div>
+      <div class="max-w-3xl mx-auto text-center relative z-10">
+       <p class="font-editorial text-base mb-5" style="color:#8B7355">Let's build something meaningful</p>
+       <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;letter-spacing:-.02em;line-height:1.05">Open to<br><em style="font-style:italic;color:#8B7355">Conversations</em></h2>
+       <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7">Partnerships, collaborations, education projects, or creative work — I'm always open to a good conversation.</p>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="./assets/data/profile.pdf" download class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2" style="background:#8B7355;color:#fff;transition:all .2s;text-decoration:none" onmouseover="this.style.background='#7A6348'" onmouseout="this.style.background='#8B7355'"><i data-lucide="download" style="width:15px;height:15px"></i> Download CV</a>
+        <button onclick="goToPage('contact')" class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center gap-2" style="border:1.5px solid rgba(255,255,255,0.18);color:#fff;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)'"><i data-lucide="mail" style="width:15px;height:15px"></i> Contact Me</button>
+       </div>
+      </div>
+     </div>
+    `;
+  if (window.lucide) lucide.createIcons();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  homeInitPage();
+});

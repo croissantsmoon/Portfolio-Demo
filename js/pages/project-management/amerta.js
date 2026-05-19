@@ -342,6 +342,107 @@ const AMERTA_DATA = {
   },
 };
 
+// ── Gallery Rotation ─────────────────────────────────────────────────────────
+
+const AMERTA_GALLERY_IMGS = [
+  'assets/images/amerta/amerta/IMG_0570.JPG',
+  'assets/images/amerta/amerta/IMG_0576.JPG',
+  'assets/images/amerta/amerta/IMG_0578.JPG',
+  'assets/images/amerta/amerta/IMG_0589.JPG',
+  'assets/images/amerta/amerta/IMG_0590.JPG',
+  'assets/images/amerta/amerta/IMG_0594.JPG',
+  'assets/images/amerta/amerta/IMG_0629.JPG',
+  'assets/images/amerta/amerta/IMG_0637.JPG',
+  'assets/images/amerta/amerta/IMG_0641.JPG',
+  'assets/images/amerta/amerta/IMG_0642.JPG',
+  'assets/images/amerta/amerta/IMG_0980.JPG',
+  'assets/images/amerta/amerta/IMG_0993.JPG',
+  'assets/images/amerta/amerta/IMG_1003.JPG',
+  'assets/images/amerta/amerta/IMG_1006.JPG',
+  'assets/images/amerta/amerta/IMG_1007.JPG',
+  'assets/images/amerta/amerta/IMG_1008.JPG',
+  'assets/images/amerta/amerta/IMG_1807.JPG',
+  'assets/images/amerta/amerta/IMG_1813.JPG',
+  'assets/images/amerta/amerta/IMG_3529.JPG',
+  'assets/images/amerta/amerta/IMG_3534.JPG',
+  'assets/images/amerta/amerta/IMG_3535.JPG',
+  'assets/images/amerta/amerta/IMG_3720.JPG',
+  'assets/images/amerta/amerta/IMG_3723.JPG',
+  'assets/images/amerta/amerta/IMG_3867.JPG',
+  'assets/images/amerta/amerta/IMG_3868.JPG',
+  'assets/images/amerta/amerta/IMG_3869.JPG',
+  'assets/images/amerta/amerta/FullSizeRender.JPG',
+  'assets/images/amerta/amerta/FullSizeRender 2.JPG',
+];
+
+let _amertaGalTimer = null;
+let _amertaGalSlot  = 0;
+let _amertaGalShown = [];
+let _amertaGalQueue = [];
+
+function _amertaShuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function amertaStartGallery() {
+  if (_amertaGalTimer) { clearInterval(_amertaGalTimer); _amertaGalTimer = null; }
+
+  const imgs = document.querySelectorAll('.amerta-gs-img');
+  if (!imgs.length) return;
+
+  _amertaGalQueue = _amertaShuffle(AMERTA_GALLERY_IMGS);
+  _amertaGalShown = [];
+  let qi = 0;
+
+  imgs.forEach(img => {
+    const src = _amertaGalQueue[qi % _amertaGalQueue.length];
+    img.src = src;
+    _amertaGalShown.push(src);
+    qi++;
+  });
+
+  _amertaGalSlot = 0;
+
+  _amertaGalTimer = setInterval(() => {
+    const imgEls = document.querySelectorAll('.amerta-gs-img');
+    if (!imgEls.length) { clearInterval(_amertaGalTimer); return; }
+
+    const slot = _amertaGalSlot % imgEls.length;
+    const imgEl = imgEls[slot];
+
+    let next = _amertaGalQueue[qi % _amertaGalQueue.length];
+    let tries = 0;
+    while (_amertaGalShown.includes(next) && tries < AMERTA_GALLERY_IMGS.length) {
+      qi++;
+      if (qi >= _amertaGalQueue.length) {
+        _amertaGalQueue = _amertaShuffle(AMERTA_GALLERY_IMGS);
+        qi = 0;
+      }
+      next = _amertaGalQueue[qi % _amertaGalQueue.length];
+      tries++;
+    }
+    const nextSrc = next;
+    qi++;
+
+    imgEl.style.opacity = '0';
+    setTimeout(() => {
+      if (!document.body.contains(imgEl)) return;
+      _amertaGalShown[slot] = nextSrc;
+      imgEl.src = nextSrc;
+      const show = () => { imgEl.style.opacity = '1'; };
+      if (imgEl.complete && imgEl.naturalWidth) show();
+      else { imgEl.onload = show; imgEl.onerror = show; }
+    }, 500);
+
+    _amertaGalSlot++;
+  }, 3000);
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function esc(s) {
@@ -528,6 +629,27 @@ function amertaInitPage() {
     <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">End-to-End Responsibilities</h2>
     <div class="mt-6">${stepsHtml}</div>
    </div>
+   <div style="background:#0D0D0B;padding-top:80px">
+    <div class="max-w-6xl mx-auto px-6" style="padding-bottom:48px">
+     <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="display:block;width:28px;height:1.5px;background:rgba(255,255,255,0.2)"></span>
+      <span style="color:rgba(255,255,255,0.38);font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Photo Diary</span>
+     </div>
+     <h2 class="font-heading" style="font-weight:700;font-size:clamp(2rem,5vw,3rem);color:#fff;letter-spacing:-0.02em;margin:0 0 10px">Moments from the Exchange</h2>
+     <p style="color:rgba(255,255,255,0.32);font-size:0.875rem;margin:0">Four batches &middot; 207 students &middot; 14 countries &middot; 2024–2027</p>
+    </div>
+    <div id="amerta-gallery" style="display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;height:75vh;gap:3px">
+     <div class="amerta-gs" style="grid-row:span 2;overflow:hidden;background:#111">
+      <img class="amerta-gs-img" src="" alt="AMERTA moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
+     <div class="amerta-gs" style="overflow:hidden;background:#111">
+      <img class="amerta-gs-img" src="" alt="AMERTA moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
+     <div class="amerta-gs" style="overflow:hidden;background:#111">
+      <img class="amerta-gs-img" src="" alt="AMERTA moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+     </div>
+    </div>
+   </div>
    <div style="background:#F2ECE4;border-top:1px solid rgba(28,28,30,0.07)">
     <div class="max-w-6xl mx-auto px-6 py-16">
      <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#4A6B8A">Data &amp; Analytics</span></div>
@@ -583,4 +705,5 @@ document.addEventListener('DOMContentLoaded', function () {
     tab.addEventListener('click', function () { amertaRenderBatch(this.dataset.batch); });
   });
   amertaRenderBatch('all');
+  amertaStartGallery();
 });

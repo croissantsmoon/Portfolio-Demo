@@ -373,7 +373,8 @@ function applyConfig(config) {
   document.getElementById('nav-name').textContent = 'ZKN';
   const teaserEl = document.getElementById('about-teaser-text');
   if (teaserEl) teaserEl.textContent = c('about_text');
-  document.getElementById('contact-email-el').textContent = c('contact_email');
+  const contactEmailEl = document.getElementById('contact-email-el');
+  if (contactEmailEl) contactEmailEl.textContent = c('contact_email');
   const partnershipTitle = document.getElementById('partnership-title');
   if (partnershipTitle) partnershipTitle.textContent = c('partnership_title');
   const mouTitle = document.getElementById('mou-title');
@@ -468,64 +469,68 @@ function injectHeroBanners() {
   });
 }
 
-// Initialize carousels (guard against missing elements)
-if (document.getElementById('carousel-track-hero')) updateCarouselDotsHero();
-updatePagesCarouselDots();
-pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+// All page HTML is injected via DOMContentLoaded in individual page JS files.
+// This listener fires last (main.js is loaded last) so all pages are ready.
+document.addEventListener('DOMContentLoaded', function() {
+  // Inject hero banners, then init lucide icons for the whole document
+  injectHeroBanners();
+  lucide.createIcons();
 
-// Inject hero banners then initialize lucide icons
-injectHeroBanners();
-lucide.createIcons();
+  // Initialize carousels (guard against missing elements)
+  if (document.getElementById('carousel-track-hero')) updateCarouselDotsHero();
+  updatePagesCarouselDots();
+  pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
 
-// Navigate to page from URL hash on load
-(function() {
-  const hash = location.hash.replace('#', '');
-  if (hash && document.getElementById(`page-${hash}`)) {
-    goToPage(hash, false);
-    history.replaceState({ page: hash }, '', location.hash);
-  } else {
-    history.replaceState({ page: 'home' }, '', location.pathname);
-  }
-})();
+  // Navigate to page from URL hash on load
+  (function() {
+    const hash = location.hash.replace('#', '');
+    if (hash && document.getElementById(`page-${hash}`)) {
+      goToPage(hash, false);
+      history.replaceState({ page: hash }, '', location.hash);
+    } else {
+      history.replaceState({ page: 'home' }, '', location.pathname);
+    }
+  })();
 
-// Touch swipe for hero carousel (only if present)
-(function() {
-  var track = document.getElementById('carousel-track-hero');
-  if (!track) return;
-  var startX = 0;
-  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', function(e) {
-    var diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) slideCarouselHero(diff > 0 ? 1 : -1);
-  }, { passive: true });
-})();
+  // Touch swipe for hero carousel (only if present)
+  (function() {
+    var track = document.getElementById('carousel-track-hero');
+    if (!track) return;
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) slideCarouselHero(diff > 0 ? 1 : -1);
+    }, { passive: true });
+  })();
 
-// Touch swipe for pages carousel
-(function() {
-  var track = document.getElementById('pages-carousel-track');
-  if (!track) return;
-  var startX = 0;
-  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', function(e) {
-    var diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) slidePagesCarousel(diff > 0 ? 1 : -1);
-  }, { passive: true });
-})();
+  // Touch swipe for pages carousel
+  (function() {
+    var track = document.getElementById('pages-carousel-track');
+    if (!track) return;
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) slidePagesCarousel(diff > 0 ? 1 : -1);
+    }, { passive: true });
+  })();
 
-// ── Hero Slideshow ───────────────────────────────────────
-(function() {
-  var slides = Array.from(document.querySelectorAll('.hero-slide'));
-  if (!slides.length) return;
-  for (var i = slides.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var tmp = slides[i]; slides[i] = slides[j]; slides[j] = tmp;
-  }
-  var current = 0;
-  slides[current].classList.add('active');
-  setInterval(function() {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
+  // Hero Slideshow
+  (function() {
+    var slides = Array.from(document.querySelectorAll('.hero-slide'));
+    if (!slides.length) return;
+    for (var i = slides.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = slides[i]; slides[i] = slides[j]; slides[j] = tmp;
+    }
+    var current = 0;
     slides[current].classList.add('active');
-  }, 5000);
-})();
+    setInterval(function() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+  })();
+});
 

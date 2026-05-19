@@ -390,3 +390,231 @@ html, body {
 
 /* ── Smooth scrolling ───────────────────────────────────── */
 html { scroll-behavior: smooth; }
+
+/* ── CroissantsMoon Creative Enhancements ───────────────── */
+
+/* Scroll reveal */
+.cm-reveal {
+  opacity: 0;
+  transform: translateY(56px);
+  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cm-reveal.cm-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cm-reveal-d1 { transition-delay: 0.08s; }
+.cm-reveal-d2 { transition-delay: 0.18s; }
+.cm-reveal-d3 { transition-delay: 0.28s; }
+.cm-reveal-d4 { transition-delay: 0.38s; }
+
+/* Animated gradient text */
+@keyframes cmGradientFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.cm-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #F4874B 0%, #FF6B6B 15%, #A78BFA 35%,
+    #7BC8F6 50%, #6EE7B7 65%, #F5D05E 80%, #F4874B 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: cmGradientFlow 9s ease infinite;
+}
+
+/* Custom cursor */
+.cm-cursor-dot {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #F4874B;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s, width 0.2s, height 0.2s;
+  opacity: 0;
+  will-change: left, top;
+}
+.cm-cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(244, 135, 75, 0.55);
+  transform: translate(-50%, -50%);
+  transition: left 0.14s ease, top 0.14s ease, opacity 0.25s;
+  opacity: 0;
+  will-change: left, top;
+}
+
+/* Typewriter cursor blink */
+@keyframes cmBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cm-type-cursor {
+  display: inline-block;
+  width: 2.5px; height: 1.1em;
+  background: #F4874B;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  animation: cmBlink 0.75s ease-in-out infinite;
+}
+
+/* Card shimmer on hover */
+@keyframes cmCardShimmer {
+  from { left: -100%; }
+  to   { left: 200%;  }
+}
+.cm-work-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 55%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+.cm-work-card:hover::after {
+  animation: cmCardShimmer 0.9s ease forwards;
+}
+
+/* Confetti pieces */
+@keyframes cmConfettiFall {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(var(--cm-dx), var(--cm-dy)) rotate(720deg) scale(0.3); opacity: 0; }
+}
+.cm-confetti-piece {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 2px;
+  animation: cmConfettiFall 1.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Particles canvas */
+#cm-particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grain texture overlay */
+.cm-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.028;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Scroll indicator bounce */
+@keyframes cmScrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+.cm-scroll-indicator {
+  position: absolute;
+  bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  opacity: 0.3;
+  animation: cmScrollBounce 2.2s ease-in-out infinite;
+  pointer-events: none; z-index: 10;
+}
+
+/* ── Works gallery filter tabs ────────────────────────────── */
+.cm-filter-btn {
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-size: .78rem; font-weight: 600;
+  border: 1.5px solid rgba(28,28,30,0.14);
+  background: transparent; color: rgba(28,28,30,0.52);
+  cursor: pointer;
+  transition: all .2s;
+  font-family: 'Space Grotesk', Inter, sans-serif;
+  letter-spacing: .01em;
+}
+.cm-filter-btn:hover { background: rgba(28,28,30,0.06); color: #1C1C1E; }
+.cm-filter-btn.cm-f-active { background: #1C1C1E; color: #fff; border-color: #1C1C1E; }
+
+/* ── Graphic design thumbnail card ───────────────────────── */
+.cm-gd-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(28,28,30,0.08);
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.cm-gd-card:hover { transform: translateY(-7px); box-shadow: 0 24px 48px rgba(0,0,0,0.1); }
+.cm-gd-overlay {
+  position: absolute; inset: 0;
+  background: rgba(20,20,22,0.7);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+.cm-gd-card:hover .cm-gd-overlay { opacity: 1; }
+
+/* ── GD preview lightbox ─────────────────────────────────── */
+.cm-gd-lightbox {
+  position: fixed; inset: 0;
+  z-index: 9995;
+  background: rgba(10,10,12,0.94);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.cm-gd-lightbox-img {
+  max-width: min(860px, 90vw);
+  max-height: 58vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  transition: opacity 0.18s ease;
+  display: block;
+}
+.cm-gd-nav-btn {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  color: #fff;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 1.35rem; line-height: 1;
+  transition: background .2s;
+  z-index: 2;
+}
+.cm-gd-nav-btn:hover { background: rgba(255,255,255,0.22); }
+
+/* Sparkle decoration */
+@keyframes cmSparkle {
+  0%, 100% { opacity: 0.15; transform: scale(1) rotate(0deg); }
+  50%       { opacity: 0.7;  transform: scale(1.4) rotate(30deg); }
+}
+.cm-sparkle {
+  animation: cmSparkle var(--spk-dur, 3s) ease-in-out infinite;
+  animation-delay: var(--spk-delay, 0s);
+}
