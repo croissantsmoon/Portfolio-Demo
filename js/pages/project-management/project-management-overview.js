@@ -36,19 +36,19 @@ function projectsOverviewInitPage() {
       <div class="flex flex-wrap gap-0">
        <div style="padding:18px 32px 18px 0;border-right:1px solid rgba(28,28,30,0.07);margin-right:32px">
         <div class="font-heading font-bold" style="font-size:1.75rem;letter-spacing:-.025em;color:#1C1C1E;line-height:1">3</div>
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9A9A9A;margin-top:4px">Flagship Programs</div>
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Flagship Programs</div>
        </div>
        <div style="padding:18px 32px 18px 0;border-right:1px solid rgba(28,28,30,0.07);margin-right:32px">
         <div class="font-heading font-bold" style="font-size:1.75rem;letter-spacing:-.025em;color:#1C1C1E;line-height:1">200+</div>
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9A9A9A;margin-top:4px">Students Supported</div>
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Students Supported</div>
        </div>
        <div style="padding:18px 32px 18px 0;border-right:1px solid rgba(28,28,30,0.07);margin-right:32px">
         <div class="font-heading font-bold" style="font-size:1.75rem;letter-spacing:-.025em;color:#1C1C1E;line-height:1">IDR 290M</div>
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9A9A9A;margin-top:4px">Budget Peak</div>
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Budget Peak</div>
        </div>
        <div style="padding:18px 0">
         <div class="font-heading font-bold" style="font-size:1.75rem;letter-spacing:-.025em;color:#1C1C1E;line-height:1">50+</div>
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9A9A9A;margin-top:4px">Stakeholders Engaged</div>
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Stakeholders Engaged</div>
        </div>
       </div>
      </div>
@@ -88,15 +88,15 @@ function projectsOverviewInitPage() {
        <div class="flex flex-wrap items-center gap-8 pt-6 mt-6" style="border-top:1px solid rgba(28,28,30,0.07)">
         <div>
          <div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">120+</div>
-         <div style="font-size:.7rem;color:#9A9A9A;margin-top:2px">Students / cohort</div>
+         <div style="font-size:.7rem;color:#767676;margin-top:2px">Students / cohort</div>
         </div>
         <div>
          <div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">IDR 50–100M</div>
-         <div style="font-size:.7rem;color:#9A9A9A;margin-top:2px">Budget / program</div>
+         <div style="font-size:.7rem;color:#767676;margin-top:2px">Budget / program</div>
         </div>
         <div>
          <div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">10+</div>
-         <div style="font-size:.7rem;color:#9A9A9A;margin-top:2px">Stakeholders</div>
+         <div style="font-size:.7rem;color:#767676;margin-top:2px">Stakeholders</div>
         </div>
         <div class="ml-auto flex items-center gap-2 font-medium text-sm" style="color:#8B7355">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></div>
        </div>
@@ -126,7 +126,7 @@ function projectsOverviewInitPage() {
        <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
         <div>
          <span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">100+</span>
-         <span style="font-size:.75rem;color:#9A9A9A;margin-left:4px">students / program</span>
+         <span style="font-size:.75rem;color:#767676;margin-left:4px">students / program</span>
         </div>
         <span class="flex items-center gap-1.5 text-sm font-medium" style="color:#8B7355">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
        </div>
@@ -152,7 +152,7 @@ function projectsOverviewInitPage() {
        <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
         <div>
          <span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">50+</span>
-         <span style="font-size:.75rem;color:#9A9A9A;margin-left:4px">stakeholders coordinated</span>
+         <span style="font-size:.75rem;color:#767676;margin-left:4px">stakeholders coordinated</span>
         </div>
         <span class="flex items-center gap-1.5 text-sm font-medium" style="color:#8B7355">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
        </div>
@@ -200,7 +200,7 @@ function projectsOverviewInitPage() {
         <div class="flex flex-wrap gap-1.5"><span class="tag">Full-Stack Development</span><span class="tag">UI/UX Design</span><span class="tag">Digital Strategy</span></div>
        </div>
        <div class="flex items-center justify-between pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div style="font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9A9A9A">Petra Christian University</div>
+        <div style="font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#767676">Petra Christian University</div>
         <span class="flex items-center gap-2 text-sm font-medium" style="color:#003087">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
        </div>
       </div>
@@ -235,7 +235,7 @@ function projectsOverviewInitPage() {
         <div class="flex flex-wrap gap-1.5"><span class="tag">Print Design</span><span class="tag">Branding</span><span class="tag">Editorial Layout</span></div>
        </div>
        <div class="flex items-center justify-between pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div style="font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9A9A9A">Airlangga &amp; PCU</div>
+        <div style="font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#767676">Airlangga &amp; PCU</div>
         <span class="flex items-center gap-2 text-sm font-medium" style="color:#8B7355">View Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
        </div>
       </div>

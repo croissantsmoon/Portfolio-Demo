@@ -617,10 +617,10 @@ function amertaInitPage() {
    </div>
    <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-wrap gap-10 py-10" style="border-bottom:1px solid rgba(28,28,30,0.08)">
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">207</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Students (XXI–XXIV)</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">14</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Countries</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">24</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Partner Universities</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">IDR 50–100M</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Budget / cohort</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">207</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Students (XXI–XXIV)</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">14</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Countries</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">24</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Partner Universities</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">IDR 50–100M</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Budget / cohort</div></div>
     </div>
    </div>
    <div class="max-w-6xl mx-auto px-6 py-14">

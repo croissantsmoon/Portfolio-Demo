@@ -61,10 +61,12 @@ function homeInitPage() {
          <p class="text-sm leading-relaxed" style="color:#4A4A4A">International Education Professional · Creative Technologist · Surabaya</p>
         </div>
 
-        <!-- UX FIX: primary CTA stays filled/dark; CroissantsMoon moved to secondary "Also see" line so hierarchy is clear -->
-        <!-- SUGGESTION: "Explore My Work" label could be made more specific, e.g. "See My Projects" -->
+        <!-- Primary CTA: projects (the work itself); secondary: About; tertiary: CroissantsMoon -->
         <div style="animation:fadeUp .55s ease .22s both">
-         <a href="#/about-overview" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">Explore My Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
+         <div class="flex flex-wrap items-center gap-3">
+          <a href="#/projects-overview" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">View Projects <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
+          <a href="#/about-overview" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">About Me</a>
+         </div>
          <div class="mt-4 flex items-center gap-2">
           <span class="label-small" style="color:#767676">Also see:</span>
           <a href="#/croissantsmoon" class="inline-flex items-center gap-1.5 text-xs font-medium" style="font-family:'Playfair Display',serif;font-style:italic;color:#8B7355;text-decoration:none">CroissantsMoon <i data-lucide="moon" style="width:12px;height:12px"></i></a>
@@ -108,39 +110,39 @@ function homeInitPage() {
      <div style="background:#F2ECE4;border-bottom:1px solid rgba(28,28,30,0.07);padding:13px 0;overflow:hidden">
       <div style="display:flex;animation:cmMarquee 32s linear infinite;width:max-content">
        <div style="display:flex;align-items:center;white-space:nowrap">
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">International Partnership</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">International Partnership</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Student Mobility</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Student Mobility</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
         <span style="padding:0 28px;color:#8B7355;font-size:.67rem;font-weight:600;letter-spacing:.06em;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Creative Direction</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Creative Direction</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Digital Strategy</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Digital Strategy</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Web Development</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Web Development</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">MoU / MoA</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">MoU / MoA</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Surabaya, Indonesia</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Surabaya, Indonesia</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
        </div>
        <div style="display:flex;align-items:center;white-space:nowrap" aria-hidden="true">
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">International Partnership</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">International Partnership</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Student Mobility</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Student Mobility</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
         <span style="padding:0 28px;color:#8B7355;font-size:.67rem;font-weight:600;letter-spacing:.06em;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Creative Direction</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Creative Direction</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Digital Strategy</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Digital Strategy</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Web Development</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Web Development</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">MoU / MoA</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">MoU / MoA</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#9A9A9A;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Surabaya, Indonesia</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Surabaya, Indonesia</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
        </div>
       </div>
@@ -158,65 +160,65 @@ function homeInitPage() {
        </div>
        <!-- Top row: large + small -->
        <div class="grid lg:grid-cols-3 gap-4 mb-4">
-        <button onclick="goToPage('amerta')" class="lg:col-span-2 group relative overflow-hidden rounded-2xl text-left" style="padding:44px;min-height:260px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 20px 60px rgba(30,58,95,0.25)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-         <img src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="absolute inset-0 w-full h-full object-cover">
+        <a href="#/amerta" class="home-work-card lg:col-span-2 group relative overflow-hidden rounded-2xl block" style="padding:44px;min-height:260px;text-decoration:none;color:inherit">
+         <img src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA exchange students at Griffith University" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
          <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(30,58,95,0.88),rgba(74,107,138,0.72))"></div>
          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 90% 10%,rgba(139,115,85,0.18),transparent 50%)"></div>
          <div class="relative z-10 h-full flex flex-col justify-between">
           <div class="flex items-center justify-between">
-           <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.38)">Exchange Program</span>
-           <span style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'"><i data-lucide="arrow-up-right" style="width:16px;height:16px;color:rgba(255,255,255,0.7)"></i></span>
+           <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.7)">Exchange Program</span>
+           <span class="home-work-arrow" style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;transition:background .2s"><i data-lucide="arrow-up-right" style="width:16px;height:16px;color:#fff"></i></span>
           </div>
           <div>
            <h3 class="font-heading font-bold text-2xl mb-2" style="color:#fff;letter-spacing:-.01em;line-height:1.2">AMERTA Exchange<br>Program</h3>
-           <p class="text-sm" style="color:rgba(255,255,255,0.45)">120+ students · IDR 50–100M per cohort · Universitas Airlangga</p>
+           <p class="text-sm" style="color:rgba(255,255,255,0.75)">120+ students · IDR 50–100M per cohort · Universitas Airlangga</p>
           </div>
          </div>
-        </button>
-        <button onclick="goToPage('pcu-global')" class="group relative overflow-hidden rounded-2xl text-left" style="background:#F2ECE4;padding:36px;min-height:260px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 20px 60px rgba(28,28,30,0.09)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        </a>
+        <a href="#/pcu-global" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:#F2ECE4;padding:36px;min-height:260px;text-decoration:none;color:inherit">
          <div class="h-full flex flex-col justify-between">
           <div class="flex items-center justify-between">
-           <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#9A9A9A">Web Project</span>
-           <span style="width:38px;height:38px;border-radius:50%;background:rgba(28,28,30,0.06);display:flex;align-items:center;justify-content:center;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.11)'" onmouseout="this.style.background='rgba(28,28,30,0.06)'"><i data-lucide="arrow-up-right" style="width:16px;height:16px;color:#5C5C5C"></i></span>
+           <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#767676">Web Project</span>
+           <span class="home-work-arrow" style="width:38px;height:38px;border-radius:50%;background:rgba(28,28,30,0.06);display:flex;align-items:center;justify-content:center;transition:background .2s"><i data-lucide="arrow-up-right" style="width:16px;height:16px;color:#5C5C5C"></i></span>
           </div>
           <div>
            <div style="width:36px;height:3px;background:#003087;border-radius:2px;margin-bottom:16px"></div>
            <h3 class="font-heading font-bold text-xl mb-2" style="color:#1C1C1E;letter-spacing:-.01em;line-height:1.2">PCU Global<br>Website</h3>
-           <p class="text-sm" style="color:#9A9A9A">Full-stack · CMS · Mobile-first</p>
+           <p class="text-sm" style="color:#767676">Full-stack · CMS · Mobile-first</p>
           </div>
          </div>
-        </button>
+        </a>
        </div>
        <!-- Bottom row: three equal -->
        <div class="grid sm:grid-cols-3 gap-4">
-        <button onclick="goToPage('aci')" class="group relative overflow-hidden rounded-2xl text-left" style="min-height:160px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(28,28,30,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-         <img src="assets/images/aci/aci-4.JPEG" alt="ACI" class="absolute inset-0 w-full h-full object-cover">
+        <a href="#/aci" class="home-work-card group relative overflow-hidden rounded-2xl block" style="min-height:160px;text-decoration:none;color:inherit">
+         <img src="assets/images/aci/aci-4.JPEG" alt="ACI cultural immersion program" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(74,82,53,0.92) 0%,rgba(74,82,53,0.45) 100%)"></div>
          <div class="relative z-10 h-full flex flex-col justify-between p-7">
-          <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.5)">Cultural Program</span>
+          <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.7)">Cultural Program</span>
           <div>
            <h3 class="font-heading font-semibold text-base leading-snug mb-2" style="color:#fff">ACI — Airlangga<br>Cultural Immersion</h3>
-           <div class="flex items-center gap-2 text-xs font-medium" style="color:rgba(255,255,255,0.65)">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
+           <div class="flex items-center gap-2 text-xs font-medium" style="color:rgba(255,255,255,0.85)">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
           </div>
          </div>
-        </button>
-        <button onclick="goToPage('aero')" class="group relative overflow-hidden rounded-2xl text-left" style="min-height:160px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(28,28,30,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-         <img src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 30%">
+        </a>
+        <a href="#/aero" class="home-work-card group relative overflow-hidden rounded-2xl block" style="min-height:160px;text-decoration:none;color:inherit">
+         <img src="assets/images/aero/aero-header-1.JPEG" alt="AERO exhibition at Universitas Airlangga" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 30%">
          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(28,28,30,0.92) 0%,rgba(28,28,30,0.45) 100%)"></div>
          <div class="relative z-10 h-full flex flex-col justify-between p-7">
-          <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.5)">Exhibition</span>
+          <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.7)">Exhibition</span>
           <div>
            <h3 class="font-heading font-semibold text-base leading-snug mb-2" style="color:#fff">AERO Exhibition</h3>
-           <div class="flex items-center gap-2 text-xs font-medium" style="color:rgba(255,255,255,0.65)">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
+           <div class="flex items-center gap-2 text-xs font-medium" style="color:rgba(255,255,255,0.85)">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
           </div>
          </div>
-        </button>
-        <button onclick="goToPage('croissantsmoon')" class="group relative overflow-hidden rounded-2xl text-left" style="background:#1C1C1E;padding:28px;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(28,28,30,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        </a>
+        <a href="#/croissantsmoon" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:#1C1C1E;padding:28px;text-decoration:none;color:inherit">
          <div style="width:28px;height:3px;background:#8B7355;border-radius:2px;margin-bottom:18px"></div>
-         <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.3);display:block;margin-bottom:10px">Creative Studio</span>
+         <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.55);display:block;margin-bottom:10px">Creative Studio</span>
          <h3 class="font-heading font-semibold text-base leading-snug" style="color:#fff;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</h3>
-         <div class="mt-4 flex items-center gap-2 text-xs font-medium" style="color:#8B7355;opacity:0;transition:opacity .2s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">Explore <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
-        </button>
+         <div class="mt-4 flex items-center gap-2 text-xs font-medium" style="color:#8B7355">Explore <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
+        </a>
        </div>
       </div>
      </div>
@@ -247,7 +249,7 @@ function homeInitPage() {
           </div>
           <div id="search-dropdown" style="display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:200;background:#fff;border:1px solid rgba(28,28,30,0.1);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.1);overflow:hidden"></div>
          </div>
-         <button id="clear-skills-btn" onclick="clearSkills()" class="text-sm mt-3 inline-block" style="color:#9A9A9A;display:none">Clear all</button>
+         <button id="clear-skills-btn" onclick="clearSkills()" class="text-sm mt-3 inline-block" style="color:#767676;display:none">Clear all</button>
         </div>
         <!-- Tag cloud column -->
         <div class="lg:col-span-3">
@@ -287,42 +289,42 @@ function homeInitPage() {
       <div class="max-w-6xl mx-auto">
        <div class="flex items-center gap-3 mb-12"><span class="accent-line"></span><span class="label-small">Core Competencies</span></div>
        <div>
-        <button onclick="goToPage('partnerships')" class="w-full group flex items-start gap-6 py-7 text-left" style="border-top:1px solid rgba(28,28,30,0.1);background:transparent;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.018)'" onmouseout="this.style.background='transparent'">
+        <a href="#/partnerships" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#8B7355;min-width:32px;margin-top:3px">01</span>
          <div class="flex-1 min-w-0">
-          <span class="label-small block mb-1.5" style="color:#9A9A9A">Global Partnerships</span>
+          <span class="label-small block mb-1.5" style="color:#767676">Global Partnerships</span>
           <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">International Partnership Management</h3>
          </div>
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Managing 30+ institutional partners and reviewing 25+ MoU/MoA agreements monthly</p>
-         <span class="flex items-center gap-2 text-sm font-medium flex-shrink-0 transition-opacity" style="color:#8B7355;margin-top:22px;opacity:0" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
-        </button>
-        <button onclick="goToPage('onboarding')" class="w-full group flex items-start gap-6 py-7 text-left" style="border-top:1px solid rgba(28,28,30,0.1);background:transparent;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.018)'" onmouseout="this.style.background='transparent'">
+         <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#8B7355;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </a>
+        <a href="#/onboarding" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#4A6B8A;min-width:32px;margin-top:3px">02</span>
          <div class="flex-1 min-w-0">
-          <span class="label-small block mb-1.5" style="color:#9A9A9A">Student Services</span>
+          <span class="label-small block mb-1.5" style="color:#767676">Student Services</span>
           <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">International Student Support</h3>
          </div>
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">End-to-end welfare, mobility, and onboarding for 200+ international students across Surabaya</p>
-         <span class="flex items-center gap-2 text-sm font-medium flex-shrink-0 transition-opacity" style="color:#4A6B8A;margin-top:22px;opacity:0" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
-        </button>
-        <button onclick="goToPage('projects-overview')" class="w-full group flex items-start gap-6 py-7 text-left" style="border-top:1px solid rgba(28,28,30,0.1);background:transparent;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.018)'" onmouseout="this.style.background='transparent'">
+         <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#4A6B8A;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </a>
+        <a href="#/projects-overview" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#6B4F32;min-width:32px;margin-top:3px">03</span>
          <div class="flex-1 min-w-0">
-          <span class="label-small block mb-1.5" style="color:#9A9A9A">Program Management</span>
+          <span class="label-small block mb-1.5" style="color:#767676">Program Management</span>
           <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">Exchange Program Management</h3>
          </div>
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">5 end-to-end exchange programs — AMERTA, ACI, AERO — with IDR 50–90M per-program budgets</p>
-         <span class="flex items-center gap-2 text-sm font-medium flex-shrink-0 transition-opacity" style="color:#6B4F32;margin-top:22px;opacity:0" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
-        </button>
-        <button onclick="goToPage('croissantsmoon')" class="w-full group flex items-start gap-6 py-7 text-left" style="border-top:1px solid rgba(28,28,30,0.1);border-bottom:1px solid rgba(28,28,30,0.1);background:transparent;cursor:pointer;transition:background .2s" onmouseover="this.style.background='rgba(28,28,30,0.018)'" onmouseout="this.style.background='transparent'">
+         <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#6B4F32;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </a>
+        <a href="#/croissantsmoon" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);border-bottom:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#1C1C1E;min-width:32px;margin-top:3px;font-style:italic">CM</span>
          <div class="flex-1 min-w-0">
-          <span class="label-small block mb-1.5" style="color:#9A9A9A">Creative Identity</span>
+          <span class="label-small block mb-1.5" style="color:#767676">Creative Identity</span>
           <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</h3>
          </div>
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Creative digital experiences &amp; a future studio identity in development</p>
-         <span class="flex items-center gap-2 text-sm font-medium flex-shrink-0 transition-opacity" style="color:#8B7355;margin-top:22px;opacity:0" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">Explore <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
-        </button>
+         <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#8B7355;margin-top:22px">Explore <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+        </a>
        </div>
       </div>
      </div>

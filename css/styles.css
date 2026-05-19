@@ -8,7 +8,7 @@
   --bg-dark: #1C1C1E;
   --text-primary: #1C1C1E;
   --text-secondary: #5C5C5C;
-  /* UX FIX: #9A9A9A → #767676 passes WCAG AA on #FAFAF8 background */
+  /* UX FIX: #767676 → #767676 passes WCAG AA on #FAFAF8 background */
   --text-muted: #767676;
   --navy: #1E3A5F;
   --accent: #8B7355;
@@ -427,6 +427,40 @@ html { scroll-behavior: smooth; }
 /* ── Marquee: pause on hover ────────────────────────────── */
 /* UX FIX: marquee pauses when hovered so users can read the content */
 .cm-marquee-track:hover { animation-play-state: paused; }
+
+/* ── Home work cards (anchors) ───────────────────────────── */
+/* UX FIX: cards are now <a> tags; CSS replaces inline onmouseover handlers
+   so right-click / middle-click / share all work, and touch devices behave correctly */
+.home-work-card {
+  transition: transform .3s, box-shadow .3s;
+  cursor: pointer;
+}
+.home-work-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(28,28,30,0.12);
+}
+.home-work-card:hover .home-work-arrow {
+  background: rgba(255,255,255,0.22);
+}
+
+/* ── Home competency rows ───────────────────────────────── */
+.competency-row {
+  background: transparent;
+  transition: background .2s;
+}
+.competency-row:hover {
+  background: rgba(28,28,30,0.025);
+}
+/* UX FIX: View → affordance always visible at low opacity (touch users need this);
+   fades up to full on hover */
+.competency-cta {
+  opacity: .45;
+  transition: opacity .2s, transform .2s;
+}
+.competency-row:hover .competency-cta {
+  opacity: 1;
+  transform: translateX(3px);
+}
 
 /* ── CroissantsMoon Creative Enhancements ───────────────── */
 

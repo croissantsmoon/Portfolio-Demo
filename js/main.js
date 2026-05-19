@@ -226,7 +226,7 @@ function onEcosystemSearchInput(value) {
       '<span style="width:8px;height:8px;border-radius:50%;background:' + r.accent + ';flex-shrink:0;display:inline-block"></span>' +
       '<div style="flex:1;text-align:left">' +
       '<div style="font-size:.82rem;font-weight:600;color:#1C1C1E;font-family:inherit">' + r.title + '</div>' +
-      '<div style="font-size:.7rem;color:#9A9A9A;margin-top:1px">' + r.subtitle + '</div>' +
+      '<div style="font-size:.7rem;color:#767676;margin-top:1px">' + r.subtitle + '</div>' +
       '</div>' +
       '<i data-lucide="arrow-right" style="width:12px;height:12px;color:#C0B9AD;flex-shrink:0"></i>' +
       '</a>';
@@ -260,8 +260,17 @@ function filterArticles(category) {
 }
 
 function openArticle(id) {
-  // Articles are currently in-page only — future expansion
-  console.log('Article:', id);
+  // Articles are drafts — surface a non-disruptive "coming soon" hint near the clicked card
+  var card = document.querySelector('.article-card[data-article-id="' + id + '"]');
+  if (!card) return;
+  var existing = card.querySelector('.article-soon-toast');
+  if (existing) return;
+  var toast = document.createElement('div');
+  toast.className = 'article-soon-toast';
+  toast.textContent = 'Coming soon — essay in draft.';
+  toast.style.cssText = 'margin-top:14px;padding:8px 12px;border-radius:6px;background:rgba(139,115,85,0.1);color:#6B4F32;font-size:.72rem;font-weight:600;letter-spacing:.04em';
+  card.appendChild(toast);
+  setTimeout(function () { toast.remove(); }, 2400);
 }
 
 const defaultConfig = {
@@ -387,11 +396,22 @@ function _navigateFromHash() {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const page = document.getElementById('page-' + pageId);
   if (page) { page.classList.add('active'); currentPage = pageId; }
+  // UX FIX: also close mobile menu and reset scroll on every hash navigation —
+  // anchor-link taps in the mobile menu trigger hashchange (not goToPage), so the
+  // menu would otherwise stay open over the destination page.
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenu) mobileMenu.classList.add('hidden');
   window.scrollTo({ top: 0, behavior: 'instant' });
+  const app = document.getElementById('app');
+  if (app) app.scrollTop = 0;
+  const pagesContainer = document.querySelector('.pages-container');
+  if (pagesContainer) pagesContainer.scrollTop = 0;
   const meta = pageMetadata[pageId] || pageMetadata['home'];
   document.title = meta.title;
   let descEl = document.querySelector('meta[name="description"]');
   if (descEl) descEl.setAttribute('content', meta.description);
+  let ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', meta.title);
   _updateNavActiveState(pageId);
 }
 

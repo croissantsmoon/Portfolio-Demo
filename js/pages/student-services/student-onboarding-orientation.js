@@ -474,7 +474,7 @@ function onboardingInitPage() {
           </div>
          </div>
          <div class="mt-6 pt-4 border-t" style="border-color:rgba(28,28,30,0.08)">
-          <p class="text-xs" style="color:#9A9A9A">Data based on Batches 22–24 where study level was recorded. All KNB and TIAS students are government scholarship recipients.</p>
+          <p class="text-xs" style="color:#767676">Data based on Batches 22–24 where study level was recorded. All KNB and TIAS students are government scholarship recipients.</p>
          </div>
         </div>
        </div>

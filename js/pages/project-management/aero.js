@@ -128,7 +128,7 @@ const AERO_PARTICIPANTS = {
 
 const AERO_RUNDOWN = [
   {
-    day: 'Pre-Arrival', date: 'Friday, 2 May 2025', label: 'Online Meeting', color: '#9A9A9A',
+    day: 'Pre-Arrival', date: 'Friday, 2 May 2025', label: 'Online Meeting', color: '#767676',
     items: [
       { time: '15:00 – 16:00', activity: 'Technical Meeting', venue: 'Online (Zoom)' },
     ]
@@ -345,13 +345,13 @@ function buildAeroRundown() {
   const sections = AERO_RUNDOWN.map(s => {
     const rows = s.items.map(item => {
       const noteRow = item.note
-        ? `<tr><td></td><td colspan="2" class="pb-2 text-xs italic" style="color:#9A9A9A;padding-left:0">${aeroEsc(item.note)}</td></tr>`
+        ? `<tr><td></td><td colspan="2" class="pb-2 text-xs italic" style="color:#767676;padding-left:0">${aeroEsc(item.note)}</td></tr>`
         : '';
       return `
         <tr>
           <td class="py-1.5 pr-4 text-xs font-mono whitespace-nowrap align-top" style="color:${s.color};width:8rem">${aeroEsc(item.time)}</td>
           <td class="py-1.5 pr-4 text-sm font-medium align-top" style="color:#1C1C1E">${aeroEsc(item.activity)}</td>
-          <td class="py-1.5 text-xs align-top" style="color:#9A9A9A">${item.venue ? aeroEsc(item.venue) : ''}</td>
+          <td class="py-1.5 text-xs align-top" style="color:#767676">${item.venue ? aeroEsc(item.venue) : ''}</td>
         </tr>${noteRow}`;
     }).join('');
     return `
@@ -376,7 +376,7 @@ function buildAeroParticipants() {
       <span class="text-xs font-bold px-2 py-0.5 rounded" style="background:rgba(28,28,30,0.08);color:#1C1C1E">B${c.booth}</span>
       <div>
         <p class="text-sm font-medium" style="color:#1C1C1E">${aeroEsc(c.name)}</p>
-        <p class="text-xs" style="color:#9A9A9A">${aeroEsc(c.note)}</p>
+        <p class="text-xs" style="color:#767676">${aeroEsc(c.note)}</p>
       </div>
     </div>`).join('');
 
@@ -411,9 +411,9 @@ function buildAeroParticipants() {
   return `
     <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">UNAIR Internal Corners</h3>
     <div class="grid sm:grid-cols-2 gap-2 mb-8">${cornerCards}</div>
-    <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">Partner Universities & Institutions <span class="text-sm font-normal ml-1" style="color:#9A9A9A">— 5 countries</span></h3>
+    <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">Partner Universities & Institutions <span class="text-sm font-normal ml-1" style="color:#767676">— 5 countries</span></h3>
     <div class="grid md:grid-cols-2 gap-3 mb-8">${instBlocks}</div>
-    <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">International Student Delegations <span class="text-sm font-normal ml-1" style="color:#9A9A9A">— representing their home countries</span></h3>
+    <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">International Student Delegations <span class="text-sm font-normal ml-1" style="color:#767676">— representing their home countries</span></h3>
     <div class="grid sm:grid-cols-3 gap-2">${studentCards}</div>`;
 }
 
@@ -461,10 +461,10 @@ function aeroInitPage() {
 
    <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-wrap gap-10 py-10" style="border-bottom:1px solid rgba(28,28,30,0.08)">
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">19</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Exhibition Booths</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">12</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Partner Universities</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">50+</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Stakeholders</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">Rp 149.7M</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Total Budget</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">19</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Exhibition Booths</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">12</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Partner Universities</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">50+</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Stakeholders</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">Rp 149.7M</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Total Budget</div></div>
     </div>
    </div>
 

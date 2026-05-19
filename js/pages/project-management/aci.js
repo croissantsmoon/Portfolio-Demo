@@ -828,10 +828,10 @@ function aciInitPage() {
    </div>
    <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-wrap gap-10 py-10" style="border-bottom:1px solid rgba(28,28,30,0.08)">
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">191</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Total Participants</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">4</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Batches</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">25+</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Nationalities</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">IDR 236M</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#9A9A9A">Total Budget</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">191</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Total Participants</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">4</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Batches</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">25+</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Nationalities</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">IDR 236M</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Total Budget</div></div>
     </div>
    </div>
    <div class="max-w-6xl mx-auto px-6 py-14">

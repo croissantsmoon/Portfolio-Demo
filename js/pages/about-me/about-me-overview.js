@@ -25,7 +25,7 @@ function aboutOverviewInitPage() {
          </div>
          <div class="flex gap-2">
           <a href="mailto:zefanya.kharisma@gmail.com" class="flex items-center justify-center" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12)" title="Email"><i data-lucide="mail" style="width:15px;height:15px;color:rgba(255,255,255,0.7)"></i></a>
-          <a href="https://linkedin.com/in/zefanya-kharisma-nugroho" target="_blank" class="flex items-center justify-center" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12)" title="LinkedIn"><i data-lucide="linkedin" style="width:15px;height:15px;color:rgba(255,255,255,0.7)"></i></a>
+          <a href="https://www.linkedin.com/in/zefanyakharisma" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12)" title="LinkedIn"><i data-lucide="linkedin" style="width:15px;height:15px;color:rgba(255,255,255,0.7)"></i></a>
          </div>
         </div>
         <div class="flex-1">
@@ -72,12 +72,12 @@ function aboutOverviewInitPage() {
          <div class="card p-6" style="border-left:3px solid #1E3A5F">
           <p class="label-small mb-2" style="color:#1E3A5F">Currently</p>
           <p class="font-semibold text-sm" style="color:#1C1C1E">International Partnership Specialist</p>
-          <p class="text-xs mt-1" style="color:#9A9A9A">Petra Christian University · Surabaya</p>
+          <p class="text-xs mt-1" style="color:#767676">Petra Christian University · Surabaya</p>
          </div>
          <div class="card p-6" style="border-left:3px solid #8B7355">
           <p class="label-small mb-2" style="color:#8B7355">Also Building</p>
           <p class="font-semibold text-sm font-editorial" style="color:#1C1C1E">CroissantsMoon</p>
-          <p class="text-xs mt-1" style="color:#9A9A9A">Creative digital studio identity in development</p>
+          <p class="text-xs mt-1" style="color:#767676">Creative digital studio identity in development</p>
          </div>
          <div class="card p-6" style="border-left:3px solid #4A6B8A">
           <p class="label-small mb-2" style="color:#4A6B8A">Open To</p>
@@ -171,8 +171,8 @@ function aboutOverviewInitPage() {
               </ul>
              </div>
              <div class="flex items-center gap-3 flex-shrink-0">
-              <span class="label-small" style="color:#9A9A9A">Mar 2026 – Present</span>
-              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#9A9A9A;transition:transform .25s;flex-shrink:0"></i>
+              <span class="label-small" style="color:#767676">Mar 2026 – Present</span>
+              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#767676;transition:transform .25s;flex-shrink:0"></i>
              </div>
             </div>
            </button>
@@ -200,7 +200,7 @@ function aboutOverviewInitPage() {
               <p class="text-sm font-semibold mb-2" style="color:#4A6B8A">Airlangga Global Engagement · Surabaya</p>
               <div class="mb-3">
                <h3 class="font-heading font-semibold text-base" style="color:#1C1C1E">International Mobility &amp; Global Reputation</h3>
-               <p class="text-xs mb-1.5" style="color:#9A9A9A">Sep 2025 – Mar 2026</p>
+               <p class="text-xs mb-1.5" style="color:#767676">Sep 2025 – Mar 2026</p>
                <ul class="space-y-1">
                 <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#4A6B8A;flex-shrink:0;margin-top:1px"></i>Managed 5 exchange programs end-to-end with IDR 50–100M budgets</li>
                 <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#4A6B8A;flex-shrink:0;margin-top:1px"></i>Delivered quality experiences for 120+ international students per semester</li>
@@ -209,7 +209,7 @@ function aboutOverviewInitPage() {
               <div style="border-top:1px solid rgba(28,28,30,0.06);margin-bottom:12px"></div>
               <div>
                <h3 class="font-heading font-semibold text-base" style="color:#1C1C1E">International Student &amp; Mobility</h3>
-               <p class="text-xs mb-1.5" style="color:#9A9A9A">Jan 2024 – Sep 2025</p>
+               <p class="text-xs mb-1.5" style="color:#767676">Jan 2024 – Sep 2025</p>
                <ul class="space-y-1">
                 <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#4A6B8A;flex-shrink:0;margin-top:1px"></i>Welfare support for 100+ students — accommodation, healthcare, immigration</li>
                 <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#4A6B8A;flex-shrink:0;margin-top:1px"></i>Coordinated across 10+ stakeholders including hospitals, banks & immigration</li>
@@ -217,8 +217,8 @@ function aboutOverviewInitPage() {
               </div>
              </div>
              <div class="flex items-center gap-3 flex-shrink-0">
-              <span class="label-small" style="color:#9A9A9A">Jan 2024 – Mar 2026</span>
-              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#9A9A9A;transition:transform .25s;flex-shrink:0"></i>
+              <span class="label-small" style="color:#767676">Jan 2024 – Mar 2026</span>
+              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#767676;transition:transform .25s;flex-shrink:0"></i>
              </div>
             </div>
            </button>
@@ -226,7 +226,7 @@ function aboutOverviewInitPage() {
             <div class="p-6 pt-5">
              <div class="mb-5">
               <h4 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">International Mobility &amp; Global Reputation</h4>
-              <p class="text-xs mb-3" style="color:#9A9A9A">Sep 2025 – Mar 2026</p>
+              <p class="text-xs mb-3" style="color:#767676">Sep 2025 – Mar 2026</p>
               <ul class="space-y-2 mb-3">
                <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Managed 5 end-to-end exchange programs — promotion, pre-departure, arrival, study period, post-program</li>
                <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Budget management of IDR 50–100M per program across 50+ stakeholders</li>
@@ -237,7 +237,7 @@ function aboutOverviewInitPage() {
              <div style="border-top:1px solid rgba(28,28,30,0.06);margin-bottom:20px"></div>
              <div>
               <h4 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">International Student &amp; Mobility</h4>
-              <p class="text-xs mb-3" style="color:#9A9A9A">Jan 2024 – Sep 2025</p>
+              <p class="text-xs mb-3" style="color:#767676">Jan 2024 – Sep 2025</p>
               <ul class="space-y-2 mb-3">
                <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>End-to-end welfare support — accommodation, healthcare, insurance, banking, immigration</li>
                <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Coordinated across 10+ stakeholders including faculties, hospitals, banks, immigration</li>
@@ -264,8 +264,8 @@ function aboutOverviewInitPage() {
               </ul>
              </div>
              <div class="flex items-center gap-3 flex-shrink-0">
-              <span class="label-small" style="color:#9A9A9A">Sep 2023 – Jan 2024</span>
-              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#9A9A9A;transition:transform .25s;flex-shrink:0"></i>
+              <span class="label-small" style="color:#767676">Sep 2023 – Jan 2024</span>
+              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#767676;transition:transform .25s;flex-shrink:0"></i>
              </div>
             </div>
            </button>
@@ -296,8 +296,8 @@ function aboutOverviewInitPage() {
               </ul>
              </div>
              <div class="flex items-center gap-3 flex-shrink-0">
-              <span class="label-small" style="color:#9A9A9A">Jun 2023 – Jan 2024</span>
-              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#9A9A9A;transition:transform .25s;flex-shrink:0"></i>
+              <span class="label-small" style="color:#767676">Jun 2023 – Jan 2024</span>
+              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#767676;transition:transform .25s;flex-shrink:0"></i>
              </div>
             </div>
            </button>
@@ -328,8 +328,8 @@ function aboutOverviewInitPage() {
               </ul>
              </div>
              <div class="flex items-center gap-3 flex-shrink-0">
-              <span class="label-small" style="color:#9A9A9A">May 2023 – Jan 2024</span>
-              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#9A9A9A;transition:transform .25s;flex-shrink:0"></i>
+              <span class="label-small" style="color:#767676">May 2023 – Jan 2024</span>
+              <i data-lucide="chevron-down" class="timeline-chevron" style="width:16px;height:16px;color:#767676;transition:transform .25s;flex-shrink:0"></i>
              </div>
             </div>
            </button>
@@ -404,7 +404,7 @@ function aboutOverviewInitPage() {
           <div>
            <h3 class="font-heading font-bold text-lg mb-1" style="color:#1C1C1E">Bachelor's in International Relations</h3>
            <p class="text-sm font-medium mb-1" style="color:#1E3A5F">Universitas Airlangga</p>
-           <p class="label-small mb-3" style="color:#9A9A9A">July 2020 – March 2024</p>
+           <p class="label-small mb-3" style="color:#767676">July 2020 – March 2024</p>
            <p class="text-sm leading-relaxed" style="color:#5C5C5C">International relations theory, foreign policy analysis, and cross-cultural dynamics. Published academic research on U.S.–ASEAN cooperation and Middle East diplomacy. Presented at 9th ICoCSPA 2023.</p>
           </div>
          </div>
@@ -415,7 +415,7 @@ function aboutOverviewInitPage() {
           <div>
            <h3 class="font-heading font-bold text-lg mb-1" style="color:#1C1C1E">Academic Honors &amp; Publications</h3>
            <p class="text-sm font-medium mb-1" style="color:#8B7355">Research &amp; Recognition</p>
-           <p class="label-small mb-3" style="color:#9A9A9A">2022 – 2024</p>
+           <p class="label-small mb-3" style="color:#767676">2022 – 2024</p>
            <p class="text-sm leading-relaxed" style="color:#5C5C5C">Gold Medalist — World Youth Invention &amp; Innovation Award 2022. Published peer-reviewed papers on U.S. foreign policy, Korea–China THAAD dynamics, and the Abraham Accords.</p>
           </div>
          </div>
@@ -622,7 +622,7 @@ function aboutOverviewInitPage() {
          <p class="text-base leading-relaxed mb-6" style="color:#1C1C1E;font-family:'Playfair Display',serif;font-style:italic">Zefanya consistently delivers with both strategic clarity and genuine care for every student and partner he works with. His ability to manage complex multi-stakeholder programs while maintaining quality is exceptional.</p>
          <div class="flex items-center gap-3">
           <div style="width:40px;height:40px;border-radius:50%;background:rgba(30,58,95,0.08);display:flex;align-items:center;justify-content:center"><i data-lucide="user" style="width:18px;height:18px;color:#1E3A5F"></i></div>
-          <div><p class="font-semibold text-sm" style="color:#1C1C1E">International Education Colleague</p><p class="text-xs" style="color:#9A9A9A">Airlangga Global Engagement</p></div>
+          <div><p class="font-semibold text-sm" style="color:#1C1C1E">International Education Colleague</p><p class="text-xs" style="color:#767676">Airlangga Global Engagement</p></div>
          </div>
         </div>
         <div class="card p-8" style="background:#fff">
@@ -630,7 +630,7 @@ function aboutOverviewInitPage() {
          <p class="text-base leading-relaxed mb-6" style="color:#1C1C1E;font-family:'Playfair Display',serif;font-style:italic">What stands out about Zefanya is how he connects institutional priorities with creative thinking. He doesn't just execute — he brings perspective and design sensibility to every challenge.</p>
          <div class="flex items-center gap-3">
           <div style="width:40px;height:40px;border-radius:50%;background:rgba(139,115,85,0.08);display:flex;align-items:center;justify-content:center"><i data-lucide="user" style="width:18px;height:18px;color:#8B7355"></i></div>
-          <div><p class="font-semibold text-sm" style="color:#1C1C1E">Academic Partner</p><p class="text-xs" style="color:#9A9A9A">International University Collaborator</p></div>
+          <div><p class="font-semibold text-sm" style="color:#1C1C1E">Academic Partner</p><p class="text-xs" style="color:#767676">International University Collaborator</p></div>
          </div>
         </div>
        </div>
