@@ -4,6 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zefanya Kharisma Nugroho</title>
+  <!-- UX FIX: base description updated dynamically by goToPage() on every navigation -->
+  <meta name="description" content="International Education Professional &amp; Creative Technologist based in Surabaya.">
+  <!-- UX FIX: Open Graph and Twitter Card meta for social sharing previews -->
+  <!-- og:title and og:description are also updated dynamically by goToPage() -->
+  <meta property="og:title" content="Zefanya Kharisma Nugroho — International Education &amp; Creative Digital">
+  <meta property="og:description" content="Bridging global engagement &amp; digital creativity. International Education Professional based in Surabaya.">
+  <meta property="og:image" content="https://zefanyakharisma-cell.github.io/Website-Portfolio/assets/og-image.jpg">
+  <meta property="og:url" content="https://zefanyakharisma-cell.github.io/Website-Portfolio">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zefanya Kharisma Nugroho — International Education &amp; Creative Digital">
+  <meta name="twitter:description" content="Bridging global engagement &amp; digital creativity. International Education Professional based in Surabaya.">
+  <meta name="twitter:image" content="https://zefanyakharisma-cell.github.io/Website-Portfolio/assets/og-image.jpg">
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
@@ -13,83 +26,108 @@
  </head>
  <body class="h-full">
   <div id="app" class="w-full h-full overflow-auto"><!-- Nav -->
+   <!-- UX FIX: nav buttons converted to <a href="#/pageId"> for shareable URLs, back/forward, right-click, middle-click -->
    <nav class="sticky top-0 z-50 backdrop-blur-md border-b" style="background:rgba(250,250,248,0.92);border-color:rgba(28,28,30,0.08)">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-     <button class="font-heading font-bold text-base nav-link tracking-tight" id="nav-name" onclick="goToPage('home')" style="color:#1C1C1E;letter-spacing:-.01em">ZKN</button>
+     <a href="#/" class="font-heading font-bold text-base nav-link tracking-tight" id="nav-name" style="color:#1C1C1E;letter-spacing:-.01em;text-decoration:none">ZKN</a>
      <div class="hidden md:flex items-center gap-1">
       <!-- About Me -->
-      <div class="relative group">
-       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition">About</button>
-       <div class="absolute left-0 mt-1 w-44 bg-white rounded-xl shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-1 pb-1" style="border-color:rgba(28,28,30,0.08)">
-        <button onclick="goToPage('about-overview')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Overview</button>
-        <button onclick="goToPage('expertise')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Expertise</button>
-        <button onclick="goToPage('experience')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Experience</button>
-        <button onclick="goToPage('skillset')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Skillset</button>
+      <div class="relative group nav-dropdown-group" id="dd-group-about">
+       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="dd-about" id="dd-btn-about">About</button>
+       <div class="nav-dropdown absolute left-0 mt-1 w-44 bg-white rounded-xl shadow-xl border pt-1 pb-1" id="dd-about" role="menu" style="border-color:rgba(28,28,30,0.08);display:none">
+        <a href="#/about-overview" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Overview</a>
+        <a href="#/expertise"      class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Expertise</a>
+        <a href="#/experience"     class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Experience</a>
+        <a href="#/skillset"       class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Skillset</a>
        </div>
       </div>
       <!-- Projects -->
-      <div class="relative group">
-       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition">Projects</button>
-       <div class="absolute left-0 mt-1 w-44 bg-white rounded-xl shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-1 pb-1" style="border-color:rgba(28,28,30,0.08)">
-        <button onclick="goToPage('projects-overview')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Overview</button>
-        <button onclick="goToPage('amerta')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">AMERTA</button>
-        <button onclick="goToPage('aci')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">ACI</button>
-        <button onclick="goToPage('aero')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">AERO</button>
-        <button onclick="goToPage('pcu-global')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">PCU Global</button>
-        <button onclick="goToPage('designs')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Graphic Design</button>
+      <div class="relative group nav-dropdown-group" id="dd-group-projects">
+       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="dd-projects" id="dd-btn-projects">Projects</button>
+       <!-- UX FIX: two-line taglines added so acronyms are self-explanatory at a glance -->
+       <div class="nav-dropdown absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border pt-1 pb-1" id="dd-projects" role="menu" style="border-color:rgba(28,28,30,0.08);display:none">
+        <a href="#/projects-overview" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
+         <span class="block text-sm" style="color:#5C5C5C">Overview</span>
+        </a>
+        <a href="#/amerta" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
+         <span class="block text-sm" style="color:#5C5C5C">AMERTA</span>
+         <span class="block text-xs mt-0.5" style="color:#9A9A9A">Exchange Program</span>
+        </a>
+        <a href="#/aci" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
+         <span class="block text-sm" style="color:#5C5C5C">ACI</span>
+         <span class="block text-xs mt-0.5" style="color:#9A9A9A">Cultural Immersion</span>
+        </a>
+        <a href="#/aero" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
+         <span class="block text-sm" style="color:#5C5C5C">AERO</span>
+         <span class="block text-xs mt-0.5" style="color:#9A9A9A">Exhibition</span>
+        </a>
+        <a href="#/pcu-global" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
+         <span class="block text-sm" style="color:#5C5C5C">PCU Global</span>
+         <span class="block text-xs mt-0.5" style="color:#9A9A9A">Web Project</span>
+        </a>
        </div>
       </div>
       <!-- International Education -->
-      <div class="relative group">
-       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition">Intl. Education</button>
-       <div class="absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-1 pb-1" style="border-color:rgba(28,28,30,0.08)">
-        <button onclick="goToPage('engagement')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Overview</button>
-        <button onclick="goToPage('onboarding')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">International Student Support</button>
-        <button onclick="goToPage('engagement-detail')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Student Engagement</button>
-        <button onclick="goToPage('partnerships')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">Partnership Development</button>
-        <button onclick="goToPage('mou')" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/4 rounded-lg transition" style="color:#5C5C5C">MoU / MoA</button>
+      <div class="relative group nav-dropdown-group" id="dd-group-intl">
+       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="dd-intl" id="dd-btn-intl">Intl. Education</button>
+       <div class="nav-dropdown absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border pt-1 pb-1" id="dd-intl" role="menu" style="border-color:rgba(28,28,30,0.08);display:none">
+        <a href="#/engagement"        class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Overview</a>
+        <a href="#/onboarding"        class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">International Student Support</a>
+        <a href="#/engagement-detail" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Student Engagement</a>
+        <a href="#/partnerships"      class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Partnership Development</a>
+        <a href="#/mou"               class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">MoU / MoA</a>
        </div>
       </div>
-      <!-- CroissantsMoon -->
-      <button onclick="goToPage('croissantsmoon')" class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition" style="font-family:'Playfair Display',serif;font-style:italic">CroissantsMoon</button>
-      <!-- Writing -->
-      <button onclick="goToPage('writing')" class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition">Writing</button>
-      <!-- Creative Services -->
-      <button onclick="goToPage('websites')" class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition">Web Dev</button>
-      <button onclick="goToPage('contact')" class="ml-2 text-sm font-medium px-5 py-2 rounded-full transition" style="background:#1C1C1E;color:#fff">Contact</button>
+      <!-- UX FIX: CroissantsMoon, Writing, Web Dev grouped under Creative dropdown per canonical IA -->
+      <div class="relative group nav-dropdown-group" id="dd-group-creative">
+       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="dd-creative" id="dd-btn-creative">Creative</button>
+       <div class="nav-dropdown absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border pt-1 pb-1" id="dd-creative" role="menu" style="border-color:rgba(28,28,30,0.08);display:none">
+        <a href="#/croissantsmoon" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
+         <span class="block text-sm" style="font-family:'Playfair Display',serif;font-style:italic;color:#5C5C5C">CroissantsMoon</span>
+        </a>
+        <a href="#/writing"  class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Writing</a>
+        <a href="#/websites" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Web Development</a>
+        <a href="#/designs"  class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Graphic Design</a>
+       </div>
+      </div>
+      <a href="#/contact" class="ml-2 text-sm font-medium px-5 py-2 rounded-full transition" style="background:#1C1C1E;color:#fff;text-decoration:none">Contact</a>
      </div>
-     <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-black/5"><i data-lucide="menu" style="width:20px;height:20px;color:#1C1C1E"></i></button>
+     <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-black/5" aria-label="Open navigation menu"><i data-lucide="menu" style="width:20px;height:20px;color:#1C1C1E"></i></button>
     </div>
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-1.5" style="background:#FAFAF8;border-top:1px solid rgba(28,28,30,0.06)">
      <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="about" style="color:#5C5C5C"> <span>About</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
      <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="about-menu">
-      <button onclick="goToPage('about-overview')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Overview</button>
-      <button onclick="goToPage('expertise')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Expertise</button>
-      <button onclick="goToPage('experience')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Experience</button>
-      <button onclick="goToPage('skillset')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Skillset</button>
+      <a href="#/about-overview" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
+      <a href="#/expertise"      class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Expertise</a>
+      <a href="#/experience"     class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Experience</a>
+      <a href="#/skillset"       class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Skillset</a>
      </div>
      <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="projects" style="color:#5C5C5C"> <span>Projects</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
      <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="projects-menu">
-      <button onclick="goToPage('projects-overview')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Overview</button>
-      <button onclick="goToPage('amerta')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">AMERTA</button>
-      <button onclick="goToPage('aci')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">ACI</button>
-      <button onclick="goToPage('aero')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">AERO</button>
-      <button onclick="goToPage('pcu-global')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">PCU Global</button>
-      <button onclick="goToPage('designs')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Graphic Design</button>
+      <a href="#/projects-overview" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
+      <a href="#/amerta"            class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">AMERTA</a>
+      <a href="#/aci"               class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">ACI</a>
+      <a href="#/aero"              class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">AERO</a>
+      <a href="#/pcu-global"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">PCU Global</a>
      </div>
      <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="intl" style="color:#5C5C5C"> <span>Intl. Education</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
      <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="intl-menu">
-      <button onclick="goToPage('engagement')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Overview</button>
-      <button onclick="goToPage('onboarding')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">International Student Support</button>
-      <button onclick="goToPage('engagement-detail')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Student Engagement</button>
-      <button onclick="goToPage('partnerships')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">Partnership Development</button>
-      <button onclick="goToPage('mou')" class="w-full text-left text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C">MoU / MoA</button>
+      <a href="#/engagement"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
+      <a href="#/onboarding"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">International Student Support</a>
+      <a href="#/engagement-detail" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Student Engagement</a>
+      <a href="#/partnerships"      class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Partnership Development</a>
+      <a href="#/mou"               class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">MoU / MoA</a>
      </div>
-     <button onclick="goToPage('croissantsmoon')" class="w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition" style="color:#5C5C5C;font-family:'Playfair Display',serif;font-style:italic">CroissantsMoon</button>
-     <button onclick="goToPage('writing')" class="w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition" style="color:#5C5C5C">Writing</button>
-     <button onclick="goToPage('websites')" class="w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition" style="color:#5C5C5C">Web Dev</button>
-     <button onclick="goToPage('contact')" class="text-sm font-medium py-2.5 px-5 rounded-full mt-2" style="background:#1C1C1E;color:#fff">Contact</button>
+     <!-- UX FIX: Creative sub-items grouped under accordion in mobile menu -->
+     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="creative" style="color:#5C5C5C"> <span>Creative</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
+     <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="creative-menu">
+      <a href="#/croissantsmoon" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;font-family:'Playfair Display',serif;font-style:italic;text-decoration:none">CroissantsMoon</a>
+      <a href="#/writing"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Writing</a>
+      <a href="#/websites"       class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Web Development</a>
+      <a href="#/designs"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Graphic Design</a>
+     </div>
+     <a href="#/contact" class="block text-sm font-medium py-2.5 px-5 rounded-full mt-2 text-center" style="background:#1C1C1E;color:#fff;text-decoration:none">Contact</a>
     </div>
    </nav><!-- PAGES CONTAINER -->
    <div class="pages-container w-full overflow-auto">

@@ -8,7 +8,8 @@
   --bg-dark: #1C1C1E;
   --text-primary: #1C1C1E;
   --text-secondary: #5C5C5C;
-  --text-muted: #9A9A9A;
+  /* UX FIX: #9A9A9A → #767676 passes WCAG AA on #FAFAF8 background */
+  --text-muted: #767676;
   --navy: #1E3A5F;
   --accent: #8B7355;
   --accent-blue: #4A6B8A;
@@ -149,6 +150,19 @@ html, body {
   letter-spacing: .01em;
 }
 .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+
+/* UX FIX: keyboard-accessible dropdowns — show when aria-expanded or :focus-within */
+.nav-dropdown-group:focus-within .nav-dropdown,
+.nav-dropdown-trigger[aria-expanded="true"] + .nav-dropdown {
+  display: block !important;
+}
+
+/* UX FIX: nav active state — accent underline on current page */
+.nav-active {
+  color: var(--text-primary) !important;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: calc(0.5rem - 2px);
+}
 
 /* ── Page system ────────────────────────────────────────── */
 .page { display: none; }
@@ -390,6 +404,29 @@ html, body {
 
 /* ── Smooth scrolling ───────────────────────────────────── */
 html { scroll-behavior: smooth; }
+
+/* ── Accessibility: visible focus ring ─────────────────── */
+/* UX FIX: all interactive elements get a visible 2px #8B7355 outline on focus */
+:focus-visible {
+  outline: 2px solid #8B7355;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Accessibility: prefers-reduced-motion ─────────────── */
+/* UX FIX: disable all animations and transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Marquee: pause on hover ────────────────────────────── */
+/* UX FIX: marquee pauses when hovered so users can read the content */
+.cm-marquee-track:hover { animation-play-state: paused; }
 
 /* ── CroissantsMoon Creative Enhancements ───────────────── */
 

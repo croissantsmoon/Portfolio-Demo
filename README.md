@@ -4,17 +4,15 @@ Personal portfolio website for Zefanya Kharisma Nugroho, International Partnersh
 
 ## Overview
 
-A single-page application with an editorial premium aesthetic, organized into the following sections:
+A single-page application with an editorial premium aesthetic, organized into five canonical sections:
 
-- **Home** — Hero landing with slideshow, skill discovery entry point
-- **About** — Overview, education, international exposure, values, expertise, experience, and skillset
-- **Projects** — AMERTA, ACI, AERO, PCU Global, and Graphic Design
-- **Intl. Education** — Student onboarding, student engagement (with detail view), partnership development (with detail view), and MoU/MoA coordination (with detail view)
-- **Skill Discovery** — Curated work results filtered by selected skills
-- **CroissantsMoon** — Personal creative space
-- **Writing** — Written work and essays
-- **Web Dev** — Web development projects
+- **About** — Overview, education, international exposure, professional values, expertise, experience, and skillset
+- **Projects** — AMERTA (Exchange Program), ACI (Cultural Immersion), AERO (Exhibition), PCU Global (Web Project)
+- **Intl. Education** — Student onboarding & support, student engagement (with detail view), partnership development (with detail view), and MoU/MoA coordination (with detail view)
+- **Creative** — CroissantsMoon (boutique studio identity), Writing, Web Development, Graphic Design
 - **Contact** — Contact information
+
+The home page also hosts the Skill Discovery entry point, where visitors filter work by skill area.
 
 ## Tech Stack
 

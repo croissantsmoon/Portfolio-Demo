@@ -5,22 +5,22 @@ function homeInitPage() {
 
      <!-- ═══ EDITORIAL HERO ═══ -->
      <div class="hero-editorial px-6 md:px-16 lg:px-24" style="min-height:92vh;padding-top:clamp(4rem,10vh,7rem);padding-bottom:clamp(3rem,6vh,5rem)">
-      <!-- Slideshow background -->
-      <div class="hero-slide" style="background-image:url('./assets/images/aci/aci-4.JPEG')"></div>
-      <div class="hero-slide" style="background-image:url('./assets/images/aero/aero-1.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('./assets/images/student-services/tailor-made/griffith-unair-3.JPEG')"></div>
-      <div class="hero-slide" style="background-image:url('./assets/images/student-services/tailor-made/ljmu-unair-2.JPEG')"></div>
-      <div class="hero-slide" style="background-image:url('./assets/images/self-portrait/profile-15.JPG')"></div>
-      <div class="hero-slide-overlay"></div>
-      <!-- Background gradients -->
-      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 70% 30%,rgba(139,115,85,0.09),transparent 55%),radial-gradient(ellipse at 10% 85%,rgba(74,107,138,0.05),transparent 50%)"></div>
-      <!-- Giant watermark letter -->
-      <div class="absolute right-0 top-0 h-full hidden lg:flex items-center pointer-events-none overflow-hidden" style="width:42%">
+      <!-- Slideshow background — decorative, hidden from assistive tech -->
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/aci/aci-4.JPEG')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/aero/aero-1.jpg')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/student-services/tailor-made/griffith-unair-3.JPEG')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/student-services/tailor-made/ljmu-unair-2.JPEG')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/self-portrait/profile-15.JPG')"></div>
+      <div class="hero-slide-overlay" aria-hidden="true"></div>
+      <!-- Background gradients — decorative, hidden from assistive tech -->
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="background:radial-gradient(ellipse at 70% 30%,rgba(139,115,85,0.09),transparent 55%),radial-gradient(ellipse at 10% 85%,rgba(74,107,138,0.05),transparent 50%)"></div>
+      <!-- Giant watermark letter — decorative -->
+      <div class="absolute right-0 top-0 h-full hidden lg:flex items-center pointer-events-none overflow-hidden" aria-hidden="true" style="width:42%">
        <span style="font-family:'Playfair Display',serif;font-size:clamp(18rem,26vw,34rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%)">Z</span>
       </div>
-      <!-- Geometric ring accents -->
-      <div class="absolute hidden lg:block pointer-events-none" style="right:15%;top:15%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(139,115,85,0.11)"></div>
-      <div class="absolute hidden lg:block pointer-events-none" style="right:18%;top:22%;width:110px;height:110px;border-radius:50%;border:1px solid rgba(139,115,85,0.07)"></div>
+      <!-- Geometric ring accents — decorative -->
+      <div class="absolute hidden lg:block pointer-events-none" aria-hidden="true" style="right:15%;top:15%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(139,115,85,0.11)"></div>
+      <div class="absolute hidden lg:block pointer-events-none" aria-hidden="true" style="right:18%;top:22%;width:110px;height:110px;border-radius:50%;border:1px solid rgba(139,115,85,0.07)"></div>
 
       <div class="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
@@ -61,40 +61,44 @@ function homeInitPage() {
          <p class="text-sm leading-relaxed" style="color:#4A4A4A">International Education Professional · Creative Technologist · Surabaya</p>
         </div>
 
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-3" style="animation:fadeUp .55s ease .22s both">
-         <button onclick="goToPage('about-overview')" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2">Explore My Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i></button>
-         <button onclick="goToPage('croissantsmoon')" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="font-family:'Playfair Display',serif;font-style:italic">CroissantsMoon <i data-lucide="moon" style="width:15px;height:15px"></i></button>
+        <!-- UX FIX: primary CTA stays filled/dark; CroissantsMoon moved to secondary "Also see" line so hierarchy is clear -->
+        <!-- SUGGESTION: "Explore My Work" label could be made more specific, e.g. "See My Projects" -->
+        <div style="animation:fadeUp .55s ease .22s both">
+         <a href="#/about-overview" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">Explore My Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
+         <div class="mt-4 flex items-center gap-2">
+          <span class="label-small" style="color:#767676">Also see:</span>
+          <a href="#/croissantsmoon" class="inline-flex items-center gap-1.5 text-xs font-medium" style="font-family:'Playfair Display',serif;font-style:italic;color:#8B7355;text-decoration:none">CroissantsMoon <i data-lucide="moon" style="width:12px;height:12px"></i></a>
+         </div>
         </div>
        </div>
       </div>
 
-      <!-- Scroll indicator -->
-      <div class="absolute bottom-8 left-6 hidden md:flex flex-col items-center gap-2" style="opacity:.28">
+      <!-- UX FIX: scroll indicator is now a functional button that scrolls to the stats band -->
+      <button class="absolute bottom-8 left-6 hidden md:flex flex-col items-center gap-2" aria-label="Scroll to next section" onclick="document.getElementById('home-stats-band').scrollIntoView({behavior:'smooth'})" style="opacity:.28;background:none;border:none;cursor:pointer;padding:0">
        <div style="width:1px;height:40px;background:#1C1C1E"></div>
        <span class="label-small" style="writing-mode:vertical-rl;letter-spacing:.14em">Scroll</span>
-      </div>
+      </button>
      </div>
 
      <!-- ═══ STATS BAND ═══ -->
-     <div style="background:#1C1C1E;padding:36px 24px">
+     <div id="home-stats-band" style="background:#1C1C1E;padding:36px 24px">
       <div class="max-w-6xl mx-auto">
        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div class="text-center">
          <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">480+</p>
-         <p class="label-small mt-2" style="color:rgba(255,255,255,0.3)">Students Supported</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)">Students Supported</p>
         </div>
         <div class="text-center">
          <p class="font-heading font-bold" style="font-size:2.6rem;color:#8B7355;letter-spacing:-.02em;line-height:1">505+</p>
-         <p class="label-small mt-2" style="color:rgba(255,255,255,0.3)">Global Partners</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)">Global Partners</p>
         </div>
         <div class="text-center">
          <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">3+</p>
-         <p class="label-small mt-2" style="color:rgba(255,255,255,0.3)">Years Experience</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)">Years Experience</p>
         </div>
         <div class="text-center">
          <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">5</p>
-         <p class="label-small mt-2" style="color:rgba(255,255,255,0.3)">Programs Led</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)">Programs Led</p>
         </div>
        </div>
       </div>

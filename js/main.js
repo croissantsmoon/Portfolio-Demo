@@ -107,15 +107,16 @@ function renderDiscoveryResults(skills, textQuery) {
   }
   if (noResults) noResults.classList.add('hidden');
 
+  // UX FIX: result cards converted to <a> links for proper routing and right-click support
   grid.innerHTML = matches.map(function(item) {
     var matchedSkills = item.skills.filter(function(s) { return skills.includes(s); });
-    return '<button onclick="goToPage(\'' + item.page + '\')" class="result-card p-7 text-left w-full" style="border-left:3px solid ' + item.accent + '">' +
+    return '<a href="#/' + item.page + '" class="result-card p-7 text-left w-full" style="border-left:3px solid ' + item.accent + ';display:block;text-decoration:none">' +
       '<div style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:' + item.accent + ';margin-bottom:10px">' + item.category + '</div>' +
       '<h3 class="font-heading font-semibold text-base mb-3 leading-snug" style="color:#1C1C1E">' + item.title + '</h3>' +
       '<p class="text-xs leading-relaxed mb-4" style="color:#5C5C5C">' + item.description + '</p>' +
       '<div class="flex flex-wrap gap-1.5 mb-4">' + matchedSkills.map(function(s) { return '<span class="tag">' + s + '</span>'; }).join('') + '</div>' +
       '<div class="flex items-center gap-2 text-xs font-medium" style="color:' + item.accent + '">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>' +
-      '</button>';
+      '</a>';
   }).join('');
   lucide.createIcons();
 }
@@ -217,9 +218,10 @@ function onEcosystemSearchInput(value) {
   var dropdown = document.getElementById('search-dropdown');
   if (!results.length) { dropdown.style.display = 'none'; return; }
 
+  // UX FIX: search results converted to <a> links for proper routing and right-click support
   dropdown.innerHTML = results.map(function(r) {
-    return '<button onclick="goToPage(\'' + r.page + '\');hideSearchDropdown()"' +
-      ' style="display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 14px;background:transparent;border:none;cursor:pointer;border-bottom:1px solid rgba(28,28,30,0.05);transition:background .15s;font-family:\'Inter\',sans-serif"' +
+    return '<a href="#/' + r.page + '" onclick="hideSearchDropdown()"' +
+      ' style="display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 14px;background:transparent;border-bottom:1px solid rgba(28,28,30,0.05);transition:background .15s;font-family:\'Inter\',sans-serif;text-decoration:none"' +
       ' onmouseover="this.style.background=\'rgba(28,28,30,0.04)\'" onmouseout="this.style.background=\'transparent\'">' +
       '<span style="width:8px;height:8px;border-radius:50%;background:' + r.accent + ';flex-shrink:0;display:inline-block"></span>' +
       '<div style="flex:1;text-align:left">' +
@@ -227,7 +229,7 @@ function onEcosystemSearchInput(value) {
       '<div style="font-size:.7rem;color:#9A9A9A;margin-top:1px">' + r.subtitle + '</div>' +
       '</div>' +
       '<i data-lucide="arrow-right" style="width:12px;height:12px;color:#C0B9AD;flex-shrink:0"></i>' +
-      '</button>';
+      '</a>';
   }).join('');
   dropdown.style.display = 'block';
   lucide.createIcons();
@@ -279,32 +281,124 @@ const defaultConfig = {
   font_size: 16
 };
 
+// UX FIX: page metadata for dynamic titles and meta descriptions
+const pageMetadata = {
+  'home':               { title: 'Zefanya Kharisma Nugroho',                              description: 'International Education Professional & Creative Technologist based in Surabaya.' },
+  'about-overview':     { title: 'About — Zefanya Kharisma Nugroho',                      description: 'Profile overview: 3+ years in international higher education, global mobility, and creative digital work.' },
+  'expertise':          { title: 'Expertise — Zefanya Kharisma Nugroho',                  description: 'Core competencies in international partnerships, student mobility, project management, and digital creativity.' },
+  'experience':         { title: 'Experience — Zefanya Kharisma Nugroho',                 description: 'Career timeline across Universitas Airlangga and Petra Christian University.' },
+  'skillset':           { title: 'Skillset — Zefanya Kharisma Nugroho',                   description: 'Full map of technical, professional, and creative competencies.' },
+  'education':          { title: 'Education — Zefanya Kharisma Nugroho',                  description: 'Academic background in International Relations.' },
+  'projects-overview':  { title: 'Projects — Zefanya Kharisma Nugroho',                   description: 'Portfolio of flagship programs: AMERTA, ACI, AERO, PCU Global.' },
+  'amerta':             { title: 'AMERTA — Zefanya Kharisma Nugroho',                     description: "Universitas Airlangga's flagship semester exchange program — 120+ students, IDR 50–100M budget." },
+  'aci':                { title: 'ACI — Zefanya Kharisma Nugroho',                        description: 'Airlangga Cultural Immersion: structured engagement connecting international and local students.' },
+  'aero':               { title: 'AERO — Zefanya Kharisma Nugroho',                       description: 'Annual exhibition at Universitas Airlangga showcasing global partnerships.' },
+  'pcu-global':         { title: 'PCU Global — Zefanya Kharisma Nugroho',                 description: 'Rebuilding PCU International Office online presence with full-stack web app.' },
+  'engagement':         { title: 'Intl. Education — Zefanya Kharisma Nugroho',            description: 'Building meaningful connections for exchange students through curated programs.' },
+  'onboarding':         { title: 'Student Support — Zefanya Kharisma Nugroho',            description: 'End-to-end welfare support for 100+ international students per semester.' },
+  'engagement-detail':  { title: 'Student Engagement — Zefanya Kharisma Nugroho',         description: 'Student engagement initiatives for international education.' },
+  'partnerships':       { title: 'Partnerships — Zefanya Kharisma Nugroho',               description: 'Managing 30+ institutional partners and reviewing 25+ MoU/MoA agreements monthly.' },
+  'mou':                { title: 'MoU / MoA — Zefanya Kharisma Nugroho',                  description: 'Formalizing academic partnerships through strategic agreements.' },
+  'croissantsmoon':     { title: 'CroissantsMoon — Zefanya Kharisma Nugroho',             description: 'A future-facing boutique studio identity — editorial design, web experiences, brand systems.' },
+  'writing':            { title: 'Writing — Zefanya Kharisma Nugroho',                    description: 'Essays and insights on international education, leadership, and digital craft.' },
+  'websites':           { title: 'Web Development — Zefanya Kharisma Nugroho',            description: 'Responsive, user-centered websites for institutional communications.' },
+  'designs':            { title: 'Graphic Design — Zefanya Kharisma Nugroho',             description: 'Strategic visual design for institutional identity and event collateral.' },
+  'contact':            { title: 'Contact — Zefanya Kharisma Nugroho',                    description: 'Open to international partnerships, collaborations, and conversations about global education.' },
+  'skill-discovery':    { title: 'Skill Discovery — Zefanya Kharisma Nugroho',            description: 'Explore related projects and work by skill area.' },
+};
+
 let currentPage = 'home';
 let currentSlideHero = 0;
 let currentPagesSlide = 0;
 let pagesAutoplay;
 
-function goToPage(pageName, updateHash = true) {
-  document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-  const page = document.getElementById(`page-${pageName}`);
+// UX FIX: hash routing — updates #/pageId, dynamic title, meta description, and scroll-to-top
+function goToPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + pageId);
   if (page) {
     page.classList.add('active');
-    currentPage = pageName;
-    const container = document.querySelector('.pages-container');
-    if (container) container.scrollTop = 0;
+    currentPage = pageId;
   }
   document.getElementById('mobile-menu').classList.add('hidden');
+
+  // Scroll to top of viewport — handles both the app scroll container and window
+  window.scrollTo({ top: 0, behavior: 'instant' });
   const app = document.getElementById('app');
   if (app) app.scrollTop = 0;
-  if (updateHash) {
-    const hash = pageName === 'home' ? '' : pageName;
-    history.pushState({ page: pageName }, '', hash ? `#${hash}` : location.pathname);
+  const container = document.querySelector('.pages-container');
+  if (container) container.scrollTop = 0;
+
+  // Update hash — #/home stays as bare path, all others use #/pageId
+  const newHash = pageId === 'home' ? location.pathname : '#/' + pageId;
+  if (location.hash !== '#/' + pageId && !(pageId === 'home' && !location.hash)) {
+    history.pushState({ page: pageId }, '', newHash);
+  }
+
+  // Update document title and meta description
+  const meta = pageMetadata[pageId] || pageMetadata['home'];
+  document.title = meta.title;
+  let descEl = document.querySelector('meta[name="description"]');
+  if (descEl) descEl.setAttribute('content', meta.description);
+
+  // Update OG title dynamically (for single-page sharing context)
+  let ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', meta.title);
+
+  // UX FIX: active state — mark current page in nav with .nav-active accent underline
+  _updateNavActiveState(pageId);
+}
+
+// Maps each pageId to which nav trigger should be marked active
+const _navActiveMap = {
+  'home': 'nav-name',
+  'about-overview': 'dd-btn-about', 'expertise': 'dd-btn-about',
+  'experience': 'dd-btn-about', 'skillset': 'dd-btn-about',
+  'projects-overview': 'dd-btn-projects', 'amerta': 'dd-btn-projects',
+  'aci': 'dd-btn-projects', 'aero': 'dd-btn-projects', 'pcu-global': 'dd-btn-projects',
+  'engagement': 'dd-btn-intl', 'onboarding': 'dd-btn-intl',
+  'engagement-detail': 'dd-btn-intl', 'partnerships': 'dd-btn-intl', 'mou': 'dd-btn-intl',
+  'croissantsmoon': 'dd-btn-creative', 'writing': 'dd-btn-creative',
+  'websites': 'dd-btn-creative', 'designs': 'dd-btn-creative',
+};
+
+function _updateNavActiveState(pageId) {
+  // Clear all existing active markers
+  document.querySelectorAll('.nav-active').forEach(el => el.classList.remove('nav-active'));
+  const triggerId = _navActiveMap[pageId];
+  if (triggerId) {
+    const el = document.getElementById(triggerId);
+    if (el) el.classList.add('nav-active');
   }
 }
 
+// UX FIX: hashchange event so back/forward and direct URL entry work
+function _navigateFromHash() {
+  const hash = location.hash;
+  let pageId = 'home';
+  if (hash.startsWith('#/')) {
+    const candidate = hash.slice(2);
+    if (candidate && document.getElementById('page-' + candidate)) pageId = candidate;
+  } else if (hash.startsWith('#') && hash.length > 1) {
+    // legacy support for old #pageName format
+    const candidate = hash.slice(1);
+    if (candidate && document.getElementById('page-' + candidate)) pageId = candidate;
+  }
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + pageId);
+  if (page) { page.classList.add('active'); currentPage = pageId; }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  const meta = pageMetadata[pageId] || pageMetadata['home'];
+  document.title = meta.title;
+  let descEl = document.querySelector('meta[name="description"]');
+  if (descEl) descEl.setAttribute('content', meta.description);
+  _updateNavActiveState(pageId);
+}
+
+window.addEventListener('hashchange', _navigateFromHash);
+
 window.addEventListener('popstate', (e) => {
-  const page = e.state?.page || 'home';
-  goToPage(page, false);
+  _navigateFromHash();
 });
 
 function slideCarouselHero(direction) {
@@ -422,6 +516,78 @@ document.querySelectorAll('.mobile-menu-toggle').forEach(btn => {
   });
 });
 
+// UX FIX: keyboard-accessible desktop dropdowns
+// Shows/hides via aria-expanded; works for mouse hover, keyboard, and click
+(function initNavDropdowns() {
+  var groups = document.querySelectorAll('.nav-dropdown-group');
+
+  function openDropdown(trigger, panel) {
+    trigger.setAttribute('aria-expanded', 'true');
+    panel.style.display = 'block';
+  }
+
+  function closeDropdown(trigger, panel) {
+    trigger.setAttribute('aria-expanded', 'false');
+    panel.style.display = 'none';
+  }
+
+  function closeAllDropdowns() {
+    groups.forEach(function(g) {
+      var t = g.querySelector('.nav-dropdown-trigger');
+      var p = g.querySelector('.nav-dropdown');
+      if (t && p) closeDropdown(t, p);
+    });
+  }
+
+  groups.forEach(function(group) {
+    var trigger = group.querySelector('.nav-dropdown-trigger');
+    var panel   = group.querySelector('.nav-dropdown');
+    if (!trigger || !panel) return;
+
+    // Mouse hover — open on enter, close on leave the whole group
+    group.addEventListener('mouseenter', function() { openDropdown(trigger, panel); });
+    group.addEventListener('mouseleave', function() { closeDropdown(trigger, panel); });
+
+    // Click toggle (also works for touch)
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      closeAllDropdowns();
+      if (!isOpen) openDropdown(trigger, panel);
+    });
+
+    // Keyboard: Enter/Space opens; Escape closes and returns focus
+    trigger.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        closeAllDropdowns();
+        if (!isOpen) {
+          openDropdown(trigger, panel);
+          // Move focus to first item
+          var firstItem = panel.querySelector('a');
+          if (firstItem) firstItem.focus();
+        }
+      } else if (e.key === 'Escape') {
+        closeDropdown(trigger, panel);
+        trigger.focus();
+      }
+    });
+
+    // Escape inside panel closes and returns focus to trigger
+    panel.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeDropdown(trigger, panel);
+        trigger.focus();
+      }
+    });
+  });
+
+  // Click outside closes all dropdowns
+  document.addEventListener('click', function() { closeAllDropdowns(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeAllDropdowns(); });
+})();
+
 // Hero banner configurations for each page
 const heroConfigs = {
   'education': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Academic Foundation', desc: 'Education and achievements that shaped my professional expertise in international relations.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
@@ -450,20 +616,22 @@ function injectHeroBanners() {
     hero.innerHTML = '<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.05)"></div>' +
       '<div class="absolute right-24 bottom-8 w-48 h-48 rounded-full" style="border:2px solid rgba(255,255,255,0.08)"></div>' +
       '<div class="relative z-10 max-w-6xl mx-auto px-6">' +
-      '<button onclick="goToPage(\'' + cfg.back + '\')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.75)">' +
-      '<i data-lucide="arrow-left" style="width:16px;height:16px"></i> ' + cfg.backLabel + '</button>' +
+      '<a href="#/' + cfg.back + '" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.75);text-decoration:none">' +
+      '<i data-lucide="arrow-left" style="width:16px;height:16px"></i> ' + cfg.backLabel + '</a>' +
       '<span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.15);color:#fff">' + cfg.category + '</span>' +
       '<h1 class="font-heading font-bold text-4xl md:text-5xl mb-4 text-white">' + cfg.title + '</h1>' +
       '<p class="text-base md:text-lg max-w-2xl" style="color:rgba(255,255,255,0.75)">' + cfg.desc + '</p>' +
       '</div>';
     page.insertBefore(hero, page.firstChild);
     const contentWrapper = Array.from(page.children).find(el =>
-      el !== hero && el.tagName === 'DIV' && el.querySelector && el.querySelector('button[onclick*="goToPage"]')
+      el !== hero && el.tagName === 'DIV' && el.querySelector &&
+      (el.querySelector('button[onclick*="goToPage"]') || el.querySelector('a[href^="#/"]'))
     );
     if (contentWrapper) {
       contentWrapper.style.paddingTop = contentWrapper.style.paddingTop || '64px';
       contentWrapper.style.paddingBottom = contentWrapper.style.paddingBottom || '64px';
-      const oldBack = contentWrapper.querySelector('button[onclick*="goToPage"]');
+      const oldBack = contentWrapper.querySelector('button[onclick*="goToPage"]') ||
+                      contentWrapper.querySelector('a[href^="#/"][data-back]');
       if (oldBack && oldBack.querySelector('i[data-lucide="arrow-left"]')) oldBack.remove();
     }
   });
@@ -481,16 +649,8 @@ document.addEventListener('DOMContentLoaded', function() {
   updatePagesCarouselDots();
   pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
 
-  // Navigate to page from URL hash on load
-  (function() {
-    const hash = location.hash.replace('#', '');
-    if (hash && document.getElementById(`page-${hash}`)) {
-      goToPage(hash, false);
-      history.replaceState({ page: hash }, '', location.hash);
-    } else {
-      history.replaceState({ page: 'home' }, '', location.pathname);
-    }
-  })();
+  // UX FIX: navigate to page from URL hash on load (supports #/pageId format)
+  _navigateFromHash();
 
   // Touch swipe for hero carousel (only if present)
   (function() {
