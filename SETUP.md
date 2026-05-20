@@ -113,15 +113,21 @@ dashboard and that the email/password match.
 
 ## 6. Editor choice
 
-This build uses **TipTap** via the official UMD CDN bundles. The bundles are
-loaded in `index.html`. On first run, `js/components/tiptap-editor.js` checks
-that `window.tiptap` is available; if it is not, it shows a console error and
-the writing editor falls back to a plain `<textarea>` so you do not lose work.
+This build uses **Quill 2.x** via the official jsdelivr UMD bundle. Quill is
+loaded in `index.html` (CSS + JS) and gives the admin a real WYSIWYG editor —
+type words, click toolbar buttons to format. You never write HTML by hand.
 
-If you want to switch to TinyMCE later, follow the original prompt — replace
-the TipTap script tags in `<head>` with the TinyMCE bundle and swap the
-contents of `js/components/tiptap-editor.js`. All writes will go straight to
-the `content_html` column; the `content` (jsonb) column can stay empty.
+Saved articles store both representations:
+
+| Column | Type   | Holds                         |
+| ------ | ------ | ----------------------------- |
+| `content`      | jsonb | Quill Delta JSON (round-trip safe)    |
+| `content_html` | text  | Rendered HTML used by the public reader |
+
+If Quill ever fails to load (CDN outage, network block),
+`js/components/tiptap-editor.js` detects this and falls back to a plain
+`<textarea>` so you do not lose work — formatting will not be applied, but
+text is preserved.
 
 ---
 

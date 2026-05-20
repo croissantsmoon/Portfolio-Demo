@@ -1183,12 +1183,86 @@ body.admin-mode [data-edit-key]:focus::after { opacity: 0; }
   padding: 18px 22px;
   background: #FAFAF8;
   font: inherit;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: .9rem;
-  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
   color: #1C1C1E;
   resize: vertical;
   box-sizing: border-box;
+}
+
+/* ── Quill (rich-text WYSIWYG) overrides ─────────────────────────────── */
+.rt-wrap--quill { background: #fff; }
+.rt-wrap--quill .ql-toolbar.ql-snow {
+  border: none;
+  border-bottom: 1px solid rgba(28,28,30,0.08);
+  padding: 8px 10px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.rt-wrap--quill .ql-container.ql-snow {
+  border: none;
+  font-family: 'Inter', sans-serif;
+  background: #FAFAF8;
+}
+.rt-wrap--quill .ql-editor {
+  min-height: 320px;
+  padding: 22px 26px;
+  font-size: 1.02rem;
+  line-height: 1.78;
+  color: #1C1C1E;
+}
+.rt-wrap--quill .ql-editor.ql-blank::before {
+  font-style: normal;
+  color: #9A9A9A;
+  left: 26px;
+  right: 26px;
+}
+.rt-wrap--quill .ql-editor h1,
+.rt-wrap--quill .ql-editor h2,
+.rt-wrap--quill .ql-editor h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #1C1C1E;
+  letter-spacing: -.01em;
+  margin: 1.2em 0 .4em;
+}
+.rt-wrap--quill .ql-editor h1 { font-size: 2rem; line-height: 1.15; }
+.rt-wrap--quill .ql-editor h2 { font-size: 1.5rem; line-height: 1.2; }
+.rt-wrap--quill .ql-editor h3 { font-size: 1.2rem; line-height: 1.25; }
+.rt-wrap--quill .ql-editor p  { margin: .6em 0; }
+.rt-wrap--quill .ql-editor a  { color: #1E3A5F; }
+.rt-wrap--quill .ql-editor blockquote {
+  border-left: 3px solid #8B7355;
+  background: rgba(139,115,85,0.06);
+  color: #5C5C5C;
+  padding: .4em 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+.rt-wrap--quill .ql-editor pre.ql-syntax,
+.rt-wrap--quill .ql-editor .ql-code-block-container {
+  background: #1C1C1E;
+  color: #F5F5F0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.rt-wrap--quill .ql-editor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: .6em 0;
+}
+.rt-wrap--quill .ql-snow .ql-tooltip {
+  z-index: 60;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(28,28,30,0.18);
+  border: 1px solid rgba(28,28,30,0.08);
 }
 
 /* ============================================================
