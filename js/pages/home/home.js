@@ -355,6 +355,23 @@ function homeInitPage() {
      </div>
     `;
   if (window.lucide) lucide.createIcons();
+
+  // ── Calendar: "What's happening" — inserted after the stats band ───────
+  var statsBand = el.querySelector('#home-stats-band');
+  if (statsBand && window.PortfolioCalendar) {
+    var section = document.createElement('section');
+    section.id = 'home-calendar-section';
+    section.style.cssText = 'padding:64px 24px;background:#FAFAF8';
+    section.innerHTML =
+      '<div class="max-w-5xl mx-auto">' +
+        '<div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Calendar</span></div>' +
+        '<h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E;letter-spacing:-.01em">What\'s happening</h2>' +
+        '<p class="text-sm mb-8" style="color:#5C5C5C;max-width:540px">Meetings, milestones, and recent publications — a live snapshot of what is on the calendar.</p>' +
+        '<div id="home-calendar-mount"></div>' +
+      '</div>';
+    statsBand.insertAdjacentElement('afterend', section);
+    window.PortfolioCalendar.mount(document.getElementById('home-calendar-mount'), 'home');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

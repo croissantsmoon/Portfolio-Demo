@@ -101,6 +101,28 @@ function mouInitPage() {
      </div>
     `;
   if (window.lucide) lucide.createIcons();
+
+  // ── Calendar: "Upcoming meetings & coordination" — inserted near the top
+  //    (right after the hero, before the existing framework section). ─────
+  if (window.PortfolioCalendar) {
+    var heroBlock = el.firstElementChild; // dark hero
+    var section = document.createElement('section');
+    section.id = 'mou-calendar-section';
+    section.style.cssText = 'padding:48px 24px;background:#FAFAF8;border-bottom:1px solid rgba(28,28,30,0.07)';
+    section.innerHTML =
+      '<div class="max-w-6xl mx-auto">' +
+        '<div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Coordination Calendar</span></div>' +
+        '<h2 class="font-heading font-bold text-2xl mb-2" style="color:#1C1C1E;letter-spacing:-.01em">Upcoming meetings &amp; coordination</h2>' +
+        '<p class="text-sm mb-6" style="color:#5C5C5C;max-width:560px">Scheduled meetings, agreement reviews, and partnership milestones. Click any date to see the details.</p>' +
+        '<div id="mou-calendar-mount"></div>' +
+      '</div>';
+    if (heroBlock && heroBlock.insertAdjacentElement) {
+      heroBlock.insertAdjacentElement('afterend', section);
+    } else {
+      el.appendChild(section);
+    }
+    window.PortfolioCalendar.mount(document.getElementById('mou-calendar-mount'), 'mou');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
