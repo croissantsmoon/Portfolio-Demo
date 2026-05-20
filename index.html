@@ -25,6 +25,8 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
+  <!-- UX FIX: skip-to-content link for keyboard users -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
   <div id="app" class="w-full h-full overflow-auto"><!-- Nav -->
    <!-- UX FIX: nav buttons converted to <a href="#/pageId"> for shareable URLs, back/forward, right-click, middle-click -->
    <nav class="sticky top-0 z-50 backdrop-blur-md border-b" style="background:rgba(250,250,248,0.92);border-color:rgba(28,28,30,0.08)">
@@ -130,7 +132,9 @@
      <a href="#/contact" class="block text-sm font-medium py-2.5 px-5 rounded-full mt-2 text-center" style="background:#1C1C1E;color:#fff;text-decoration:none">Contact</a>
     </div>
    </nav><!-- PAGES CONTAINER -->
-   <div class="pages-container w-full overflow-auto">
+   <!-- UX FIX: removed overflow-auto here. Nested scroll containers broke position:sticky
+        for the Skill Discovery heading. #app remains the single scroll container. -->
+   <div id="main-content" class="pages-container w-full" tabindex="-1">
     <!-- HOME PAGE -->
     <div id="page-home" class="page active" style="background:#FAFAF8">
    </div><!-- ABOUT ME OVERVIEW PAGE -->
@@ -171,7 +175,8 @@
    </div><!-- CREATIVE SERVICES PAGES -->
     <div id="page-websites" class="page"></div>
     <div id="page-designs" class="page"></div><!-- CONTACT PAGE -->
-    <div id="page-contact" class="page py-20" style="background:linear-gradient(135deg,#FFF5F0,#FFF9F5)">
+    <!-- UX FIX: removed conflicting light gradient; hero banner is dark, page body is bg-primary -->
+    <div id="page-contact" class="page" style="background:#FAFAF8">
    </div>
    <!-- ═══════════════════════════════════════════════════════ -->
    <!-- CROISSANTSMOON PAGE -->
@@ -189,6 +194,21 @@
    <!-- SKILL DISCOVERY PAGE -->
    <!-- ═══════════════════════════════════════════════════════ -->
    <div id="page-skill-discovery" class="page" style="background:#FAFAF8">
+   </div>
+
+   <!-- ═══════════════════════════════════════════════════════ -->
+   <!-- 404 PAGE — UX FIX: shown when hash route doesn't match -->
+   <!-- ═══════════════════════════════════════════════════════ -->
+   <div id="page-not-found" class="page" style="background:#FAFAF8">
+    <div class="max-w-2xl mx-auto px-6 py-32 text-center">
+     <p class="font-editorial mb-4" style="font-size:1rem;color:#8B7355">404</p>
+     <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2.5rem,5vw,3.5rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Page not found</h1>
+     <p class="text-base leading-relaxed mb-8" style="color:#5C5C5C">The page you're looking for doesn't exist or has been moved.</p>
+     <div class="flex flex-wrap justify-center gap-3">
+      <a href="#/" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">Back to home</a>
+      <a href="#/projects-overview" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">View projects</a>
+     </div>
+    </div>
    </div>
 
    </div>
@@ -213,7 +233,7 @@
   <script src="./js/pages/creative-services/websites.js"></script>
   <script src="./js/pages/global-partnership/mou-moa-coordination.js"></script>
   <script src="./js/pages/global-partnership/mou-detail.js"></script>
-  <script src="./js/pages/global-partnership/partnership-deveopment.js"></script>
+  <script src="./js/pages/global-partnership/partnership-development.js"></script>
   <script src="./js/pages/global-partnership/partnership-detail.js"></script>
   <script src="./js/pages/project-management/aci.js"></script>
   <script src="./js/pages/project-management/aero.js"></script>

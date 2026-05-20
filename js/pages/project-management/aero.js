@@ -445,7 +445,7 @@ function aeroInitPage() {
   if (!el) return;
   el.innerHTML = `
    <div class="page-hero-banner relative overflow-hidden" style="padding:64px 0 48px">
-    <div class="absolute inset-0"><img src="assets/images/aero/aero-header-1.JPEG" alt="AERO" style="width:100%;height:100%;object-fit:cover;object-position:center"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,28,30,0.88) 0%,rgba(44,44,46,0.82) 60%,rgba(60,60,62,0.77) 100%)"></div></div>
+    <div class="absolute inset-0"><img loading="lazy" src="assets/images/aero/aero-header-1.JPEG" alt="AERO" style="width:100%;height:100%;object-fit:cover;object-position:center"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,28,30,0.88) 0%,rgba(44,44,46,0.82) 60%,rgba(60,60,62,0.77) 100%)"></div></div>
     <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.03)"></div>
     <div class="absolute right-24 bottom-8 w-48 h-48 rounded-full" style="border:2px solid rgba(255,255,255,0.05)"></div>
     <div class="absolute inset-0 flex items-center justify-end overflow-hidden pr-8 pointer-events-none select-none" aria-hidden="true">
@@ -491,13 +491,13 @@ function aeroInitPage() {
     </div>
     <div id="aero-gallery" style="display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;height:75vh;gap:3px">
      <div class="aero-gs" style="grid-row:span 2;overflow:hidden;background:#111">
-      <img class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
      <div class="aero-gs" style="overflow:hidden;background:#111">
-      <img class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
      <div class="aero-gs" style="overflow:hidden;background:#111">
-      <img class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
     </div>
    </div>

@@ -244,7 +244,36 @@ function executeEcosystemSearch() {
   var input = document.getElementById('ecosystem-search-input');
   var q = input ? input.value.trim() : '';
   hideSearchDropdown();
-  if (selectedSkills.length === 0 && !q) return;
+  // UX FIX: empty submit now gives clear feedback instead of silently failing
+  if (selectedSkills.length === 0 && !q) {
+    var box = document.getElementById('ecosystem-search-box');
+    if (box) {
+      box.style.borderColor = '#C85A3A';
+      box.style.boxShadow = '0 0 0 3px rgba(200,90,58,0.12)';
+      // Brief shake to draw attention
+      box.animate(
+        [{ transform: 'translateX(0)' }, { transform: 'translateX(-4px)' }, { transform: 'translateX(4px)' }, { transform: 'translateX(0)' }],
+        { duration: 220, iterations: 1 }
+      );
+      var hint = document.getElementById('ecosystem-search-hint');
+      if (!hint) {
+        hint = document.createElement('p');
+        hint.id = 'ecosystem-search-hint';
+        hint.setAttribute('role', 'status');
+        hint.style.cssText = 'margin-top:8px;font-size:.75rem;color:#C85A3A';
+        hint.textContent = 'Pick a skill or type to search.';
+        box.parentElement.appendChild(hint);
+      }
+      if (input) input.focus();
+      setTimeout(function () {
+        box.style.borderColor = 'rgba(28,28,30,0.12)';
+        box.style.boxShadow = 'none';
+        var h = document.getElementById('ecosystem-search-hint');
+        if (h) h.remove();
+      }, 2400);
+    }
+    return;
+  }
   renderDiscoveryResults(selectedSkills, q);
   goToPage('skill-discovery');
 }
@@ -257,6 +286,32 @@ function filterArticles(category) {
   document.querySelectorAll('#articles-grid .article-card').forEach(card => {
     card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
   });
+}
+
+// UX FIX: graceful fallback if CV file is missing — never leave the user with a broken download
+function handleCvDownload(event, link) {
+  event.preventDefault();
+  fetch(link.href, { method: 'HEAD' })
+    .then(function (res) {
+      if (res.ok) {
+        // File exists — trigger the actual download
+        var a = document.createElement('a');
+        a.href = link.href;
+        a.download = 'Zefanya-Kharisma-Nugroho-CV.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } else {
+        throw new Error('CV not available');
+      }
+    })
+    .catch(function () {
+      // Fallback: route to contact so they can request it directly
+      var orig = link.innerHTML;
+      link.innerHTML = 'CV unavailable — opening contact…';
+      setTimeout(function () { link.innerHTML = orig; if (window.lucide) lucide.createIcons(); }, 2400);
+      setTimeout(function () { goToPage('contact'); }, 700);
+    });
 }
 
 function openArticle(id) {
@@ -314,6 +369,7 @@ const pageMetadata = {
   'designs':            { title: 'Graphic Design — Zefanya Kharisma Nugroho',             description: 'Strategic visual design for institutional identity and event collateral.' },
   'contact':            { title: 'Contact — Zefanya Kharisma Nugroho',                    description: 'Open to international partnerships, collaborations, and conversations about global education.' },
   'skill-discovery':    { title: 'Skill Discovery — Zefanya Kharisma Nugroho',            description: 'Explore related projects and work by skill area.' },
+  'not-found':          { title: 'Page not found — Zefanya Kharisma Nugroho',             description: 'The page you are looking for could not be found.' },
 };
 
 let currentPage = 'home';
@@ -321,41 +377,50 @@ let currentSlideHero = 0;
 let currentPagesSlide = 0;
 let pagesAutoplay;
 
-// UX FIX: hash routing — updates #/pageId, dynamic title, meta description, and scroll-to-top
-function goToPage(pageId) {
+// UX FIX: single render function used by both goToPage() and _navigateFromHash().
+// Previously the two paths drifted (og:title, mobile menu close, scroll reset).
+function _renderPage(pageId) {
+  // Resolve unknown pages to not-found (L6: 404 fallback)
+  const target = document.getElementById('page-' + pageId);
+  if (!target) pageId = 'not-found';
+
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const page = document.getElementById('page-' + pageId);
   if (page) {
     page.classList.add('active');
     currentPage = pageId;
   }
-  document.getElementById('mobile-menu').classList.add('hidden');
 
-  // Scroll to top of viewport — handles both the app scroll container and window
+  // Close mobile menu on every navigation
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenu) mobileMenu.classList.add('hidden');
+
+  // Scroll reset across all possible scroll containers
   window.scrollTo({ top: 0, behavior: 'instant' });
   const app = document.getElementById('app');
   if (app) app.scrollTop = 0;
   const container = document.querySelector('.pages-container');
   if (container) container.scrollTop = 0;
 
-  // Update hash — #/home stays as bare path, all others use #/pageId
-  const newHash = pageId === 'home' ? location.pathname : '#/' + pageId;
-  if (location.hash !== '#/' + pageId && !(pageId === 'home' && !location.hash)) {
-    history.pushState({ page: pageId }, '', newHash);
-  }
-
-  // Update document title and meta description
+  // Document title, description, og:title
   const meta = pageMetadata[pageId] || pageMetadata['home'];
   document.title = meta.title;
-  let descEl = document.querySelector('meta[name="description"]');
+  const descEl = document.querySelector('meta[name="description"]');
   if (descEl) descEl.setAttribute('content', meta.description);
-
-  // Update OG title dynamically (for single-page sharing context)
-  let ogTitle = document.querySelector('meta[property="og:title"]');
+  const ogTitle = document.querySelector('meta[property="og:title"]');
   if (ogTitle) ogTitle.setAttribute('content', meta.title);
 
-  // UX FIX: active state — mark current page in nav with .nav-active accent underline
   _updateNavActiveState(pageId);
+  return pageId;
+}
+
+// UX FIX: hash routing — updates #/pageId, dynamic title, meta description, and scroll-to-top
+function goToPage(pageId) {
+  const resolved = _renderPage(pageId);
+  const newHash = resolved === 'home' ? location.pathname : '#/' + resolved;
+  if (location.hash !== '#/' + resolved && !(resolved === 'home' && !location.hash)) {
+    history.pushState({ page: resolved }, '', newHash);
+  }
 }
 
 // Maps each pageId to which nav trigger should be marked active
@@ -386,33 +451,13 @@ function _navigateFromHash() {
   const hash = location.hash;
   let pageId = 'home';
   if (hash.startsWith('#/')) {
-    const candidate = hash.slice(2);
-    if (candidate && document.getElementById('page-' + candidate)) pageId = candidate;
+    pageId = hash.slice(2) || 'home';
   } else if (hash.startsWith('#') && hash.length > 1) {
     // legacy support for old #pageName format
-    const candidate = hash.slice(1);
-    if (candidate && document.getElementById('page-' + candidate)) pageId = candidate;
+    pageId = hash.slice(1);
   }
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const page = document.getElementById('page-' + pageId);
-  if (page) { page.classList.add('active'); currentPage = pageId; }
-  // UX FIX: also close mobile menu and reset scroll on every hash navigation —
-  // anchor-link taps in the mobile menu trigger hashchange (not goToPage), so the
-  // menu would otherwise stay open over the destination page.
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (mobileMenu) mobileMenu.classList.add('hidden');
-  window.scrollTo({ top: 0, behavior: 'instant' });
-  const app = document.getElementById('app');
-  if (app) app.scrollTop = 0;
-  const pagesContainer = document.querySelector('.pages-container');
-  if (pagesContainer) pagesContainer.scrollTop = 0;
-  const meta = pageMetadata[pageId] || pageMetadata['home'];
-  document.title = meta.title;
-  let descEl = document.querySelector('meta[name="description"]');
-  if (descEl) descEl.setAttribute('content', meta.description);
-  let ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) ogTitle.setAttribute('content', meta.title);
-  _updateNavActiveState(pageId);
+  // _renderPage resolves unknown IDs to 'not-found'
+  _renderPage(pageId);
 }
 
 window.addEventListener('hashchange', _navigateFromHash);
@@ -457,14 +502,17 @@ function slidePagesCarousel(dir) {
   if (currentPagesSlide < 0) currentPagesSlide = count - 1;
   track.style.transform = `translateX(-${currentPagesSlide * 100}%)`;
   updatePagesCarouselDots();
-  clearInterval(pagesAutoplay);
-  pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+  // UX FIX: only restart autoplay if it was running (respects user's pause + reduced-motion)
+  if (pagesAutoplay !== null) {
+    clearInterval(pagesAutoplay);
+    pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+  }
 }
 
 function updatePagesCarouselDots() {
   const dotsContainer = document.getElementById('pages-carousel-dots');
   const track = document.getElementById('pages-carousel-track');
-  if (!dotsContainer || !track) return;
+  if (!dotsContainer || !track || !track.children.length) return;
   const count = track.children.length;
   dotsContainer.innerHTML = '';
   for (let i = 0; i < count; i++) {
@@ -666,8 +714,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize carousels (guard against missing elements)
   if (document.getElementById('carousel-track-hero')) updateCarouselDotsHero();
-  updatePagesCarouselDots();
-  pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+  // UX FIX: only init pages-carousel if its track actually exists in the DOM
+  var pagesPrefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (document.getElementById('pages-carousel-track')) {
+    updatePagesCarouselDots();
+    if (!pagesPrefersReduced) {
+      pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+    }
+  }
+  document.addEventListener('visibilitychange', function() {
+    if (!document.getElementById('pages-carousel-track')) return;
+    if (document.hidden) {
+      if (pagesAutoplay) { clearInterval(pagesAutoplay); pagesAutoplay = null; }
+    } else if (!pagesPrefersReduced && !pagesAutoplay) {
+      pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+    }
+  });
 
   // UX FIX: navigate to page from URL hash on load (supports #/pageId format)
   _navigateFromHash();
@@ -696,21 +758,69 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { passive: true });
   })();
 
-  // Hero Slideshow
+  // UX FIX: Hero Slideshow with pause control, reduced-motion respect, and tab-hidden pause
   (function() {
     var slides = Array.from(document.querySelectorAll('.hero-slide'));
     if (!slides.length) return;
+
+    // Shuffle for visual variety
     for (var i = slides.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
       var tmp = slides[i]; slides[i] = slides[j]; slides[j] = tmp;
     }
     var current = 0;
     slides[current].classList.add('active');
-    setInterval(function() {
+
+    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var paused = prefersReducedMotion;
+    var timer = null;
+
+    function advance() {
       slides[current].classList.remove('active');
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
-    }, 5000);
+    }
+    function start() {
+      if (timer || paused) return;
+      timer = setInterval(advance, 5000);
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    // Inject a pause/play toggle into the hero
+    var hero = document.querySelector('.hero-editorial');
+    if (hero) {
+      var toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.setAttribute('aria-label', paused ? 'Play hero slideshow' : 'Pause hero slideshow');
+      toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      toggle.className = 'hero-slideshow-toggle';
+      toggle.style.cssText = 'position:absolute;bottom:18px;right:18px;z-index:20;width:32px;height:32px;border-radius:50%;background:rgba(28,28,30,0.55);border:1px solid rgba(255,255,255,0.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s';
+      toggle.innerHTML = paused
+        ? '<i data-lucide="play" style="width:13px;height:13px"></i>'
+        : '<i data-lucide="pause" style="width:13px;height:13px"></i>';
+      toggle.addEventListener('mouseenter', function() { toggle.style.background = 'rgba(28,28,30,0.75)'; });
+      toggle.addEventListener('mouseleave', function() { toggle.style.background = 'rgba(28,28,30,0.55)'; });
+      toggle.addEventListener('click', function() {
+        paused = !paused;
+        toggle.setAttribute('aria-label', paused ? 'Play hero slideshow' : 'Pause hero slideshow');
+        toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        toggle.innerHTML = paused
+          ? '<i data-lucide="play" style="width:13px;height:13px"></i>'
+          : '<i data-lucide="pause" style="width:13px;height:13px"></i>';
+        if (window.lucide) lucide.createIcons();
+        if (paused) stop(); else start();
+      });
+      hero.appendChild(toggle);
+    }
+
+    // Pause when tab is hidden, resume when visible
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) stop(); else start();
+    });
+
+    start();
   })();
 });
 

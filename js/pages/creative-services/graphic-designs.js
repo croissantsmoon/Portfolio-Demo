@@ -462,7 +462,7 @@ function gdBuildHero() {
             " onmouseover="this.style.transform='translateY(-6px) rotate(-0.5deg)';this.style.boxShadow='0 24px 64px rgba(0,0,0,0.14)'"
                onmouseout="this.style.transform='';this.style.boxShadow='0 8px 40px rgba(0,0,0,0.10)'">
               <div style="height:200px;overflow:hidden;position:relative;background:${deck[0].bg}">
-                <img src="./assets/images/graphic-designs/${deck[0].folder}/1.png" alt="${deck[0].title}" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
+                <img loading="lazy" src="./assets/images/graphic-designs/${deck[0].folder}/1.png" alt="${deck[0].title}" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
                 <span style="position:absolute;top:14px;right:14px;background:rgba(0,0,0,0.32);backdrop-filter:blur(4px);color:#fff;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:999px">${deck[0].year}</span>
                 <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(0,0,0,0.1));pointer-events:none"></div>
               </div>
@@ -548,7 +548,7 @@ function gdBuildProjectShowcase() {
          onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(0,0,0,0.06)'">
         <!-- Thumbnail left -->
         <div style="position:relative;overflow:hidden;min-height:240px;background:${featured.bg}">
-          <img src="./assets/images/graphic-designs/${featured.folder}/1.png" alt="${featured.title}" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:absolute;inset:0">
+          <img loading="lazy" src="./assets/images/graphic-designs/${featured.folder}/1.png" alt="${featured.title}" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:absolute;inset:0">
           <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.12) 0%,transparent 40%,rgba(0,0,0,0.08) 100%);pointer-events:none"></div>
           <span style="position:absolute;top:14px;left:14px;background:rgba(0,0,0,0.38);backdrop-filter:blur(4px);color:#fff;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:999px">Featured</span>
           <span style="position:absolute;bottom:14px;left:14px;background:rgba(0,0,0,0.32);backdrop-filter:blur(4px);color:#fff;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:999px">${featured.year}</span>
@@ -883,7 +883,7 @@ function gdLightboxContent() {
 
     <!-- Main image -->
     <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%;padding:56px 80px 80px">
-      <img id="gd-lb-img" src="./assets/images/graphic-designs/${p.folder}/${n}.png"
+      <img loading="lazy" id="gd-lb-img" src="./assets/images/graphic-designs/${p.folder}/${n}.png"
            alt="${p.title} — page ${n}"
            style="max-width:100%;max-height:75vh;object-fit:contain;border-radius:10px;box-shadow:0 32px 100px rgba(0,0,0,0.6);display:block">
     </div>
@@ -1210,7 +1210,7 @@ function gdBuildProjectDetail(project) {
         <div style="border-radius:24px;overflow:hidden;margin-bottom:3.5rem">
           <!-- cover image strip — clickable lightbox -->
           <div onclick="gdOpenLightbox('${project.id}', 0)" style="height:220px;overflow:hidden;position:relative;cursor:zoom-in">
-            <img src="./assets/images/graphic-designs/${project.folder}/1.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
+            <img src="./assets/images/graphic-designs/${project.folder}/1.png" alt="${project.title} — cover preview" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
             <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.06),rgba(0,0,0,0.52))"></div>
             <div style="position:absolute;bottom:16px;left:22px;color:rgba(255,255,255,0.6);font-size:.68rem;font-weight:600;letter-spacing:.08em">
               Click to preview · ${project.pages} pages

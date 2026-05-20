@@ -67,7 +67,7 @@ function projectsOverviewInitPage() {
     <div class="cursor-pointer group" onclick="goToPage('amerta')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;margin-bottom:20px;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
      <div class="grid md:grid-cols-5" style="min-height:300px">
       <div class="md:col-span-2 relative overflow-hidden" style="min-height:220px">
-       <img src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .6s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+       <img loading="lazy" src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .6s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
        <div class="absolute inset-0" style="background:linear-gradient(160deg,rgba(10,30,65,0.78) 0%,rgba(30,80,140,0.52) 100%)"></div>
        <div class="absolute top-5 left-5" style="font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:rgba(255,255,255,0.08);line-height:1;letter-spacing:-.04em;user-select:none">01</div>
        <div class="relative z-10 flex flex-col justify-end h-full px-8 pb-8" style="min-height:220px">
@@ -109,7 +109,7 @@ function projectsOverviewInitPage() {
 
      <div class="cursor-pointer group" onclick="goToPage('aci')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:18px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 10px 36px rgba(28,28,30,0.09)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
       <div class="relative overflow-hidden" style="height:170px">
-       <img src="assets/images/aci/aci-4.JPEG" alt="ACI" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+       <img loading="lazy" src="assets/images/aci/aci-4.JPEG" alt="ACI" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(55,62,38,0.9) 0%,rgba(55,62,38,0.25) 65%,transparent 100%)"></div>
        <div class="absolute top-4 left-5" style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;letter-spacing:-.04em;user-select:none">02</div>
        <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
@@ -135,7 +135,7 @@ function projectsOverviewInitPage() {
 
      <div class="cursor-pointer group" onclick="goToPage('aero')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:18px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 10px 36px rgba(28,28,30,0.09)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
       <div class="relative overflow-hidden" style="height:170px">
-       <img src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+       <img loading="lazy" src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(20,20,22,0.9) 0%,rgba(20,20,22,0.25) 65%,transparent 100%)"></div>
        <div class="absolute top-4 left-5" style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;letter-spacing:-.04em;user-select:none">03</div>
        <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
@@ -209,10 +209,10 @@ function projectsOverviewInitPage() {
      <!-- Graphic Design -->
      <div class="cursor-pointer group" onclick="goToPage('designs')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(139,115,85,0.3)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
       <div class="relative overflow-hidden" style="height:200px;background:#1C1C1E">
-       <div class="absolute inset-0 grid grid-cols-3" style="gap:2px;opacity:0.82">
-        <img src="assets/images/graphic-designs/aero-2025-unair/1.png" alt="" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        <img src="assets/images/graphic-designs/booklet-aci-2025-b2-unair/1.png" alt="" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        <img src="assets/images/graphic-designs/partnership-booklet-pcu/1.png" alt="" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+       <div class="absolute inset-0 grid grid-cols-3" aria-hidden="true" style="gap:2px;opacity:0.82">
+        <img src="assets/images/graphic-designs/aero-2025-unair/1.png" alt="" loading="lazy" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="assets/images/graphic-designs/booklet-aci-2025-b2-unair/1.png" alt="" loading="lazy" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="assets/images/graphic-designs/partnership-booklet-pcu/1.png" alt="" loading="lazy" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
        </div>
        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(28,28,30,0.88) 0%,rgba(28,28,30,0.3) 55%,rgba(28,28,30,0.1) 100%)"></div>
        <div class="absolute top-4 left-5" style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;letter-spacing:-.04em;user-select:none">GD</div>

@@ -434,7 +434,7 @@ function aboutOverviewInitPage() {
        <div class="grid md:grid-cols-2 gap-6">
         <button onclick="goToPage('amerta')" class="card text-left group overflow-hidden" style="background:#fff">
          <div class="h-40 relative overflow-hidden">
-          <img src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="w-full h-full object-cover">
+          <img loading="lazy" src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="w-full h-full object-cover">
          </div>
          <div class="p-6">
           <div class="label-small mb-2" style="color:#4A6B8A">Exchange Program · Airlangga</div>
@@ -446,7 +446,7 @@ function aboutOverviewInitPage() {
         </button>
         <button onclick="goToPage('aero')" class="card text-left group overflow-hidden" style="background:#fff">
          <div class="h-40 relative overflow-hidden">
-          <img src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="w-full h-full object-cover" style="object-position:center 30%">
+          <img loading="lazy" src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="w-full h-full object-cover" style="object-position:center 30%">
          </div>
          <div class="p-6">
           <div class="label-small mb-2" style="color:#6B4F32">Exhibition · Airlangga</div>

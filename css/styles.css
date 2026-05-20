@@ -44,9 +44,10 @@ html, body {
 }
 
 /* ── Hero ───────────────────────────────────────────────── */
+/* UX FIX: cap hero at 760px so short laptop screens reveal the stats band */
 .hero-editorial {
   background: var(--bg-primary);
-  min-height: 88vh;
+  min-height: min(88vh, 760px);
   display: flex;
   align-items: center;
   position: relative;
@@ -177,10 +178,11 @@ html, body {
 .is-flipped .group-hover\:opacity-100 { opacity: 1 !important; }
 
 /* ── Skill Tag System ───────────────────────────────────── */
+/* UX FIX: padding bumped from 6px/14px → 9px/16px so tap targets are ~36-40px tall on mobile */
 .skill-tag {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
+  padding: 9px 16px;
   background: rgba(28,28,30,0.05);
   color: var(--text-secondary);
   border-radius: 9999px;
@@ -191,6 +193,7 @@ html, body {
   transition: all .2s;
   letter-spacing: .02em;
   font-family: 'Inter', sans-serif;
+  min-height: 36px;
 }
 .skill-tag:hover {
   background: rgba(28,28,30,0.09);
@@ -413,6 +416,30 @@ html { scroll-behavior: smooth; }
   border-radius: 4px;
 }
 
+/* ── Accessibility: skip-to-content link ────────────────── */
+/* UX FIX: keyboard users can jump past the nav. Hidden until focused. */
+.skip-to-content {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: 10px 16px;
+  background: #1C1C1E;
+  color: #fff;
+  font-size: .85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform .2s;
+}
+.skip-to-content:focus {
+  transform: translateY(0);
+  outline: 2px solid #8B7355;
+  outline-offset: 2px;
+}
+#main-content:focus { outline: none; }
+
 /* ── Accessibility: prefers-reduced-motion ─────────────── */
 /* UX FIX: disable all animations and transitions for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
@@ -424,9 +451,10 @@ html { scroll-behavior: smooth; }
   }
 }
 
-/* ── Marquee: pause on hover ────────────────────────────── */
-/* UX FIX: marquee pauses when hovered so users can read the content */
-.cm-marquee-track:hover { animation-play-state: paused; }
+/* ── Marquee: pause on hover/focus ──────────────────────── */
+/* UX FIX: marquee pauses when hovered or any child is focused so users can read */
+.cm-marquee-track:hover,
+.cm-marquee-track:focus-within { animation-play-state: paused; }
 
 /* ── Home work cards (anchors) ───────────────────────────── */
 /* UX FIX: cards are now <a> tags; CSS replaces inline onmouseover handlers
@@ -442,6 +470,36 @@ html { scroll-behavior: smooth; }
 .home-work-card:hover .home-work-arrow {
   background: rgba(255,255,255,0.22);
 }
+
+/* ── Contact form (aligned with design system) ──────────── */
+.contact-input {
+  border: 1px solid rgba(28,28,30,0.12);
+  background: #FAFAF8;
+  color: #1C1C1E;
+  font-family: 'Inter', sans-serif;
+}
+.contact-input::placeholder { color: #767676; }
+.contact-input:focus {
+  border-color: #8B7355;
+  box-shadow: 0 0 0 3px rgba(139,115,85,0.12);
+  background: #fff;
+}
+
+.contact-link {
+  background: rgba(28,28,30,0.04);
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+.contact-link:hover {
+  background: rgba(139,115,85,0.1);
+  transform: translateY(-2px);
+}
+.contact-link-icon {
+  background: #1C1C1E;
+  color: #fff;
+  transition: background .2s;
+}
+.contact-link:hover .contact-link-icon { background: #8B7355; }
 
 /* ── Home competency rows ───────────────────────────────── */
 .competency-row {

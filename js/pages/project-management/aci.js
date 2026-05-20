@@ -813,7 +813,7 @@ function aciInitPage() {
 
   el.innerHTML = `
    <div class="page-hero-banner relative overflow-hidden" style="padding:64px 0 48px">
-    <div class="absolute inset-0"><img src="assets/images/aci/aci-4.JPEG" alt="ACI" style="width:100%;height:100%;object-fit:cover;object-position:center"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,82,53,0.88) 0%,rgba(92,102,66,0.82) 60%,rgba(107,116,85,0.77) 100%)"></div></div>
+    <div class="absolute inset-0"><img loading="lazy" src="assets/images/aci/aci-4.JPEG" alt="ACI" style="width:100%;height:100%;object-fit:cover;object-position:center"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,82,53,0.88) 0%,rgba(92,102,66,0.82) 60%,rgba(107,116,85,0.77) 100%)"></div></div>
     <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.04)"></div>
     <div class="absolute right-24 bottom-8 w-48 h-48 rounded-full" style="border:2px solid rgba(255,255,255,0.06)"></div>
     <div class="absolute inset-0 flex items-center justify-end overflow-hidden pr-8 pointer-events-none select-none" aria-hidden="true">
@@ -851,13 +851,13 @@ function aciInitPage() {
     </div>
     <div id="aci-gallery" style="display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;height:75vh;gap:3px">
      <div class="aci-gs" style="grid-row:span 2;overflow:hidden;background:#111">
-      <img class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
      <div class="aci-gs" style="overflow:hidden;background:#111">
-      <img class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
      <div class="aci-gs" style="overflow:hidden;background:#111">
-      <img class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aci-gs-img" src="" alt="ACI moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
     </div>
    </div>

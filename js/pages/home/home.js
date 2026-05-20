@@ -4,7 +4,8 @@ function homeInitPage() {
   el.innerHTML = `
 
      <!-- ═══ EDITORIAL HERO ═══ -->
-     <div class="hero-editorial px-6 md:px-16 lg:px-24" style="min-height:92vh;padding-top:clamp(4rem,10vh,7rem);padding-bottom:clamp(3rem,6vh,5rem)">
+     <!-- UX FIX: min-height now adaptive — short laptops show a slice of the next section instead of a wall of hero -->
+     <div class="hero-editorial px-6 md:px-16 lg:px-24" style="min-height:min(92vh,760px);padding-top:clamp(4rem,10vh,7rem);padding-bottom:clamp(3rem,6vh,5rem)">
       <!-- Slideshow background — decorative, hidden from assistive tech -->
       <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/aci/aci-4.JPEG')"></div>
       <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/aero/aero-1.jpg')"></div>
@@ -24,10 +25,10 @@ function homeInitPage() {
 
       <div class="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
-       <!-- Display Picture -->
-       <div class="hidden md:block flex-shrink-0" style="animation:fadeUp .5s ease both">
-        <div class="relative" style="width:270px">
-         <div style="width:270px;height:350px;border-radius:1.5rem;overflow:hidden;box-shadow:0 24px 64px rgba(28,28,30,0.14)">
+       <!-- UX FIX: profile photo now visible on mobile too (smaller, centered) -->
+       <div class="flex-shrink-0 home-hero-photo" style="animation:fadeUp .5s ease both">
+        <div class="relative mx-auto md:mx-0" style="width:180px">
+         <div class="home-hero-photo-frame" style="width:180px;height:230px;border-radius:1.25rem;overflow:hidden;box-shadow:0 24px 64px rgba(28,28,30,0.14)">
           <img src="./assets/images/self-portrait/profile-14.JPEG" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(2.2);transform-origin:center 75%">
          </div>
          <div style="position:absolute;bottom:-10px;left:20px;width:48px;height:2px;background:#8B7355;border-radius:2px"></div>
@@ -40,7 +41,7 @@ function homeInitPage() {
         <div class="flex flex-wrap items-center gap-3 mb-12" style="animation:fadeUp .5s ease both">
          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full" style="background:rgba(28,28,30,0.05);border:1px solid rgba(28,28,30,0.09)">
           <span style="width:6px;height:6px;border-radius:50%;background:#8B7355;display:inline-block"></span>
-          <span class="label-small" style="color:#5C5C5C">International Education &amp; Creative Digital</span>
+          <span class="label-small" style="color:#5C5C5C">International Partnerships · Creative Technologist</span>
          </div>
          <span class="label-small" style="color:#7A7068">· Surabaya, Indonesia</span>
         </div>
@@ -75,10 +76,11 @@ function homeInitPage() {
        </div>
       </div>
 
-      <!-- UX FIX: scroll indicator is now a functional button that scrolls to the stats band -->
-      <button class="absolute bottom-8 left-6 hidden md:flex flex-col items-center gap-2" aria-label="Scroll to next section" onclick="document.getElementById('home-stats-band').scrollIntoView({behavior:'smooth'})" style="opacity:.28;background:none;border:none;cursor:pointer;padding:0">
-       <div style="width:1px;height:40px;background:#1C1C1E"></div>
-       <span class="label-small" style="writing-mode:vertical-rl;letter-spacing:.14em">Scroll</span>
+      <!-- UX FIX: scroll cue now visible on mobile too — desktop keeps vertical text, mobile shows a centered chevron -->
+      <button class="hero-scroll-cue absolute bottom-6 left-1/2 md:left-6 md:translate-x-0 flex flex-col items-center gap-2" aria-label="Scroll to next section" onclick="document.getElementById('home-stats-band').scrollIntoView({behavior:'smooth'})" style="opacity:.32;background:none;border:none;cursor:pointer;padding:0;transform:translateX(-50%)">
+       <div class="hidden md:block" style="width:1px;height:40px;background:#1C1C1E"></div>
+       <span class="label-small hidden md:inline" style="writing-mode:vertical-rl;letter-spacing:.14em">Scroll</span>
+       <i data-lucide="chevron-down" class="md:hidden" style="width:22px;height:22px;color:#1C1C1E;animation:cmScrollBounce 2.2s ease-in-out infinite"></i>
       </button>
      </div>
 
@@ -107,8 +109,9 @@ function homeInitPage() {
      </div>
 
      <!-- ═══ MARQUEE STRIP ═══ -->
-     <div style="background:#F2ECE4;border-bottom:1px solid rgba(28,28,30,0.07);padding:13px 0;overflow:hidden">
-      <div style="display:flex;animation:cmMarquee 32s linear infinite;width:max-content">
+     <!-- UX FIX: aria-hidden on outer wrapper (decorative); .cm-marquee-track class enables hover-pause -->
+     <div aria-hidden="true" style="background:#F2ECE4;border-bottom:1px solid rgba(28,28,30,0.07);padding:13px 0;overflow:hidden">
+      <div class="cm-marquee-track" style="animation:cmMarquee 32s linear infinite;width:max-content">
        <div style="display:flex;align-items:center;white-space:nowrap">
         <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">International Partnership</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
@@ -231,7 +234,11 @@ function homeInitPage() {
         <div class="lg:col-span-2" style="position:sticky;top:80px">
          <div class="flex items-center gap-3 mb-5"><span class="accent-line"></span><span class="label-small">Skill Discovery</span></div>
          <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,4vw,2.8rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Explore My<br><em style="font-style:italic;color:#8B7355">Ecosystem</em></h2>
-         <p class="text-sm leading-relaxed mb-6" style="color:#5C5C5C;max-width:300px">Click a skill to add it to the search bar, or type to find any page or project.</p>
+         <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C;max-width:300px">Click a skill tag below to add it to your search, or type a keyword to find any page.</p>
+         <ol class="mb-6" style="max-width:300px;list-style:none;padding:0;font-size:.75rem;color:#767676;line-height:1.7">
+          <li style="display:flex;gap:8px;align-items:flex-start"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#8B7355;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:2px">1</span><span>Pick a skill or type</span></li>
+          <li style="display:flex;gap:8px;align-items:flex-start"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#8B7355;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:2px">2</span><span>Hit search to see matching work</span></li>
+         </ol>
          <!-- Ecosystem Search Bar -->
          <div style="position:relative;margin-top:4px">
           <div id="ecosystem-search-box" style="display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:#fff;border:1.5px solid rgba(28,28,30,0.12);border-radius:14px;padding:8px 8px 8px 14px;min-height:52px;cursor:text" onclick="document.getElementById('ecosystem-search-input').focus()">
@@ -341,7 +348,7 @@ function homeInitPage() {
        <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;letter-spacing:-.02em;line-height:1.05">Open to<br><em style="font-style:italic;color:#8B7355">Conversations</em></h2>
        <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7">Partnerships, collaborations, education projects, or creative work — I'm always open to a good conversation.</p>
        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="./assets/data/profile.pdf" download class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2" style="background:#8B7355;color:#fff;transition:all .2s;text-decoration:none" onmouseover="this.style.background='#7A6348'" onmouseout="this.style.background='#8B7355'"><i data-lucide="download" style="width:15px;height:15px"></i> Download CV</a>
+        <a id="home-cv-download" href="./assets/data/profile.pdf" download class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2" style="background:#8B7355;color:#fff;transition:all .2s;text-decoration:none" onmouseover="this.style.background='#7A6348'" onmouseout="this.style.background='#8B7355'" onclick="handleCvDownload(event,this)"><i data-lucide="download" style="width:15px;height:15px"></i> Download CV</a>
         <button onclick="goToPage('contact')" class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center gap-2" style="border:1.5px solid rgba(255,255,255,0.18);color:#fff;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)'"><i data-lucide="mail" style="width:15px;height:15px"></i> Contact Me</button>
        </div>
       </div>
