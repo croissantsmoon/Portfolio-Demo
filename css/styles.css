@@ -747,3 +747,242 @@ html { scroll-behavior: smooth; }
   animation: cmSparkle var(--spk-dur, 3s) ease-in-out infinite;
   animation-delay: var(--spk-delay, 0s);
 }
+
+/* ============================================================
+   Admin Mode — banner, footer link, modal, inputs, toasts
+   ============================================================ */
+
+/* Visible only when signed-in as admin. Default-hidden via JS-toggled body class. */
+.admin-only { display: none; }
+body.admin-mode .admin-only { display: inline-block; }
+
+/* ── Site footer (always visible, hosts the discreet Admin link) ─────── */
+.site-footer {
+  border-top: 1px solid rgba(28,28,30,0.06);
+  background: var(--bg-primary);
+  margin-top: 32px;
+}
+.site-footer-meta {
+  font-size: .72rem;
+  color: var(--text-muted);
+  letter-spacing: .02em;
+}
+.site-footer-admin-link {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background .15s, color .15s;
+}
+.site-footer-admin-link:hover,
+.site-footer-admin-link:focus-visible {
+  background: rgba(28,28,30,0.06);
+  color: var(--text-primary);
+  outline: none;
+}
+
+/* ── Admin banner (sticky, top of page when signed in) ───────────────── */
+.admin-banner {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  height: 40px;
+  background: #1C1C1E;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  font-size: .78rem;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: .01em;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.admin-banner-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.18);
+  flex-shrink: 0;
+}
+.admin-banner-label { opacity: .92; }
+.admin-banner-label strong { font-weight: 600; }
+.admin-banner-spacer { flex: 1; }
+.admin-banner-btn {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #fff;
+  font-size: .72rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.admin-banner-btn:hover { background: rgba(255,255,255,0.18); }
+.admin-banner-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  width: 28px; height: 28px;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+}
+.admin-banner-btn-ghost:hover { background: rgba(255,255,255,0.12); }
+
+/* When banner is visible, push the sticky nav down so it doesn't overlap. */
+body.has-admin-banner nav.sticky { top: 40px; }
+
+/* ── Modal (login, event editor, etc.) ───────────────────────────────── */
+.admin-modal {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.admin-modal.hidden { display: none; }
+.admin-modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(28,28,30,0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.admin-modal-panel {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(28,28,30,0.22);
+  border: 1px solid rgba(28,28,30,0.06);
+}
+.admin-modal-close {
+  position: absolute; top: 10px; right: 10px;
+  width: 32px; height: 32px;
+  border: none; background: transparent;
+  font-size: 1.4rem; line-height: 1;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background .15s;
+}
+.admin-modal-close:hover { background: rgba(28,28,30,0.06); }
+body.admin-modal-open { overflow: hidden; }
+
+/* ── Admin form inputs / buttons ─────────────────────────────────────── */
+.admin-field-label {
+  display: block;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 6px;
+}
+.admin-input,
+.admin-textarea,
+.admin-select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid rgba(28,28,30,0.14);
+  border-radius: 8px;
+  font: inherit;
+  font-size: .9rem;
+  background: #fff;
+  color: var(--text-primary);
+  transition: border-color .15s, box-shadow .15s;
+}
+.admin-input:focus,
+.admin-textarea:focus,
+.admin-select:focus {
+  outline: none;
+  border-color: #1C1C1E;
+  box-shadow: 0 0 0 3px rgba(28,28,30,0.08);
+}
+.admin-textarea { min-height: 84px; resize: vertical; }
+.admin-error {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(200,90,58,0.10);
+  color: #9A3A20;
+  font-size: .82rem;
+}
+
+.admin-btn {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 500;
+  padding: 9px 16px;
+  border-radius: 999px;
+  transition: background .15s, color .15s, box-shadow .15s;
+}
+.admin-btn:disabled { opacity: .55; cursor: not-allowed; }
+.admin-btn-primary {
+  background: #1C1C1E;
+  color: #fff;
+}
+.admin-btn-primary:hover:not(:disabled) {
+  background: #2C2C2E;
+  box-shadow: 0 4px 14px rgba(28,28,30,0.18);
+}
+.admin-btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+.admin-btn-ghost:hover { background: rgba(28,28,30,0.06); color: var(--text-primary); }
+.admin-btn-danger {
+  background: #9A3A20;
+  color: #fff;
+}
+.admin-btn-danger:hover:not(:disabled) { background: #B0492B; }
+
+/* ── Toast notifications (bottom-right) ──────────────────────────────── */
+.toast-stack {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  background: #1C1C1E;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: .82rem;
+  box-shadow: 0 8px 24px rgba(28,28,30,0.22);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.toast-visible { opacity: 1; transform: translateY(0); }
+.toast-error { background: #9A3A20; }
+
+/* ── Inline-edit hover affordance (used in Step 6) ───────────────────── */
+body.admin-mode [data-edit-key] {
+  position: relative;
+  transition: outline-color .12s, background .12s;
+  outline: 1px dashed transparent;
+  outline-offset: 3px;
+  cursor: text;
+}
+body.admin-mode [data-edit-key]:hover {
+  outline-color: rgba(28,28,30,0.30);
+}
+body.admin-mode [data-edit-key]:focus {
+  outline: 2px solid #1C1C1E;
+  outline-offset: 3px;
+  background: rgba(255,255,255,0.4);
+}

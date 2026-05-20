@@ -1,2 +1,5 @@
 .DS_Store
 **/.DS_Store.DS_Store
+
+# Local Supabase/admin config — never commit
+js/config.js

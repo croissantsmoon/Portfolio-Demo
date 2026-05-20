@@ -23,6 +23,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css">
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <!-- Admin backend — Supabase JS client (safe to expose; auth gated by RLS) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
  </head>
  <body class="h-full">
   <!-- UX FIX: skip-to-content link for keyboard users -->
@@ -212,6 +214,13 @@
    </div>
 
    </div>
+   <!-- Site footer (minimal — primary purpose is the discreet Admin link) -->
+   <footer class="site-footer" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between flex-wrap gap-3">
+     <span class="site-footer-meta">© <span id="site-footer-year"></span> Zefanya Kharisma Nugroho</span>
+     <button type="button" id="open-admin-login" class="site-footer-admin-link" aria-label="Open admin sign-in dialog">Admin</button>
+    </div>
+   </footer>
   </div>
   <!-- Student Activity Modal -->
   <div id="student-modal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 md:p-8" style="background:rgba(28,28,30,0.75);backdrop-filter:blur(4px)" onclick="if(event.target===this)closeStudentModal()">
@@ -246,5 +255,11 @@
   <script src="./js/pages/writing/writing.js"></script>
   <script src="./js/pages/skill-discovery/skill-discovery.js"></script>
   <script src="./js/pages/creative-services/croissantsmoon.js"></script>
+  <!-- Admin backend wiring (must come before main.js so it can use window.AdminAuth) -->
+  <script src="./js/config.js"></script>
+  <script src="./js/supabase-client.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/components/login-modal.js"></script>
+  <script src="./js/components/admin-banner.js"></script>
   <script src="./js/main.js"></script>
 </html>

@@ -708,6 +708,38 @@ function injectHeroBanners() {
 // All page HTML is injected via DOMContentLoaded in individual page JS files.
 // This listener fires last (main.js is loaded last) so all pages are ready.
 document.addEventListener('DOMContentLoaded', function() {
+  // ── Admin: init auth + banner + footer link + keyboard shortcut ──────────
+  (function initAdmin() {
+    // Footer year
+    var year = document.getElementById('site-footer-year');
+    if (year) year.textContent = String(new Date().getFullYear());
+
+    // Footer Admin link → open login modal
+    var adminLink = document.getElementById('open-admin-login');
+    if (adminLink) {
+      adminLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (window.LoginModal) window.LoginModal.open();
+      });
+    }
+
+    // Ctrl/Cmd+Shift+A keyboard shortcut to open login
+    document.addEventListener('keydown', function (e) {
+      if (e.shiftKey && (e.ctrlKey || e.metaKey) && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        if (window.LoginModal) window.LoginModal.open();
+      }
+    });
+
+    // Re-render admin banner whenever admin state changes
+    if (window.AdminAuth) {
+      window.AdminAuth.onAdminChange(function (isAdmin, user) {
+        if (window.AdminBanner) window.AdminBanner.update(isAdmin, user);
+      });
+      window.AdminAuth.init();
+    }
+  })();
+
   // Inject hero banners, then init lucide icons for the whole document
   injectHeroBanners();
   lucide.createIcons();
