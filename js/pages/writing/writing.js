@@ -124,8 +124,8 @@
           '<div class="flex items-center gap-3 mb-6"><span class="accent-line"></span><span class="label-small">Writing</span></div>' +
           '<div class="flex items-start justify-between flex-wrap gap-4">' +
             '<div>' +
-              '<h1 class="font-heading font-bold text-5xl mb-4" style="color:#1C1C1E;line-height:1.05">Ideas, Reflections<br><em style="color:#8B7355">&amp; Perspectives</em></h1>' +
-              '<p class="text-base leading-relaxed max-w-2xl" style="color:#5C5C5C">A digital journal — essays, reflections, and insights on international education, leadership, systems thinking, digital craft, and the intersections between them.</p>' +
+              '<h1 class="font-heading font-bold text-5xl mb-4" style="color:#1C1C1E;line-height:1.05" data-edit-key="writing_hero_title">Ideas, Reflections<br><em style="color:#8B7355">&amp; Perspectives</em></h1>' +
+              '<p class="text-base leading-relaxed max-w-2xl" style="color:#5C5C5C" data-edit-key="writing_hero_tagline">A digital journal — essays, reflections, and insights on international education, leadership, systems thinking, digital craft, and the intersections between them.</p>' +
             '</div>' +
             (isAdmin
               ? '<button id="writing-new-btn" class="admin-btn admin-btn-primary admin-only" style="display:inline-flex;align-items:center;gap:6px">+ New article</button>'

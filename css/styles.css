@@ -987,6 +987,50 @@ body.admin-mode [data-edit-key]:focus {
   background: rgba(255,255,255,0.4);
 }
 
+/* Pencil affordance — shown on hover in admin mode. Hidden while editing
+   (the dashed outline already signals focus). */
+body.admin-mode [data-edit-key]::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 22px;
+  height: 22px;
+  background: #1C1C1E url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M12 20h9'/><path d='M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4z'/></svg>") center/12px 12px no-repeat;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(28,28,30,0.18);
+  transition: opacity .12s;
+}
+body.admin-mode [data-edit-key]:hover::after { opacity: 1; }
+body.admin-mode [data-edit-key][contenteditable="true"]::after,
+body.admin-mode [data-edit-key]:focus::after { opacity: 0; }
+
+/* Floating hint shown while editing */
+.edit-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 8px);
+  background: #1C1C1E;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: .76rem;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: .02em;
+  opacity: 0;
+  transition: opacity .18s, transform .18s;
+  z-index: 200;
+  pointer-events: none;
+  box-shadow: 0 8px 24px rgba(28,28,30,0.22);
+}
+.edit-hint-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 /* ============================================================
    Rich text editor (TipTap) — toolbar, surface, fallback
    ============================================================ */

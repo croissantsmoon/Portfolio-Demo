@@ -7,8 +7,8 @@ function experienceInitPage() {
   el.innerHTML = `
      <div class="max-w-6xl mx-auto px-6">
       <button onclick="goToPage('about-overview')" class="flex items-center gap-2 mb-6" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E">Professional Experience</h1>
-      <p class="text-lg mb-12" style="color:#5C5C5C">3+ years building international partnerships and supporting student mobility across Surabaya</p>
+      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E" data-edit-key="experience_hero_title">Professional Experience</h1>
+      <p class="text-lg mb-12" style="color:#5C5C5C" data-edit-key="experience_hero_tagline">3+ years building international partnerships and supporting student mobility across Surabaya</p>
       <div class="space-y-6">
        <div class="card p-6">
         <div class="flex flex-col md:flex-row md:items-start gap-4">

@@ -4,10 +4,10 @@ function valuesInitPage() {
   el.innerHTML = `
      <div class="max-w-6xl mx-auto px-6">
       <button onclick="goToPage('about-overview')" class="flex items-center gap-2 mb-6" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#1E3A5F">Core Values</span>
+      <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#1E3A5F" data-edit-key="values_hero_eyebrow">Core Values</span>
       </div>
-      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E">Professional Values</h1>
-      <p class="text-lg mb-12" style="color:#5C5C5C">Principles that guide my work and decisions in international education</p>
+      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E" data-edit-key="values_hero_title">Professional Values</h1>
+      <p class="text-lg mb-12" style="color:#5C5C5C" data-edit-key="values_hero_tagline">Principles that guide my work and decisions in international education</p>
       <div class="grid md:grid-cols-2 gap-6">
        <div class="card p-8">
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(30,58,95,0.08)"><i data-lucide="target" style="width:24px;height:24px;color:#1E3A5F"></i>

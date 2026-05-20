@@ -414,8 +414,8 @@ function gdBuildHero() {
               font-size:clamp(2.6rem,5.5vw,5rem);
               font-weight:700;line-height:.95;
               letter-spacing:-.04em;color:#1C1C1E;margin-bottom:1.5rem
-            ">Visual<br>Communication<br><span style="color:${GD.orange}">Work.</span></h1>
-            <p style="font-size:clamp(.88rem,1.5vw,1rem);color:rgba(28,28,30,0.52);line-height:1.7;max-width:380px;margin-bottom:2rem">
+            " data-edit-key="designs_hero_title">Visual<br>Communication<br><span style="color:${GD.orange}">Work.</span></h1>
+            <p style="font-size:clamp(.88rem,1.5vw,1rem);color:rgba(28,28,30,0.52);line-height:1.7;max-width:380px;margin-bottom:2rem" data-edit-key="designs_hero_tagline">
               Guidebooks, presentations, and institutional materials — communication design for international education and global engagement.
             </p>
 

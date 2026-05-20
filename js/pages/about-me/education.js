@@ -4,10 +4,10 @@ function educationInitPage() {
   el.innerHTML = `
      <div class="max-w-6xl mx-auto px-6">
       <button onclick="goToPage('about-overview')" class="flex items-center gap-2 mb-6" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#1E3A5F">Educational Background</span>
+      <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#1E3A5F" data-edit-key="education_hero_eyebrow">Educational Background</span>
       </div>
-      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E">Academic Foundation</h1>
-      <p class="text-lg mb-12" style="color:#5C5C5C">Education and achievements that shaped my professional expertise</p>
+      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E" data-edit-key="education_hero_title">Academic Foundation</h1>
+      <p class="text-lg mb-12" style="color:#5C5C5C" data-edit-key="education_hero_tagline">Education and achievements that shaped my professional expertise</p>
       <div class="space-y-6">
        <div class="card p-8 border-l-4" style="border-color:#1E3A5F">
         <h3 class="font-heading font-bold text-xl mb-1" style="color:#1C1C1E">Bachelor's Degree — International Relations and Affairs</h3>

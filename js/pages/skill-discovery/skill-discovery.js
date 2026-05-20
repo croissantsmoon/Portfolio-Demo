@@ -6,8 +6,8 @@ function skillDiscoveryInitPage() {
      <div class="max-w-5xl mx-auto">
       <button onclick="goToPage('home')" class="flex items-center gap-2 mb-10 text-sm" style="color:#767676"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back to Home</button>
       <div class="flex items-center gap-3 mb-5"><span class="accent-line"></span><span class="label-small">Skill Discovery</span></div>
-      <h1 class="font-heading font-bold text-4xl mb-4" style="color:#1C1C1E">Related Work</h1>
-      <p class="text-sm mb-6" style="color:#5C5C5C">Results curated based on your selected skills:</p>
+      <h1 class="font-heading font-bold text-4xl mb-4" style="color:#1C1C1E" data-edit-key="skilldiscovery_hero_title">Related Work</h1>
+      <p class="text-sm mb-6" style="color:#5C5C5C" data-edit-key="skilldiscovery_hero_tagline">Results curated based on your selected skills:</p>
       <div id="selected-skills-display" class="flex flex-wrap gap-2 mb-6"></div>
       <button onclick="goToPage('home')" class="text-sm font-medium" style="color:#8B7355">← Adjust selection</button>
      </div>

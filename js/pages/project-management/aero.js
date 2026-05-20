@@ -454,8 +454,8 @@ function aeroInitPage() {
     <div class="relative z-10 max-w-6xl mx-auto px-6">
      <button onclick="goToPage('projects-overview')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.6)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.1);color:#fff">Project Management</span>
-     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em">AERO 2025</h1>
-     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.65)">Airlangga Expanding Reach & Opportunities — annual internationalization exhibition connecting UNAIR students with global partners, alumni, and opportunities. 9–10 May 2025, Surabaya.</p>
+     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="aero_hero_title">AERO 2025</h1>
+     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.65)" data-edit-key="aero_hero_tagline">Airlangga Expanding Reach & Opportunities — annual internationalization exhibition connecting UNAIR students with global partners, alumni, and opportunities. 9–10 May 2025, Surabaya.</p>
     </div>
    </div>
 

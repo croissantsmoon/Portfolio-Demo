@@ -611,8 +611,8 @@ function amertaInitPage() {
     <div class="relative z-10 max-w-6xl mx-auto px-6">
      <button onclick="goToPage('projects-overview')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.7)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.12);color:#fff">Project Management</span>
-     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em">AMERTA</h1>
-     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.75)">Airlangga Mobility, Exchange, Research &amp; Transfer Academic — Universitas Airlangga's flagship semester exchange, managed end-to-end across 4 batches.</p>
+     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="amerta_hero_title">AMERTA</h1>
+     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.75)" data-edit-key="amerta_hero_tagline">Airlangga Mobility, Exchange, Research &amp; Transfer Academic — Universitas Airlangga's flagship semester exchange, managed end-to-end across 4 batches.</p>
     </div>
    </div>
    <div class="max-w-6xl mx-auto px-6">

@@ -152,9 +152,9 @@ function engagementInitPage() {
       <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 20%,rgba(139,115,85,0.18),transparent 55%)"></div>
       <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
       <div class="max-w-6xl mx-auto relative z-10">
-       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">International Education</div>
-       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">Building Global Connections,<br><em style="font-style:italic;color:#8B7355">One Student at a Time</em></h1>
-       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">A track record of supporting 480+ international students across welfare, mobility, and engagement programs — through holistic roles at Airlangga Global Engagement and Petra Christian University.</p>
+       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="engagement_hero_eyebrow">International Education</div>
+       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em" data-edit-key="engagement_hero_title">Building Global Connections,<br><em style="font-style:italic;color:#8B7355">One Student at a Time</em></h1>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="engagement_hero_tagline">A track record of supporting 480+ international students across welfare, mobility, and engagement programs — through holistic roles at Airlangga Global Engagement and Petra Christian University.</p>
        <div class="flex flex-wrap gap-8 pb-8">
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">480+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Students</p></div>
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Partners</p></div>

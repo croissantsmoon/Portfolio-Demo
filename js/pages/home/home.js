@@ -41,9 +41,9 @@ function homeInitPage() {
         <div class="flex flex-wrap items-center gap-3 mb-12" style="animation:fadeUp .5s ease both">
          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full" style="background:rgba(28,28,30,0.05);border:1px solid rgba(28,28,30,0.09)">
           <span style="width:6px;height:6px;border-radius:50%;background:#8B7355;display:inline-block"></span>
-          <span class="label-small" style="color:#5C5C5C">International Partnerships · Creative Technologist</span>
+          <span class="label-small" style="color:#5C5C5C" data-edit-key="home_hero_status">International Partnerships · Creative Technologist</span>
          </div>
-         <span class="label-small" style="color:#7A7068">· Surabaya, Indonesia</span>
+         <span class="label-small" style="color:#7A7068" data-edit-key="home_hero_location">· Surabaya, Indonesia</span>
         </div>
 
         <!-- Name headline -->
@@ -58,8 +58,8 @@ function homeInitPage() {
 
         <!-- Supporting statement -->
         <div class="max-w-md mb-11" style="animation:fadeUp .55s ease .18s both">
-         <p class="font-editorial text-xl mb-2.5" style="color:#1C1C1E;line-height:1.4">Bridging global engagement &amp; digital creativity.</p>
-         <p class="text-sm leading-relaxed" style="color:#4A4A4A">International Education Professional · Creative Technologist · Surabaya</p>
+         <p class="font-editorial text-xl mb-2.5" style="color:#1C1C1E;line-height:1.4" data-edit-key="home_hero_tagline_1">Bridging global engagement &amp; digital creativity.</p>
+         <p class="text-sm leading-relaxed" style="color:#4A4A4A" data-edit-key="home_hero_tagline_2">International Education Professional · Creative Technologist · Surabaya</p>
         </div>
 
         <!-- Primary CTA: projects (the work itself); secondary: About; tertiary: CroissantsMoon -->
@@ -89,20 +89,20 @@ function homeInitPage() {
       <div class="max-w-6xl mx-auto">
        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">480+</p>
-         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)">Students Supported</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_1">480+</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_1">Students Supported</p>
         </div>
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#8B7355;letter-spacing:-.02em;line-height:1">505+</p>
-         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)">Global Partners</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#8B7355;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_2">505+</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_2">Global Partners</p>
         </div>
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">3+</p>
-         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)">Years Experience</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_3">3+</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_3">Years Experience</p>
         </div>
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1">5</p>
-         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)">Programs Led</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_4">5</p>
+         <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_4">Programs Led</p>
         </div>
        </div>
       </div>
@@ -344,9 +344,9 @@ function homeInitPage() {
        <span style="font-family:'Playfair Display',serif;font-size:clamp(10rem,18vw,22rem);font-weight:800;font-style:italic;color:#fff;user-select:none;white-space:nowrap;line-height:1">Let's talk</span>
       </div>
       <div class="max-w-3xl mx-auto text-center relative z-10">
-       <p class="font-editorial text-base mb-5" style="color:#8B7355">Let's build something meaningful</p>
-       <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;letter-spacing:-.02em;line-height:1.05">Open to<br><em style="font-style:italic;color:#8B7355">Conversations</em></h2>
-       <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7">Partnerships, collaborations, education projects, or creative work — I'm always open to a good conversation.</p>
+       <p class="font-editorial text-base mb-5" style="color:#8B7355" data-edit-key="home_contact_eyebrow">Let's build something meaningful</p>
+       <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;letter-spacing:-.02em;line-height:1.05" data-edit-key="home_contact_title">Open to<br><em style="font-style:italic;color:#8B7355">Conversations</em></h2>
+       <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7" data-edit-key="home_contact_body">Partnerships, collaborations, education projects, or creative work — I'm always open to a good conversation.</p>
        <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a id="home-cv-download" href="./assets/data/profile.pdf" download class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2" style="background:#8B7355;color:#fff;transition:all .2s;text-decoration:none" onmouseover="this.style.background='#7A6348'" onmouseout="this.style.background='#8B7355'" onclick="handleCvDownload(event,this)"><i data-lucide="download" style="width:15px;height:15px"></i> Download CV</a>
         <button onclick="goToPage('contact')" class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center gap-2" style="border:1.5px solid rgba(255,255,255,0.18);color:#fff;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)'"><i data-lucide="mail" style="width:15px;height:15px"></i> Contact Me</button>

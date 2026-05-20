@@ -118,13 +118,13 @@ function pcuBuildHero() {
           font-weight:700;line-height:.95;
           letter-spacing:-.04em;color:#1C1C1E;
           margin-bottom:1.5rem
-        ">PCU<span style="color:${PCU_C.blue}">Global</span></h1>
+        " data-edit-key="pcuglobal_hero_title">PCU<span style="color:${PCU_C.blue}">Global</span></h1>
         <p style="
           font-family:'Space Grotesk',Inter,sans-serif;
           font-size:clamp(1.1rem,2.5vw,1.55rem);font-weight:400;
           color:rgba(28,28,30,0.52);max-width:560px;
           line-height:1.45;margin-bottom:1.25rem
-        ">Rebuilding the front door of<br>international education.</p>
+        " data-edit-key="pcuglobal_hero_tagline">Rebuilding the front door of<br>international education.</p>
         <p style="max-width:490px;font-size:.95rem;line-height:1.7;color:rgba(28,28,30,0.45);margin-bottom:2.75rem">
           PCU's International Office needed more than a refresh — it needed a complete rethink. PCU Global is the ground-up redesign that answers every failure of the original site, live and open source.
         </p>

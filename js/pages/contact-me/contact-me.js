@@ -38,7 +38,7 @@ function contactInitPage() {
 
       <!-- Direct Contact Links -->
       <div class="text-center mb-8">
-       <p class="label-small mb-6" style="color:#767676">Or connect directly through</p>
+       <p class="label-small mb-6" style="color:#767676" data-edit-key="contact_direct_eyebrow">Or connect directly through</p>
        <div class="flex items-center justify-center gap-4 flex-wrap">
         <a href="mailto:zefanya.kharisma@gmail.com" class="contact-link flex flex-col items-center gap-2 p-4 rounded-xl">
          <div class="contact-link-icon w-12 h-12 rounded-full flex items-center justify-center"><i data-lucide="mail" style="width:22px;height:22px"></i></div>
@@ -61,7 +61,7 @@ function contactInitPage() {
 
       <!-- Response Time Info -->
       <div class="text-center p-5 rounded-xl" style="background:rgba(139,115,85,0.06);border:1px solid rgba(139,115,85,0.15)">
-       <p class="text-sm" style="color:#5C5C5C"><i data-lucide="clock" style="width:15px;height:15px;display:inline;margin-right:8px;vertical-align:middle;color:#8B7355"></i> I typically respond within 24–48 hours.</p>
+       <p class="text-sm" style="color:#5C5C5C"><i data-lucide="clock" style="width:15px;height:15px;display:inline;margin-right:8px;vertical-align:middle;color:#8B7355"></i> <span data-edit-key="contact_response_time">I typically respond within 24–48 hours.</span></p>
       </div>
      </div>
     `;

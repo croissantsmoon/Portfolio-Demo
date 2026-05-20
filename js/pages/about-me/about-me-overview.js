@@ -29,9 +29,9 @@ function aboutOverviewInitPage() {
          </div>
         </div>
         <div class="flex-1">
-         <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">International Education Professional</div>
-         <h1 class="font-heading font-bold mb-2" style="font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.0;color:#fff;letter-spacing:-.02em">Zefanya Kharisma<br><em style="font-style:italic;color:#8B7355">Nugroho</em></h1>
-         <p class="mb-1" style="color:rgba(255,255,255,0.6);font-size:.95rem;font-family:'Playfair Display',serif;font-style:italic">International Education Professional &amp; Creative Technologist</p>
+         <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="about_hero_eyebrow">International Education Professional</div>
+         <h1 class="font-heading font-bold mb-2" style="font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.0;color:#fff;letter-spacing:-.02em" data-edit-key="about_hero_title">Zefanya Kharisma<br><em style="font-style:italic;color:#8B7355">Nugroho</em></h1>
+         <p class="mb-1" style="color:rgba(255,255,255,0.6);font-size:.95rem;font-family:'Playfair Display',serif;font-style:italic" data-edit-key="about_hero_subtitle">International Education Professional &amp; Creative Technologist</p>
          <p class="mb-6 flex items-center gap-2" style="color:rgba(255,255,255,0.4);font-size:.8rem"><i data-lucide="map-pin" style="width:13px;height:13px"></i> Surabaya, Indonesia</p>
          <div class="flex flex-wrap gap-8 mb-8">
           <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">3+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Years Experience</p></div>
@@ -64,7 +64,7 @@ function aboutOverviewInitPage() {
        <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Professional Summary</span></div>
        <div class="grid lg:grid-cols-5 gap-12 items-start">
         <div class="lg:col-span-3">
-         <blockquote class="font-heading leading-snug mb-8" style="color:#1C1C1E;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.02em">"Bridging global engagement, student mobility, and digital creativity through intentional systems and thoughtful leadership."</blockquote>
+         <blockquote class="font-heading leading-snug mb-8" style="color:#1C1C1E;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.02em" data-edit-key="about_summary_quote">"Bridging global engagement, student mobility, and digital creativity through intentional systems and thoughtful leadership."</blockquote>
          <div style="width:48px;height:2px;background:#8B7355;border-radius:2px;margin-bottom:24px"></div>
          <p class="text-base leading-relaxed" style="color:#5C5C5C">Over 3+ years, I've built a practice at the intersection of international education, institutional leadership, and digital creativity. At <strong style="color:#1C1C1E">Petra Christian University</strong>, I manage relationships with 30+ global partners and facilitate 15+ strategic meetings monthly. Previously at <strong style="color:#1C1C1E">Airlangga Global Engagement</strong>, I led end-to-end management of 5 international exchange programs serving 120+ students per semester with IDR 50–100M per-program budgets.</p>
         </div>
@@ -97,8 +97,8 @@ function aboutOverviewInitPage() {
      <div style="padding:72px 24px;background:#F2ECE4">
       <div class="max-w-6xl mx-auto">
        <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Current Focus</span></div>
-       <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">What I'm Building &amp; Exploring</h2>
-       <p class="text-sm mb-10" style="color:#5C5C5C;max-width:480px">The domains I'm actively investing in right now — professionally, creatively, and intellectually.</p>
+       <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E" data-edit-key="about_focus_title">What I'm Building &amp; Exploring</h2>
+       <p class="text-sm mb-10" style="color:#5C5C5C;max-width:480px" data-edit-key="about_focus_tagline">The domains I'm actively investing in right now — professionally, creatively, and intellectually.</p>
        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="card p-7" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(30,58,95,0.08)"><i data-lucide="globe-2" style="width:20px;height:20px;color:#1E3A5F"></i></div>

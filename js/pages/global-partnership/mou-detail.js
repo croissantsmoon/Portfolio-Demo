@@ -4,10 +4,10 @@ function mouDetailInitPage() {
   el.innerHTML = `
      <div class="max-w-6xl mx-auto px-6"><button onclick="goToPage('partnerships')" class="flex items-center gap-2 mb-8" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back to Partnerships</button>
       <div class="mb-12">
-       <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#4A6B8A">Agreement Management</span>
+       <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#4A6B8A" data-edit-key="moudetail_hero_eyebrow">Agreement Management</span>
        </div>
-       <h1 class="font-heading font-bold text-4xl mb-3" style="color:#1C1C1E">MoU / MoA Coordination</h1>
-       <p class="text-lg max-w-3xl" style="color:#5C5C5C">Reviewing 25+ partnership agreements per month at PCU — ensuring compliance, institutional alignment, and timely processing across a diverse global network</p>
+       <h1 class="font-heading font-bold text-4xl mb-3" style="color:#1C1C1E" data-edit-key="moudetail_hero_title">MoU / MoA Coordination</h1>
+       <p class="text-lg max-w-3xl" style="color:#5C5C5C" data-edit-key="moudetail_hero_tagline">Reviewing 25+ partnership agreements per month at PCU — ensuring compliance, institutional alignment, and timely processing across a diverse global network</p>
       </div>
       <div class="grid md:grid-cols-3 gap-6 mb-12">
        <div class="card p-6 text-center">

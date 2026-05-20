@@ -822,8 +822,8 @@ function aciInitPage() {
     <div class="relative z-10 max-w-6xl mx-auto px-6">
      <button onclick="goToPage('projects-overview')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.7)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.12);color:#fff">Project Management</span>
-     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em">ACI</h1>
-     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.75)">Airlangga Cultural Immersion — 2-day cultural immersion trips for international students, managed end-to-end across 4 batches and 3 destinations in Java.</p>
+     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="aci_hero_title">ACI</h1>
+     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.75)" data-edit-key="aci_hero_tagline">Airlangga Cultural Immersion — 2-day cultural immersion trips for international students, managed end-to-end across 4 batches and 3 destinations in Java.</p>
     </div>
    </div>
    <div class="max-w-6xl mx-auto px-6">

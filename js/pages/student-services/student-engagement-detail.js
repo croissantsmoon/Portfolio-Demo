@@ -8,9 +8,9 @@ function engagementDetailInitPage() {
       <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
       <div class="max-w-6xl mx-auto relative z-10">
        <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
-       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">Cultural Engagement</div>
-       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">Student Engagement<br><em style="font-style:italic;color:#8B7355">Initiatives</em></h1>
-       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">Creating meaningful cultural experiences for international students — through immersion programs, local community engagement, and experiential learning across Indonesia.</p>
+       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="engagementdetail_hero_eyebrow">Cultural Engagement</div>
+       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em" data-edit-key="engagementdetail_hero_title">Student Engagement<br><em style="font-style:italic;color:#8B7355">Initiatives</em></h1>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="engagementdetail_hero_tagline">Creating meaningful cultural experiences for international students — through immersion programs, local community engagement, and experiential learning across Indonesia.</p>
        <div class="flex flex-wrap gap-8 pb-8">
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">6+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Programs</p></div>
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">5</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Community Partners</p></div>

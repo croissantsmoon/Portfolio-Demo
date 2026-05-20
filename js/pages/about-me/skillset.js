@@ -7,8 +7,8 @@ function skillsetInitPage() {
   el.innerHTML = `
      <div class="max-w-6xl mx-auto px-6">
       <button onclick="goToPage('about-overview')" class="flex items-center gap-2 mb-6" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E">Skillset</h1>
-      <p class="text-lg mb-12" style="color:#5C5C5C">Core competencies and professional capabilities</p>
+      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E" data-edit-key="skillset_hero_title">Skillset</h1>
+      <p class="text-lg mb-12" style="color:#5C5C5C" data-edit-key="skillset_hero_tagline">Core competencies and professional capabilities</p>
       <div class="grid md:grid-cols-2 gap-6">
        <div class="card p-6">
         <h3 class="font-heading font-semibold text-lg mb-4" style="color:#1C1C1E">Partnership &amp; Institutional Relations</h3>

@@ -620,9 +620,9 @@ function partnershipsInitPage() {
       <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
       <div class="max-w-6xl mx-auto relative z-10">
        <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
-       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">Global Partnerships</div>
-       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">Partnership<br><em style="font-style:italic;color:#8B7355">Development</em></h1>
-       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">Managing 30+ institutional partners and facilitating 15+ strategic meetings per month at Petra Christian University — building collaborations that drive academic excellence and global opportunity.</p>
+       <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="partnerships_hero_eyebrow">Global Partnerships</div>
+       <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em" data-edit-key="partnerships_hero_title">Partnership<br><em style="font-style:italic;color:#8B7355">Development</em></h1>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="partnerships_hero_tagline">Managing 30+ institutional partners and facilitating 15+ strategic meetings per month at Petra Christian University — building collaborations that drive academic excellence and global opportunity.</p>
        <div class="flex flex-wrap gap-8 pb-8">
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">505+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Total Partners</p></div>
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">15+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Meetings/Month</p></div>

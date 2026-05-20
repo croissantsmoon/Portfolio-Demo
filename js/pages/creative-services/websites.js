@@ -163,14 +163,14 @@ function wdBuildHero() {
           font-weight:700;line-height:.95;
           letter-spacing:-.04em;
           margin-bottom:1.5rem
-        ">Web Development<br>&amp; Design</h1>
+        " data-edit-key="websites_hero_title">Web Development<br>&amp; Design</h1>
         <p style="
           font-family:'Space Grotesk',Inter,sans-serif;
           font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:400;
           color:rgba(28,28,30,0.52);max-width:540px;
           line-height:1.45;margin-bottom:1.25rem;min-height:2.4em
         "><span id="wd-typewriter"></span></p>
-        <p style="max-width:490px;font-size:.95rem;line-height:1.7;color:rgba(28,28,30,0.45);margin-bottom:2.75rem">
+        <p style="max-width:490px;font-size:.95rem;line-height:1.7;color:rgba(28,28,30,0.45);margin-bottom:2.75rem" data-edit-key="websites_hero_body">
           Purposeful digital experiences built with craft, care, and a clear sense of what they're trying to say. From institutional portals to editorial portfolios.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:2.5rem">

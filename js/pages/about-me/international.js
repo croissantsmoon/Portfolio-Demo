@@ -4,10 +4,10 @@ function internationalInitPage() {
   el.innerHTML = `
      <div class="max-w-6xl mx-auto px-6">
       <button onclick="goToPage('about-overview')" class="flex items-center gap-2 mb-6" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
-      <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#1E3A5F">Global Experience</span>
+      <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span> <span class="text-sm font-semibold" style="color:#1E3A5F" data-edit-key="international_hero_eyebrow">Global Experience</span>
       </div>
-      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E">International Exposure</h1>
-      <p class="text-lg mb-12" style="color:#5C5C5C">Real-world experience bridging institutions, students, and cultures</p>
+      <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E" data-edit-key="international_hero_title">International Exposure</h1>
+      <p class="text-lg mb-12" style="color:#5C5C5C" data-edit-key="international_hero_tagline">Real-world experience bridging institutions, students, and cultures</p>
       <div class="grid md:grid-cols-3 gap-6 mb-12">
        <div class="card p-6 text-center">
         <p class="font-heading font-bold text-4xl mb-2" style="color:#1E3A5F">200+</p>

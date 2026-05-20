@@ -23,12 +23,12 @@ function projectsOverviewInitPage() {
       <span style="font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(28,28,30,0.38)">Projects</span>
      </div>
      <div style="animation:fadeUp .5s ease .06s both">
-      <h1 class="font-heading font-bold" style="font-size:clamp(3rem,7.5vw,6rem);line-height:1.0;letter-spacing:-.03em;color:#1C1C1E;margin-bottom:0">Projects</h1>
-      <h1 class="font-heading font-bold" style="font-size:clamp(3rem,7.5vw,6rem);line-height:1.0;letter-spacing:-.03em;color:#1C1C1E;margin-bottom:0"><em style="font-style:italic;color:#8B7355">Overview</em></h1>
+      <h1 class="font-heading font-bold" style="font-size:clamp(3rem,7.5vw,6rem);line-height:1.0;letter-spacing:-.03em;color:#1C1C1E;margin-bottom:0" data-edit-key="projects_hero_title_1">Projects</h1>
+      <h1 class="font-heading font-bold" style="font-size:clamp(3rem,7.5vw,6rem);line-height:1.0;letter-spacing:-.03em;color:#1C1C1E;margin-bottom:0" data-edit-key="projects_hero_title_2"><em style="font-style:italic;color:#8B7355">Overview</em></h1>
      </div>
      <div style="width:48px;height:2px;background:#8B7355;border-radius:2px;margin:28px 0;animation:fadeUp .5s ease .12s both"></div>
-     <p class="font-editorial" style="font-size:clamp(1rem,2vw,1.2rem);color:#1C1C1E;line-height:1.5;max-width:420px;margin-bottom:0;animation:fadeUp .5s ease .16s both">Programs managed end-to-end, digital products built from scratch.</p>
-     <p style="font-size:.875rem;color:#4A4A4A;margin-top:8px;max-width:420px;animation:fadeUp .5s ease .2s both">International education · Institutional design · Surabaya</p>
+     <p class="font-editorial" style="font-size:clamp(1rem,2vw,1.2rem);color:#1C1C1E;line-height:1.5;max-width:420px;margin-bottom:0;animation:fadeUp .5s ease .16s both" data-edit-key="projects_hero_tagline_1">Programs managed end-to-end, digital products built from scratch.</p>
+     <p style="font-size:.875rem;color:#4A4A4A;margin-top:8px;max-width:420px;animation:fadeUp .5s ease .2s both" data-edit-key="projects_hero_tagline_2">International education · Institutional design · Surabaya</p>
     </div>
 
     <div class="absolute bottom-0 left-0 right-0" style="background:rgba(250,250,248,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(28,28,30,0.07);z-index:10">
