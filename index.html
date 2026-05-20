@@ -25,6 +25,18 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <!-- Admin backend — Supabase JS client (safe to expose; auth gated by RLS) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- TipTap rich-text editor (UMD bundles). The editor component checks for
+       these at runtime and falls back to a textarea if any fail to load. -->
+  <script defer src="https://unpkg.com/@tiptap/core@2/dist/tiptap-core.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/pm@2/dist/tiptap-pm.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/starter-kit@2/dist/tiptap-starter-kit.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-image@2/dist/tiptap-extension-image.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-link@2/dist/tiptap-extension-link.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-table@2/dist/tiptap-extension-table.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-table-row@2/dist/tiptap-extension-table-row.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-table-cell@2/dist/tiptap-extension-table-cell.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-table-header@2/dist/tiptap-extension-table-header.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-youtube@2/dist/tiptap-extension-youtube.umd.min.js"></script>
  </head>
  <body class="h-full">
   <!-- UX FIX: skip-to-content link for keyboard users -->
@@ -261,5 +273,6 @@
   <script src="./js/auth.js"></script>
   <script src="./js/components/login-modal.js"></script>
   <script src="./js/components/admin-banner.js"></script>
+  <script src="./js/components/tiptap-editor.js"></script>
   <script src="./js/main.js"></script>
 </html>

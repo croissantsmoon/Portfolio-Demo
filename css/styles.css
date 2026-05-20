@@ -986,3 +986,163 @@ body.admin-mode [data-edit-key]:focus {
   outline-offset: 3px;
   background: rgba(255,255,255,0.4);
 }
+
+/* ============================================================
+   Rich text editor (TipTap) — toolbar, surface, fallback
+   ============================================================ */
+.rt-wrap {
+  border: 1px solid rgba(28,28,30,0.12);
+  border-radius: 12px;
+  background: #FAFAF8;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+.rt-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  background: #fff;
+  border-bottom: 1px solid rgba(28,28,30,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.rt-toolbar-sep {
+  width: 1px;
+  height: 18px;
+  background: rgba(28,28,30,0.10);
+  margin: 0 4px;
+}
+.rt-btn {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #1C1C1E;
+  font-size: .8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .12s, border-color .12s, color .12s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rt-btn:hover  { background: rgba(28,28,30,0.06); }
+.rt-btn:focus-visible {
+  outline: none;
+  border-color: #1C1C1E;
+  box-shadow: 0 0 0 2px rgba(28,28,30,0.10);
+}
+.rt-btn.is-active {
+  background: #1C1C1E;
+  color: #fff;
+}
+.rt-editor {
+  padding: 20px 22px;
+  min-height: 280px;
+  background: #FAFAF8;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1C1C1E;
+}
+.rt-editor .ProseMirror { outline: none; min-height: 240px; }
+.rt-editor .ProseMirror:focus { outline: none; }
+.rt-editor h1,
+.rt-editor h2,
+.rt-editor h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #1C1C1E;
+  letter-spacing: -.01em;
+  margin: 1.2em 0 .4em;
+}
+.rt-editor h1 { font-size: 2rem; line-height: 1.15; }
+.rt-editor h2 { font-size: 1.5rem; line-height: 1.2; }
+.rt-editor h3 { font-size: 1.2rem; line-height: 1.25; }
+.rt-editor p  { margin: .6em 0; }
+.rt-editor a  { color: #1E3A5F; text-decoration: underline; }
+.rt-editor ul,
+.rt-editor ol { padding-left: 1.4em; margin: .6em 0; }
+.rt-editor blockquote {
+  margin: 1em 0;
+  padding: .4em 1em;
+  border-left: 3px solid #1C1C1E;
+  color: #5C5C5C;
+  font-style: italic;
+}
+.rt-editor code {
+  background: rgba(28,28,30,0.06);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: .9em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.rt-editor pre {
+  background: #1C1C1E;
+  color: #F5F5F0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .85rem;
+  line-height: 1.55;
+}
+.rt-editor pre code { background: transparent; padding: 0; color: inherit; }
+.rt-editor hr {
+  border: none;
+  border-top: 1px solid rgba(28,28,30,0.18);
+  margin: 1.6em 0;
+}
+.rt-editor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: .6em 0;
+}
+.rt-editor table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  table-layout: fixed;
+}
+.rt-editor th,
+.rt-editor td {
+  border: 1px solid rgba(28,28,30,0.18);
+  padding: 8px 10px;
+  vertical-align: top;
+}
+.rt-editor th { background: rgba(28,28,30,0.05); font-weight: 600; }
+.rt-editor .ProseMirror-selectednode {
+  outline: 2px solid #1C1C1E;
+  outline-offset: 2px;
+}
+
+/* Fallback textarea (used when TipTap CDN bundles fail) */
+.rt-wrap--fallback { background: #fff; }
+.rt-fallback-notice {
+  padding: 10px 14px;
+  background: rgba(200,90,58,0.10);
+  color: #9A3A20;
+  font-size: .78rem;
+  border-bottom: 1px solid rgba(28,28,30,0.08);
+}
+.rt-textarea {
+  display: block;
+  width: 100%;
+  min-height: 320px;
+  border: none;
+  outline: none;
+  padding: 18px 22px;
+  background: #FAFAF8;
+  font: inherit;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .9rem;
+  line-height: 1.6;
+  color: #1C1C1E;
+  resize: vertical;
+  box-sizing: border-box;
+}

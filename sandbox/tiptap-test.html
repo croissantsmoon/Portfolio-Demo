@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TipTap Editor — Sandbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="https://unpkg.com/@tiptap/core@2/dist/tiptap-core.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/pm@2/dist/tiptap-pm.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/starter-kit@2/dist/tiptap-starter-kit.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-image@2/dist/tiptap-extension-image.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-link@2/dist/tiptap-extension-link.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-table@2/dist/tiptap-extension-table.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-table-row@2/dist/tiptap-extension-table-row.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-table-cell@2/dist/tiptap-extension-table-cell.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-table-header@2/dist/tiptap-extension-table-header.umd.min.js"></script>
+  <script defer src="https://unpkg.com/@tiptap/extension-youtube@2/dist/tiptap-extension-youtube.umd.min.js"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #1C1C1E; margin: 0; }
+    .sandbox-wrap { max-width: 920px; margin: 40px auto; padding: 0 24px 60px; }
+    .sandbox-head h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 4px; }
+    .sandbox-head p  { color: #5C5C5C; margin: 0 0 24px; font-size: .92rem; }
+    .sandbox-status {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: 10px 14px; background: #FAFAF8; border: 1px solid rgba(28,28,30,0.08);
+      border-radius: 10px; font-size: .82rem; margin-bottom: 18px;
+    }
+    .sandbox-status span { display: inline-flex; align-items: center; gap: 6px; }
+    .sandbox-status .dot { width: 8px; height: 8px; border-radius: 50%; background: #c0c0c0; }
+    .sandbox-status .dot.ok   { background: #2E8B57; }
+    .sandbox-status .dot.bad  { background: #9A3A20; }
+    .sandbox-actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 8px; }
+    .sandbox-tabs { display: flex; gap: 0; margin: 24px 0 8px; border-bottom: 1px solid rgba(28,28,30,0.10); }
+    .sandbox-tab {
+      border: none; background: transparent; padding: 8px 14px; font-size: .85rem;
+      color: #5C5C5C; cursor: pointer; border-bottom: 2px solid transparent;
+    }
+    .sandbox-tab.active { color: #1C1C1E; border-bottom-color: #1C1C1E; }
+    pre.sandbox-output {
+      background: #1C1C1E; color: #F5F5F0;
+      padding: 14px 16px; border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .78rem; line-height: 1.5;
+      max-height: 320px; overflow: auto;
+      white-space: pre-wrap; word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="sandbox-wrap">
+    <header class="sandbox-head">
+      <h1>TipTap Editor — Sandbox</h1>
+      <p>Use this page to verify the rich-text editor in isolation before wiring it into the Writing page.</p>
+    </header>
+
+    <div class="sandbox-status" id="sandbox-status"></div>
+
+    <div id="editor-mount"></div>
+
+    <div class="sandbox-actions">
+      <button class="admin-btn admin-btn-ghost"   id="btn-load-sample">Load sample content</button>
+      <button class="admin-btn admin-btn-ghost"   id="btn-clear">Clear</button>
+      <button class="admin-btn admin-btn-primary" id="btn-snapshot">Snapshot output</button>
+    </div>
+
+    <div class="sandbox-tabs" role="tablist">
+      <button class="sandbox-tab active" data-tab="html"   role="tab">HTML</button>
+      <button class="sandbox-tab"        data-tab="json"   role="tab">JSON</button>
+    </div>
+    <pre class="sandbox-output" id="sandbox-output">(start typing — output updates after 500ms)</pre>
+  </div>
+
+  <!-- App scripts (same order as index.html) -->
+  <script src="../js/config.js"></script>
+  <script src="../js/supabase-client.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/components/login-modal.js"></script>
+  <script src="../js/components/admin-banner.js"></script>
+  <script src="../js/components/tiptap-editor.js"></script>
+
+  <script>
+    (function () {
+      var statusEl = document.getElementById('sandbox-status');
+      var mount    = document.getElementById('editor-mount');
+      var out      = document.getElementById('sandbox-output');
+      var tabs     = document.querySelectorAll('.sandbox-tab');
+
+      var SAMPLE_HTML =
+        '<h1>Sandbox article</h1>' +
+        '<p>This is a <strong>bold</strong> and <em>italic</em> paragraph with an <a href="https://example.com">example link</a>.</p>' +
+        '<h2>List</h2><ul><li>First</li><li>Second</li><li>Third</li></ul>' +
+        '<h2>Table</h2><table><thead><tr><th>Col A</th><th>Col B</th></tr></thead>' +
+        '<tbody><tr><td>Row 1A</td><td>Row 1B</td></tr><tr><td>Row 2A</td><td>Row 2B</td></tr></tbody></table>' +
+        '<h2>Quote</h2><blockquote><p>The future is already here — it’s just not very evenly distributed.</p></blockquote>' +
+        '<h2>Code</h2><pre><code>const x = 42;\nconsole.log(x);</code></pre>';
+
+      function pill(label, ok) {
+        var s = document.createElement('span');
+        s.innerHTML = '<span class="dot ' + (ok ? 'ok' : 'bad') + '"></span>' + label;
+        statusEl.appendChild(s);
+      }
+
+      // Wait for deferred scripts to settle, then initialise.
+      window.addEventListener('load', function () {
+        // Status pills
+        pill('Supabase: ' + (window.sb ? 'connected' : 'not configured'), !!window.sb);
+        var tt = window.RichEditor.detectTipTap();
+        pill('TipTap UMD: ' + (tt ? 'loaded' : 'not loaded'), !!tt);
+        pill('Admin signed in: ' + (window.IS_ADMIN ? 'yes' : 'no'), !!window.IS_ADMIN);
+
+        var lastJSON = null;
+        var lastHTML = '';
+        var activeTab = 'html';
+
+        function paint() {
+          if (activeTab === 'html') {
+            out.textContent = lastHTML || '(empty)';
+          } else {
+            out.textContent = lastJSON ? JSON.stringify(lastJSON, null, 2) : '(no JSON — running in fallback mode)';
+          }
+        }
+
+        var instance = window.RichEditor.create(mount, {
+          initialHTML: '<p>Start typing here…</p>',
+          placeholder: 'Sandbox editor',
+          onChange: function (json, html) {
+            lastJSON = json;
+            lastHTML = html;
+            paint();
+          }
+        });
+
+        document.getElementById('btn-load-sample').addEventListener('click', function () {
+          instance.setContent(SAMPLE_HTML);
+        });
+        document.getElementById('btn-clear').addEventListener('click', function () {
+          instance.setContent('<p></p>');
+        });
+        document.getElementById('btn-snapshot').addEventListener('click', function () {
+          lastJSON = instance.getJSON();
+          lastHTML = instance.getHTML();
+          paint();
+          if (window.showToast) window.showToast('Snapshot taken');
+        });
+
+        tabs.forEach(function (b) {
+          b.addEventListener('click', function () {
+            tabs.forEach(function (x) { x.classList.remove('active'); });
+            b.classList.add('active');
+            activeTab = b.dataset.tab;
+            paint();
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

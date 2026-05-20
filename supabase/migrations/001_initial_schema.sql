@@ -121,8 +121,8 @@ create policy "articles_admin_all"
   on public.articles
   for all
   to authenticated
-  using      (auth.email() = 'YOUR_ADMIN_EMAIL')
-  with check (auth.email() = 'YOUR_ADMIN_EMAIL');
+  using      (auth.email() = 'zefanya.kharisma@gmail.com')
+  with check (auth.email() = 'zefanya.kharisma@gmail.com');
 
 -- --- calendar_events --------------------------------------------------------
 drop policy if exists "calendar_public_read" on public.calendar_events;
@@ -137,8 +137,8 @@ create policy "calendar_admin_all"
   on public.calendar_events
   for all
   to authenticated
-  using      (auth.email() = 'YOUR_ADMIN_EMAIL')
-  with check (auth.email() = 'YOUR_ADMIN_EMAIL');
+  using      (auth.email() = 'zefanya.kharisma@gmail.com')
+  with check (auth.email() = 'zefanya.kharisma@gmail.com');
 
 -- --- page_content -----------------------------------------------------------
 drop policy if exists "page_content_public_read" on public.page_content;
@@ -153,8 +153,8 @@ create policy "page_content_admin_all"
   on public.page_content
   for all
   to authenticated
-  using      (auth.email() = 'YOUR_ADMIN_EMAIL')
-  with check (auth.email() = 'YOUR_ADMIN_EMAIL');
+  using      (auth.email() = 'zefanya.kharisma@gmail.com')
+  with check (auth.email() = 'zefanya.kharisma@gmail.com');
 
 -- ===========================================================================
 -- Storage bucket: article-images
@@ -181,18 +181,18 @@ create policy "article_images_admin_insert"
   to authenticated
   with check (
     bucket_id = 'article-images'
-    and auth.email() = 'YOUR_ADMIN_EMAIL'
+    and auth.email() = 'zefanya.kharisma@gmail.com'
   );
 
 create policy "article_images_admin_update"
   on storage.objects
   for update
   to authenticated
-  using      (bucket_id = 'article-images' and auth.email() = 'YOUR_ADMIN_EMAIL')
-  with check (bucket_id = 'article-images' and auth.email() = 'YOUR_ADMIN_EMAIL');
+  using      (bucket_id = 'article-images' and auth.email() = 'zefanya.kharisma@gmail.com')
+  with check (bucket_id = 'article-images' and auth.email() = 'zefanya.kharisma@gmail.com');
 
 create policy "article_images_admin_delete"
   on storage.objects
   for delete
   to authenticated
-  using (bucket_id = 'article-images' and auth.email() = 'YOUR_ADMIN_EMAIL');
+  using (bucket_id = 'article-images' and auth.email() = 'zefanya.kharisma@gmail.com');
