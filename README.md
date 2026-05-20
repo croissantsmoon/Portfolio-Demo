@@ -51,7 +51,7 @@ The home page also hosts the Skill Discovery entry point, where visitors filter 
 │   │   ├── calendar.js
 │   │   ├── event-modal.js
 │   │   ├── login-modal.js
-│   │   └── tiptap-editor.js  # Quill wrapper (textarea fallback)
+│   │   └── quill-editor.js   # Quill wrapper (textarea fallback)
 │   └── pages/
 │       ├── home/home.js
 │       ├── about-me/         # overview, education, international, values,
@@ -91,8 +91,37 @@ The admin role is fully optional. The site renders read-only without it. To enab
 
 1. Create a free Supabase project.
 2. Run `supabase/migrations/001_initial_schema.sql` (after replacing `YOUR_ADMIN_EMAIL`).
-3. Copy `js/config.example.js` to `js/config.js` and fill in your project URL, anon key, and admin email.
+3. Copy `js/config.example.js` to `js/config.js` and fill in your project URL, anon key, admin email, and (optionally) Formspree endpoint.
 
 Full step-by-step instructions, including RLS verification and troubleshooting, are in [SETUP.md](SETUP.md).
 
 > `js/config.js` is gitignored. The Supabase anon key is publishable and safe to ship; the `service_role` key is not — never put it in frontend code.
+
+## Architecture
+
+### Routing
+
+Hash-based SPA routing. Every route is `#/<pageId>` (e.g. `#/about-overview`). The `goToPage(pageId)` function in `js/main.js` pushes to history and renders the matching `#page-<pageId>` element. Direct URL entry and browser back/forward both work via the `hashchange` / `popstate` listeners.
+
+Inactive pages have `display: none` (CSS class `.page`) which removes them from the accessibility tree. Active pages get `.page.active`.
+
+### Page modules
+
+Each file under `js/pages/` injects its HTML into the corresponding `<div id="page-…">` on `DOMContentLoaded`. Pages are self-contained and never import each other. Shared state (admin mode, toast, routing) lives on `window`.
+
+### Inline editing
+
+`js/inline-edit.js` fetches `page_content` rows on load and applies stored content to every `[data-edit-key]` element. In admin mode, clicking any such element makes it `contenteditable`; blur upserts the change back to Supabase.
+
+### Content editing workflow
+
+1. Sign in as admin (`Ctrl/Cmd+Shift+A` or footer link).
+2. Headings / paragraphs: click any dashed-outline element to edit inline.
+3. Articles: go to Writing → click **+ New Article** → write with Quill → Publish.
+4. Calendar: hover a date on the home or MoU calendar → **+ Add event**.
+
+### Deployment
+
+The site deploys as static files on GitHub Pages. Push to `main` → GitHub Pages serves `index.html`. The Supabase backend is separate — no build step required.
+
+For the contact form, create a free [Formspree](https://formspree.io) account, add the endpoint to `js/config.js`, and the form will submit without a server.

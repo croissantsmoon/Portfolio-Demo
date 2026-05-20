@@ -34,16 +34,23 @@
     if (window.IS_ADMIN) loadArticles(state);
 
     // Re-paint when admin status flips so add/edit affordances appear.
+    var adminChangeHandler = null;
     if (window.AdminAuth && !state.adminListenerAttached) {
       state.adminListenerAttached = true;
-      window.AdminAuth.onAdminChange(function () {
+      adminChangeHandler = function () {
         if (window.IS_ADMIN) loadArticles(state);
         paint(mountEl, state);
-      });
+      };
+      window.AdminAuth.onAdminChange(adminChangeHandler);
     }
 
     return {
-      destroy: function () { mountEl.innerHTML = ''; },
+      destroy: function () {
+        if (adminChangeHandler && window.AdminAuth) {
+          window.AdminAuth.offAdminChange(adminChangeHandler);
+        }
+        mountEl.innerHTML = '';
+      },
       refresh: function () { return loadEvents(state).then(function () { paint(mountEl, state); }); }
     };
   }

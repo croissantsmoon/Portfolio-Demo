@@ -125,7 +125,7 @@ Saved articles store both representations:
 | `content_html` | text  | Rendered HTML used by the public reader |
 
 If Quill ever fails to load (CDN outage, network block),
-`js/components/tiptap-editor.js` detects this and falls back to a plain
+`js/components/quill-editor.js` detects this and falls back to a plain
 `<textarea>` so you do not lose work — formatting will not be applied, but
 text is preserved.
 
@@ -156,4 +156,4 @@ the public read-only view.
 | `permission denied for table articles` on save | RLS policy email placeholder was not replaced before running the migration. Re-run the policy section with the right email. |
 | Image upload says `new row violates row-level security policy` | Same as above, for the `article-images` storage policies. |
 | Site loads but no Supabase client | `js/config.js` is missing — copy `js/config.example.js`. |
-| TipTap toolbar buttons do nothing | The CDN scripts failed to load. Check the Network tab; if blocked, switch to TinyMCE per §6. |
+| Quill toolbar buttons do nothing | The CDN scripts failed to load. Check the Network tab; a `<textarea>` fallback should appear automatically (see §6). |

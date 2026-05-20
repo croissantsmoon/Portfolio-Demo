@@ -218,20 +218,21 @@ function onEcosystemSearchInput(value) {
   var dropdown = document.getElementById('search-dropdown');
   if (!results.length) { dropdown.style.display = 'none'; return; }
 
-  // UX FIX: search results converted to <a> links for proper routing and right-click support
   dropdown.innerHTML = results.map(function(r) {
-    return '<a href="#/' + r.page + '" onclick="hideSearchDropdown()"' +
-      ' style="display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 14px;background:transparent;border-bottom:1px solid rgba(28,28,30,0.05);transition:background .15s;font-family:\'Inter\',sans-serif;text-decoration:none"' +
-      ' onmouseover="this.style.background=\'rgba(28,28,30,0.04)\'" onmouseout="this.style.background=\'transparent\'">' +
-      '<span style="width:8px;height:8px;border-radius:50%;background:' + r.accent + ';flex-shrink:0;display:inline-block"></span>' +
-      '<div style="flex:1;text-align:left">' +
-      '<div style="font-size:.82rem;font-weight:600;color:#1C1C1E;font-family:inherit">' + r.title + '</div>' +
-      '<div style="font-size:.7rem;color:#767676;margin-top:1px">' + r.subtitle + '</div>' +
+    return '<a href="#/' + r.page + '" class="search-dropdown-item">' +
+      '<span class="search-dropdown-dot" style="background:' + r.accent + '"></span>' +
+      '<div style="flex:1">' +
+      '<div class="search-dropdown-title">' + r.title + '</div>' +
+      '<div class="search-dropdown-sub">' + r.subtitle + '</div>' +
       '</div>' +
       '<i data-lucide="arrow-right" style="width:12px;height:12px;color:#C0B9AD;flex-shrink:0"></i>' +
       '</a>';
   }).join('');
   dropdown.style.display = 'block';
+  // Close when a result is selected
+  dropdown.querySelectorAll('.search-dropdown-item').forEach(function(a) {
+    a.addEventListener('click', hideSearchDropdown);
+  });
   lucide.createIcons();
 }
 
@@ -288,44 +289,46 @@ function filterArticles(category) {
   });
 }
 
-// UX FIX: graceful fallback if CV file is missing — never leave the user with a broken download
-function handleCvDownload(event, link) {
-  event.preventDefault();
+// CV download with graceful fallback — uses data-state classes so the icon is preserved.
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('#home-cv-download');
+  if (!link) return;
+  e.preventDefault();
+  if (link.dataset.state === 'loading') return;
+  var statusEl = document.getElementById('cv-download-status');
+
+  link.dataset.state = 'loading';
+  if (statusEl) statusEl.textContent = 'Checking CV file…';
+
   fetch(link.href, { method: 'HEAD' })
     .then(function (res) {
       if (res.ok) {
-        // File exists — trigger the actual download
+        link.removeAttribute('data-state');
+        if (statusEl) statusEl.textContent = 'CV download starting…';
         var a = document.createElement('a');
         a.href = link.href;
         a.download = 'Zefanya-Kharisma-Nugroho-CV.pdf';
         document.body.appendChild(a);
         a.click();
         a.remove();
+        setTimeout(function () { if (statusEl) statusEl.textContent = ''; }, 3000);
       } else {
-        throw new Error('CV not available');
+        throw new Error('not available');
       }
     })
     .catch(function () {
-      // Fallback: route to contact so they can request it directly
-      var orig = link.innerHTML;
-      link.innerHTML = 'CV unavailable — opening contact…';
-      setTimeout(function () { link.innerHTML = orig; if (window.lucide) lucide.createIcons(); }, 2400);
-      setTimeout(function () { goToPage('contact'); }, 700);
+      link.dataset.state = 'error';
+      if (statusEl) statusEl.textContent = 'CV not available — redirecting to contact page.';
+      setTimeout(function () { link.removeAttribute('data-state'); if (statusEl) statusEl.textContent = ''; }, 3000);
+      setTimeout(function () { goToPage('contact'); }, 900);
     });
-}
+});
 
 function openArticle(id) {
-  // Articles are drafts — surface a non-disruptive "coming soon" hint near the clicked card
-  var card = document.querySelector('.article-card[data-article-id="' + id + '"]');
-  if (!card) return;
-  var existing = card.querySelector('.article-soon-toast');
-  if (existing) return;
-  var toast = document.createElement('div');
-  toast.className = 'article-soon-toast';
-  toast.textContent = 'Coming soon — essay in draft.';
-  toast.style.cssText = 'margin-top:14px;padding:8px 12px;border-radius:6px;background:rgba(139,115,85,0.1);color:#6B4F32;font-size:.72rem;font-weight:600;letter-spacing:.04em';
-  card.appendChild(toast);
-  setTimeout(function () { toast.remove(); }, 2400);
+  // Use the centralized toast — avoids mutating card DOM and stacking duplicate toasts.
+  if (window.showToast) {
+    window.showToast('Coming soon — essay in draft.', 'info');
+  }
 }
 
 const defaultConfig = {
@@ -375,7 +378,8 @@ const pageMetadata = {
 let currentPage = 'home';
 let currentSlideHero = 0;
 let currentPagesSlide = 0;
-let pagesAutoplay;
+let pagesAutoplay = null;
+let pagesAutoplayPaused = false;  // explicit pause flag — clearInterval alone is not enough
 
 // UX FIX: single render function used by both goToPage() and _navigateFromHash().
 // Previously the two paths drifted (og:title, mobile menu close, scroll reset).
@@ -391,9 +395,8 @@ function _renderPage(pageId) {
     currentPage = pageId;
   }
 
-  // Close mobile menu on every navigation
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (mobileMenu) mobileMenu.classList.add('hidden');
+  // Close mobile menu and reset all submenu states on every navigation
+  _closeMobileMenu();
 
   // Scroll reset across all possible scroll containers
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -425,15 +428,28 @@ function goToPage(pageId) {
 
 // Maps each pageId to which nav trigger should be marked active
 const _navActiveMap = {
-  'home': 'nav-name',
-  'about-overview': 'dd-btn-about', 'expertise': 'dd-btn-about',
-  'experience': 'dd-btn-about', 'skillset': 'dd-btn-about',
+  'home':             'nav-name',
+  // About
+  'about-overview':   'dd-btn-about', 'expertise': 'dd-btn-about',
+  'experience':       'dd-btn-about', 'skillset':  'dd-btn-about',
+  'education':        'dd-btn-about', 'international': 'dd-btn-about',
+  'values':           'dd-btn-about',
+  // Projects
   'projects-overview': 'dd-btn-projects', 'amerta': 'dd-btn-projects',
-  'aci': 'dd-btn-projects', 'aero': 'dd-btn-projects', 'pcu-global': 'dd-btn-projects',
-  'engagement': 'dd-btn-intl', 'onboarding': 'dd-btn-intl',
-  'engagement-detail': 'dd-btn-intl', 'partnerships': 'dd-btn-intl', 'mou': 'dd-btn-intl',
-  'croissantsmoon': 'dd-btn-creative', 'writing': 'dd-btn-creative',
-  'websites': 'dd-btn-creative', 'designs': 'dd-btn-creative',
+  'aci':               'dd-btn-projects', 'aero':   'dd-btn-projects',
+  'pcu-global':        'dd-btn-projects',
+  // Intl. Education
+  'engagement':         'dd-btn-intl', 'onboarding':       'dd-btn-intl',
+  'engagement-detail':  'dd-btn-intl', 'partnerships':     'dd-btn-intl',
+  'mou':                'dd-btn-intl', 'partnership-detail': 'dd-btn-intl',
+  'mou-detail':         'dd-btn-intl',
+  // Creative
+  'croissantsmoon': 'dd-btn-creative', 'writing':  'dd-btn-creative',
+  'websites':       'dd-btn-creative', 'designs':  'dd-btn-creative',
+  // Standalone — no parent nav item highlighted
+  'contact':        null,
+  'skill-discovery': null,
+  'not-found':      null,
 };
 
 function _updateNavActiveState(pageId) {
@@ -483,14 +499,25 @@ function updateCarouselDotsHero() {
   for (let i = 0; i < slides.length; i++) {
     const dot = document.createElement('button');
     dot.className = 'w-2 h-2 rounded-full transition';
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    if (i === currentSlideHero) dot.setAttribute('aria-current', 'true');
     dot.style.background = i === currentSlideHero ? '#ffffff' : 'rgba(255,255,255,0.4)';
-    dot.onclick = () => {
+    dot.addEventListener('click', () => {
       currentSlideHero = i;
       document.getElementById('carousel-track-hero').style.transform = `translateX(-${currentSlideHero * 100}%)`;
       updateCarouselDotsHero();
-    };
+    });
     dotsContainer.appendChild(dot);
   }
+}
+
+function _startPagesAutoplay() {
+  if (pagesAutoplay) clearInterval(pagesAutoplay);
+  pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+}
+
+function _stopPagesAutoplay() {
+  if (pagesAutoplay) { clearInterval(pagesAutoplay); pagesAutoplay = null; }
 }
 
 function slidePagesCarousel(dir) {
@@ -502,11 +529,8 @@ function slidePagesCarousel(dir) {
   if (currentPagesSlide < 0) currentPagesSlide = count - 1;
   track.style.transform = `translateX(-${currentPagesSlide * 100}%)`;
   updatePagesCarouselDots();
-  // UX FIX: only restart autoplay if it was running (respects user's pause + reduced-motion)
-  if (pagesAutoplay !== null) {
-    clearInterval(pagesAutoplay);
-    pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
-  }
+  // Restart the timer only when autoplay is running (not when explicitly paused)
+  if (!pagesAutoplayPaused) _startPagesAutoplay();
 }
 
 function updatePagesCarouselDots() {
@@ -518,14 +542,16 @@ function updatePagesCarouselDots() {
   for (let i = 0; i < count; i++) {
     const dot = document.createElement('button');
     dot.className = 'w-2 h-2 rounded-full transition';
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    if (i === currentPagesSlide) dot.setAttribute('aria-current', 'true');
     dot.style.background = i === currentPagesSlide ? '#2563EB' : 'rgba(37,99,235,0.25)';
-    dot.onclick = () => {
+    dot.addEventListener('click', () => {
       currentPagesSlide = i;
       track.style.transform = `translateX(-${currentPagesSlide * 100}%)`;
       updatePagesCarouselDots();
-      clearInterval(pagesAutoplay);
-      pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
-    };
+      // Dot navigation does NOT restart autoplay if user has paused
+      if (!pagesAutoplayPaused) _startPagesAutoplay();
+    });
     dotsContainer.appendChild(dot);
   }
 }
@@ -569,19 +595,57 @@ if (window.elementSdk) window.elementSdk.init({
   ])
 });
 
-// Initialize mobile menu
-document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-  document.getElementById('mobile-menu').classList.toggle('hidden');
+// ── Mobile menu ────────────────────────────────────────────
+function _resetMobileSubmenus() {
+  document.querySelectorAll('.mobile-menu-toggle').forEach(function(btn) {
+    var menuId = btn.dataset.menu + '-menu';
+    var menu = document.getElementById(menuId);
+    if (menu) menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+    var icon = btn.querySelector('i');
+    if (icon) icon.style.transform = 'rotate(0deg)';
+  });
+}
+
+function _closeMobileMenu() {
+  var mobileMenu = document.getElementById('mobile-menu');
+  var btn = document.getElementById('mobile-menu-btn');
+  if (mobileMenu) mobileMenu.classList.add('hidden');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+  _resetMobileSubmenus();
+}
+
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+  var menu = document.getElementById('mobile-menu');
+  var btn  = document.getElementById('mobile-menu-btn');
+  var isOpen = !menu.classList.contains('hidden');
+  if (isOpen) {
+    _closeMobileMenu();
+  } else {
+    menu.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+  }
 });
 
-document.querySelectorAll('.mobile-menu-toggle').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const menu = document.getElementById(btn.dataset.menu + '-menu');
-    if (menu) {
-      menu.classList.toggle('hidden');
-      btn.querySelector('i').style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+document.querySelectorAll('.mobile-menu-toggle').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var menu = document.getElementById(btn.dataset.menu + '-menu');
+    if (!menu) return;
+    var isOpen = !menu.classList.contains('hidden');
+    // Close all other submenus first
+    _resetMobileSubmenus();
+    if (!isOpen) {
+      menu.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      var icon = btn.querySelector('i');
+      if (icon) icon.style.transform = 'rotate(180deg)';
     }
   });
+});
+
+// Auto-close mobile menu when resizing to desktop breakpoint (≥768px)
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 768) _closeMobileMenu();
 });
 
 // UX FIX: keyboard-accessible desktop dropdowns
@@ -658,19 +722,34 @@ document.querySelectorAll('.mobile-menu-toggle').forEach(btn => {
 
 // Hero banner configurations for each page
 const heroConfigs = {
-  'education': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Academic Foundation', desc: 'Education and achievements that shaped my professional expertise in international relations.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
-  'international': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'International Exposure', desc: 'Real-world experience bridging institutions, students, and cultures across Southeast Asia.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
-  'values': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Professional Values', desc: 'Principles that guide my work and decisions in international education.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
-  'expertise': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Areas of Expertise', desc: 'Core competencies built through hands-on experience in international higher education.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
-  'experience': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Professional Experience', desc: '3+ years building international partnerships and supporting student mobility across Surabaya.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
-  'skillset': { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Skillset', desc: 'Core competencies and professional capabilities.', gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
-  'amerta': { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AMERTA', desc: "Universitas Airlangga's flagship semester exchange program — 120+ students, IDR 50-100M budget.", gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
-  'aci': { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'ACI', desc: 'Airlangga Cultural Immersion — structured engagement program connecting international and local students.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
-  'aero': { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AERO', desc: 'Annual exhibition at Universitas Airlangga showcasing global partnerships and international programs.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
-  'partnership-detail': { back: 'partnerships', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development', desc: 'Building and nurturing strategic academic partnerships that drive institutional excellence.', gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%' },
-  'mou-detail': { back: 'partnerships', backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination', desc: 'Reviewing 25+ partnership agreements per month — ensuring compliance and institutional alignment.', gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%' },
-  'websites': { back: 'home', backLabel: 'Back', category: 'Creative Services', title: 'Web Development & Design', desc: 'Responsive, user-centered websites for institutional communications and international engagement.', gradient: '#7F1D1D 0%, #DC2626 60%, #F87171 100%' },
-  'contact': { back: 'home', backLabel: 'Back', category: 'Get in Touch', title: "Let's Connect", desc: 'Open to international partnerships, collaborations, and meaningful conversations about global education.', gradient: '#1C1C1E 0%, #2C2C2E 60%, #5C5C5C 100%' }
+  // About Me sub-pages
+  'education':    { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Academic Foundation',     desc: 'Education and achievements that shaped my professional expertise in international relations.',        gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
+  'international':{ back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'International Exposure',  desc: 'Real-world experience bridging institutions, students, and cultures across Southeast Asia.',          gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
+  'values':       { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Professional Values',     desc: 'Principles that guide my work and decisions in international education.',                          gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
+  'expertise':    { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Areas of Expertise',      desc: 'Core competencies built through hands-on experience in international higher education.',             gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
+  'experience':   { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Professional Experience', desc: '3+ years building international partnerships and supporting student mobility across Surabaya.',      gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
+  'skillset':     { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Skillset',                desc: 'Core competencies and professional capabilities.',                                               gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
+  // Projects
+  'amerta':       { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AMERTA',     desc: "Universitas Airlangga's flagship semester exchange program — 120+ students, IDR 50–100M budget.", gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
+  'aci':          { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'ACI',         desc: 'Airlangga Cultural Immersion — structured engagement program connecting international and local students.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
+  'aero':         { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AERO',        desc: 'Annual exhibition at Universitas Airlangga showcasing global partnerships and international programs.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
+  'pcu-global':   { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'PCU Global', desc: "Rebuilding PCU's International Office online presence — full-stack web app, news CMS, and mobile-first design.", gradient: '#003087 0%, #0050A0 60%, #3B82F6 100%' },
+  // Intl. Education
+  'onboarding':        { back: 'engagement', backLabel: 'Back', category: 'Student Services',    title: 'Student Onboarding & Orientation', desc: 'End-to-end welfare support for 100+ international students per semester — housing, healthcare, immigration.', gradient: '#1B3A2A 0%, #2D6A4F 60%, #52B788 100%' },
+  'engagement-detail': { back: 'engagement', backLabel: 'Back', category: 'Student Services',    title: 'Student Engagement',              desc: 'Building meaningful connections and fostering personal growth through curated exchange programs.',              gradient: '#1B3A2A 0%, #2D6A4F 60%, #52B788 100%' },
+  'partnerships':      { back: 'engagement', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development',         desc: 'Managing 30+ institutional partners and facilitating 15+ strategic meetings per month.',                        gradient: '#4A6B8A 0%, #2563EB 50%, #38BDF8 100%' },
+  'mou':               { back: 'engagement', backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination',          desc: 'Formalizing academic partnerships through strategic agreements — ensuring compliance and institutional alignment.', gradient: '#4A6B8A 0%, #2563EB 50%, #38BDF8 100%' },
+  'partnership-detail':{ back: 'partnerships', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development',       desc: 'Building and nurturing strategic academic partnerships that drive institutional excellence.',                     gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%' },
+  'mou-detail':        { back: 'mou',          backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination',        desc: 'Reviewing 25+ partnership agreements per month — ensuring compliance and institutional alignment.',              gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%' },
+  // Creative
+  'croissantsmoon': { back: 'home', backLabel: 'Back', category: 'Creative Studio',   title: 'CroissantsMoon',           desc: 'A future-facing boutique studio identity — editorial design, web experiences, and brand systems.',         gradient: '#3D2B1F 0%, #8B7355 60%, #C8A97A 100%' },
+  'writing':        { back: 'home', backLabel: 'Back', category: 'Creative',          title: 'Writing & Reflections',    desc: 'Essays and insights on international education, leadership, systems thinking, and digital craft.',        gradient: '#2C2C2E 0%, #5C5C5C 60%, #9A9A9A 100%' },
+  'websites':       { back: 'home', backLabel: 'Back', category: 'Creative Services', title: 'Web Development & Design', desc: 'Responsive, user-centered websites for institutional communications and international engagement.',       gradient: '#7F1D1D 0%, #DC2626 60%, #F87171 100%' },
+  'designs':        { back: 'home', backLabel: 'Back', category: 'Creative Services', title: 'Graphic Design',           desc: 'Strategic visual design for institutional identity, event collateral, and international partnerships.',    gradient: '#3D1F5C 0%, #7C3AED 60%, #A78BFA 100%' },
+  // Standalone
+  'contact':        { back: 'home', backLabel: 'Back', category: 'Get in Touch',      title: "Let's Connect",            desc: 'Open to international partnerships, collaborations, and meaningful conversations about global education.', gradient: '#1C1C1E 0%, #2C2C2E 60%, #5C5C5C 100%' },
+  'skill-discovery':{ back: 'home', backLabel: 'Back', category: 'Explore',           title: 'Skill Discovery',          desc: 'Filter my work by skill area — find the intersection of international education and creative practice.',     gradient: '#1E3A5F 0%, #2563EB 50%, #38BDF8 100%' },
+  'not-found':      { back: 'home', backLabel: 'Go Home', category: '404',            title: 'Page Not Found',           desc: 'The page you are looking for does not exist. Head back to the home page.',                                 gradient: '#1C1C1E 0%, #3C3C3E 60%, #5C5C5C 100%' },
 };
 
 function injectHeroBanners() {
@@ -750,21 +829,32 @@ document.addEventListener('DOMContentLoaded', function() {
   var pagesPrefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (document.getElementById('pages-carousel-track')) {
     updatePagesCarouselDots();
-    if (!pagesPrefersReduced) {
-      pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+    if (pagesPrefersReduced) {
+      pagesAutoplayPaused = true;
+    } else {
+      _startPagesAutoplay();
     }
   }
   document.addEventListener('visibilitychange', function() {
+    document.body.classList.toggle('tab-hidden', document.hidden);
     if (!document.getElementById('pages-carousel-track')) return;
     if (document.hidden) {
-      if (pagesAutoplay) { clearInterval(pagesAutoplay); pagesAutoplay = null; }
-    } else if (!pagesPrefersReduced && !pagesAutoplay) {
-      pagesAutoplay = setInterval(() => slidePagesCarousel(1), 3500);
+      _stopPagesAutoplay();
+    } else if (!pagesAutoplayPaused) {
+      _startPagesAutoplay();
     }
   });
 
   // UX FIX: navigate to page from URL hash on load (supports #/pageId format)
   _navigateFromHash();
+
+  // Hero scroll cue — delegated, no inline onclick
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('#hero-scroll-btn')) {
+      var target = document.getElementById('home-stats-band');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
   // Touch swipe for hero carousel (only if present)
   (function() {

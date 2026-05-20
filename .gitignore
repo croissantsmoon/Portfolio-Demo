@@ -1,5 +1,10 @@
 .DS_Store
-**/.DS_Store.DS_Store
+**/.DS_Store
+._*
+**/._*
 
 # Local Supabase/admin config — never commit
 js/config.js
+
+# Build output (if Tailwind CLI is added later)
+css/dist/

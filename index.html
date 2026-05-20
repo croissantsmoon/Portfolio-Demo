@@ -17,6 +17,15 @@
   <meta name="twitter:title" content="Zefanya Kharisma Nugroho — International Education &amp; Creative Digital">
   <meta name="twitter:description" content="Bridging global engagement &amp; digital creativity. International Education Professional based in Surabaya.">
   <meta name="twitter:image" content="https://zefanyakharisma-cell.github.io/Website-Portfolio/assets/og-image.jpg">
+  <!-- Security headers (meta equivalents — server headers preferred for production) -->
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <!-- Performance: preconnect to external origins to reduce latency -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://supabase.co">
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
@@ -100,18 +109,18 @@
       </div>
       <a href="#/contact" class="ml-2 text-sm font-medium px-5 py-2 rounded-full transition" style="background:#1C1C1E;color:#fff;text-decoration:none">Contact</a>
      </div>
-     <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-black/5" aria-label="Open navigation menu"><i data-lucide="menu" style="width:20px;height:20px;color:#1C1C1E"></i></button>
+     <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-black/5" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><i data-lucide="menu" style="width:20px;height:20px;color:#1C1C1E"></i></button>
     </div>
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-1.5" style="background:#FAFAF8;border-top:1px solid rgba(28,28,30,0.06)">
-     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="about" style="color:#5C5C5C"> <span>About</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
+     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="about" aria-expanded="false" aria-controls="about-menu" style="color:#5C5C5C"> <span>About</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
      <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="about-menu">
       <a href="#/about-overview" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
       <a href="#/expertise"      class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Expertise</a>
       <a href="#/experience"     class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Experience</a>
       <a href="#/skillset"       class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Skillset</a>
      </div>
-     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="projects" style="color:#5C5C5C"> <span>Projects</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
+     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="projects" aria-expanded="false" aria-controls="projects-menu" style="color:#5C5C5C"> <span>Projects</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
      <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="projects-menu">
       <a href="#/projects-overview" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
       <a href="#/amerta"            class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">AMERTA</a>
@@ -119,7 +128,7 @@
       <a href="#/aero"              class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">AERO</a>
       <a href="#/pcu-global"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">PCU Global</a>
      </div>
-     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="intl" style="color:#5C5C5C"> <span>Intl. Education</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
+     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="intl" aria-expanded="false" aria-controls="intl-menu" style="color:#5C5C5C"> <span>Intl. Education</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
      <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="intl-menu">
       <a href="#/engagement"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
       <a href="#/onboarding"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">International Student Support</a>
@@ -127,8 +136,7 @@
       <a href="#/partnerships"      class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Partnership Development</a>
       <a href="#/mou"               class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">MoU / MoA</a>
      </div>
-     <!-- UX FIX: Creative sub-items grouped under accordion in mobile menu -->
-     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="creative" style="color:#5C5C5C"> <span>Creative</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
+     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="creative" aria-expanded="false" aria-controls="creative-menu" style="color:#5C5C5C"> <span>Creative</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
      <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="creative-menu">
       <a href="#/croissantsmoon" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;font-family:'Playfair Display',serif;font-style:italic;text-decoration:none">CroissantsMoon</a>
       <a href="#/writing"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Writing</a>
@@ -267,7 +275,7 @@
   <script src="./js/auth.js"></script>
   <script src="./js/components/login-modal.js"></script>
   <script src="./js/components/admin-banner.js"></script>
-  <script src="./js/components/tiptap-editor.js"></script>
+  <script src="./js/components/quill-editor.js"></script>
   <script src="./js/components/event-modal.js"></script>
   <script src="./js/components/calendar.js"></script>
   <script src="./js/inline-edit.js"></script>

@@ -6,6 +6,13 @@
 --      email of the Supabase auth user you created for yourself.
 --      Tip: in Supabase SQL Editor use Cmd/Ctrl+D to multi-select.
 --   2. Run the whole file in one execution.
+--
+-- SECURITY NOTE:
+--   The admin email is embedded directly in RLS policies here because this
+--   schema targets a single-owner portfolio. If you change your admin email,
+--   you must DROP and re-CREATE the policies (or recreate them via the
+--   Supabase dashboard) with the new email.
+--   Never hardcode the service_role key in frontend code — it bypasses RLS.
 -- ============================================================================
 
 -- ---------------------------------------------------------------------------

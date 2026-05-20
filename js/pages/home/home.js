@@ -16,8 +16,8 @@ function homeInitPage() {
       <!-- Background gradients — decorative, hidden from assistive tech -->
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="background:radial-gradient(ellipse at 70% 30%,rgba(139,115,85,0.09),transparent 55%),radial-gradient(ellipse at 10% 85%,rgba(74,107,138,0.05),transparent 50%)"></div>
       <!-- Giant watermark letter — decorative -->
-      <div class="absolute right-0 top-0 h-full hidden lg:flex items-center pointer-events-none overflow-hidden" aria-hidden="true" style="width:42%">
-       <span style="font-family:'Playfair Display',serif;font-size:clamp(18rem,26vw,34rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%)">Z</span>
+      <div class="absolute right-0 top-0 h-full hidden lg:flex items-center pointer-events-none" aria-hidden="true" style="width:42%;overflow:hidden;max-width:min(42%,560px)">
+       <span style="font-family:'Playfair Display',serif;font-size:clamp(16rem,22vw,30rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%);display:block;overflow:hidden">Z</span>
       </div>
       <!-- Geometric ring accents — decorative -->
       <div class="absolute hidden lg:block pointer-events-none" aria-hidden="true" style="right:15%;top:15%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(139,115,85,0.11)"></div>
@@ -29,7 +29,7 @@ function homeInitPage() {
        <div class="flex-shrink-0 home-hero-photo" style="animation:fadeUp .5s ease both">
         <div class="relative mx-auto md:mx-0" style="width:180px">
          <div class="home-hero-photo-frame" style="width:180px;height:230px;border-radius:1.25rem;overflow:hidden;box-shadow:0 24px 64px rgba(28,28,30,0.14)">
-          <img src="./assets/images/self-portrait/profile-14.JPEG" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(2.2);transform-origin:center 75%">
+          <img src="./assets/images/self-portrait/profile-14.JPEG" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
          </div>
          <div style="position:absolute;bottom:-10px;left:20px;width:48px;height:2px;background:#8B7355;border-radius:2px"></div>
         </div>
@@ -77,10 +77,10 @@ function homeInitPage() {
       </div>
 
       <!-- UX FIX: scroll cue now visible on mobile too — desktop keeps vertical text, mobile shows a centered chevron -->
-      <button class="hero-scroll-cue absolute bottom-6 left-1/2 md:left-6 md:translate-x-0 flex flex-col items-center gap-2" aria-label="Scroll to next section" onclick="document.getElementById('home-stats-band').scrollIntoView({behavior:'smooth'})" style="opacity:.32;background:none;border:none;cursor:pointer;padding:0;transform:translateX(-50%)">
-       <div class="hidden md:block" style="width:1px;height:40px;background:#1C1C1E"></div>
-       <span class="label-small hidden md:inline" style="writing-mode:vertical-rl;letter-spacing:.14em">Scroll</span>
-       <i data-lucide="chevron-down" class="md:hidden" style="width:22px;height:22px;color:#1C1C1E;animation:cmScrollBounce 2.2s ease-in-out infinite"></i>
+      <button class="hero-scroll-cue absolute bottom-6 left-1/2 md:left-6 md:translate-x-0 flex flex-col items-center gap-2" aria-label="Scroll to next section" id="hero-scroll-btn" style="background:none;border:none;cursor:pointer;padding:0;transform:translateX(-50%)">
+       <div class="hidden md:block" style="width:1px;height:40px;background:rgba(255,255,255,0.6)"></div>
+       <span class="label-small hidden md:inline" style="writing-mode:vertical-rl;letter-spacing:.14em;color:rgba(255,255,255,0.7)">Scroll</span>
+       <i data-lucide="chevron-down" class="md:hidden" style="width:22px;height:22px;color:rgba(255,255,255,0.75);animation:cmScrollBounce 2.2s ease-in-out infinite"></i>
       </button>
      </div>
 
@@ -348,8 +348,8 @@ function homeInitPage() {
        <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;letter-spacing:-.02em;line-height:1.05" data-edit-key="home_contact_title">Open to<br><em style="font-style:italic;color:#8B7355">Conversations</em></h2>
        <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7" data-edit-key="home_contact_body">Partnerships, collaborations, education projects, or creative work — I'm always open to a good conversation.</p>
        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a id="home-cv-download" href="./assets/data/profile.pdf" download class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2" style="background:#8B7355;color:#fff;transition:all .2s;text-decoration:none" onmouseover="this.style.background='#7A6348'" onmouseout="this.style.background='#8B7355'" onclick="handleCvDownload(event,this)"><i data-lucide="download" style="width:15px;height:15px"></i> Download CV</a>
-        <button onclick="goToPage('contact')" class="font-medium text-sm px-8 py-4 rounded-full inline-flex items-center gap-2" style="border:1.5px solid rgba(255,255,255,0.18);color:#fff;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)'"><i data-lucide="mail" style="width:15px;height:15px"></i> Contact Me</button>
+        <a id="home-cv-download" href="./assets/data/profile.pdf" download class="btn-cv-download font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2"><i data-lucide="download" style="width:15px;height:15px"></i> <span class="cv-btn-label">Download CV</span><span class="sr-only" aria-live="polite" id="cv-download-status"></span></a>
+        <a href="#/contact" class="btn-contact-outline font-medium text-sm px-8 py-4 rounded-full inline-flex items-center gap-2"><i data-lucide="mail" style="width:15px;height:15px"></i> Contact Me</a>
        </div>
       </div>
      </div>

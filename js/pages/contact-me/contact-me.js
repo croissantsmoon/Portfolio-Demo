@@ -1,6 +1,8 @@
-// TODO: Replace with your Formspree form endpoint (free at https://formspree.io)
-// Until this is set, the form falls back to a mailto: link so messages aren't lost.
-var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+// Resolved at runtime from js/config.js (APP_CONFIG.FORMSPREE_ENDPOINT).
+// Falls back gracefully to a mailto: link when not configured.
+function _getFormspreeEndpoint() {
+  return (window.APP_CONFIG && window.APP_CONFIG.FORMSPREE_ENDPOINT) || '';
+}
 
 function contactInitPage() {
   var el = document.getElementById('page-contact');
@@ -69,6 +71,45 @@ function contactInitPage() {
   var form = document.getElementById('contact-form');
   if (!form) return;
 
+  function setFieldError(inputId, errorId, message) {
+    var input = document.getElementById(inputId);
+    var errEl = document.getElementById(errorId);
+    if (!input || !errEl) return;
+    if (message) {
+      input.setAttribute('aria-invalid', 'true');
+      input.classList.add('input-error');
+      errEl.textContent = message;
+      errEl.classList.remove('hidden');
+    } else {
+      input.removeAttribute('aria-invalid');
+      input.classList.remove('input-error');
+      errEl.textContent = '';
+      errEl.classList.add('hidden');
+    }
+  }
+
+  function clearAllErrors() {
+    [['cf-name','cf-name-err'],['cf-email','cf-email-err'],['cf-subject','cf-subject-err'],['cf-msg','cf-msg-err']].forEach(function(pair) {
+      setFieldError(pair[0], pair[1], '');
+    });
+    var msg = document.getElementById('form-msg');
+    if (msg) msg.classList.add('hidden');
+  }
+
+  // Inline error elements (injected after each input)
+  ['cf-name','cf-email','cf-subject','cf-msg'].forEach(function(id) {
+    var input = document.getElementById(id);
+    if (!input) return;
+    var errId = id + '-err';
+    var errEl = document.createElement('p');
+    errEl.id = errId;
+    errEl.className = 'hidden text-xs mt-1 font-medium';
+    errEl.style.color = '#C85A3A';
+    errEl.setAttribute('aria-live', 'polite');
+    input.setAttribute('aria-describedby', errId);
+    input.parentElement.appendChild(errEl);
+  });
+
   function setMsg(text, kind) {
     var msg = document.getElementById('form-msg');
     msg.textContent = text;
@@ -78,55 +119,69 @@ function contactInitPage() {
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var btn = document.getElementById('cf-submit');
-    var label = document.getElementById('cf-submit-label');
+    clearAllErrors();
 
-    var name = document.getElementById('cf-name').value.trim();
-    var email = document.getElementById('cf-email').value.trim();
-    var subject = document.getElementById('cf-subject').value.trim();
-    var message = document.getElementById('cf-msg').value.trim();
+    var nameEl    = document.getElementById('cf-name');
+    var emailEl   = document.getElementById('cf-email');
+    var subjectEl = document.getElementById('cf-subject');
+    var msgEl     = document.getElementById('cf-msg');
+    var btn       = document.getElementById('cf-submit');
+    var label     = document.getElementById('cf-submit-label');
 
-    if (!name || !email || !subject || !message) {
-      setMsg('Please fill in all fields.', 'error');
+    var name    = nameEl.value.trim();
+    var email   = emailEl.value.trim();
+    var subject = subjectEl.value.trim();
+    var message = msgEl.value.trim();
+
+    var hasError = false;
+    if (!name)    { setFieldError('cf-name',    'cf-name-err',    'Please enter your name.');           hasError = true; }
+    if (!email)   { setFieldError('cf-email',   'cf-email-err',   'Please enter your email address.');  hasError = true; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                   setFieldError('cf-email',   'cf-email-err',   'Please enter a valid email address.'); hasError = true; }
+    if (!subject) { setFieldError('cf-subject', 'cf-subject-err', 'Please enter a subject.');            hasError = true; }
+    if (!message) { setFieldError('cf-msg',     'cf-msg-err',     'Please enter a message.');            hasError = true; }
+
+    if (hasError) {
+      // Move focus to first invalid field
+      var firstInvalid = form.querySelector('[aria-invalid="true"]');
+      if (firstInvalid) firstInvalid.focus();
       return;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setMsg('Please enter a valid email address.', 'error');
-      return;
-    }
 
-    // Fallback to mailto: until Formspree endpoint is configured
-    if (FORMSPREE_ENDPOINT.indexOf('YOUR_FORM_ID') !== -1) {
+    var endpoint = _getFormspreeEndpoint();
+
+    // Fallback to mailto: when no endpoint is configured
+    if (!endpoint || endpoint.indexOf('YOUR_FORM_ID') !== -1) {
       var mailto = 'mailto:zefanya.kharisma@gmail.com'
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent('From: ' + name + ' <' + email + '>\n\n' + message);
-      window.location.href = mailto;
+      window.open(mailto);
       setMsg('Opening your email client…', 'neutral');
       return;
     }
 
     btn.disabled = true;
     if (label) label.textContent = 'Sending…';
-    document.getElementById('form-msg').classList.add('hidden');
 
-    fetch(FORMSPREE_ENDPOINT, {
+    fetch(endpoint, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: name, email: email, subject: subject, message: message })
     })
       .then(function (res) {
         if (res.ok) {
-          setMsg('✓ Message sent! I\'ll get back to you within 24–48 hours.', 'success');
+          setMsg('Message sent — I\'ll get back to you within 24–48 hours.', 'success');
           form.reset();
+          clearAllErrors();
         } else {
           throw new Error('Submission failed');
         }
       })
       .catch(function (err) {
-        setMsg('Couldn\'t send — please email zefanya.kharisma@gmail.com directly.', 'error');
+        setMsg('Couldn\'t send right now — please email zefanya.kharisma@gmail.com directly.', 'error');
         console.error('Contact form error:', err);
       })
-      .then(function () {
+      .finally(function () {
         btn.disabled = false;
         if (label) label.textContent = 'Send Message';
       });

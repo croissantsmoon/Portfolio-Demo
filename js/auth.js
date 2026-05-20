@@ -26,8 +26,10 @@
   async function signOut() {
     if (!clientAvailable()) return;
     await window.sb.auth.signOut();
-    // Reload so any admin-only UI state is fully reset.
-    window.location.reload();
+    // Preserve the current SPA route across the reload so the user stays on the
+    // same page rather than bouncing to the home page.
+    const currentHash = window.location.hash || '';
+    window.location.replace(window.location.pathname + window.location.search + currentHash);
   }
 
   async function getCurrentUser() {
@@ -57,8 +59,13 @@
     listeners.push(fn);
   }
 
+  function offAdminChange(fn) {
+    var idx = listeners.indexOf(fn);
+    if (idx !== -1) listeners.splice(idx, 1);
+  }
+
   function showToast(message, kind) {
-    kind = kind || 'success'; // 'success' | 'error'
+    kind = kind || 'success'; // 'success' | 'error' | 'info'
     var stack = document.getElementById('toast-stack');
     if (!stack) {
       stack = document.createElement('div');
@@ -66,17 +73,22 @@
       stack.className = 'toast-stack';
       document.body.appendChild(stack);
     }
+    // Prevent duplicate stacked toasts with identical text
+    var existing = Array.from(stack.querySelectorAll('.toast')).find(function(el) {
+      return el.textContent === message;
+    });
+    if (existing) return;
+
     var t = document.createElement('div');
     t.className = 'toast toast-' + kind;
     t.setAttribute('role', kind === 'error' ? 'alert' : 'status');
     t.textContent = message;
     stack.appendChild(t);
-    // Animate in
     requestAnimationFrame(function () { t.classList.add('toast-visible'); });
     setTimeout(function () {
       t.classList.remove('toast-visible');
       setTimeout(function () { t.remove(); }, 220);
-    }, 2000);
+    }, 2400);
   }
 
   async function initAuth() {
@@ -98,6 +110,7 @@
     getCurrentUser: getCurrentUser,
     isAdmin: isAdmin,
     onAdminChange: onAdminChange,
+    offAdminChange: offAdminChange,
     init: initAuth
   };
   window.showToast = showToast;

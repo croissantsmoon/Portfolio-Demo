@@ -105,7 +105,9 @@
 
     var payload = {
       page_key: key,
-      content_type: (prevRow && prevRow.content_type) || 'text',
+      // Preserve existing content_type on update. For new rows, default to 'html'
+      // since contenteditable saves innerHTML (may contain tags like <br> or <b>).
+      content_type: (prevRow && prevRow.content_type) || 'html',
       content: newHtml
     };
 

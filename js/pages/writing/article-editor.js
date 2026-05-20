@@ -222,6 +222,12 @@
       return;
     }
     var slug = (ctx.slugEl.value || '').trim() || slugify(title);
+    // Guard: slugify can produce an empty string from titles with only special chars
+    if (!slug) {
+      window.showToast && window.showToast('Could not generate a URL slug from this title. Please enter one manually.', 'error');
+      ctx.slugEl.focus();
+      return;
+    }
     ctx.slugEl.value = slug;
 
     var payload = {

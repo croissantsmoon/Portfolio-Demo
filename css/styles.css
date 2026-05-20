@@ -106,6 +106,23 @@ html, body {
   background: var(--bg-dark);
   color: #fff;
 }
+.btn-cv-download {
+  background: #8B7355;
+  color: #fff;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+}
+.btn-cv-download:hover { background: #7A6348; box-shadow: 0 4px 16px rgba(139,115,85,0.25); }
+.btn-cv-download[data-state="loading"] { opacity: .75; pointer-events: none; cursor: wait; }
+.btn-cv-download[data-state="error"]   { background: #C85A3A; }
+.btn-contact-outline {
+  border: 1.5px solid rgba(255,255,255,0.18);
+  color: #fff;
+  background: transparent;
+  text-decoration: none;
+  transition: border-color .2s;
+}
+.btn-contact-outline:hover { border-color: rgba(255,255,255,0.4); }
 
 /* ── Cards ──────────────────────────────────────────────── */
 .card {
@@ -293,6 +310,36 @@ html, body {
 [data-chip-skill] button:hover {
   opacity: 1 !important;
 }
+.search-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(28,28,30,0.05);
+  background: transparent;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  transition: background .15s;
+}
+.search-dropdown-item:hover,
+.search-dropdown-item:focus {
+  background: rgba(28,28,30,0.04);
+  outline: none;
+}
+.search-dropdown-item:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: -2px;
+}
+.search-dropdown-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.search-dropdown-title { font-size: .82rem; font-weight: 600; color: #1C1C1E; }
+.search-dropdown-sub   { font-size: .7rem;  color: #767676; margin-top: 1px; }
 
 /* ── Mobile overrides ───────────────────────────────────── */
 @media (max-width: 767px) {
@@ -452,9 +499,13 @@ html { scroll-behavior: smooth; }
 }
 
 /* ── Marquee: pause on hover/focus ──────────────────────── */
-/* UX FIX: marquee pauses when hovered or any child is focused so users can read */
+/* Marquee pauses on hover, focus, reduced-motion, or hidden tab */
 .cm-marquee-track:hover,
 .cm-marquee-track:focus-within { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .cm-marquee-track { animation: none; }
+}
+body.tab-hidden .cm-marquee-track { animation-play-state: paused; }
 
 /* ── Home work cards (anchors) ───────────────────────────── */
 /* UX FIX: cards are now <a> tags; CSS replaces inline onmouseover handlers
@@ -483,6 +534,14 @@ html { scroll-behavior: smooth; }
   border-color: #8B7355;
   box-shadow: 0 0 0 3px rgba(139,115,85,0.12);
   background: #fff;
+}
+.contact-input.input-error {
+  border-color: #C85A3A;
+  box-shadow: 0 0 0 3px rgba(200,90,58,0.1);
+}
+.contact-input.input-error:focus {
+  border-color: #C85A3A;
+  box-shadow: 0 0 0 3px rgba(200,90,58,0.15);
 }
 
 .contact-link {
@@ -969,6 +1028,7 @@ body.admin-modal-open { overflow: hidden; }
 }
 .toast-visible { opacity: 1; transform: translateY(0); }
 .toast-error { background: #9A3A20; }
+.toast-info  { background: #4A5235; }
 
 /* ── Inline-edit hover affordance (used in Step 6) ───────────────────── */
 body.admin-mode [data-edit-key] {
