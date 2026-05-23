@@ -3,9 +3,8 @@ function homeInitPage() {
   if (!el) return;
   el.innerHTML = `
 
-     <!-- ═══ EDITORIAL HERO ═══ -->
-     <!-- UX FIX: min-height now adaptive — short laptops show a slice of the next section instead of a wall of hero -->
-     <div class="hero-editorial px-6 md:px-16 lg:px-24" style="min-height:min(92vh,760px);padding-top:clamp(4rem,10vh,7rem);padding-bottom:clamp(3rem,6vh,5rem)">
+     <!-- ═══ iOS LOCK SCREEN HERO ═══ -->
+     <div class="hero-editorial px-5" style="min-height:min(88vh,720px);padding-top:clamp(2.5rem,7vh,5rem);padding-bottom:clamp(2rem,5vh,4rem)">
       <!-- Slideshow background — decorative, hidden from assistive tech -->
       <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/aci/aci-4.JPEG')"></div>
       <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/aero/aero-1.jpg')"></div>
@@ -17,7 +16,7 @@ function homeInitPage() {
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="background:radial-gradient(ellipse at 70% 30%,rgba(139,115,85,0.09),transparent 55%),radial-gradient(ellipse at 10% 85%,rgba(74,107,138,0.05),transparent 50%)"></div>
       <!-- Giant watermark letter — decorative -->
       <div class="absolute right-0 top-0 h-full hidden lg:flex items-center pointer-events-none" aria-hidden="true" style="width:42%;overflow:hidden;max-width:min(42%,560px)">
-       <span style="font-family:'Playfair Display',serif;font-size:clamp(16rem,22vw,30rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%);display:block;overflow:hidden">Z</span>
+       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(16rem,22vw,30rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%);display:block;overflow:hidden">Z</span>
       </div>
       <!-- Geometric ring accents — decorative -->
       <div class="absolute hidden lg:block pointer-events-none" aria-hidden="true" style="right:15%;top:15%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(139,115,85,0.11)"></div>
@@ -25,52 +24,58 @@ function homeInitPage() {
 
       <div class="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
-       <!-- UX FIX: profile photo now visible on mobile too (smaller, centered) -->
-       <div class="flex-shrink-0 home-hero-photo" style="animation:fadeUp .5s ease both">
-        <div class="relative mx-auto md:mx-0" style="width:180px">
-         <div class="home-hero-photo-frame" style="width:180px;height:230px;border-radius:1.25rem;overflow:hidden;box-shadow:0 24px 64px rgba(28,28,30,0.14)">
-          <img src="./assets/images/self-portrait/profile-14.JPEG" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
+       <!-- iOS circular avatar with ring accent -->
+       <div class="flex-shrink-0" style="animation:springIn .6s cubic-bezier(0.34,1.56,0.64,1) both">
+        <div class="relative mx-auto md:mx-0" style="width:148px;height:148px">
+         <!-- Accent ring -->
+         <div style="position:absolute;inset:-4px;border-radius:50%;background:linear-gradient(135deg,#0A84FF,#5AC8FA,#34C759);padding:3px;z-index:0">
+          <div style="width:100%;height:100%;border-radius:50%;background:var(--color-bg,#F2F2F7)"></div>
          </div>
-         <div style="position:absolute;bottom:-10px;left:20px;width:48px;height:2px;background:#8B7355;border-radius:2px"></div>
+         <!-- Photo -->
+         <div style="position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:0 16px 48px rgba(10,132,255,0.22)">
+          <img src="./assets/images/self-portrait/profile-14.JPEG" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center 15%">
+         </div>
+         <!-- Online indicator -->
+         <div style="position:absolute;bottom:4px;right:4px;width:14px;height:14px;border-radius:50%;background:#34C759;border:2.5px solid var(--color-bg,#F2F2F7);z-index:2"></div>
         </div>
        </div>
 
        <!-- Text content -->
        <div>
         <!-- Status pill -->
-        <div class="flex flex-wrap items-center gap-3 mb-12" style="animation:fadeUp .5s ease both">
-         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full" style="background:rgba(28,28,30,0.05);border:1px solid rgba(28,28,30,0.09)">
-          <span style="width:6px;height:6px;border-radius:50%;background:#8B7355;display:inline-block"></span>
-          <span class="label-small" style="color:#5C5C5C" data-edit-key="home_hero_status">International Partnerships · Creative Technologist</span>
+        <div class="flex flex-wrap items-center gap-3 mb-10" style="animation:fadeUp .5s ease both">
+         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full" style="background:rgba(255,255,255,0.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.3);box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+          <span style="width:6px;height:6px;border-radius:50%;background:#34C759;display:inline-block;box-shadow:0 0 0 3px rgba(52,199,89,0.2)"></span>
+          <span class="label-small" data-edit-key="home_hero_status">International Partnerships · Creative Technologist</span>
          </div>
-         <span class="label-small" style="color:#7A7068" data-edit-key="home_hero_location">· Surabaya, Indonesia</span>
+         <span class="label-small" data-edit-key="home_hero_location">· Surabaya, Indonesia</span>
         </div>
 
         <!-- Name headline -->
-        <h1 class="hero-large-text mb-6" style="animation:fadeUp .55s ease .08s both">
+        <h1 class="hero-large-text mb-6" style="animation:springIn .6s cubic-bezier(0.34,1.56,0.64,1) .08s both">
          Zefanya<br>
-         <em style="color:#8B7355;font-style:italic;font-family:'Playfair Display',serif">Kharisma</em><br>
+         <em style="color:#0A84FF;font-style:normal;background:linear-gradient(135deg,#0A84FF,#5AC8FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Kharisma</em><br>
          Nugroho
         </h1>
 
         <!-- Accent line -->
-        <div style="width:52px;height:2px;background:#8B7355;border-radius:2px;margin-bottom:28px;animation:fadeUp .55s ease .14s both"></div>
+        <div style="width:40px;height:3px;background:#0A84FF;border-radius:3px;margin-bottom:28px;animation:fadeUp .55s ease .14s both"></div>
 
         <!-- Supporting statement -->
-        <div class="max-w-md mb-11" style="animation:fadeUp .55s ease .18s both">
-         <p class="font-editorial text-xl mb-2.5" style="color:#1C1C1E;line-height:1.4" data-edit-key="home_hero_tagline_1">Bridging global engagement &amp; digital creativity.</p>
-         <p class="text-sm leading-relaxed" style="color:#4A4A4A" data-edit-key="home_hero_tagline_2">International Education Professional · Creative Technologist · Surabaya</p>
+        <div class="max-w-md mb-10" style="animation:fadeUp .55s ease .18s both">
+         <p class="font-heading text-xl mb-2" style="color:#1C1C1E;line-height:1.4;font-weight:600" data-edit-key="home_hero_tagline_1">Bridging global engagement &amp; digital creativity.</p>
+         <p class="text-sm leading-relaxed" style="color:#8E8E93;font-family:'DM Sans',sans-serif" data-edit-key="home_hero_tagline_2">International Education · Creative Technologist · Surabaya</p>
         </div>
 
-        <!-- Primary CTA: projects (the work itself); secondary: About; tertiary: CroissantsMoon -->
-        <div style="animation:fadeUp .55s ease .22s both">
+        <!-- CTAs -->
+        <div style="animation:springIn .6s cubic-bezier(0.34,1.56,0.64,1) .22s both">
          <div class="flex flex-wrap items-center gap-3">
           <a href="#/projects-overview" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">View Projects <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
           <a href="#/about-overview" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">About Me</a>
          </div>
          <div class="mt-4 flex items-center gap-2">
-          <span class="label-small" style="color:#767676">Also see:</span>
-          <a href="#/croissantsmoon" class="inline-flex items-center gap-1.5 text-xs font-medium" style="font-family:'Playfair Display',serif;font-style:italic;color:#8B7355;text-decoration:none">CroissantsMoon <i data-lucide="moon" style="width:12px;height:12px"></i></a>
+          <span class="label-small">Also:</span>
+          <a href="#/croissantsmoon" class="inline-flex items-center gap-1.5 text-xs font-medium" style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;color:#0A84FF;text-decoration:none">CroissantsMoon <i data-lucide="moon" style="width:12px;height:12px"></i></a>
          </div>
         </div>
        </div>
@@ -85,7 +90,7 @@ function homeInitPage() {
      </div>
 
      <!-- ═══ STATS BAND ═══ -->
-     <div id="home-stats-band" style="background:#1C1C1E;padding:36px 24px">
+     <div id="home-stats-band" style="background:linear-gradient(135deg,#1C1C1E 0%,#2C2C2E 100%);padding:36px 20px;margin:0">
       <div class="max-w-6xl mx-auto">
        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div class="text-center">
@@ -93,7 +98,7 @@ function homeInitPage() {
          <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_1">Students Supported</p>
         </div>
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#8B7355;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_2">505+</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#0A84FF;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_2">505+</p>
          <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_2">Global Partners</p>
         </div>
         <div class="text-center">
@@ -117,7 +122,7 @@ function homeInitPage() {
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
         <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Student Mobility</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#8B7355;font-size:.67rem;font-weight:600;letter-spacing:.06em;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</span>
+        <span style="padding:0 28px;color:#0A84FF;font-size:.67rem;font-weight:600;letter-spacing:.06em;font-style:italic;font-family:'Plus Jakarta Sans',sans-serif">CroissantsMoon</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
         <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Creative Direction</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
@@ -135,7 +140,7 @@ function homeInitPage() {
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
         <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Student Mobility</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#8B7355;font-size:.67rem;font-weight:600;letter-spacing:.06em;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</span>
+        <span style="padding:0 28px;color:#0A84FF;font-size:.67rem;font-weight:600;letter-spacing:.06em;font-style:italic;font-family:'Plus Jakarta Sans',sans-serif">CroissantsMoon</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
         <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Creative Direction</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
@@ -152,14 +157,14 @@ function homeInitPage() {
      </div>
 
      <!-- ═══ SELECTED WORK ═══ -->
-     <div style="background:#FAFAF8;padding:80px 24px">
+     <div style="background:var(--color-bg,#F2F2F7);padding:72px 20px">
       <div class="max-w-6xl mx-auto">
-       <div class="flex items-end justify-between gap-4 flex-wrap mb-12">
+       <div class="flex items-end justify-between gap-4 flex-wrap mb-10">
         <div>
          <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="label-small">Selected Work</span></div>
-         <h2 class="font-heading font-bold" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Where I Make an Impact</h2>
+         <h2 class="font-heading font-bold" style="font-size:clamp(1.7rem,5vw,2.4rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Where I Make an Impact</h2>
         </div>
-        <button onclick="goToPage('projects-overview')" class="text-sm font-medium inline-flex items-center gap-2 transition-all hover:gap-3" style="color:#8B7355">All Projects <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
+        <button onclick="goToPage('projects-overview')" class="text-sm font-medium inline-flex items-center gap-2 transition-all hover:gap-3" style="color:#0A84FF;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif">All Projects <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
        </div>
        <!-- Top row: large + small -->
        <div class="grid lg:grid-cols-3 gap-4 mb-4">
@@ -178,7 +183,7 @@ function homeInitPage() {
           </div>
          </div>
         </a>
-        <a href="#/pcu-global" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:#F2ECE4;padding:36px;min-height:260px;text-decoration:none;color:inherit">
+        <a href="#/pcu-global" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:var(--color-surface,rgba(255,255,255,0.72));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.28);padding:36px;min-height:260px;text-decoration:none;color:inherit">
          <div class="h-full flex flex-col justify-between">
           <div class="flex items-center justify-between">
            <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#767676">Web Project</span>
@@ -216,28 +221,28 @@ function homeInitPage() {
           </div>
          </div>
         </a>
-        <a href="#/croissantsmoon" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:#1C1C1E;padding:28px;text-decoration:none;color:inherit">
-         <div style="width:28px;height:3px;background:#8B7355;border-radius:2px;margin-bottom:18px"></div>
+        <a href="#/croissantsmoon" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:linear-gradient(135deg,#1C1C1E 0%,#2C2C2E 100%);padding:28px;text-decoration:none;color:inherit;min-height:160px">
+         <div style="width:28px;height:3px;background:#FF6B47;border-radius:2px;margin-bottom:18px"></div>
          <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.55);display:block;margin-bottom:10px">Creative Studio</span>
-         <h3 class="font-heading font-semibold text-base leading-snug" style="color:#fff;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</h3>
-         <div class="mt-4 flex items-center gap-2 text-xs font-medium" style="color:#8B7355">Explore <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
+         <h3 class="font-heading font-semibold text-base leading-snug" style="color:#fff;font-style:italic">CroissantsMoon</h3>
+         <div class="mt-4 flex items-center gap-2 text-xs font-medium" style="color:#FF6B47">Explore <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
         </a>
        </div>
       </div>
      </div>
 
      <!-- ═══ INTERACTIVE SKILL DISCOVERY ═══ -->
-     <div style="background:#F2ECE4;padding:80px 24px">
+     <div style="background:rgba(242,242,247,0.8);padding:72px 20px">
       <div class="max-w-6xl mx-auto">
        <div class="grid lg:grid-cols-5 gap-12 items-start">
         <!-- Sticky heading column -->
         <div class="lg:col-span-2" style="position:sticky;top:80px">
          <div class="flex items-center gap-3 mb-5"><span class="accent-line"></span><span class="label-small">Skill Discovery</span></div>
-         <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,4vw,2.8rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Explore My<br><em style="font-style:italic;color:#8B7355">Ecosystem</em></h2>
+         <h2 class="font-heading font-bold mb-4" style="font-size:clamp(1.8rem,5vw,2.5rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1">Explore My<br><em style="font-style:normal;color:#0A84FF">Ecosystem</em></h2>
          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C;max-width:300px">Click a skill tag below to add it to your search, or type a keyword to find any page.</p>
          <ol class="mb-6" style="max-width:300px;list-style:none;padding:0;font-size:.75rem;color:#767676;line-height:1.7">
-          <li style="display:flex;gap:8px;align-items:flex-start"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#8B7355;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:2px">1</span><span>Pick a skill or type</span></li>
-          <li style="display:flex;gap:8px;align-items:flex-start"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#8B7355;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:2px">2</span><span>Hit search to see matching work</span></li>
+          <li style="display:flex;gap:8px;align-items:flex-start"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#0A84FF;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:2px">1</span><span>Pick a skill or type</span></li>
+          <li style="display:flex;gap:8px;align-items:flex-start"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#0A84FF;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:2px">2</span><span>Hit search to see matching work</span></li>
          </ol>
          <!-- Ecosystem Search Bar -->
          <div style="position:relative;margin-top:4px">
@@ -246,12 +251,12 @@ function homeInitPage() {
             style="border:none;outline:none;background:transparent;font-size:.83rem;color:#1C1C1E;flex:1 1 80px;min-width:80px;padding:3px 0;font-family:'Inter',sans-serif;line-height:1.4"
             oninput="onEcosystemSearchInput(this.value)"
             onkeydown="if(event.key==='Enter')executeEcosystemSearch()"
-            onfocus="document.getElementById('ecosystem-search-box').style.borderColor='#8B7355';document.getElementById('ecosystem-search-box').style.boxShadow='0 0 0 3px rgba(139,115,85,0.1)'"
+            onfocus="document.getElementById('ecosystem-search-box').style.borderColor='#0A84FF';document.getElementById('ecosystem-search-box').style.boxShadow='0 0 0 3px rgba(10,132,255,0.12)'"
             onblur="setTimeout(function(){var b=document.getElementById('ecosystem-search-box');if(b){b.style.borderColor='rgba(28,28,30,0.12)';b.style.boxShadow='none';}hideSearchDropdown()},180)"
            />
            <button id="search-exec-btn" onclick="executeEcosystemSearch()"
             style="background:#1C1C1E;color:#fff;border:none;cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;margin-left:2px"
-            onmouseover="this.style.background='#8B7355'" onmouseout="this.style.background='#1C1C1E'"
+            onmouseover="this.style.background='#0A84FF'" onmouseout="this.style.background='#1C1C1E'"
            ><i data-lucide="search" style="width:15px;height:15px"></i></button>
           </div>
           <div id="search-dropdown" style="display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:200;background:#fff;border:1px solid rgba(28,28,30,0.1);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.1);overflow:hidden"></div>
@@ -297,13 +302,13 @@ function homeInitPage() {
        <div class="flex items-center gap-3 mb-12"><span class="accent-line"></span><span class="label-small">Core Competencies</span></div>
        <div>
         <a href="#/partnerships" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
-         <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#8B7355;min-width:32px;margin-top:3px">01</span>
+         <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#0A84FF;min-width:32px;margin-top:3px">01</span>
          <div class="flex-1 min-w-0">
           <span class="label-small block mb-1.5" style="color:#767676">Global Partnerships</span>
           <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">International Partnership Management</h3>
          </div>
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Managing 30+ institutional partners and reviewing 25+ MoU/MoA agreements monthly</p>
-         <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#8B7355;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+         <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#0A84FF;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
         </a>
         <a href="#/onboarding" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#4A6B8A;min-width:32px;margin-top:3px">02</span>
@@ -327,10 +332,10 @@ function homeInitPage() {
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#1C1C1E;min-width:32px;margin-top:3px;font-style:italic">CM</span>
          <div class="flex-1 min-w-0">
           <span class="label-small block mb-1.5" style="color:#767676">Creative Identity</span>
-          <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E;font-style:italic;font-family:'Playfair Display',serif">CroissantsMoon</h3>
+          <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E;font-style:italic;font-family:'Plus Jakarta Sans',sans-serif">CroissantsMoon</h3>
          </div>
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Creative digital experiences &amp; a future studio identity in development</p>
-         <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#8B7355;margin-top:22px">Explore <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+         <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#0A84FF;margin-top:22px">Explore <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
         </a>
        </div>
       </div>
@@ -341,11 +346,11 @@ function homeInitPage() {
       <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 50%,rgba(139,115,85,0.11),transparent 50%),radial-gradient(ellipse at 15% 50%,rgba(74,107,138,0.06),transparent 45%)"></div>
       <!-- Background typographic watermark -->
       <div class="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden" style="opacity:.025">
-       <span style="font-family:'Playfair Display',serif;font-size:clamp(10rem,18vw,22rem);font-weight:800;font-style:italic;color:#fff;user-select:none;white-space:nowrap;line-height:1">Let's talk</span>
+       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(10rem,18vw,22rem);font-weight:800;font-style:italic;color:#fff;user-select:none;white-space:nowrap;line-height:1">Let's talk</span>
       </div>
       <div class="max-w-3xl mx-auto text-center relative z-10">
-       <p class="font-editorial text-base mb-5" style="color:#8B7355" data-edit-key="home_contact_eyebrow">Let's build something meaningful</p>
-       <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;letter-spacing:-.02em;line-height:1.05" data-edit-key="home_contact_title">Open to<br><em style="font-style:italic;color:#8B7355">Conversations</em></h2>
+       <p class="font-editorial text-base mb-5" style="color:#0A84FF" data-edit-key="home_contact_eyebrow">Let's build something meaningful</p>
+       <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;letter-spacing:-.02em;line-height:1.05" data-edit-key="home_contact_title">Open to<br><em style="font-style:italic;color:#0A84FF">Conversations</em></h2>
        <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7" data-edit-key="home_contact_body">Partnerships, collaborations, education projects, or creative work — I'm always open to a good conversation.</p>
        <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a id="home-cv-download" href="./assets/data/profile.pdf" download class="btn-cv-download font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2"><i data-lucide="download" style="width:15px;height:15px"></i> <span class="cv-btn-label">Download CV</span><span class="sr-only" aria-live="polite" id="cv-download-status"></span></a>

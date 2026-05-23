@@ -29,7 +29,7 @@
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css">
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <!-- Admin backend — Supabase JS client (safe to expose; auth gated by RLS) -->
@@ -39,158 +39,81 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css">
   <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
  </head>
- <body class="h-full">
-  <!-- UX FIX: skip-to-content link for keyboard users -->
+ <body>
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
-  <div id="app" class="w-full h-full overflow-auto"><!-- Nav -->
-   <!-- UX FIX: nav buttons converted to <a href="#/pageId"> for shareable URLs, back/forward, right-click, middle-click -->
-   <nav class="sticky top-0 z-50 backdrop-blur-md border-b" style="background:rgba(250,250,248,0.92);border-color:rgba(28,28,30,0.08)">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-     <a href="#/" class="font-heading font-bold text-base nav-link tracking-tight" id="nav-name" style="color:#1C1C1E;letter-spacing:-.01em;text-decoration:none">ZKN</a>
-     <div class="hidden md:flex items-center gap-1">
-      <!-- About Me -->
-      <div class="relative group nav-dropdown-group" id="dd-group-about">
-       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="dd-about" id="dd-btn-about">About</button>
-       <div class="nav-dropdown absolute left-0 mt-1 w-44 bg-white rounded-xl shadow-xl border pt-1 pb-1" id="dd-about" role="menu" style="border-color:rgba(28,28,30,0.08);display:none">
-        <a href="#/about-overview" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Overview</a>
-        <a href="#/expertise"      class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Expertise</a>
-        <a href="#/experience"     class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Experience</a>
-        <a href="#/skillset"       class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Skillset</a>
-       </div>
-      </div>
-      <!-- Projects -->
-      <div class="relative group nav-dropdown-group" id="dd-group-projects">
-       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="dd-projects" id="dd-btn-projects">Projects</button>
-       <!-- UX FIX: two-line taglines added so acronyms are self-explanatory at a glance -->
-       <div class="nav-dropdown absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border pt-1 pb-1" id="dd-projects" role="menu" style="border-color:rgba(28,28,30,0.08);display:none">
-        <a href="#/projects-overview" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
-         <span class="block text-sm" style="color:#5C5C5C">Overview</span>
-        </a>
-        <a href="#/amerta" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
-         <span class="block text-sm" style="color:#5C5C5C">AMERTA</span>
-         <span class="block text-xs mt-0.5" style="color:#9A9A9A">Exchange Program</span>
-        </a>
-        <a href="#/aci" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
-         <span class="block text-sm" style="color:#5C5C5C">ACI</span>
-         <span class="block text-xs mt-0.5" style="color:#9A9A9A">Cultural Immersion</span>
-        </a>
-        <a href="#/aero" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
-         <span class="block text-sm" style="color:#5C5C5C">AERO</span>
-         <span class="block text-xs mt-0.5" style="color:#9A9A9A">Exhibition</span>
-        </a>
-        <a href="#/pcu-global" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
-         <span class="block text-sm" style="color:#5C5C5C">PCU Global</span>
-         <span class="block text-xs mt-0.5" style="color:#9A9A9A">Web Project</span>
-        </a>
-       </div>
-      </div>
-      <!-- International Education -->
-      <div class="relative group nav-dropdown-group" id="dd-group-intl">
-       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="dd-intl" id="dd-btn-intl">Intl. Education</button>
-       <div class="nav-dropdown absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border pt-1 pb-1" id="dd-intl" role="menu" style="border-color:rgba(28,28,30,0.08);display:none">
-        <a href="#/engagement"        class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Overview</a>
-        <a href="#/onboarding"        class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">International Student Support</a>
-        <a href="#/engagement-detail" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Student Engagement</a>
-        <a href="#/partnerships"      class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Partnership Development</a>
-        <a href="#/mou"               class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">MoU / MoA</a>
-       </div>
-      </div>
-      <!-- UX FIX: CroissantsMoon, Writing, Web Dev grouped under Creative dropdown per canonical IA -->
-      <div class="relative group nav-dropdown-group" id="dd-group-creative">
-       <button class="nav-link text-sm px-3 py-2 rounded-lg hover:bg-black/5 transition nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="dd-creative" id="dd-btn-creative">Creative</button>
-       <div class="nav-dropdown absolute left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border pt-1 pb-1" id="dd-creative" role="menu" style="border-color:rgba(28,28,30,0.08);display:none">
-        <a href="#/croissantsmoon" class="w-full text-left block px-4 py-2 hover:bg-black/5 rounded-lg transition" style="text-decoration:none" role="menuitem">
-         <span class="block text-sm" style="font-family:'Playfair Display',serif;font-style:italic;color:#5C5C5C">CroissantsMoon</span>
-        </a>
-        <a href="#/writing"  class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Writing</a>
-        <a href="#/websites" class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Web Development</a>
-        <a href="#/designs"  class="w-full text-left block px-4 py-2 text-sm hover:bg-black/5 rounded-lg transition" style="color:#5C5C5C;text-decoration:none" role="menuitem">Graphic Design</a>
-       </div>
-      </div>
-      <a href="#/contact" class="ml-2 text-sm font-medium px-5 py-2 rounded-full transition" style="background:#1C1C1E;color:#fff;text-decoration:none">Contact</a>
-     </div>
-     <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-black/5" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><i data-lucide="menu" style="width:20px;height:20px;color:#1C1C1E"></i></button>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-1.5" style="background:#FAFAF8;border-top:1px solid rgba(28,28,30,0.06)">
-     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="about" aria-expanded="false" aria-controls="about-menu" style="color:#5C5C5C"> <span>About</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
-     <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="about-menu">
-      <a href="#/about-overview" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
-      <a href="#/expertise"      class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Expertise</a>
-      <a href="#/experience"     class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Experience</a>
-      <a href="#/skillset"       class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Skillset</a>
-     </div>
-     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="projects" aria-expanded="false" aria-controls="projects-menu" style="color:#5C5C5C"> <span>Projects</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
-     <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="projects-menu">
-      <a href="#/projects-overview" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
-      <a href="#/amerta"            class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">AMERTA</a>
-      <a href="#/aci"               class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">ACI</a>
-      <a href="#/aero"              class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">AERO</a>
-      <a href="#/pcu-global"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">PCU Global</a>
-     </div>
-     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="intl" aria-expanded="false" aria-controls="intl-menu" style="color:#5C5C5C"> <span>Intl. Education</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
-     <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="intl-menu">
-      <a href="#/engagement"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Overview</a>
-      <a href="#/onboarding"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">International Student Support</a>
-      <a href="#/engagement-detail" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Student Engagement</a>
-      <a href="#/partnerships"      class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Partnership Development</a>
-      <a href="#/mou"               class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">MoU / MoA</a>
-     </div>
-     <button class="mobile-menu-toggle w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-black/5 transition flex items-center justify-between" data-menu="creative" aria-expanded="false" aria-controls="creative-menu" style="color:#5C5C5C"> <span>Creative</span> <i data-lucide="chevron-down" style="width:16px;height:16px"></i> </button>
-     <div class="mobile-menu-content hidden pl-4 flex flex-col gap-0.5" id="creative-menu">
-      <a href="#/croissantsmoon" class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;font-family:'Playfair Display',serif;font-style:italic;text-decoration:none">CroissantsMoon</a>
-      <a href="#/writing"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Writing</a>
-      <a href="#/websites"       class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Web Development</a>
-      <a href="#/designs"        class="block text-sm py-2 px-3 rounded hover:bg-black/5" style="color:#5C5C5C;text-decoration:none">Graphic Design</a>
-     </div>
-     <a href="#/contact" class="block text-sm font-medium py-2.5 px-5 rounded-full mt-2 text-center" style="background:#1C1C1E;color:#fff;text-decoration:none">Contact</a>
-    </div>
-   </nav><!-- PAGES CONTAINER -->
+
+  <!-- ═══ Top Bar (iOS shell on mobile / web nav on desktop) ═══ -->
+  <div id="ios-top-bar" role="banner">
+   <!-- Left: Logo -->
+   <a href="#/" id="nav-name">ZKN</a>
+
+   <!-- Mobile only: Dynamic Island pill -->
+   <div id="dynamic-island" aria-live="polite" aria-atomic="true">
+    <span id="dynamic-island-label">Home</span>
+   </div>
+
+   <!-- Desktop only: horizontal nav links -->
+   <nav id="desktop-nav" aria-label="Main navigation">
+    <a href="#/about-overview"    class="desktop-nav-link" data-tab="about">About</a>
+    <a href="#/projects-overview" class="desktop-nav-link" data-tab="projects">Projects</a>
+    <a href="#/engagement"        class="desktop-nav-link" data-tab="intl">Intl. Ed</a>
+    <a href="#/croissantsmoon"    class="desktop-nav-link" data-tab="creative">Creative</a>
+   </nav>
+
+   <!-- Right: actions -->
+   <div id="top-bar-actions">
+    <a href="#/contact" id="desktop-contact-btn" class="desktop-nav-link" data-tab="contact">Contact</a>
+    <button type="button" id="open-admin-login" aria-label="Open admin sign-in">···</button>
+   </div>
+  </div>
+
+  <!-- ═══ Main Scrollable App ═══ -->
+  <div id="app" class="w-full"><!-- PAGES CONTAINER -->
    <!-- UX FIX: removed overflow-auto here. Nested scroll containers broke position:sticky
         for the Skill Discovery heading. #app remains the single scroll container. -->
    <div id="main-content" class="pages-container w-full" tabindex="-1">
     <!-- HOME PAGE -->
-    <div id="page-home" class="page active" style="background:#FAFAF8">
+    <div id="page-home" class="page active" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- ABOUT ME OVERVIEW PAGE -->
-    <div id="page-about-overview" class="page" style="background:#FAFAF8">
+    <div id="page-about-overview" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- EDUCATION PAGE -->
 
 
-    <div id="page-education" class="page py-20" style="background:#FAFAF8">
+    <div id="page-education" class="page py-20" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- INTERNATIONAL EXPOSURE PAGE -->
-    <div id="page-international" class="page py-20" style="background:#FAFAF8">
+    <div id="page-international" class="page py-20" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- PROFESSIONAL VALUES PAGE -->
-    <div id="page-values" class="page py-20" style="background:#FAFAF8">
+    <div id="page-values" class="page py-20" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- EXPERTISE PAGE -->
-    <div id="page-expertise" class="page py-20" style="background:#FAFAF8">
+    <div id="page-expertise" class="page py-20" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- EXPERIENCE PAGE -->
-    <div id="page-experience" class="page py-20" style="background:#FAFAF8">
+    <div id="page-experience" class="page py-20" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- SKILLSET PAGE -->
-    <div id="page-skillset" class="page py-20" style="background:#FAFAF8">
+    <div id="page-skillset" class="page py-20" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- PROJECT MANAGEMENT OVERVIEW PAGE -->
-    <div id="page-projects-overview" class="page" style="background:#FAFAF8"></div><!-- PROJECT PAGES -->
+    <div id="page-projects-overview" class="page" style="background:var(--color-bg,#F2F2F7)"></div><!-- PROJECT PAGES -->
     <div id="page-amerta" class="page py-20"></div>
     <div id="page-aci" class="page py-20"></div>
     <div id="page-aero" class="page py-20"></div>
-    <div id="page-pcu-global" class="page py-20" style="background:#FAFAF8"></div><!-- STUDENT SERVICES PAGES -->
-    <div id="page-onboarding" class="page" style="background:#FAFAF8">
+    <div id="page-pcu-global" class="page py-20" style="background:var(--color-bg,#F2F2F7)"></div><!-- STUDENT SERVICES PAGES -->
+    <div id="page-onboarding" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div>
-    <div id="page-engagement" class="page" style="background:#FAFAF8">
+    <div id="page-engagement" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- Engagement Detail Page -->
-    <div id="page-engagement-detail" class="page" style="background:#FAFAF8">
+    <div id="page-engagement-detail" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- GLOBAL PARTNERSHIPS PAGE -->
-    <div id="page-partnerships" class="page" style="background:#FAFAF8">
+    <div id="page-partnerships" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- Partnership Detail Page -->
-    <div id="page-partnership-detail" class="page py-20" style="background:#FAFAF8">
+    <div id="page-partnership-detail" class="page py-20" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- MoU Detail Page -->
-    <div id="page-mou-detail" class="page py-20" style="background:#FAFAF8">
+    <div id="page-mou-detail" class="page py-20" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- MOU/MoA PAGE (kept for backward compatibility) -->
-    <div id="page-mou" class="page" style="background:#FAFAF8">
+    <div id="page-mou" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div><!-- CREATIVE SERVICES PAGES -->
     <div id="page-websites" class="page"></div>
     <div id="page-designs" class="page"></div><!-- CONTACT PAGE -->
     <!-- UX FIX: removed conflicting light gradient; hero banner is dark, page body is bg-primary -->
-    <div id="page-contact" class="page" style="background:#FAFAF8">
+    <div id="page-contact" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div>
    <!-- ═══════════════════════════════════════════════════════ -->
    <!-- CROISSANTSMOON PAGE -->
@@ -201,19 +124,19 @@
    <!-- ═══════════════════════════════════════════════════════ -->
    <!-- WRITING PAGE -->
    <!-- ═══════════════════════════════════════════════════════ -->
-   <div id="page-writing" class="page" style="background:#FAFAF8">
+   <div id="page-writing" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div>
 
    <!-- ═══════════════════════════════════════════════════════ -->
    <!-- SKILL DISCOVERY PAGE -->
    <!-- ═══════════════════════════════════════════════════════ -->
-   <div id="page-skill-discovery" class="page" style="background:#FAFAF8">
+   <div id="page-skill-discovery" class="page" style="background:var(--color-bg,#F2F2F7)">
    </div>
 
    <!-- ═══════════════════════════════════════════════════════ -->
    <!-- 404 PAGE — UX FIX: shown when hash route doesn't match -->
    <!-- ═══════════════════════════════════════════════════════ -->
-   <div id="page-not-found" class="page" style="background:#FAFAF8">
+   <div id="page-not-found" class="page" style="background:var(--color-bg,#F2F2F7)">
     <div class="max-w-2xl mx-auto px-6 py-32 text-center">
      <p class="font-editorial mb-4" style="font-size:1rem;color:#8B7355" data-edit-key="notfound_eyebrow">404</p>
      <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2.5rem,5vw,3.5rem);color:#1C1C1E;letter-spacing:-.02em;line-height:1.1" data-edit-key="notfound_title">Page not found</h1>
@@ -226,14 +149,37 @@
    </div>
 
    </div>
-   <!-- Site footer (minimal — primary purpose is the discreet Admin link) -->
+   <!-- Site footer -->
    <footer class="site-footer" role="contentinfo">
-    <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between flex-wrap gap-3">
+    <div class="mx-auto px-6 py-5 flex items-center justify-between flex-wrap gap-3" style="max-width:480px">
      <span class="site-footer-meta">© <span id="site-footer-year"></span> Zefanya Kharisma Nugroho</span>
-     <button type="button" id="open-admin-login" class="site-footer-admin-link" aria-label="Open admin sign-in dialog">Admin</button>
     </div>
    </footer>
   </div>
+
+  <!-- ═══ iOS Bottom Tab Bar ═══ -->
+  <nav id="ios-tab-bar" aria-label="Main navigation">
+   <a href="#/about-overview" class="tab-item" id="tab-about" data-tab="about">
+    <div class="tab-icon"><i data-lucide="user" style="width:22px;height:22px"></i></div>
+    <span>About</span>
+   </a>
+   <a href="#/projects-overview" class="tab-item" id="tab-projects" data-tab="projects">
+    <div class="tab-icon"><i data-lucide="briefcase" style="width:22px;height:22px"></i></div>
+    <span>Projects</span>
+   </a>
+   <a href="#/engagement" class="tab-item" id="tab-intl" data-tab="intl">
+    <div class="tab-icon"><i data-lucide="globe" style="width:22px;height:22px"></i></div>
+    <span>Intl. Ed</span>
+   </a>
+   <a href="#/croissantsmoon" class="tab-item" id="tab-creative" data-tab="creative">
+    <div class="tab-icon"><i data-lucide="sparkles" style="width:22px;height:22px"></i></div>
+    <span>Creative</span>
+   </a>
+   <a href="#/contact" class="tab-item" id="tab-contact" data-tab="contact">
+    <div class="tab-icon"><i data-lucide="mail" style="width:22px;height:22px"></i></div>
+    <span>Contact</span>
+   </a>
+  </nav>
   <!-- Student Activity Modal -->
   <div id="student-modal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 md:p-8" style="background:rgba(28,28,30,0.75);backdrop-filter:blur(4px)" onclick="if(event.target===this)closeStudentModal()">
    <div class="relative w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden" style="max-height:90vh;display:flex;flex-direction:column">

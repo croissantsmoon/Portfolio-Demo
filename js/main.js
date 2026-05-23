@@ -426,39 +426,68 @@ function goToPage(pageId) {
   }
 }
 
-// Maps each pageId to which nav trigger should be marked active
+// Maps each pageId to the bottom tab id and Dynamic Island label
 const _navActiveMap = {
-  'home':             'nav-name',
+  'home':              { tab: null,          label: 'Home' },
   // About
-  'about-overview':   'dd-btn-about', 'expertise': 'dd-btn-about',
-  'experience':       'dd-btn-about', 'skillset':  'dd-btn-about',
-  'education':        'dd-btn-about', 'international': 'dd-btn-about',
-  'values':           'dd-btn-about',
+  'about-overview':    { tab: 'tab-about',   label: 'About' },
+  'expertise':         { tab: 'tab-about',   label: 'About' },
+  'experience':        { tab: 'tab-about',   label: 'About' },
+  'skillset':          { tab: 'tab-about',   label: 'About' },
+  'education':         { tab: 'tab-about',   label: 'About' },
+  'international':     { tab: 'tab-about',   label: 'About' },
+  'values':            { tab: 'tab-about',   label: 'About' },
   // Projects
-  'projects-overview': 'dd-btn-projects', 'amerta': 'dd-btn-projects',
-  'aci':               'dd-btn-projects', 'aero':   'dd-btn-projects',
-  'pcu-global':        'dd-btn-projects',
+  'projects-overview': { tab: 'tab-projects', label: 'Projects' },
+  'amerta':            { tab: 'tab-projects', label: 'Projects' },
+  'aci':               { tab: 'tab-projects', label: 'Projects' },
+  'aero':              { tab: 'tab-projects', label: 'Projects' },
+  'pcu-global':        { tab: 'tab-projects', label: 'Projects' },
   // Intl. Education
-  'engagement':         'dd-btn-intl', 'onboarding':       'dd-btn-intl',
-  'engagement-detail':  'dd-btn-intl', 'partnerships':     'dd-btn-intl',
-  'mou':                'dd-btn-intl', 'partnership-detail': 'dd-btn-intl',
-  'mou-detail':         'dd-btn-intl',
+  'engagement':        { tab: 'tab-intl', label: 'Intl. Ed' },
+  'onboarding':        { tab: 'tab-intl', label: 'Intl. Ed' },
+  'engagement-detail': { tab: 'tab-intl', label: 'Intl. Ed' },
+  'partnerships':      { tab: 'tab-intl', label: 'Intl. Ed' },
+  'mou':               { tab: 'tab-intl', label: 'Intl. Ed' },
+  'partnership-detail':{ tab: 'tab-intl', label: 'Intl. Ed' },
+  'mou-detail':        { tab: 'tab-intl', label: 'Intl. Ed' },
   // Creative
-  'croissantsmoon': 'dd-btn-creative', 'writing':  'dd-btn-creative',
-  'websites':       'dd-btn-creative', 'designs':  'dd-btn-creative',
-  // Standalone — no parent nav item highlighted
-  'contact':        null,
-  'skill-discovery': null,
-  'not-found':      null,
+  'croissantsmoon':    { tab: 'tab-creative', label: 'Creative' },
+  'writing':           { tab: 'tab-creative', label: 'Creative' },
+  'websites':          { tab: 'tab-creative', label: 'Creative' },
+  'designs':           { tab: 'tab-creative', label: 'Creative' },
+  // Contact & standalone
+  'contact':           { tab: 'tab-contact', label: 'Contact' },
+  'skill-discovery':   { tab: null,           label: 'Discover' },
+  'not-found':         { tab: null,           label: '404' },
 };
 
 function _updateNavActiveState(pageId) {
-  // Clear all existing active markers
-  document.querySelectorAll('.nav-active').forEach(el => el.classList.remove('nav-active'));
-  const triggerId = _navActiveMap[pageId];
-  if (triggerId) {
-    const el = document.getElementById(triggerId);
-    if (el) el.classList.add('nav-active');
+  const mapping = _navActiveMap[pageId] || { tab: null, label: pageId };
+  const tabName = mapping.tab ? mapping.tab.replace('tab-', '') : null;
+
+  // ── Bottom tab bar (mobile) ──
+  document.querySelectorAll('.tab-item').forEach(el => el.classList.remove('active'));
+  if (mapping.tab) {
+    const tabEl = document.getElementById(mapping.tab);
+    if (tabEl) tabEl.classList.add('active');
+  }
+
+  // ── Desktop nav links ──
+  document.querySelectorAll('.desktop-nav-link').forEach(function(el) {
+    el.classList.remove('active');
+    if (tabName && el.dataset.tab === tabName) el.classList.add('active');
+  });
+
+  // ── Dynamic Island (mobile) ──
+  const island = document.getElementById('dynamic-island');
+  const label  = document.getElementById('dynamic-island-label');
+  if (island && label && label.textContent !== mapping.label) {
+    island.classList.add('is-changing');
+    setTimeout(function() {
+      label.textContent = mapping.label;
+      island.classList.remove('is-changing');
+    }, 200);
   }
 }
 
@@ -558,7 +587,8 @@ function updatePagesCarouselDots() {
 
 function applyConfig(config) {
   const c = key => config[key] || defaultConfig[key];
-  document.getElementById('nav-name').textContent = 'ZKN';
+  var navNameEl = document.getElementById('nav-name') || document.getElementById('top-bar-name');
+  if (navNameEl) navNameEl.textContent = 'ZKN';
   const teaserEl = document.getElementById('about-teaser-text');
   if (teaserEl) teaserEl.textContent = c('about_text');
   const contactEmailEl = document.getElementById('contact-email-el');
@@ -615,17 +645,20 @@ function _closeMobileMenu() {
   _resetMobileSubmenus();
 }
 
-document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-  var menu = document.getElementById('mobile-menu');
-  var btn  = document.getElementById('mobile-menu-btn');
-  var isOpen = !menu.classList.contains('hidden');
-  if (isOpen) {
-    _closeMobileMenu();
-  } else {
-    menu.classList.remove('hidden');
-    btn.setAttribute('aria-expanded', 'true');
-  }
-});
+var _mobileMenuBtn = document.getElementById('mobile-menu-btn');
+if (_mobileMenuBtn) {
+  _mobileMenuBtn.addEventListener('click', function() {
+    var menu = document.getElementById('mobile-menu');
+    var btn  = document.getElementById('mobile-menu-btn');
+    var isOpen = !menu.classList.contains('hidden');
+    if (isOpen) {
+      _closeMobileMenu();
+    } else {
+      menu.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+}
 
 document.querySelectorAll('.mobile-menu-toggle').forEach(function(btn) {
   btn.addEventListener('click', function() {
@@ -759,15 +792,15 @@ function injectHeroBanners() {
     page.classList.remove('py-20');
     const hero = document.createElement('div');
     hero.className = 'page-hero-banner relative overflow-hidden';
-    hero.style.cssText = 'background:linear-gradient(135deg,' + cfg.gradient + ');padding:64px 0 48px';
-    hero.innerHTML = '<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.05)"></div>' +
-      '<div class="absolute right-24 bottom-8 w-48 h-48 rounded-full" style="border:2px solid rgba(255,255,255,0.08)"></div>' +
-      '<div class="relative z-10 max-w-6xl mx-auto px-6">' +
-      '<a href="#/' + cfg.back + '" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.75);text-decoration:none">' +
-      '<i data-lucide="arrow-left" style="width:16px;height:16px"></i> ' + cfg.backLabel + '</a>' +
-      '<span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.15);color:#fff">' + cfg.category + '</span>' +
-      '<h1 class="font-heading font-bold text-4xl md:text-5xl mb-4 text-white">' + cfg.title + '</h1>' +
-      '<p class="text-base md:text-lg max-w-2xl" style="color:rgba(255,255,255,0.75)">' + cfg.desc + '</p>' +
+    hero.style.cssText = 'background:linear-gradient(135deg,' + cfg.gradient + ');padding:52px 0 44px';
+    hero.innerHTML = '<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.04)"></div>' +
+      '<div class="absolute right-24 bottom-8 w-48 h-48 rounded-full" style="border:1.5px solid rgba(255,255,255,0.07)"></div>' +
+      '<div class="relative z-10 mx-auto px-5" style="max-width:480px">' +
+      '<a href="#/' + cfg.back + '" class="inline-flex items-center gap-2 mb-7 px-3.5 py-1.5 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,0.9);text-decoration:none;font-family:\'DM Sans\',sans-serif;border:1px solid rgba(255,255,255,0.18)">' +
+      '<i data-lucide="chevron-left" style="width:14px;height:14px"></i> ' + cfg.backLabel + '</a>' +
+      '<span class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold mb-4 uppercase tracking-wider" style="background:rgba(255,255,255,0.14);color:rgba(255,255,255,0.9);font-family:\'DM Sans\',sans-serif;border:1px solid rgba(255,255,255,0.12)">' + cfg.category + '</span>' +
+      '<h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(1.9rem,6vw,3rem);letter-spacing:-.02em;line-height:1.1">' + cfg.title + '</h1>' +
+      '<p class="text-sm leading-relaxed max-w-lg" style="color:rgba(255,255,255,0.7);font-family:\'DM Sans\',sans-serif">' + cfg.desc + '</p>' +
       '</div>';
     page.insertBefore(hero, page.firstChild);
     const contentWrapper = Array.from(page.children).find(el =>

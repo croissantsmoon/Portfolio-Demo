@@ -173,7 +173,7 @@
         panel.innerHTML = renderPanel(state);
       } else {
         panel.hidden = true;
-        panel.innerHTML = '';
+        panel.innerHTML = '<div class="cal-panel-placeholder">Select a day to see events</div>';
       }
     }
   }
