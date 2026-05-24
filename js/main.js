@@ -110,7 +110,7 @@ function renderDiscoveryResults(skills, textQuery) {
   // UX FIX: result cards converted to <a> links for proper routing and right-click support
   grid.innerHTML = matches.map(function(item) {
     var matchedSkills = item.skills.filter(function(s) { return skills.includes(s); });
-    return '<a href="#/' + item.page + '" class="result-card p-7 text-left w-full" style="border-left:3px solid ' + item.accent + ';display:block;text-decoration:none">' +
+    return '<a href="' + BASE_PATH + '/' + item.page + '" class="result-card p-7 text-left w-full" style="border-left:3px solid ' + item.accent + ';display:block;text-decoration:none">' +
       '<div style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:' + item.accent + ';margin-bottom:10px">' + item.category + '</div>' +
       '<h3 class="font-heading font-semibold text-base mb-3 leading-snug" style="color:#1C1C1E">' + item.title + '</h3>' +
       '<p class="text-xs leading-relaxed mb-4" style="color:#5C5C5C">' + item.description + '</p>' +
@@ -219,7 +219,7 @@ function onEcosystemSearchInput(value) {
   if (!results.length) { dropdown.style.display = 'none'; return; }
 
   dropdown.innerHTML = results.map(function(r) {
-    return '<a href="#/' + r.page + '" class="search-dropdown-item">' +
+    return '<a href="' + BASE_PATH + '/' + r.page + '" class="search-dropdown-item">' +
       '<span class="search-dropdown-dot" style="background:' + r.accent + '"></span>' +
       '<div style="flex:1">' +
       '<div class="search-dropdown-title">' + r.title + '</div>' +
@@ -348,6 +348,8 @@ const defaultConfig = {
   font_size: 16
 };
 
+const BASE_PATH = '/Website-Portfolio';
+
 // UX FIX: page metadata for dynamic titles and meta descriptions
 const pageMetadata = {
   'home':               { title: 'Zefanya Kharisma Nugroho',                              description: 'International Education Professional & Creative Technologist based in Surabaya.' },
@@ -421,19 +423,19 @@ function _renderPage(pageId) {
   const canonicalEl = document.querySelector('link[rel="canonical"]');
   if (canonicalEl) {
     const base = 'https://zefanyakharisma-cell.github.io/Website-Portfolio';
-    canonicalEl.setAttribute('href', pageId === 'home' ? base : base + '/#/' + pageId);
+    canonicalEl.setAttribute('href', pageId === 'home' ? base + '/' : base + '/' + pageId);
   }
 
   _updateNavActiveState(pageId);
   return pageId;
 }
 
-// UX FIX: hash routing — updates #/pageId, dynamic title, meta description, and scroll-to-top
+// Path-based routing — updates URL to /Website-Portfolio/pageId for Google indexing
 function goToPage(pageId) {
   const resolved = _renderPage(pageId);
-  const newHash = resolved === 'home' ? location.pathname : '#/' + resolved;
-  if (location.hash !== '#/' + resolved && !(resolved === 'home' && !location.hash)) {
-    history.pushState({ page: resolved }, '', newHash);
+  const newPath = BASE_PATH + (resolved === 'home' ? '/' : '/' + resolved);
+  if (location.pathname !== newPath) {
+    history.pushState({ page: resolved }, '', newPath);
   }
 }
 
@@ -506,25 +508,32 @@ function _updateNavActiveState(pageId) {
   }
 }
 
-// UX FIX: hashchange event so back/forward and direct URL entry work
-function _navigateFromHash() {
-  const hash = location.hash;
-  let pageId = 'home';
-  if (hash.startsWith('#/')) {
-    pageId = hash.slice(2) || 'home';
-  } else if (hash.startsWith('#') && hash.length > 1) {
-    // legacy support for old #pageName format
-    pageId = hash.slice(1);
+// Path-based navigation — reads clean URL path and handles ?p= redirect from 404.html
+function _navigateFromPath() {
+  // Handle ?p= redirect injected by 404.html for GitHub Pages SPA routing
+  const params = new URLSearchParams(location.search);
+  const p = params.get('p');
+  if (p) {
+    const pageId = decodeURIComponent(p).replace(/^\//, '') || 'home';
+    params.delete('p');
+    const qs = params.toString();
+    history.replaceState(null, null, BASE_PATH + '/' + (pageId === 'home' ? '' : pageId) + (qs ? '?' + qs : ''));
+    _renderPage(pageId);
+    return;
   }
-  // _renderPage resolves unknown IDs to 'not-found'
+  // Read page from clean pathname
+  const raw = location.pathname.slice(BASE_PATH.length).replace(/^\//, '');
+  const pageId = raw || 'home';
+  // Backward compat: legacy bookmarked hash URLs like /#/about-overview
+  if (pageId === 'home' && location.hash.startsWith('#/')) {
+    const hashPage = location.hash.slice(2) || 'home';
+    goToPage(hashPage);
+    return;
+  }
   _renderPage(pageId);
 }
 
-window.addEventListener('hashchange', _navigateFromHash);
-
-window.addEventListener('popstate', (e) => {
-  _navigateFromHash();
-});
+window.addEventListener('popstate', _navigateFromPath);
 
 function slideCarouselHero(direction) {
   const track = document.getElementById('carousel-track-hero');
@@ -829,7 +838,7 @@ function injectHeroBanners() {
     hero.innerHTML = '<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.04)"></div>' +
       '<div class="absolute right-24 bottom-8 w-48 h-48 rounded-full" style="border:1.5px solid rgba(255,255,255,0.07)"></div>' +
       '<div class="relative z-10 mx-auto px-5" style="max-width:480px">' +
-      '<a href="#/' + cfg.back + '" class="inline-flex items-center gap-2 mb-7 px-3.5 py-1.5 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,0.9);text-decoration:none;font-family:\'DM Sans\',sans-serif;border:1px solid rgba(255,255,255,0.18)">' +
+      '<a href="' + BASE_PATH + '/' + cfg.back + '" class="inline-flex items-center gap-2 mb-7 px-3.5 py-1.5 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,0.9);text-decoration:none;font-family:\'DM Sans\',sans-serif;border:1px solid rgba(255,255,255,0.18)">' +
       '<i data-lucide="chevron-left" style="width:14px;height:14px"></i> ' + cfg.backLabel + '</a>' +
       '<span class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold mb-4 uppercase tracking-wider" style="background:rgba(255,255,255,0.14);color:rgba(255,255,255,0.9);font-family:\'DM Sans\',sans-serif;border:1px solid rgba(255,255,255,0.12)">' + cfg.category + '</span>' +
       '<h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(1.9rem,6vw,3rem);letter-spacing:-.02em;line-height:1.1">' + cfg.title + '</h1>' +
@@ -838,13 +847,13 @@ function injectHeroBanners() {
     page.insertBefore(hero, page.firstChild);
     const contentWrapper = Array.from(page.children).find(el =>
       el !== hero && el.tagName === 'DIV' && el.querySelector &&
-      (el.querySelector('button[onclick*="goToPage"]') || el.querySelector('a[href^="#/"]'))
+      (el.querySelector('button[onclick*="goToPage"]') || el.querySelector('a[href^="/Website-Portfolio/"]'))
     );
     if (contentWrapper) {
       contentWrapper.style.paddingTop = contentWrapper.style.paddingTop || '64px';
       contentWrapper.style.paddingBottom = contentWrapper.style.paddingBottom || '64px';
       const oldBack = contentWrapper.querySelector('button[onclick*="goToPage"]') ||
-                      contentWrapper.querySelector('a[href^="#/"][data-back]');
+                      contentWrapper.querySelector('a[href^="/Website-Portfolio/"][data-back]');
       if (oldBack && oldBack.querySelector('i[data-lucide="arrow-left"]')) oldBack.remove();
     }
   });
@@ -911,8 +920,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // UX FIX: navigate to page from URL hash on load (supports #/pageId format)
-  _navigateFromHash();
+  // Navigate to the correct page from URL on load
+  _navigateFromPath();
+
+  // Global click interceptor: handle path-based nav links without full page reload
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href) return;
+    if (href === BASE_PATH || href === BASE_PATH + '/' || href.startsWith(BASE_PATH + '/')) {
+      e.preventDefault();
+      const pageId = href.slice(BASE_PATH.length).replace(/^\//, '') || 'home';
+      goToPage(pageId);
+    }
+  }, true);
 
   // Hero scroll cue — delegated, no inline onclick
   document.addEventListener('click', function(e) {
