@@ -409,13 +409,20 @@ function _renderPage(pageId) {
   const container = document.querySelector('.pages-container');
   if (container) container.scrollTop = 0;
 
-  // Document title, description, og:title
+  // Document title, description, og:title, og:description, canonical
   const meta = pageMetadata[pageId] || pageMetadata['home'];
   document.title = meta.title;
   const descEl = document.querySelector('meta[name="description"]');
   if (descEl) descEl.setAttribute('content', meta.description);
   const ogTitle = document.querySelector('meta[property="og:title"]');
   if (ogTitle) ogTitle.setAttribute('content', meta.title);
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', meta.description);
+  const canonicalEl = document.querySelector('link[rel="canonical"]');
+  if (canonicalEl) {
+    const base = 'https://zefanyakharisma-cell.github.io/Website-Portfolio';
+    canonicalEl.setAttribute('href', pageId === 'home' ? base : base + '/#/' + pageId);
+  }
 
   _updateNavActiveState(pageId);
   return pageId;
