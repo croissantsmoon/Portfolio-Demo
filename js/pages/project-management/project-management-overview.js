@@ -1,27 +1,25 @@
 // ── Projects Overview Page ────────────────────────────────────────────────────
 
-const INTL_SITE = 'https://zefanyakharisma-cell.github.io/international-office-website/';
-
-function _pcuIframePanel(height) {
+function _livePreviewPanel(url, height, displayUrl) {
   const iframeH = Math.round(height / 0.333);
   return `
-    <div style="position:relative;overflow:hidden;height:${height}px;background:#001560;flex-shrink:0">
+    <div style="position:relative;overflow:hidden;height:${height}px;background:#0a0a14;flex-shrink:0">
       <iframe
-        src="${INTL_SITE}"
+        src="${url}"
         style="position:absolute;top:0;left:0;width:300%;height:${iframeH}px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none"
         loading="lazy"
         sandbox="allow-scripts allow-same-origin"
         aria-hidden="true"
-        title="PCU International Office Website"
+        title="${displayUrl} homepage preview"
       ></iframe>
-      <div style="position:absolute;top:0;left:0;right:0;z-index:2;background:rgba(0,10,40,0.72);padding:9px 14px;display:flex;align-items:center;gap:8px">
+      <div style="position:absolute;top:0;left:0;right:0;z-index:2;background:rgba(0,0,0,0.58);padding:9px 14px;display:flex;align-items:center;gap:8px">
         <div style="display:flex;gap:5px;flex-shrink:0">
           <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57;display:inline-block"></span>
           <span style="width:10px;height:10px;border-radius:50%;background:#FFBD2E;display:inline-block"></span>
           <span style="width:10px;height:10px;border-radius:50%;background:#28CA41;display:inline-block"></span>
         </div>
         <div style="flex:1;background:rgba(255,255,255,0.07);border-radius:6px;padding:3px 10px;font-size:.6rem;color:rgba(255,255,255,0.42);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
-          zefanyakharisma-cell.github.io/international-office-website/
+          ${displayUrl}
         </div>
       </div>
       <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 72%,rgba(255,255,255,0.04) 100%);pointer-events:none;z-index:1"></div>
@@ -167,44 +165,6 @@ function projectsOverviewInitPage() {
      </div>
     </div>
 
-    <!-- ── PCU Global — Digital Transformation ───────────────────────── -->
-    <div class="flex items-center gap-4 mb-10">
-     <span style="font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#003087">Digital Transformation</span>
-     <div style="flex:1;height:1px;background:rgba(28,28,30,0.08)"></div>
-     <span style="font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C0B8AE">Petra Christian University</span>
-    </div>
-
-    <!-- PCU Global — full-width featured card with live site preview -->
-    <div class="cursor-pointer" onclick="goToPage('pcu-global')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;margin-bottom:16px;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 16px 56px rgba(0,48,135,0.12)';this.style.borderColor='rgba(0,48,135,0.22)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-     <div class="grid md:grid-cols-5" style="min-height:320px">
-
-      <!-- Live site preview panel -->
-      <div class="md:col-span-2 relative overflow-hidden" style="min-height:280px">
-       ${_pcuIframePanel(280)}
-       <div class="absolute top-14 left-5" style="font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:rgba(255,255,255,0.06);line-height:1;letter-spacing:-.04em;user-select:none;z-index:3;pointer-events:none">04</div>
-      </div>
-
-      <!-- Content -->
-      <div class="md:col-span-3 p-9 flex flex-col justify-between">
-       <div>
-        <div class="flex items-center gap-3 mb-5">
-         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(0,48,135,0.08);color:#003087">Full-Stack + International</span>
-         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">2026 · Comprehensive</span>
-        </div>
-        <h3 class="font-heading font-bold" style="font-size:1.45rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:14px">PCU Global — International Office</h3>
-        <p style="font-size:.875rem;color:#5C5C5C;line-height:1.7;margin-bottom:20px">Ground-up rebuild of PCU's International Office website with full-stack delivery — news CMS, partnership directory, and mobile-first design. Includes the international engagement context behind the project: 200+ students supported, 30+ partner institutions, and multi-stakeholder coordination across Southeast Asia and beyond.</p>
-        <div class="flex flex-wrap gap-1.5"><span class="tag">Full-Stack Development</span><span class="tag">UI/UX Design</span><span class="tag">International Partnership</span><span class="tag">Digital Strategy</span></div>
-       </div>
-       <div class="flex flex-wrap items-center gap-8 pt-6 mt-6" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">200+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Students Supported</div></div>
-        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">30+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Partner Institutions</div></div>
-        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">6</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Features Built</div></div>
-        <div class="ml-auto flex items-center gap-2 font-medium text-sm" style="color:#003087">View Full Case Study <i data-lucide="arrow-right" style="width:15px;height:15px"></i></div>
-       </div>
-      </div>
-     </div>
-    </div>
-
     <!-- Graphic Design — compact horizontal card -->
     <div class="cursor-pointer" onclick="goToPage('designs')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:18px;overflow:hidden;margin-bottom:20px;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 10px 36px rgba(28,28,30,0.09)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
      <div class="grid md:grid-cols-5" style="min-height:160px">
@@ -248,7 +208,7 @@ function projectsOverviewInitPage() {
      <!-- PCU Global International Office — iframe preview -->
      <div class="cursor-pointer group" onclick="goToPage('web-pcu-global-intl')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(0,48,135,0.1)';this.style.borderColor='rgba(0,48,135,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
       <div class="relative overflow-hidden" style="height:200px">
-       ${_pcuIframePanel(200)}
+       ${_livePreviewPanel('https://international-office-website.vercel.app/', 200, 'international-office-website.vercel.app')}
       </div>
       <div class="p-7 flex flex-col justify-between" style="min-height:180px">
        <div>
@@ -268,17 +228,8 @@ function projectsOverviewInitPage() {
 
      <!-- Website Portfolio -->
      <div class="cursor-pointer group" onclick="goToPage('web-portfolio')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(201,168,76,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#1C1410,#3D2B1F);height:200px">
-       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 75% 30%,rgba(201,168,76,0.15),transparent 55%)"></div>
-       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(250,247,242,0.04);letter-spacing:-.03em;white-space:nowrap">Portfolio</span>
-       </div>
-       <div class="relative z-10 text-center px-8">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,230,211,0.4);margin-bottom:10px">SPA · Vanilla JS</div>
-        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#FAF7F2;letter-spacing:-.02em;line-height:1.1">Website Portfolio</div>
-        <div style="width:28px;height:1px;background:rgba(201,168,76,0.5);border-radius:2px;margin:12px auto 10px"></div>
-        <div style="font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,0.6)">Personal · 2025</div>
-       </div>
+      <div class="relative overflow-hidden" style="height:200px">
+       ${_livePreviewPanel('https://website-portfolio-liard-alpha.vercel.app/', 200, 'website-portfolio-liard-alpha.vercel.app')}
       </div>
       <div class="p-7 flex flex-col justify-between" style="min-height:180px">
        <div>
@@ -302,15 +253,8 @@ function projectsOverviewInitPage() {
 
      <!-- Dashboard Partnership -->
      <div class="cursor-pointer group" onclick="goToPage('web-dashboard-partnership')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(45,107,80,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#1A3A2B,#2D6B4A);height:160px">
-       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 70% 30%,rgba(255,255,255,0.07),transparent 55%)"></div>
-       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(255,255,255,0.04);letter-spacing:-.03em;white-space:nowrap">Partnership</span>
-       </div>
-       <div class="relative z-10 text-center px-8">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:8px">Dashboard · Data</div>
-        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;color:#fff;letter-spacing:-.02em;line-height:1.1">Partnership</div>
-       </div>
+      <div class="relative overflow-hidden" style="height:160px">
+       ${_livePreviewPanel('https://dashboard-partnership.vercel.app/', 160, 'dashboard-partnership.vercel.app')}
       </div>
       <div class="p-7 flex flex-col justify-between" style="min-height:160px">
        <div>
@@ -329,15 +273,8 @@ function projectsOverviewInitPage() {
 
      <!-- Dashboard International Grants -->
      <div class="cursor-pointer group" onclick="goToPage('web-dashboard-grants')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(90,60,140,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#2A1A4A,#5C3A8A);height:160px">
-       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 35%,rgba(255,255,255,0.07),transparent 55%)"></div>
-       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(255,255,255,0.04);letter-spacing:-.03em;white-space:nowrap">Grants</span>
-       </div>
-       <div class="relative z-10 text-center px-8">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:8px">Dashboard · Grants</div>
-        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;color:#fff;letter-spacing:-.02em;line-height:1.1">Intl. Grants</div>
-       </div>
+      <div class="relative overflow-hidden" style="height:160px">
+       ${_livePreviewPanel('https://dashboard-international-grants.vercel.app/', 160, 'dashboard-international-grants.vercel.app')}
       </div>
       <div class="p-7 flex flex-col justify-between" style="min-height:160px">
        <div>

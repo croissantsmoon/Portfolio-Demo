@@ -349,6 +349,9 @@ function cmBuildServices() {
       desc: 'Purposeful web builds for educational institutions and companies — clean, accessible, and built to grow.',
       tags: ['Landing Pages', 'Institution Sites', 'Web Portfolios', 'CMS Integration'],
       editKey: 'cm_service_web',
+      page: 'websites',
+      cta: 'Web Development & Design',
+      ctaColor: CM.aurora,
     },
     {
       icon: 'pen-tool',
@@ -357,13 +360,17 @@ function cmBuildServices() {
       desc: 'Brand identities, digital assets, and visual systems that position your institution with clarity and confidence.',
       tags: ['Brand Identity', 'Social Media Kits', 'Event Materials', 'Print & Digital'],
       editKey: 'cm_service_design',
+      page: 'designs',
+      cta: 'Graphic Design',
+      ctaColor: CM.nebulaGold,
     },
   ].map(card => `
     <div class="cm-card-hover cm-reveal cm-glass" style="
       border-radius:22px;padding:clamp(2rem,4vw,2.75rem);
       background:rgba(24,59,107,0.35);
       border:1px solid rgba(111,168,255,0.16);
-      box-shadow:0 4px 32px rgba(3,7,18,0.4)
+      box-shadow:0 4px 32px rgba(3,7,18,0.4);
+      display:flex;flex-direction:column
     ">
       <div style="width:52px;height:52px;border-radius:16px;
         background:rgba(111,168,255,0.08);border:1px solid rgba(111,168,255,0.18);
@@ -380,7 +387,7 @@ function cmBuildServices() {
         font-family:'Outfit',sans-serif;font-size:.87rem;line-height:1.76;
         color:${CM.stardust};margin-bottom:1.5rem
       " data-edit-key="${card.editKey}_desc">${card.desc}</p>
-      <div style="display:flex;flex-wrap:wrap;gap:7px">
+      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.75rem">
         ${card.tags.map(t => `
           <span style="
             font-family:'Outfit',sans-serif;font-size:.69rem;font-weight:400;
@@ -388,6 +395,19 @@ function cmBuildServices() {
             padding:4px 13px;border-radius:999px;
             border:1px solid rgba(111,168,255,0.18)
           ">${t}</span>`).join('')}
+      </div>
+      <div style="margin-top:auto;padding-top:1.25rem;border-top:1px solid rgba(111,168,255,0.1)">
+        <button onclick="goToPage('${card.page}')" style="
+          font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:600;
+          color:${card.ctaColor};background:transparent;cursor:pointer;
+          display:inline-flex;align-items:center;gap:7px;
+          padding:9px 20px;border-radius:999px;
+          border:1px solid ${card.ctaColor}44;
+          transition:background .2s,box-shadow .2s,border-color .2s
+        " onmouseover="this.style.background='${card.ctaColor}18';this.style.boxShadow='0 0 14px ${card.ctaColor}33';this.style.borderColor='${card.ctaColor}88'"
+           onmouseout="this.style.background='transparent';this.style.boxShadow='none';this.style.borderColor='${card.ctaColor}44'">
+          View ${card.cta} <i data-lucide="arrow-right" style="width:13px;height:13px"></i>
+        </button>
       </div>
     </div>`).join('');
 
