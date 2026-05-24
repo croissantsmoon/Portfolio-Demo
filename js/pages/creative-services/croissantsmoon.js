@@ -1,4 +1,4 @@
-// ── CroissantsMoon — Boutique Creative Studio ──────────────────────────────────
+// ── CroissantsMoon — Celestial Luxury Creative Studio ────────────────────────
 
 function cmInjectFonts() {
   if (document.querySelector('[data-cm-fonts]')) return;
@@ -10,43 +10,51 @@ function cmInjectFonts() {
 }
 
 const CM = {
-  cream:    '#FAF7F2',
-  espresso: '#1C1410',
-  gold:     '#C9A84C',
-  blush:    '#F0E6D3',
-  muted:    '#8C7B6B',
-  border:   'rgba(28,20,16,0.1)',
+  midnight:   '#071126',
+  deepSpace:  '#0B1E3A',
+  moonlight:  '#D9E6FF',
+  stardust:   '#8FA8D6',
+  nebulaGold: '#D4B15A',
+  cosmicBlue: '#183B6B',
+  aurora:     '#6FA8FF',
+  void:       '#030712',
+  // legacy aliases for fallback use
+  cream:    '#D9E6FF',
+  espresso: '#071126',
+  gold:     '#D4B15A',
+  blush:    '#0B1E3A',
+  muted:    '#8FA8D6',
+  border:   'rgba(111,168,255,0.14)',
 };
 
-// Maps GitHub repo names to internal detail-page routes
 const CM_REPO_DETAIL_PAGE = {
-  'Website-Portfolio':           'web-portfolio',
-  'International-Office-Website':'web-pcu-global-intl',
-  'Dashboard-Partnership':       'web-dashboard-partnership',
+  'Website-Portfolio':              'web-portfolio',
+  'International-Office-Website':   'web-pcu-global-intl',
+  'Dashboard-Partnership':          'web-dashboard-partnership',
   'Dashboard-International-Grants': 'web-dashboard-grants',
 };
 
 const CM_GRAPHIC_WORKS = [
-  { title: 'PCU Partnership Booklet',               cat: 'Brand Identity',   folder: 'partnership-booklet-pcu',               imgs: 3, link: 'https://canva.link/partnershipbookletpetra',            year: '2024–2025', inst: 'Petra Christian University'    },
-  { title: 'PCU International Students Guide',      cat: 'Print & Digital',  folder: 'international-students-guidebook-pcu',  imgs: 3, link: 'https://canva.link/internationalstudentsguidebookpetra',year: '2024–2025', inst: 'Petra Christian University'    },
-  { title: 'PCU Presentation Template',             cat: 'Visual Identity',  folder: 'general-ppt-pcu',                       imgs: 3, link: 'https://canva.link/jat6f7jcsawdmnu',                    year: '2024–2025', inst: 'Petra Christian University'    },
-  { title: 'ACI 2025 Batch 2 Guidebook',            cat: 'Event Materials',  folder: 'booklet-aci-2025-b2-unair',             imgs: 3, link: 'https://canva.link/motmeousw72spno',                    year: '2025',      inst: 'Universitas Airlangga'         },
-  { title: 'ACI 2025 Batch 1 Guidebook',            cat: 'Event Materials',  folder: 'guidebook-aci-2025-b1-unair',           imgs: 3, link: 'https://canva.link/6bysygp89hi879s',                    year: '2025',      inst: 'Universitas Airlangga'         },
-  { title: 'Staffordshire Banyuwangi Booklet',      cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: 'https://canva.link/i1i6dbnby7ho36z',                    year: '2025',      inst: 'Staffordshire × Airlangga'     },
-  { title: 'AERO 2025 Presentation',                cat: 'Event Materials',  folder: 'aero-2025-unair',                       imgs: 3, link: 'https://canva.link/odx5kh4eara7iuh',                    year: '2025',      inst: 'Universitas Airlangga'         },
-  { title: 'Airlangga Accommodation Guide',         cat: 'Print & Digital',  folder: 'accommodation-guidebook-unair',         imgs: 3, link: 'https://canva.link/l8pkkjs0x8f24sy',                    year: '2024–2025', inst: 'Universitas Airlangga'         },
-  { title: 'Airlangga International Students Guide',cat: 'Social Media Kits',folder: 'international-students-guidebook-unair',imgs: 3, link: 'https://canva.link/xehf9jz9v781sn7',                    year: '2024–2025', inst: 'Universitas Airlangga'         },
+  { title: 'PCU Partnership Booklet',                cat: 'Brand Identity',   folder: 'partnership-booklet-pcu',               imgs: 3, link: 'https://canva.link/partnershipbookletpetra',             year: '2024–2025', inst: 'Petra Christian University'    },
+  { title: 'PCU International Students Guide',       cat: 'Print & Digital',  folder: 'international-students-guidebook-pcu',  imgs: 3, link: 'https://canva.link/internationalstudentsguidebookpetra', year: '2024–2025', inst: 'Petra Christian University'    },
+  { title: 'PCU Presentation Template',              cat: 'Visual Identity',  folder: 'general-ppt-pcu',                       imgs: 3, link: 'https://canva.link/jat6f7jcsawdmnu',                     year: '2024–2025', inst: 'Petra Christian University'    },
+  { title: 'ACI 2025 Batch 2 Guidebook',             cat: 'Event Materials',  folder: 'booklet-aci-2025-b2-unair',             imgs: 3, link: 'https://canva.link/motmeousw72spno',                     year: '2025',      inst: 'Universitas Airlangga'         },
+  { title: 'ACI 2025 Batch 1 Guidebook',             cat: 'Event Materials',  folder: 'guidebook-aci-2025-b1-unair',           imgs: 3, link: 'https://canva.link/6bysygp89hi879s',                     year: '2025',      inst: 'Universitas Airlangga'         },
+  { title: 'Staffordshire Banyuwangi Booklet',       cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: 'https://canva.link/i1i6dbnby7ho36z',                     year: '2025',      inst: 'Staffordshire × Airlangga'     },
+  { title: 'AERO 2025 Presentation',                 cat: 'Event Materials',  folder: 'aero-2025-unair',                       imgs: 3, link: 'https://canva.link/odx5kh4eara7iuh',                     year: '2025',      inst: 'Universitas Airlangga'         },
+  { title: 'Airlangga Accommodation Guide',          cat: 'Print & Digital',  folder: 'accommodation-guidebook-unair',         imgs: 3, link: 'https://canva.link/l8pkkjs0x8f24sy',                     year: '2024–2025', inst: 'Universitas Airlangga'         },
+  { title: 'Airlangga International Students Guide', cat: 'Social Media Kits',folder: 'international-students-guidebook-unair',imgs: 3, link: 'https://canva.link/xehf9jz9v781sn7',                     year: '2024–2025', inst: 'Universitas Airlangga'         },
 ];
 
 const CM_LANG_COLORS = {
   'HTML': '#E34C26', 'CSS': '#9B4F96',
-  'JavaScript': '#c9a21e', 'TypeScript': '#2B7489',
+  'JavaScript': '#D4B15A', 'TypeScript': '#6FA8FF',
   'Python': '#3572A5', 'PHP': '#4F5D95',
 };
 
 let cmRepoFilter = 'all';
 
-function cmLangColor(lang) { return CM_LANG_COLORS[lang] || CM.muted; }
+function cmLangColor(lang) { return CM_LANG_COLORS[lang] || CM.stardust; }
 
 function cmLangFilterKey(lang) {
   if (!lang) return 'other';
@@ -66,85 +74,265 @@ function cmInjectPageCSS() {
   const s = document.createElement('style');
   s.id = 'cm-page-css';
   s.textContent = `
-    @keyframes cmPulse { 0%,100%{opacity:1} 50%{opacity:.55} }
-    @keyframes cmFadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
-    .cm-reveal { opacity:0; transform:translateY(16px); transition:opacity .55s ease-out, transform .55s ease-out; }
+    :root {
+      --cm-midnight:   #071126;
+      --cm-deepSpace:  #0B1E3A;
+      --cm-moonlight:  #D9E6FF;
+      --cm-stardust:   #8FA8D6;
+      --cm-gold:       #D4B15A;
+      --cm-cosmicBlue: #183B6B;
+      --cm-aurora:     #6FA8FF;
+      --cm-void:       #030712;
+      --cm-border:     rgba(111,168,255,0.14);
+      --cm-glow:       rgba(111,168,255,0.22);
+      --cm-gold-glow:  rgba(212,177,90,0.28);
+      --cm-spring:     cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    @keyframes cmTwinkle {
+      0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.2;transform:scale(.6)}
+    }
+    @keyframes cmFloat {
+      0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}
+    }
+    @keyframes cmPulse {
+      0%,100%{opacity:1} 50%{opacity:.45}
+    }
+    @keyframes cmGlowPulse {
+      0%,100%{box-shadow:0 0 18px rgba(212,177,90,0.35),0 4px 28px rgba(212,177,90,0.22)}
+      50%{box-shadow:0 0 36px rgba(212,177,90,0.6),0 4px 42px rgba(212,177,90,0.38)}
+    }
+    @keyframes cmFadeUp {
+      from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)}
+    }
+    @keyframes cmShimmer {
+      0%{background-position:-400px 0} 100%{background-position:400px 0}
+    }
+    @keyframes cmOrbit {
+      from{transform:rotate(0deg) translateX(8px) rotate(0deg)}
+      to{transform:rotate(360deg) translateX(8px) rotate(-360deg)}
+    }
+    @keyframes cmScrollLine {
+      0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top}
+      51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom}
+    }
+    @keyframes cmDrift {
+      0%{transform:translate(0,0) rotate(0deg)} 33%{transform:translate(6px,-4px) rotate(1deg)}
+      66%{transform:translate(-4px,3px) rotate(-.5deg)} 100%{transform:translate(0,0) rotate(0deg)}
+    }
+
+    .cm-reveal { opacity:0; transform:translateY(20px); transition:opacity .65s ease-out, transform .65s ease-out; }
     .cm-visible { opacity:1 !important; transform:none !important; }
-    .cm-card-hover { transition: transform .28s cubic-bezier(0.34,1.56,0.64,1), box-shadow .28s; }
-    .cm-card-hover:hover { transform: translateY(-5px); box-shadow: 0 14px 42px rgba(28,20,16,0.11) !important; }
+
+    .cm-card-hover {
+      transition: transform .32s var(--cm-spring), box-shadow .32s ease;
+    }
+    .cm-card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(7,17,38,0.55), 0 0 0 1px rgba(111,168,255,0.24) !important;
+    }
+
+    .cm-star {
+      position:absolute;border-radius:50%;background:#fff;pointer-events:none;
+      animation:cmTwinkle var(--dur,2.4s) var(--delay,0s) ease-in-out infinite;
+    }
+
+    .cm-glass {
+      background:rgba(11,30,58,0.62);
+      backdrop-filter:blur(16px) saturate(1.4);
+      -webkit-backdrop-filter:blur(16px) saturate(1.4);
+      border:1px solid rgba(111,168,255,0.16);
+    }
+
+    .cm-glow-btn {
+      animation:cmGlowPulse 2.6s ease-in-out infinite;
+      transition:transform .22s var(--cm-spring), opacity .22s;
+    }
+    .cm-glow-btn:hover { transform:scale(1.04); opacity:.9; }
+
+    .cm-filter-pill {
+      font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:500;
+      padding:7px 18px;border-radius:999px;cursor:pointer;letter-spacing:.02em;
+      transition:background .2s, color .2s, border-color .2s, box-shadow .2s;
+    }
+    .cm-filter-pill.active {
+      background:var(--cm-gold);color:var(--cm-midnight);border-color:var(--cm-gold);
+      box-shadow:0 0 14px var(--cm-gold-glow);
+    }
+
+    .cm-lightbox-enter { animation:cmFadeUp .24s ease-out forwards; }
+
+    .cm-process-card {
+      transition:transform .32s var(--cm-spring), box-shadow .32s ease;
+    }
+    .cm-process-card:hover {
+      transform:translateY(-8px);
+      box-shadow:0 24px 64px rgba(7,17,38,0.6), 0 0 0 1px rgba(111,168,255,0.22) !important;
+    }
+
+    .cm-gd-card-hover:hover .cm-gd-overlay { opacity:1 !important; }
+    .cm-gd-card-hover:hover img { transform:scale(1.06) !important; }
+
+    @media(min-width:768px){ .cm-step-connector { display:block !important; } }
+
+    .cm-shimmer {
+      background:linear-gradient(90deg,#0B1E3A 25%,#162d50 50%,#0B1E3A 75%);
+      background-size:400px 100%;
+      animation:cmShimmer 1.5s ease-in-out infinite;
+    }
+
+    .cm-constellation-line {
+      stroke:rgba(111,168,255,0.18);stroke-width:1;stroke-dasharray:4 6;
+      animation:cmPulse 4s ease-in-out infinite;
+    }
   `;
   document.head.appendChild(s);
+}
+
+// ── Star Field Generator ──────────────────────────────────────────────────────
+
+function cmBuildStarField(count = 60, container = 'relative') {
+  return Array.from({ length: count }, (_, i) => {
+    const x  = Math.random() * 100;
+    const y  = Math.random() * 100;
+    const sz = Math.random() * 2.2 + 0.6;
+    const dur = (Math.random() * 3 + 1.8).toFixed(1);
+    const del = (Math.random() * 4).toFixed(1);
+    const op  = (Math.random() * 0.6 + 0.3).toFixed(2);
+    return `<span class="cm-star" style="left:${x}%;top:${y}%;width:${sz}px;height:${sz}px;opacity:${op};--dur:${dur}s;--delay:${del}s"></span>`;
+  }).join('');
+}
+
+// ── Constellation SVG ─────────────────────────────────────────────────────────
+
+function cmConstellationSVG(w = 400, h = 200, seed = 1) {
+  const pts = [];
+  const rng = n => (Math.sin(seed * n * 9301 + 49297) * 233280 % 1 + 1) % 1;
+  for (let i = 0; i < 7; i++) pts.push([rng(i) * w, rng(i + 10) * h]);
+  const lines = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[1,4],[2,5]];
+  const linesSVG = lines.map(([a,b]) =>
+    `<line x1="${pts[a][0]}" y1="${pts[a][1]}" x2="${pts[b][0]}" y2="${pts[b][1]}" class="cm-constellation-line"/>`
+  ).join('');
+  const dotsSVG = pts.map(([x,y]) =>
+    `<circle cx="${x}" cy="${y}" r="2" fill="rgba(111,168,255,0.35)"/>`
+  ).join('');
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.55">${linesSVG}${dotsSVG}</svg>`;
 }
 
 // ── Section 1: Hero ───────────────────────────────────────────────────────────
 
 function cmBuildHero() {
-  const logoSVG = `<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M40 28C40 36.28 33.28 43 25 43 16.72 43 10 36.28 10 28 10 19.72 16.72 13 25 13 22.2 16.4 20.5 20.8 20.5 25.5 20.5 33.06 25.24 39.4 32 41.6 36.4 39 40 34.1 40 28Z" fill="${CM.gold}" opacity="0.88"/>
-    <path d="M14 38 Q19 31 27 32.5 Q35 34 40 27" stroke="${CM.gold}" stroke-width="1.75" stroke-linecap="round" fill="none" opacity="0.5"/>
-    <circle cx="37" cy="15" r="2.2" fill="${CM.gold}" opacity="0.65"/>
-    <circle cx="42" cy="20" r="1.2" fill="${CM.gold}" opacity="0.4"/>
+  const logoSVG = `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CroissantsMoon logo">
+    <!-- Crescent moon -->
+    <path d="M44 32C44 42.49 35.49 51 25 51C14.51 51 6 42.49 6 32C6 21.51 14.51 13 25 13C22.4 17.2 21 22.2 21 27.5C21 38.27 28.3 47.3 38.2 49.8C42.2 46.2 44 39.4 44 32Z" fill="${CM.nebulaGold}" opacity="0.92"/>
+    <!-- Astronaut silhouette forming the M -->
+    <path d="M40 20 L46 14 L52 20 L50 28 L52 36 L46 44 L40 36 L42 28 Z" fill="${CM.nebulaGold}" opacity="0.75"/>
+    <!-- Helmet visor -->
+    <ellipse cx="46" cy="20" rx="4.5" ry="4.5" fill="none" stroke="${CM.nebulaGold}" stroke-width="1.5" opacity="0.6"/>
+    <!-- Helmet reflection -->
+    <path d="M43.5 18.5 Q44.5 17.5 46 18" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round" fill="none"/>
+    <!-- Stars around -->
+    <circle cx="56" cy="12" r="1.6" fill="${CM.nebulaGold}" opacity="0.7"/>
+    <circle cx="10" cy="10" r="1.1" fill="${CM.aurora}" opacity="0.55"/>
+    <circle cx="58" cy="42" r="0.9" fill="${CM.moonlight}" opacity="0.45"/>
   </svg>`;
 
-  return `
-    <div class="page-hero-banner" id="cm-hero-section" style="
-      position:relative;overflow:hidden;
-      background:linear-gradient(155deg,${CM.espresso} 0%,#2A1B11 50%,#3C2418 100%);
-      padding:clamp(6rem,15vh,10rem) 24px clamp(5rem,12vh,9rem);
-      min-height:92vh;display:flex;align-items:center;justify-content:center;
-    ">
-      <div style="position:absolute;inset:0;opacity:.028;pointer-events:none;z-index:0;
-        background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.68%22 numOctaves=%224%22 stitchTiles=%22stitch%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>');
-        background-size:180px 180px"></div>
-      <div style="position:absolute;left:-140px;top:-100px;width:560px;height:560px;border-radius:50%;
-        background:radial-gradient(circle,${CM.gold}1E 0%,transparent 68%);pointer-events:none;z-index:0"></div>
-      <div style="position:absolute;right:-100px;bottom:-80px;width:400px;height:400px;border-radius:50%;
-        background:radial-gradient(circle,#7A4A2014 0%,transparent 70%);pointer-events:none;z-index:0"></div>
-      <div style="position:absolute;right:8%;top:15%;opacity:.06;pointer-events:none;z-index:0;
-        font-family:'Cormorant Garamond',serif;font-size:18rem;font-style:italic;color:${CM.gold};
-        line-height:1;user-select:none">C</div>
+  const stars = cmBuildStarField(80);
 
-      <div class="max-w-3xl mx-auto text-center relative" style="z-index:1;width:100%">
-        <div id="cm-logotype" style="opacity:0;transform:translateY(12px);transition:opacity 600ms ease-out,transform 600ms ease-out">
-          <div style="display:flex;justify-content:center;margin-bottom:1.75rem">${logoSVG}</div>
+  return `
+    <div id="cm-hero-section" style="
+      position:relative;overflow:hidden;
+      background:linear-gradient(160deg,${CM.void} 0%,${CM.midnight} 40%,${CM.deepSpace} 100%);
+      min-height:100vh;display:flex;align-items:center;justify-content:center;
+      padding:clamp(6rem,14vh,10rem) 24px clamp(5rem,11vh,9rem);
+    ">
+      <!-- Star field -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">${stars}</div>
+
+      <!-- Constellation overlay -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+        ${cmConstellationSVG(1200, 700, 3)}
+      </div>
+
+      <!-- Nebula fog blobs -->
+      <div style="position:absolute;left:-200px;top:-80px;width:700px;height:700px;border-radius:50%;
+        background:radial-gradient(circle,rgba(111,168,255,0.06) 0%,transparent 65%);pointer-events:none;z-index:0"></div>
+      <div style="position:absolute;right:-120px;bottom:-100px;width:500px;height:500px;border-radius:50%;
+        background:radial-gradient(circle,rgba(212,177,90,0.06) 0%,transparent 65%);pointer-events:none;z-index:0"></div>
+
+      <!-- Glowing crescent moon (decorative) -->
+      <div style="position:absolute;right:5%;top:8%;pointer-events:none;z-index:0;
+        filter:blur(0.5px) drop-shadow(0 0 28px rgba(212,177,90,0.35));opacity:.18">
+        <svg width="180" height="180" viewBox="0 0 180 180" fill="none">
+          <path d="M130 90C130 114.85 109.85 135 85 135C60.15 135 40 114.85 40 90C40 65.15 60.15 45 85 45C78.8 54.2 76 65 76 76.5C76 100.65 91.8 121.2 113.6 128.1C124 119.1 130 105.2 130 90Z" fill="${CM.nebulaGold}" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <!-- Giant CM watermark -->
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+        pointer-events:none;z-index:0;overflow:hidden">
+        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28vw;
+          font-weight:300;color:${CM.nebulaGold};opacity:.025;line-height:1;user-select:none;
+          white-space:nowrap">CM</span>
+      </div>
+
+      <!-- Aurora glow radial -->
+      <div style="position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);
+        width:600px;height:200px;border-radius:50%;
+        background:radial-gradient(ellipse,rgba(111,168,255,0.08) 0%,transparent 70%);
+        pointer-events:none;z-index:0"></div>
+
+      <!-- Hero content -->
+      <div class="max-w-3xl mx-auto text-center" style="position:relative;z-index:1;width:100%">
+        <div id="cm-logotype" style="opacity:0;transform:translateY(16px);transition:opacity 700ms ease-out,transform 700ms ease-out">
+          <div style="display:flex;justify-content:center;margin-bottom:2rem;
+            animation:cmFloat 5s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(212,177,90,0.4))">
+            ${logoSVG}
+          </div>
           <h1 style="
             font-family:'Cormorant Garamond',Georgia,serif;
-            font-size:clamp(3rem,9vw,6.5rem);font-weight:400;font-style:italic;
-            letter-spacing:.01em;line-height:.92;color:${CM.cream};margin-bottom:0
+            font-size:clamp(3.2rem,10vw,7rem);font-weight:400;font-style:italic;
+            letter-spacing:.01em;line-height:.9;color:${CM.moonlight};margin-bottom:0;
+            text-shadow:0 0 80px rgba(111,168,255,0.18)
           " data-edit-key="cm_hero_title">CroissantsMoon</h1>
         </div>
 
         <p style="
-          font-family:'Outfit',sans-serif;font-size:clamp(.75rem,1.5vw,.82rem);
-          font-weight:400;letter-spacing:.18em;color:${CM.gold};
-          text-transform:uppercase;margin:1.75rem 0 2.75rem;opacity:.85
-        " data-edit-key="cm_hero_tagline">Digital presence, crafted with intention.</p>
+          font-family:'Outfit',sans-serif;font-size:clamp(.7rem,1.4vw,.8rem);
+          font-weight:500;letter-spacing:.22em;color:${CM.nebulaGold};
+          text-transform:uppercase;margin:2rem 0 3rem;opacity:.9
+        " data-edit-key="cm_hero_tagline">Celestial Studio · Digital Presence Crafted with Intention</p>
 
         <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
-          <a data-cm-scroll="cm-web-projects" href="#cm-web-projects" style="
+          <a data-cm-scroll="cm-web-projects" href="#cm-web-projects" class="cm-glow-btn" style="
             font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;
-            background:${CM.gold};color:${CM.espresso};padding:13px 28px;border-radius:999px;
+            background:${CM.nebulaGold};color:${CM.midnight};padding:14px 30px;border-radius:999px;
             text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-            letter-spacing:.02em;transition:opacity .2s;box-shadow:0 4px 22px rgba(201,168,76,0.32)
-          " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+            letter-spacing:.03em;border:none;cursor:pointer
+          ">
             View Web Projects
             <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
           </a>
           <a data-cm-scroll="cm-graphic-design" href="#cm-graphic-design" style="
             font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:400;
-            border:1px solid rgba(201,168,76,0.4);color:${CM.gold};
-            padding:13px 28px;border-radius:999px;text-decoration:none;
+            border:1px solid rgba(212,177,90,0.38);color:${CM.nebulaGold};
+            padding:14px 30px;border-radius:999px;text-decoration:none;
             display:inline-flex;align-items:center;gap:8px;
-            background:transparent;transition:background .2s
-          " onmouseover="this.style.background='rgba(201,168,76,0.1)'" onmouseout="this.style.background='transparent'">
+            background:rgba(212,177,90,0.06);
+            transition:background .22s,border-color .22s,box-shadow .22s
+          " onmouseover="this.style.background='rgba(212,177,90,0.14)';this.style.borderColor='rgba(212,177,90,0.6)';this.style.boxShadow='0 0 18px rgba(212,177,90,0.2)'"
+             onmouseout="this.style.background='rgba(212,177,90,0.06)';this.style.borderColor='rgba(212,177,90,0.38)';this.style.boxShadow='none'">
             View Design Work
             <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
           </a>
         </div>
 
-        <div style="margin-top:clamp(3.5rem,7vh,6rem);display:flex;flex-direction:column;align-items:center;gap:7px;opacity:.28">
-          <span style="font-family:'Outfit',sans-serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:${CM.cream}">Scroll</span>
-          <div style="width:1px;height:38px;background:linear-gradient(to bottom,${CM.cream},transparent)"></div>
+        <!-- Scroll indicator -->
+        <div style="margin-top:clamp(4rem,8vh,7rem);display:flex;flex-direction:column;align-items:center;gap:6px">
+          <span style="font-family:'Outfit',sans-serif;font-size:.56rem;letter-spacing:.2em;
+            text-transform:uppercase;color:${CM.stardust};opacity:.5">Explore</span>
+          <div style="width:1px;height:44px;background:linear-gradient(to bottom,${CM.aurora},transparent);
+            animation:cmScrollLine 2.2s ease-in-out infinite;opacity:.5"></div>
         </div>
       </div>
     </div>`;
@@ -156,6 +344,7 @@ function cmBuildServices() {
   const cards = [
     {
       icon: 'monitor',
+      iconColor: CM.aurora,
       headline: 'Websites that work as hard as you do',
       desc: 'Purposeful web builds for educational institutions and companies — clean, accessible, and built to grow.',
       tags: ['Landing Pages', 'Institution Sites', 'Web Portfolios', 'CMS Integration'],
@@ -163,80 +352,91 @@ function cmBuildServices() {
     },
     {
       icon: 'pen-tool',
+      iconColor: CM.nebulaGold,
       headline: 'Visual identity that earns trust',
-      desc: 'Brand identities, digital assets, and visual systems that position your institution or company with clarity and confidence.',
+      desc: 'Brand identities, digital assets, and visual systems that position your institution with clarity and confidence.',
       tags: ['Brand Identity', 'Social Media Kits', 'Event Materials', 'Print & Digital'],
       editKey: 'cm_service_design',
     },
   ].map(card => `
-    <div class="cm-card-hover cm-reveal" style="
-      background:#FFFFFF;border:1px solid ${CM.border};
+    <div class="cm-card-hover cm-reveal cm-glass" style="
       border-radius:22px;padding:clamp(2rem,4vw,2.75rem);
-      box-shadow:0 4px 28px rgba(28,20,16,0.06)
+      background:rgba(24,59,107,0.35);
+      border:1px solid rgba(111,168,255,0.16);
+      box-shadow:0 4px 32px rgba(3,7,18,0.4)
     ">
-      <div style="width:48px;height:48px;border-radius:14px;background:${CM.blush};
-        display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
-        <i data-lucide="${card.icon}" style="width:22px;height:22px;color:${CM.muted}"></i>
+      <div style="width:52px;height:52px;border-radius:16px;
+        background:rgba(111,168,255,0.08);border:1px solid rgba(111,168,255,0.18);
+        display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;
+        box-shadow:0 0 18px rgba(111,168,255,0.12)">
+        <i data-lucide="${card.icon}" style="width:22px;height:22px;color:${card.iconColor}"></i>
       </div>
       <h3 style="
         font-family:'Cormorant Garamond',Georgia,serif;
-        font-size:clamp(1.35rem,2.5vw,1.7rem);font-weight:500;font-style:italic;
-        color:${CM.espresso};line-height:1.25;margin-bottom:1rem
+        font-size:clamp(1.35rem,2.5vw,1.75rem);font-weight:500;font-style:italic;
+        color:${CM.moonlight};line-height:1.22;margin-bottom:1rem
       " data-edit-key="${card.editKey}_headline">${card.headline}</h3>
       <p style="
-        font-family:'Outfit',sans-serif;font-size:.88rem;line-height:1.74;
-        color:${CM.muted};margin-bottom:1.5rem
+        font-family:'Outfit',sans-serif;font-size:.87rem;line-height:1.76;
+        color:${CM.stardust};margin-bottom:1.5rem
       " data-edit-key="${card.editKey}_desc">${card.desc}</p>
       <div style="display:flex;flex-wrap:wrap;gap:7px">
         ${card.tags.map(t => `
           <span style="
-            font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:400;
-            background:${CM.blush};color:${CM.muted};
-            padding:4px 13px;border-radius:999px;border:1px solid ${CM.border}
+            font-family:'Outfit',sans-serif;font-size:.69rem;font-weight:400;
+            background:rgba(111,168,255,0.08);color:${CM.stardust};
+            padding:4px 13px;border-radius:999px;
+            border:1px solid rgba(111,168,255,0.18)
           ">${t}</span>`).join('')}
       </div>
     </div>`).join('');
 
   return `
-    <div style="background:${CM.cream};padding:clamp(4.5rem,9vh,7rem) 24px">
-      <div class="max-w-5xl mx-auto">
+    <div style="background:linear-gradient(180deg,${CM.midnight} 0%,${CM.deepSpace} 100%);
+      padding:clamp(4.5rem,9vh,7rem) 24px;position:relative;overflow:hidden">
+      <!-- Subtle star texture -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.55">
+        ${cmBuildStarField(40)}
+      </div>
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div class="cm-reveal" style="text-align:center;margin-bottom:3.5rem">
-          <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
-            letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};margin-bottom:.85rem">What We Do</p>
+          <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+            letter-spacing:.2em;text-transform:uppercase;color:${CM.nebulaGold};margin-bottom:.9rem">What We Do</p>
           <h2 style="
             font-family:'Cormorant Garamond',Georgia,serif;
             font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;font-style:italic;
-            color:${CM.espresso};line-height:1.1;letter-spacing:-.01em
+            color:${CM.moonlight};line-height:1.08;letter-spacing:-.01em
           " data-edit-key="cm_services_title">Two crafts. One studio.</h2>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px">
           ${cards}
         </div>
       </div>
     </div>`;
 }
 
-// ── Section 3: Web Projects (GitHub API) ─────────────────────────────────────
+// ── Section 3: Web Projects ───────────────────────────────────────────────────
 
 function cmBuildRepoSkeletons() {
   return Array.from({ length: 6 }, () => `
-    <div style="background:#FFF;border-radius:16px;overflow:hidden;border:1px solid ${CM.border};
-      animation:cmPulse 1.6s ease-in-out infinite">
-      <div style="height:3px;background:linear-gradient(to right,${CM.blush},${CM.border})"></div>
-      <div style="background:#F8F2EC;padding:9px 12px;border-bottom:1px solid ${CM.border};display:flex;align-items:center;gap:7px">
+    <div style="border-radius:16px;overflow:hidden;background:${CM.deepSpace};
+      border:1px solid rgba(111,168,255,0.1)">
+      <div style="height:3px" class="cm-shimmer"></div>
+      <div style="background:rgba(24,59,107,0.3);padding:9px 12px;
+        border-bottom:1px solid rgba(111,168,255,0.08);display:flex;align-items:center;gap:7px">
         <div style="display:flex;gap:4px">
-          <span style="width:8px;height:8px;border-radius:50%;background:#EDE0D3;display:block"></span>
-          <span style="width:8px;height:8px;border-radius:50%;background:#EDE0D3;display:block"></span>
-          <span style="width:8px;height:8px;border-radius:50%;background:#EDE0D3;display:block"></span>
+          ${['rgba(111,168,255,0.2)','rgba(111,168,255,0.14)','rgba(111,168,255,0.1)'].map(c =>
+            `<span style="width:8px;height:8px;border-radius:50%;background:${c};display:block"></span>`
+          ).join('')}
         </div>
-        <div style="flex:1;height:10px;background:#EDE0D3;border-radius:4px"></div>
+        <div style="flex:1;height:9px;background:rgba(111,168,255,0.1);border-radius:4px" class="cm-shimmer"></div>
       </div>
-      <div style="background:#FAF5EE;padding:16px 18px;height:72px"></div>
+      <div style="background:rgba(11,30,58,0.5);padding:16px 18px;height:72px" class="cm-shimmer"></div>
       <div style="padding:18px 20px 22px">
-        <div style="height:13px;background:#F0E8DF;border-radius:4px;width:68%;margin-bottom:10px"></div>
-        <div style="height:9px;background:#F5EFE6;border-radius:3px;width:90%;margin-bottom:6px"></div>
-        <div style="height:9px;background:#F5EFE6;border-radius:3px;width:75%;margin-bottom:16px"></div>
-        <div style="height:22px;background:#F5EFE6;border-radius:999px;width:90px"></div>
+        <div style="height:12px;border-radius:4px;width:65%;margin-bottom:10px" class="cm-shimmer"></div>
+        <div style="height:8px;border-radius:3px;width:88%;margin-bottom:6px" class="cm-shimmer"></div>
+        <div style="height:8px;border-radius:3px;width:72%;margin-bottom:16px" class="cm-shimmer"></div>
+        <div style="height:22px;border-radius:999px;width:88px" class="cm-shimmer"></div>
       </div>
     </div>`).join('');
 }
@@ -246,71 +446,76 @@ function cmBuildRepoCard(repo) {
   const langColor = cmLangColor(repo.language);
   return `
     <div data-cm-lang-filter="${filterKey}" class="cm-card-hover" style="
-      background:#FFFFFF;border-radius:16px;overflow:hidden;
-      border:1px solid ${CM.border};box-shadow:0 2px 16px rgba(28,20,16,0.05)
+      background:${CM.deepSpace};border-radius:16px;overflow:hidden;
+      border:1px solid rgba(111,168,255,0.12);box-shadow:0 2px 20px rgba(3,7,18,0.45);
+      position:relative
     ">
-      <div style="height:3px;background:linear-gradient(to right,${CM.gold},${CM.blush})"></div>
-      <div style="background:#F8F2EC;padding:9px 12px;border-bottom:1px solid ${CM.border};display:flex;align-items:center;gap:7px">
+      <!-- Constellation mini overlay -->
+      <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:.4">
+        ${cmConstellationSVG(340, 180, Math.random() * 10 | 0)}
+      </div>
+      <div style="height:3px;background:linear-gradient(to right,${CM.nebulaGold},${CM.aurora})"></div>
+      <div style="background:rgba(24,59,107,0.32);padding:9px 12px;
+        border-bottom:1px solid rgba(111,168,255,0.08);display:flex;align-items:center;gap:7px;position:relative">
         <div style="display:flex;gap:4px;flex-shrink:0">
-          <span style="width:8px;height:8px;border-radius:50%;background:#FF5F57;display:block"></span>
-          <span style="width:8px;height:8px;border-radius:50%;background:#FEBC2E;display:block"></span>
-          <span style="width:8px;height:8px;border-radius:50%;background:#28C840;display:block"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(212,177,90,0.5);display:block"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(111,168,255,0.4);display:block"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:rgba(217,230,255,0.3);display:block"></span>
         </div>
-        <div style="flex:1;background:#FFF;border-radius:4px;padding:3px 9px;
-          font-family:'Outfit',sans-serif;font-size:.57rem;color:#C4AE98;
-          border:1px solid #EDE0D3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+        <div style="flex:1;background:rgba(7,17,38,0.5);border-radius:4px;padding:3px 9px;
+          font-family:'Outfit',sans-serif;font-size:.55rem;color:${CM.stardust};opacity:.6;
+          border:1px solid rgba(111,168,255,0.1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis
         ">github.com/zefanyakharisma-cell/${repo.name}</div>
       </div>
-      <div style="background:#FAF5EE;padding:14px 18px 16px;border-bottom:1px solid ${CM.border};min-height:72px;position:relative;overflow:hidden">
-        <div style="height:8px;width:52%;background:${CM.gold}38;border-radius:4px;margin-bottom:8px"></div>
-        <div style="height:6px;width:78%;background:${CM.blush};border-radius:3px;margin-bottom:5px"></div>
-        <div style="height:6px;width:62%;background:${CM.blush};border-radius:3px;opacity:.65"></div>
-        <div style="position:absolute;right:14px;bottom:10px;font-size:2rem;opacity:.07;
-          font-family:'Cormorant Garamond',serif;color:${CM.espresso}">◇</div>
+      <div style="background:rgba(11,30,58,0.45);padding:14px 18px 16px;
+        border-bottom:1px solid rgba(111,168,255,0.07);min-height:72px;position:relative;overflow:hidden">
+        <div style="height:7px;width:50%;background:rgba(212,177,90,0.2);border-radius:4px;margin-bottom:8px"></div>
+        <div style="height:5px;width:76%;background:rgba(111,168,255,0.1);border-radius:3px;margin-bottom:5px"></div>
+        <div style="height:5px;width:60%;background:rgba(111,168,255,0.07);border-radius:3px"></div>
+        <div style="position:absolute;right:14px;bottom:10px;font-size:2rem;opacity:.06;
+          font-family:'Cormorant Garamond',serif;color:${CM.moonlight}">✦</div>
       </div>
-      <div style="padding:18px 20px 22px">
+      <div style="padding:18px 20px 22px;position:relative">
         <h4 style="
           font-family:'Cormorant Garamond',Georgia,serif;
-          font-size:1.05rem;font-weight:500;color:${CM.espresso};
+          font-size:1.06rem;font-weight:500;color:${CM.moonlight};
           margin-bottom:6px;line-height:1.3
         ">${cmHumanize(repo.name)}</h4>
         <p style="
-          font-family:'Outfit',sans-serif;font-size:.78rem;line-height:1.62;
-          color:${CM.muted};margin-bottom:14px;
+          font-family:'Outfit',sans-serif;font-size:.77rem;line-height:1.64;
+          color:${CM.stardust};margin-bottom:14px;
           display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden
         ">${repo.description}</p>
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
           ${repo.language ? `
             <span style="display:inline-flex;align-items:center;gap:5px;
-              font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:400;color:${CM.muted}">
+              font-family:'Outfit',sans-serif;font-size:.71rem;color:${CM.stardust}">
               <span style="width:9px;height:9px;border-radius:50%;background:${langColor};
-                flex-shrink:0;display:inline-block"></span>
+                flex-shrink:0;display:inline-block;box-shadow:0 0 6px ${langColor}66"></span>
               ${repo.language}
             </span>` : '<span></span>'}
           ${CM_REPO_DETAIL_PAGE[repo.name]
             ? `<button onclick="goToPage('${CM_REPO_DETAIL_PAGE[repo.name]}')" style="
-                font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:600;
-                color:${CM.espresso};background:transparent;cursor:pointer;
+                font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:600;
+                color:${CM.nebulaGold};background:transparent;cursor:pointer;
                 display:inline-flex;align-items:center;gap:5px;
                 padding:5px 14px;border-radius:999px;
-                border:1px solid ${CM.border};
-                transition:background .18s,color .18s,border-color .18s
-               " onmouseover="this.style.background='${CM.espresso}';this.style.color='${CM.cream}';this.style.borderColor='${CM.espresso}'"
-                  onmouseout="this.style.background='transparent';this.style.color='${CM.espresso}';this.style.borderColor='${CM.border}'">
-                View Project
-                <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
+                border:1px solid rgba(212,177,90,0.3);
+                transition:background .2s,box-shadow .2s,border-color .2s
+               " onmouseover="this.style.background='rgba(212,177,90,0.12)';this.style.boxShadow='0 0 12px rgba(212,177,90,0.2)';this.style.borderColor='rgba(212,177,90,0.5)'"
+                  onmouseout="this.style.background='transparent';this.style.boxShadow='none';this.style.borderColor='rgba(212,177,90,0.3)'">
+                Explore <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
               </button>`
             : `<a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" style="
-                font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:600;
-                color:${CM.espresso};text-decoration:none;
+                font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:600;
+                color:${CM.aurora};text-decoration:none;
                 display:inline-flex;align-items:center;gap:5px;
                 padding:5px 14px;border-radius:999px;
-                border:1px solid ${CM.border};background:transparent;
-                transition:background .18s,color .18s,border-color .18s
-               " onmouseover="this.style.background='${CM.espresso}';this.style.color='${CM.cream}';this.style.borderColor='${CM.espresso}'"
-                  onmouseout="this.style.background='transparent';this.style.color='${CM.espresso}';this.style.borderColor='${CM.border}'">
-                View Project
-                <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
+                border:1px solid rgba(111,168,255,0.22);background:transparent;
+                transition:background .2s,box-shadow .2s
+               " onmouseover="this.style.background='rgba(111,168,255,0.1)';this.style.boxShadow='0 0 10px rgba(111,168,255,0.15)'"
+                  onmouseout="this.style.background='transparent';this.style.boxShadow='none'">
+                Explore <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
               </a>`
           }
         </div>
@@ -320,45 +525,63 @@ function cmBuildRepoCard(repo) {
 
 function cmBuildFeaturedProject(project) {
   const techBadges = project.tech.map(t =>
-    '<span style="font-family:\'Outfit\',sans-serif;font-size:.68rem;font-weight:400;' +
-    'padding:3px 11px;border-radius:999px;background:rgba(201,168,76,0.12);color:' + CM.muted + ';' +
-    'border:1px solid rgba(201,168,76,0.2)">' + t + '</span>'
+    `<span style="font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:400;` +
+    `padding:3px 11px;border-radius:999px;background:rgba(212,177,90,0.1);color:${CM.stardust};` +
+    `border:1px solid rgba(212,177,90,0.2)">${t}</span>`
   ).join('');
 
-  return '<div class="cm-card-hover cm-reveal" style="' +
-    'background:#FFFFFF;border-radius:18px;overflow:hidden;' +
-    'border:1px solid ' + CM.border + ';box-shadow:0 2px 16px rgba(28,20,16,0.05)">' +
-    '<div style="height:160px;background:' + project.bg + ';position:relative;overflow:hidden;' +
-    'display:flex;align-items:center;justify-content:center;padding:0 20px">' +
-    '<div style="position:absolute;inset:0;opacity:.06;font-family:\'Cormorant Garamond\',serif;' +
-    'font-size:6rem;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;' +
-    'letter-spacing:-.04em;user-select:none;overflow:hidden">' + project.watermark + '</div>' +
-    '<div style="position:relative;z-index:1;text-align:center">' +
-    '<div style="font-family:\'Outfit\',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.16em;' +
-    'text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px">' + project.label + '</div>' +
-    '<div style="font-family:\'Cormorant Garamond\',Georgia,serif;font-size:1.55rem;font-weight:500;' +
-    'color:#fff;line-height:1.15">' + project.title + '</div>' +
-    '</div></div>' +
-    '<div style="padding:20px 22px 22px">' +
-    '<p style="font-family:\'Outfit\',sans-serif;font-size:.8rem;line-height:1.65;color:' + CM.muted + ';' +
-    'margin-bottom:14px">' + project.tagline + '</p>' +
-    '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px">' + techBadges + '</div>' +
-    '<div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;' +
-    'border-top:1px solid ' + CM.border + '">' +
-    '<span style="font-family:\'Outfit\',sans-serif;font-size:.68rem;font-weight:600;' +
-    'letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;' +
-    'background:' + project.statusBg + ';color:' + project.statusColor + '">' + project.status + '</span>' +
-    '<button onclick="goToPage(\'' + project.page + '\')" style="' +
-    'font-family:\'Outfit\',sans-serif;font-size:.78rem;font-weight:600;' +
-    'color:' + CM.espresso + ';background:transparent;cursor:pointer;' +
-    'display:inline-flex;align-items:center;gap:5px;' +
-    'padding:6px 16px;border-radius:999px;' +
-    'border:1px solid ' + CM.border + ';' +
-    'transition:background .18s,color .18s,border-color .18s" ' +
-    'onmouseover="this.style.background=\'' + CM.espresso + '\';this.style.color=\'' + CM.cream + '\';this.style.borderColor=\'' + CM.espresso + '\'" ' +
-    'onmouseout="this.style.background=\'transparent\';this.style.color=\'' + CM.espresso + '\';this.style.borderColor=\'' + CM.border + '\'">' +
-    'Explore <i data-lucide="arrow-right" style="width:11px;height:11px"></i>' +
-    '</button></div></div></div>';
+  const statusBg = project.statusBg || 'rgba(45,122,79,0.15)';
+  const statusColor = project.statusColor || '#4CAF87';
+
+  return `<div class="cm-card-hover cm-reveal" style="
+    background:${CM.deepSpace};border-radius:18px;overflow:hidden;
+    border:1px solid rgba(111,168,255,0.14);box-shadow:0 4px 28px rgba(3,7,18,0.4);
+    position:relative">
+    <!-- Top gradient card header -->
+    <div style="height:160px;background:${project.bg};position:relative;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;padding:0 20px">
+      <!-- Stars inside card -->
+      <div style="position:absolute;inset:0;pointer-events:none">${cmBuildStarField(16)}</div>
+      <!-- Constellation overlay -->
+      <div style="position:absolute;inset:0;pointer-events:none;opacity:.45">
+        ${cmConstellationSVG(320, 160, project.page.length)}
+      </div>
+      <!-- Top glow gradient -->
+      <div style="position:absolute;top:0;left:0;right:0;height:60px;
+        background:linear-gradient(to bottom,rgba(111,168,255,0.08),transparent);pointer-events:none"></div>
+      <div style="position:absolute;inset:0;opacity:.05;font-family:'Cormorant Garamond',serif;
+        font-size:5.5rem;font-weight:600;color:#fff;display:flex;align-items:center;
+        justify-content:center;letter-spacing:-.04em;user-select:none;overflow:hidden">${project.watermark}</div>
+      <div style="position:relative;z-index:1;text-align:center">
+        <div style="font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.18em;
+          text-transform:uppercase;color:rgba(217,230,255,0.45);margin-bottom:8px">${project.label}</div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:500;
+          color:${CM.moonlight};line-height:1.15;text-shadow:0 2px 20px rgba(0,0,0,0.6)">${project.title}</div>
+      </div>
+    </div>
+    <div style="padding:20px 22px 22px">
+      <p style="font-family:'Outfit',sans-serif;font-size:.79rem;line-height:1.66;
+        color:${CM.stardust};margin-bottom:14px">${project.tagline}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px">${techBadges}</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;
+        border-top:1px solid rgba(111,168,255,0.1)">
+        <span style="font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:600;
+          letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;
+          background:${statusBg};color:${statusColor}">${project.status}</span>
+        <button onclick="goToPage('${project.page}')" style="
+          font-family:'Outfit',sans-serif;font-size:.77rem;font-weight:600;
+          color:${CM.nebulaGold};background:transparent;cursor:pointer;
+          display:inline-flex;align-items:center;gap:5px;
+          padding:6px 16px;border-radius:999px;
+          border:1px solid rgba(212,177,90,0.28);
+          transition:background .2s,box-shadow .2s,border-color .2s"
+          onmouseover="this.style.background='rgba(212,177,90,0.12)';this.style.boxShadow='0 0 14px rgba(212,177,90,0.22)';this.style.borderColor='rgba(212,177,90,0.5)'"
+          onmouseout="this.style.background='transparent';this.style.boxShadow='none';this.style.borderColor='rgba(212,177,90,0.28)'">
+          Explore <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
+        </button>
+      </div>
+    </div>
+  </div>`;
 }
 
 const CM_FEATURED_PROJECTS = [
@@ -369,10 +592,10 @@ const CM_FEATURED_PROJECTS = [
     watermark:   'Portfolio',
     tagline:     'Dual-identity single-page app with iOS-style navigation, Supabase CMS, and 20+ pages — no framework.',
     tech:        ['HTML/CSS', 'JavaScript', 'Tailwind', 'Supabase'],
-    bg:          'linear-gradient(145deg,#1C1410,#3D2B1F)',
+    bg:          'linear-gradient(145deg,#030712,#071126)',
     status:      'Live',
-    statusBg:    'rgba(45,122,79,0.1)',
-    statusColor: '#2D7A4F',
+    statusBg:    'rgba(45,180,79,0.12)',
+    statusColor: '#4CAF87',
   },
   {
     page:        'web-pcu-global-intl',
@@ -381,10 +604,10 @@ const CM_FEATURED_PROJECTS = [
     watermark:   'Intl. Office',
     tagline:     'Full rebuild of PCU\'s International Office website — news CMS, partnership directory, mobile-first.',
     tech:        ['HTML/CSS', 'JavaScript', 'Tailwind', 'Supabase'],
-    bg:          'linear-gradient(145deg,#002070,#1a4fa0)',
+    bg:          'linear-gradient(145deg,#0B1E3A,#183B6B)',
     status:      'In Progress',
-    statusBg:    'rgba(201,168,76,0.12)',
-    statusColor: '#8B7355',
+    statusBg:    'rgba(212,177,90,0.12)',
+    statusColor: '#D4B15A',
   },
   {
     page:        'web-dashboard-partnership',
@@ -393,10 +616,10 @@ const CM_FEATURED_PROJECTS = [
     watermark:   'Partnership',
     tagline:     'Interactive dashboard visualising 30+ institutional partners — geographic view, status tracking, filters.',
     tech:        ['JavaScript', 'Chart.js', 'Tailwind'],
-    bg:          'linear-gradient(145deg,#1A3A2B,#2D6B4A)',
+    bg:          'linear-gradient(145deg,#0a1f2e,#0f3545)',
     status:      'Live',
-    statusBg:    'rgba(45,122,79,0.1)',
-    statusColor: '#2D7A4F',
+    statusBg:    'rgba(45,180,79,0.12)',
+    statusColor: '#4CAF87',
   },
   {
     page:        'web-dashboard-grants',
@@ -405,10 +628,10 @@ const CM_FEATURED_PROJECTS = [
     watermark:   'Grants',
     tagline:     'Centralised grant tracking from application to outcome — deadline timeline, pipeline view, outcome analytics.',
     tech:        ['JavaScript', 'Chart.js', 'Tailwind'],
-    bg:          'linear-gradient(145deg,#2A1A4A,#5C3A8A)',
+    bg:          'linear-gradient(145deg,#120a2e,#2a1060)',
     status:      'Live',
-    statusBg:    'rgba(45,122,79,0.1)',
-    statusColor: '#2D7A4F',
+    statusBg:    'rgba(45,180,79,0.12)',
+    statusColor: '#4CAF87',
   },
 ];
 
@@ -421,60 +644,63 @@ function cmBuildWebProjects() {
     { id: 'javascript', label: 'JavaScript' },
     { id: 'other',      label: 'Other' },
   ].map(f => `
-    <button data-cm-filter="${f.id}" onclick="cmSetRepoFilter('${f.id}')" style="
-      font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:500;
-      padding:7px 18px;border-radius:999px;cursor:pointer;letter-spacing:.02em;
-      transition:background .18s,color .18s,border-color .18s;
+    <button data-cm-filter="${f.id}" onclick="cmSetRepoFilter('${f.id}')"
+      class="cm-filter-pill ${f.id === 'all' ? 'active' : ''}" style="
       ${f.id === 'all'
-        ? 'background:' + CM.espresso + ';color:' + CM.cream + ';border:1px solid ' + CM.espresso
-        : 'background:transparent;color:' + CM.muted + ';border:1px solid ' + CM.border}
+        ? `background:${CM.nebulaGold};color:${CM.midnight};border:1px solid ${CM.nebulaGold};box-shadow:0 0 14px rgba(212,177,90,0.3)`
+        : `background:transparent;color:${CM.stardust};border:1px solid rgba(111,168,255,0.2)`}
     ">${f.label}</button>`).join('');
 
   return `
-    <div id="cm-web-projects" style="background:${CM.blush};padding:clamp(4.5rem,9vh,7rem) 24px">
-      <div class="max-w-5xl mx-auto">
+    <div id="cm-web-projects" style="
+      background:linear-gradient(180deg,${CM.deepSpace} 0%,${CM.midnight} 100%);
+      padding:clamp(4.5rem,9vh,7rem) 24px;position:relative;overflow:hidden">
+      <!-- Constellation background -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+        ${cmConstellationSVG(1200, 800, 7)}
+      </div>
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5">
+        ${cmBuildStarField(35)}
+      </div>
 
-        <!-- Section heading -->
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div class="cm-reveal" style="margin-bottom:2.75rem">
-          <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
-            letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};margin-bottom:.85rem">Web Development</p>
+          <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+            letter-spacing:.2em;text-transform:uppercase;color:${CM.nebulaGold};margin-bottom:.9rem">Web Development</p>
           <h2 style="
             font-family:'Cormorant Garamond',Georgia,serif;
             font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;font-style:italic;
-            color:${CM.espresso};line-height:1.1
+            color:${CM.moonlight};line-height:1.08
           " data-edit-key="cm_web_title">Featured Projects</h2>
         </div>
 
-        <!-- Static featured project cards — always visible -->
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;margin-bottom:4rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;margin-bottom:4rem">
           ${featuredCards}
         </div>
 
-        <!-- Open-source section divider -->
-        <div class="cm-reveal" style="display:flex;align-items:center;gap:16px;margin-bottom:2rem">
-          <div style="flex:1;height:1px;background:${CM.border}"></div>
-          <span style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
-            letter-spacing:.16em;text-transform:uppercase;color:${CM.muted}">Open Source</span>
-          <div style="flex:1;height:1px;background:${CM.border}"></div>
+        <!-- Divider with constellation line -->
+        <div class="cm-reveal" style="display:flex;align-items:center;gap:16px;margin-bottom:2.25rem">
+          <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(111,168,255,0.2))"></div>
+          <span style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+            letter-spacing:.18em;text-transform:uppercase;color:${CM.stardust};opacity:.6">Open Source</span>
+          <div style="flex:1;height:1px;background:linear-gradient(to left,transparent,rgba(111,168,255,0.2))"></div>
         </div>
 
         <div class="cm-reveal" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem">
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            ${pills}
-          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">${pills}</div>
           <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
-            font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:400;
-            color:${CM.muted};text-decoration:none;display:inline-flex;align-items:center;gap:6px;
-            border:1px solid ${CM.border};padding:8px 16px;border-radius:999px;
-            background:transparent;transition:border-color .18s,color .18s
-          " onmouseover="this.style.borderColor='${CM.espresso}';this.style.color='${CM.espresso}'"
-             onmouseout="this.style.borderColor='${CM.border}';this.style.color='${CM.muted}'">
+            font-family:'Outfit',sans-serif;font-size:.77rem;font-weight:400;
+            color:${CM.stardust};text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+            border:1px solid rgba(111,168,255,0.18);padding:8px 16px;border-radius:999px;
+            background:transparent;transition:border-color .2s,color .2s,box-shadow .2s
+          " onmouseover="this.style.borderColor='rgba(111,168,255,0.4)';this.style.color='${CM.aurora}';this.style.boxShadow='0 0 12px rgba(111,168,255,0.12)'"
+             onmouseout="this.style.borderColor='rgba(111,168,255,0.18)';this.style.color='${CM.stardust}';this.style.boxShadow='none'">
             <i data-lucide="github" style="width:14px;height:14px"></i>
             @zefanyakharisma-cell
           </a>
         </div>
 
-        <div id="cm-repo-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+        <div id="cm-repo-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px">
           ${cmBuildRepoSkeletons()}
         </div>
       </div>
@@ -487,13 +713,13 @@ function cmRenderRepos(repos) {
   if (!repos || repos.length === 0) {
     grid.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:64px 24px">
-        <p style="font-family:'Outfit',sans-serif;font-size:.9rem;color:${CM.muted};margin-bottom:14px">
+        <p style="font-family:'Outfit',sans-serif;font-size:.9rem;color:${CM.stardust};margin-bottom:14px">
           Couldn't load projects — view them directly on GitHub.
         </p>
         <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
           font-family:'Outfit',sans-serif;font-size:.84rem;font-weight:600;
-          color:${CM.espresso};text-decoration:none;
-          border-bottom:1px solid ${CM.gold};padding-bottom:1px
+          color:${CM.nebulaGold};text-decoration:none;
+          border-bottom:1px solid ${CM.nebulaGold};padding-bottom:2px
         ">@zefanyakharisma-cell ↗</a>
       </div>`;
     return;
@@ -509,9 +735,10 @@ function cmApplyRepoFilter(filter) {
   });
   document.querySelectorAll('[data-cm-filter]').forEach(btn => {
     const active = btn.getAttribute('data-cm-filter') === filter;
-    btn.style.background  = active ? CM.espresso : 'transparent';
-    btn.style.color       = active ? CM.cream    : CM.muted;
-    btn.style.borderColor = active ? CM.espresso : CM.border;
+    btn.style.background   = active ? CM.nebulaGold : 'transparent';
+    btn.style.color        = active ? CM.midnight   : CM.stardust;
+    btn.style.borderColor  = active ? CM.nebulaGold : 'rgba(111,168,255,0.2)';
+    btn.style.boxShadow    = active ? '0 0 14px rgba(212,177,90,0.3)' : 'none';
   });
 }
 
@@ -538,73 +765,91 @@ async function cmFetchRepos() {
   }
 }
 
-// ── Section 4: Graphic Design Portfolio ──────────────────────────────────────
+// ── Section 4: Graphic Design ─────────────────────────────────────────────────
 
 const CM_CAT_COLORS = {
-  'Brand Identity':   CM.gold,
-  'Event Materials':  '#A06848',
-  'Print & Digital':  CM.muted,
-  'Visual Identity':  '#7A6A5A',
-  'Social Media Kits':'#B8956A',
+  'Brand Identity':   CM.nebulaGold,
+  'Event Materials':  CM.aurora,
+  'Print & Digital':  CM.stardust,
+  'Visual Identity':  '#A0B8E0',
+  'Social Media Kits': '#B8956A',
 };
 
 function cmBuildGDCard(g, i) {
-  const catColor = CM_CAT_COLORS[g.cat] || CM.muted;
+  const catColor = CM_CAT_COLORS[g.cat] || CM.stardust;
   return `
-    <button onclick="cmOpenGDPreview(${i})" class="cm-card-hover" style="
-      background:#FFFFFF;border-radius:16px;overflow:hidden;
-      border:1px solid ${CM.border};cursor:pointer;text-align:left;width:100%;
-      box-shadow:0 2px 16px rgba(28,20,16,0.05)
+    <button onclick="cmOpenGDPreview(${i})" class="cm-card-hover cm-gd-card-hover" style="
+      background:${CM.deepSpace};border-radius:18px;overflow:hidden;
+      border:1px solid rgba(111,168,255,0.12);cursor:pointer;text-align:left;width:100%;
+      box-shadow:0 4px 28px rgba(3,7,18,0.4)
     ">
-      <div style="position:relative;overflow:hidden;height:185px">
+      <div style="position:relative;overflow:hidden;height:195px">
         <img src="./assets/images/graphic-designs/${g.folder}/1.png" alt="${g.title}"
           style="width:100%;height:100%;object-fit:cover;object-position:top;
-            transition:transform .4s ease"
-          onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''"
+            transition:transform .45s ease"
           loading="lazy">
-        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 52%,rgba(28,20,16,0.14));pointer-events:none"></div>
-        <span style="position:absolute;top:10px;right:10px;
-          font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:500;
-          background:rgba(28,20,16,0.48);backdrop-filter:blur(4px);
-          color:rgba(250,247,242,0.88);padding:3px 9px;border-radius:999px">${g.year}</span>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;
-          transition:opacity .25s;background:rgba(28,20,16,0.22)" class="cm-gd-expand-hint">
+        <!-- Gradient overlay -->
+        <div style="position:absolute;inset:0;
+          background:linear-gradient(to bottom,transparent 45%,rgba(7,17,38,0.72));
+          pointer-events:none"></div>
+        <!-- Glow on hover overlay -->
+        <div class="cm-gd-overlay" style="position:absolute;inset:0;opacity:0;
+          background:rgba(7,17,38,0.28);transition:opacity .28s;
+          display:flex;align-items:center;justify-content:center;pointer-events:none">
           <span style="font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;
-            color:${CM.cream};background:rgba(28,20,16,0.55);padding:7px 18px;
-            border-radius:999px;backdrop-filter:blur(6px);
-            border:1px solid rgba(250,247,242,0.22)">Preview</span>
+            color:${CM.moonlight};background:rgba(7,17,38,0.6);padding:7px 20px;
+            border-radius:999px;backdrop-filter:blur(8px);
+            border:1px solid rgba(217,230,255,0.2);
+            box-shadow:0 0 18px rgba(111,168,255,0.2)">Preview</span>
         </div>
+        <!-- Year badge -->
+        <span style="position:absolute;top:10px;right:10px;
+          font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:500;
+          background:rgba(7,17,38,0.6);backdrop-filter:blur(6px);
+          color:${CM.stardust};padding:3px 10px;border-radius:999px;
+          border:1px solid rgba(111,168,255,0.18)">${g.year}</span>
       </div>
       <div style="padding:16px 18px 20px">
-        <p style="font-family:'Outfit',sans-serif;font-size:.64rem;font-weight:600;
-          letter-spacing:.1em;text-transform:uppercase;color:${catColor};margin-bottom:6px">${g.cat}</p>
+        <p style="font-family:'Outfit',sans-serif;font-size:.62rem;font-weight:600;
+          letter-spacing:.12em;text-transform:uppercase;color:${catColor};margin-bottom:6px">${g.cat}</p>
         <h4 style="font-family:'Cormorant Garamond',Georgia,serif;
-          font-size:1.02rem;font-weight:500;color:${CM.espresso};
-          line-height:1.3;margin-bottom:4px">${g.title}</h4>
-        <p style="font-family:'Outfit',sans-serif;font-size:.72rem;color:${CM.muted}">${g.inst}</p>
+          font-size:1.04rem;font-weight:500;color:${CM.moonlight};
+          line-height:1.28;margin-bottom:4px">${g.title}</h4>
+        <p style="font-family:'Outfit',sans-serif;font-size:.71rem;color:${CM.stardust};opacity:.75">${g.inst}</p>
       </div>
     </button>`;
 }
 
 function cmBuildGraphicDesign() {
   return `
-    <div id="cm-graphic-design" style="background:${CM.cream};padding:clamp(4.5rem,9vh,7rem) 24px">
-      <div class="max-w-5xl mx-auto">
-        <div class="cm-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem">
+    <div id="cm-graphic-design" style="
+      background:linear-gradient(180deg,${CM.midnight} 0%,${CM.void} 100%);
+      padding:clamp(4.5rem,9vh,7rem) 24px;position:relative;overflow:hidden">
+      <!-- Nebula fog -->
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+        width:800px;height:500px;border-radius:50%;
+        background:radial-gradient(ellipse,rgba(111,168,255,0.04) 0%,transparent 70%);
+        pointer-events:none"></div>
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.4">
+        ${cmBuildStarField(30)}
+      </div>
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
+        <div class="cm-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;
+          flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem">
           <div>
-            <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
-              letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};margin-bottom:.85rem">Graphic Design</p>
+            <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+              letter-spacing:.2em;text-transform:uppercase;color:${CM.nebulaGold};margin-bottom:.9rem">Graphic Design</p>
             <h2 style="
               font-family:'Cormorant Garamond',Georgia,serif;
               font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;font-style:italic;
-              color:${CM.espresso};line-height:1.1
+              color:${CM.moonlight};line-height:1.08
             " data-edit-key="cm_design_title">Visual identity work</h2>
           </div>
-          <p style="font-family:'Outfit',sans-serif;font-size:.88rem;line-height:1.68;
-            color:${CM.muted};max-width:300px
+          <p style="font-family:'Outfit',sans-serif;font-size:.87rem;line-height:1.7;
+            color:${CM.stardust};max-width:300px
           " data-edit-key="cm_design_subtitle">Branding, institutional materials, and communication design — click any to preview.</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px">
           ${CM_GRAPHIC_WORKS.map((g, i) => cmBuildGDCard(g, i)).join('')}
         </div>
       </div>
@@ -621,44 +866,62 @@ function cmBuildProcess() {
   ];
 
   const stepHTML = steps.map((step, i) => `
-    <div style="flex:1;min-width:200px;display:flex;flex-direction:column;align-items:center;text-align:center">
+    <div class="cm-process-card cm-reveal" style="
+      flex:1;min-width:200px;display:flex;flex-direction:column;align-items:center;text-align:center;
+      background:rgba(24,59,107,0.28);backdrop-filter:blur(12px);
+      border:1px solid rgba(111,168,255,0.15);border-radius:22px;
+      padding:2.25rem 1.5rem 2rem;
+      box-shadow:0 4px 28px rgba(3,7,18,0.35)
+    ">
       <div style="position:relative;margin-bottom:1.5rem">
-        <div style="width:58px;height:58px;border-radius:18px;background:${CM.espresso};
+        <div style="width:60px;height:60px;border-radius:20px;
+          background:rgba(111,168,255,0.08);border:1px solid rgba(111,168,255,0.2);
           display:flex;align-items:center;justify-content:center;
-          box-shadow:0 6px 24px rgba(28,20,16,0.2)">
-          <i data-lucide="${step.icon}" style="width:22px;height:22px;color:${CM.gold}"></i>
+          box-shadow:0 0 24px rgba(111,168,255,0.12)">
+          <i data-lucide="${step.icon}" style="width:22px;height:22px;color:${CM.aurora}"></i>
         </div>
-        <span style="position:absolute;top:-8px;right:-8px;
-          font-family:'Outfit',sans-serif;font-size:.54rem;font-weight:700;
-          letter-spacing:.1em;color:${CM.gold};opacity:.65">${step.num}</span>
+        <span style="position:absolute;top:-10px;right:-10px;
+          font-family:'Outfit',sans-serif;font-size:.52rem;font-weight:700;
+          letter-spacing:.1em;color:${CM.nebulaGold};opacity:.8">${step.num}</span>
       </div>
       <h3 style="font-family:'Cormorant Garamond',Georgia,serif;
-        font-size:1.3rem;font-weight:500;font-style:italic;
-        color:${CM.espresso};margin-bottom:.75rem;line-height:1.2
+        font-size:1.32rem;font-weight:500;font-style:italic;
+        color:${CM.moonlight};margin-bottom:.75rem;line-height:1.2
       " data-edit-key="${step.editKey}_label">${step.label}</h3>
-      <p style="font-family:'Outfit',sans-serif;font-size:.84rem;line-height:1.72;
-        color:${CM.muted};max-width:210px
+      <p style="font-family:'Outfit',sans-serif;font-size:.83rem;line-height:1.74;
+        color:${CM.stardust};max-width:210px
       " data-edit-key="${step.editKey}_desc">${step.desc}</p>
     </div>
     ${i < steps.length - 1 ? `
-      <div style="flex-shrink:0;padding-top:28px;font-family:'Cormorant Garamond',serif;
-        font-size:1.5rem;color:${CM.gold};opacity:.3;align-self:flex-start;
-        display:none" class="cm-step-arrow">→</div>` : ''}`).join('');
+      <div class="cm-step-connector" style="display:none;flex-shrink:0;padding-top:30px;
+        align-self:flex-start;opacity:.25">
+        <svg width="32" height="2" viewBox="0 0 32 2">
+          <line x1="0" y1="1" x2="32" y2="1" stroke="${CM.aurora}" stroke-width="1" stroke-dasharray="4 3"/>
+        </svg>
+      </div>` : ''}`).join('');
 
   return `
-    <div style="background:${CM.blush};padding:clamp(4.5rem,9vh,7rem) 24px">
-      <style>@media(min-width:768px){.cm-step-arrow{display:block!important}}</style>
-      <div class="max-w-5xl mx-auto">
+    <div style="
+      background:linear-gradient(180deg,${CM.void} 0%,${CM.midnight} 100%);
+      padding:clamp(4.5rem,9vh,7rem) 24px;position:relative;overflow:hidden">
+      <!-- Constellation lines -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+        ${cmConstellationSVG(1200, 600, 11)}
+      </div>
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.4">
+        ${cmBuildStarField(28)}
+      </div>
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div class="cm-reveal" style="text-align:center;margin-bottom:3.5rem">
-          <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
-            letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};margin-bottom:.85rem">Process</p>
+          <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+            letter-spacing:.2em;text-transform:uppercase;color:${CM.nebulaGold};margin-bottom:.9rem">Process</p>
           <h2 style="
             font-family:'Cormorant Garamond',Georgia,serif;
             font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;font-style:italic;
-            color:${CM.espresso};line-height:1.1
+            color:${CM.moonlight};line-height:1.08
           " data-edit-key="cm_process_title">How We Work</h2>
         </div>
-        <div class="cm-reveal" style="display:flex;flex-wrap:wrap;gap:clamp(1.5rem,3vw,2.5rem);
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(1.25rem,2.5vw,2rem);
           align-items:flex-start;justify-content:center">
           ${stepHTML}
         </div>
@@ -670,40 +933,55 @@ function cmBuildProcess() {
 
 function cmBuildContact() {
   return `
-    <div style="background:${CM.espresso};padding:clamp(5rem,11vh,9rem) 24px;position:relative;overflow:hidden">
-      <div style="position:absolute;right:-100px;top:-100px;width:460px;height:460px;border-radius:50%;
-        background:radial-gradient(circle,${CM.gold}16 0%,transparent 68%);pointer-events:none"></div>
-      <div style="position:absolute;left:-60px;bottom:-80px;width:360px;height:360px;border-radius:50%;
-        background:radial-gradient(circle,#6A341810 0%,transparent 70%);pointer-events:none"></div>
+    <div style="
+      background:linear-gradient(160deg,${CM.void} 0%,${CM.midnight} 60%,#0a1530 100%);
+      padding:clamp(5.5rem,12vh,10rem) 24px;position:relative;overflow:hidden">
+      <!-- Large glowing crescent behind content -->
+      <div style="position:absolute;right:-5%;top:50%;transform:translateY(-50%);
+        pointer-events:none;z-index:0;filter:blur(2px) drop-shadow(0 0 60px rgba(212,177,90,0.3));opacity:.12">
+        <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+          <path d="M340 250C340 318.5 284.5 375 216 375C147.5 375 92 318.5 92 250C92 181.5 147.5 125 216 125C202.5 142.5 196 163 196 186C196 249.5 238.5 302 296.5 318.8C322 299.5 340 276.2 340 250Z" fill="${CM.nebulaGold}"/>
+        </svg>
+      </div>
+      <!-- Floating stars -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+        ${cmBuildStarField(50)}
+      </div>
+      <!-- Aurora glow -->
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+        width:600px;height:300px;border-radius:50%;
+        background:radial-gradient(ellipse,rgba(111,168,255,0.06) 0%,transparent 70%);
+        pointer-events:none;z-index:0"></div>
+
       <div class="max-w-3xl mx-auto text-center cm-reveal" style="position:relative;z-index:1">
-        <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
-          letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};opacity:.75;margin-bottom:1.5rem">Let's Work Together</p>
+        <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+          letter-spacing:.22em;text-transform:uppercase;color:${CM.nebulaGold};opacity:.8;margin-bottom:1.5rem">Let's Work Together</p>
         <h2 style="
           font-family:'Cormorant Garamond',Georgia,serif;
-          font-size:clamp(2.5rem,7vw,5rem);font-weight:400;font-style:italic;
-          color:${CM.cream};line-height:1;margin-bottom:1.5rem;letter-spacing:-.01em
+          font-size:clamp(2.6rem,7.5vw,5.5rem);font-weight:400;font-style:italic;
+          color:${CM.moonlight};line-height:.96;margin-bottom:1.5rem;letter-spacing:-.01em;
+          text-shadow:0 0 60px rgba(111,168,255,0.18)
         " data-edit-key="cm_contact_headline">Let's build something meaningful.</h2>
-        <p style="font-family:'Outfit',sans-serif;font-size:.95rem;line-height:1.78;
-          color:${CM.muted};max-width:460px;margin:0 auto 3rem
+        <p style="font-family:'Outfit',sans-serif;font-size:.94rem;line-height:1.8;
+          color:${CM.stardust};max-width:460px;margin:0 auto 3rem
         " data-edit-key="cm_contact_body">Whether you need a website, a brand identity, or both — CroissantsMoon is open for new projects.</p>
 
-        <button onclick="goToPage('contact')" style="
+        <button onclick="goToPage('contact')" class="cm-glow-btn" style="
           font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;
-          background:${CM.gold};color:${CM.espresso};padding:15px 36px;border-radius:999px;
+          background:${CM.nebulaGold};color:${CM.midnight};padding:16px 38px;border-radius:999px;
           border:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;
-          letter-spacing:.02em;transition:opacity .2s;
-          box-shadow:0 4px 28px rgba(201,168,76,0.32)
-        " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+          letter-spacing:.03em
+        ">
           Start a Conversation
           <i data-lucide="arrow-right" style="width:15px;height:15px"></i>
         </button>
 
-        <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(250,247,242,0.07)">
+        <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(111,168,255,0.08)">
           <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
-            font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:400;
-            color:rgba(250,247,242,0.28);text-decoration:none;
-            display:inline-flex;align-items:center;gap:6px;transition:color .2s
-          " onmouseover="this.style.color='rgba(250,247,242,0.62)'" onmouseout="this.style.color='rgba(250,247,242,0.28)'">
+            font-family:'Outfit',sans-serif;font-size:.77rem;font-weight:400;
+            color:rgba(143,168,214,0.35);text-decoration:none;
+            display:inline-flex;align-items:center;gap:6px;transition:color .22s
+          " onmouseover="this.style.color='rgba(143,168,214,0.65)'" onmouseout="this.style.color='rgba(143,168,214,0.35)'">
             <i data-lucide="github" style="width:13px;height:13px"></i>
             See all open-source work on GitHub →
           </a>
@@ -712,7 +990,7 @@ function cmBuildContact() {
     </div>`;
 }
 
-// ── Graphic Design Lightbox ───────────────────────────────────────────────────
+// ── Graphic Design Lightbox (Observatory) ─────────────────────────────────────
 
 function cmOpenGDPreview(idx) {
   const g = CM_GRAPHIC_WORKS[idx];
@@ -723,66 +1001,89 @@ function cmOpenGDPreview(idx) {
 
   const thumbs = Array.from({ length: g.imgs }, (_, i) => `
     <button onclick="cmGDJumpTo(${i + 1})" id="cm-gd-thumb-${i + 1}" style="
-      width:58px;height:40px;border-radius:6px;overflow:hidden;padding:0;flex-shrink:0;cursor:pointer;
-      border:2px solid ${i === 0 ? CM.gold : 'rgba(250,247,242,0.2)'};transition:border-color .18s">
+      width:60px;height:42px;border-radius:8px;overflow:hidden;padding:0;flex-shrink:0;cursor:pointer;
+      border:2px solid ${i === 0 ? CM.nebulaGold : 'rgba(217,230,255,0.15)'};
+      transition:border-color .2s,box-shadow .2s;
+      ${i === 0 ? 'box-shadow:0 0 10px rgba(212,177,90,0.35)' : ''}">
       <img src="./assets/images/graphic-designs/${g.folder}/${i + 1}.png"
         style="width:100%;height:100%;object-fit:cover" loading="lazy">
     </button>`).join('');
 
   const lb = document.createElement('div');
   lb.id = 'cm-gd-lightbox';
-  lb.style.cssText = `position:fixed;inset:0;z-index:9999;background:rgba(28,20,16,0.94);
+  lb.className = 'cm-lightbox-enter';
+  lb.style.cssText = `position:fixed;inset:0;z-index:9999;
+    background:rgba(3,7,18,0.92);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
-    padding:20px;backdrop-filter:blur(14px)`;
+    padding:20px;backdrop-filter:blur(20px) saturate(1.3)`;
   lb.addEventListener('click', e => { if (e.target === lb) cmCloseGDPreview(); });
 
   lb.innerHTML = `
+    <!-- Stars in lightbox -->
+    <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.6">
+      ${cmBuildStarField(35)}
+    </div>
     <button onclick="cmCloseGDPreview()" style="
       position:absolute;top:18px;right:18px;z-index:10;
-      background:rgba(250,247,242,0.1);border:1px solid rgba(250,247,242,0.18);
-      color:${CM.cream};width:40px;height:40px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem
-    ">✕</button>
+      background:rgba(217,230,255,0.07);border:1px solid rgba(217,230,255,0.15);
+      color:${CM.moonlight};width:42px;height:42px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;
+      transition:background .18s,box-shadow .18s
+    " onmouseover="this.style.background='rgba(217,230,255,0.14)';this.style.boxShadow='0 0 12px rgba(111,168,255,0.2)'"
+       onmouseout="this.style.background='rgba(217,230,255,0.07)';this.style.boxShadow='none'">✕</button>
     <div id="cm-gd-counter" style="position:absolute;top:22px;left:50%;transform:translateX(-50%);
-      font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:500;
-      color:rgba(250,247,242,0.4);letter-spacing:.08em">1 / ${g.imgs}</div>
+      font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;
+      color:rgba(217,230,255,0.38);letter-spacing:.08em;z-index:10">1 / ${g.imgs}</div>
     <img id="cm-gd-img" src="./assets/images/graphic-designs/${g.folder}/1.png" alt="${g.title}"
-      style="max-width:min(860px,90vw);max-height:68vh;object-fit:contain;border-radius:10px;
-        box-shadow:0 32px 100px rgba(0,0,0,0.55);display:block;transition:opacity .16s ease"/>
-    <button onclick="cmNavGDPreview(-1)" style="position:absolute;left:max(16px,2.5vw);top:50%;
-      transform:translateY(-50%);z-index:10;background:rgba(250,247,242,0.1);
-      border:1px solid rgba(250,247,242,0.18);color:${CM.cream};width:46px;height:46px;
+      style="max-width:min(860px,90vw);max-height:67vh;object-fit:contain;border-radius:12px;
+        box-shadow:0 32px 100px rgba(0,0,0,0.65),0 0 0 1px rgba(111,168,255,0.1);
+        display:block;transition:opacity .18s ease;position:relative;z-index:1"/>
+    <!-- Nav arrows -->
+    <button onclick="cmNavGDPreview(-1)" style="position:absolute;left:max(14px,2.5vw);top:50%;
+      transform:translateY(-50%);z-index:10;
+      background:rgba(217,230,255,0.06);
+      border:1px solid rgba(217,230,255,0.15);color:${CM.moonlight};width:50px;height:50px;
       border-radius:50%;display:flex;align-items:center;justify-content:center;
-      cursor:pointer;font-size:1.5rem;transition:background .15s
-    " onmouseover="this.style.background='rgba(250,247,242,0.2)'" onmouseout="this.style.background='rgba(250,247,242,0.1)'">‹</button>
-    <button onclick="cmNavGDPreview(1)" style="position:absolute;right:max(16px,2.5vw);top:50%;
-      transform:translateY(-50%);z-index:10;background:rgba(250,247,242,0.1);
-      border:1px solid rgba(250,247,242,0.18);color:${CM.cream};width:46px;height:46px;
+      cursor:pointer;font-size:1.5rem;transition:background .18s,box-shadow .18s
+    " onmouseover="this.style.background='rgba(111,168,255,0.14)';this.style.boxShadow='0 0 18px rgba(111,168,255,0.2)'"
+       onmouseout="this.style.background='rgba(217,230,255,0.06)';this.style.boxShadow='none'">‹</button>
+    <button onclick="cmNavGDPreview(1)" style="position:absolute;right:max(14px,2.5vw);top:50%;
+      transform:translateY(-50%);z-index:10;
+      background:rgba(217,230,255,0.06);
+      border:1px solid rgba(217,230,255,0.15);color:${CM.moonlight};width:50px;height:50px;
       border-radius:50%;display:flex;align-items:center;justify-content:center;
-      cursor:pointer;font-size:1.5rem;transition:background .15s
-    " onmouseover="this.style.background='rgba(250,247,242,0.2)'" onmouseout="this.style.background='rgba(250,247,242,0.1)'">›</button>
-    <div style="display:flex;gap:8px;margin-top:16px">${thumbs}</div>
-    <div style="margin-top:13px;padding:13px 22px;background:rgba(250,247,242,0.05);
-      border:1px solid rgba(250,247,242,0.09);border-radius:12px;
+      cursor:pointer;font-size:1.5rem;transition:background .18s,box-shadow .18s
+    " onmouseover="this.style.background='rgba(111,168,255,0.14)';this.style.boxShadow='0 0 18px rgba(111,168,255,0.2)'"
+       onmouseout="this.style.background='rgba(217,230,255,0.06)';this.style.boxShadow='none'">›</button>
+    <!-- Thumbnails -->
+    <div style="display:flex;gap:9px;margin-top:18px;position:relative;z-index:1">${thumbs}</div>
+    <!-- Metadata glass container -->
+    <div style="margin-top:14px;padding:14px 22px;
+      background:rgba(11,30,58,0.55);backdrop-filter:blur(14px);
+      border:1px solid rgba(111,168,255,0.14);border-radius:14px;
       display:flex;align-items:center;gap:18px;flex-wrap:wrap;
-      max-width:min(860px,90vw);width:100%">
+      max-width:min(860px,90vw);width:100%;position:relative;z-index:1;
+      box-shadow:0 4px 28px rgba(3,7,18,0.4)">
       <div style="flex:1;min-width:180px">
-        <div style="font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:600;
-          letter-spacing:.12em;text-transform:uppercase;color:rgba(250,247,242,0.38);margin-bottom:4px">${g.cat} · ${g.year}</div>
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:.95rem;
-          font-weight:500;color:${CM.cream}">${g.title}</div>
-        <div style="font-family:'Outfit',sans-serif;font-size:.72rem;
-          color:rgba(250,247,242,0.38);margin-top:2px">${g.inst}</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:600;
+          letter-spacing:.14em;text-transform:uppercase;color:rgba(217,230,255,0.38);margin-bottom:4px">${g.cat} · ${g.year}</div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:.96rem;
+          font-weight:500;color:${CM.moonlight}">${g.title}</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:.71rem;
+          color:rgba(217,230,255,0.38);margin-top:2px">${g.inst}</div>
       </div>
       <a href="${g.link}" target="_blank" rel="noopener noreferrer" style="
-        background:${CM.gold};color:${CM.espresso};padding:9px 20px;border-radius:999px;
+        background:${CM.nebulaGold};color:${CM.midnight};padding:10px 22px;border-radius:999px;
         font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:700;
         display:inline-flex;align-items:center;gap:7px;text-decoration:none;
-        white-space:nowrap;flex-shrink:0;transition:opacity .2s
-      " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">View on Canva ↗</a>
+        white-space:nowrap;flex-shrink:0;
+        box-shadow:0 0 18px rgba(212,177,90,0.3);
+        transition:opacity .2s,box-shadow .2s
+      " onmouseover="this.style.opacity='.85';this.style.boxShadow='0 0 28px rgba(212,177,90,0.5)'"
+         onmouseout="this.style.opacity='1';this.style.boxShadow='0 0 18px rgba(212,177,90,0.3)'">View on Canva ↗</a>
     </div>
-    <p style="margin-top:10px;font-family:'Outfit',sans-serif;font-size:.62rem;
-      color:rgba(250,247,242,0.2)">← → arrow keys · Esc to close</p>`;
+    <p style="margin-top:10px;font-family:'Outfit',sans-serif;font-size:.6rem;
+      color:rgba(217,230,255,0.18);position:relative;z-index:1">← → arrow keys · Esc to close</p>`;
 
   document.body.appendChild(lb);
   const onKey = e => {
@@ -823,13 +1124,16 @@ function cmGDJumpTo(i) {
   const img = document.getElementById('cm-gd-img');
   if (img) {
     img.style.opacity = '0';
-    setTimeout(() => { img.src = `./assets/images/graphic-designs/${g.folder}/${i}.png`; img.style.opacity = '1'; }, 160);
+    setTimeout(() => { img.src = `./assets/images/graphic-designs/${g.folder}/${i}.png`; img.style.opacity = '1'; }, 180);
   }
   const counter = document.getElementById('cm-gd-counter');
   if (counter) counter.textContent = `${i} / ${g.imgs}`;
   for (let t = 1; t <= g.imgs; t++) {
     const thumb = document.getElementById(`cm-gd-thumb-${t}`);
-    if (thumb) thumb.style.borderColor = t === i ? CM.gold : 'rgba(250,247,242,0.2)';
+    if (thumb) {
+      thumb.style.borderColor = t === i ? CM.nebulaGold : 'rgba(217,230,255,0.15)';
+      thumb.style.boxShadow   = t === i ? '0 0 10px rgba(212,177,90,0.35)' : 'none';
+    }
   }
 }
 window.cmGDJumpTo = cmGDJumpTo;
@@ -840,12 +1144,17 @@ function cmInitScrollReveal() {
   const page = document.getElementById('page-croissantsmoon');
   if (!page) return;
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('cm-visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.07, rootMargin: '0px 0px -32px 0px' });
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('cm-visible'), i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
   page.querySelectorAll('.cm-reveal').forEach(el => obs.observe(el));
 }
 
-// ── Smooth scroll for hero CTAs ───────────────────────────────────────────────
+// ── Smooth scroll links ───────────────────────────────────────────────────────
 
 function cmInitScrollLinks() {
   const page = document.getElementById('page-croissantsmoon');
@@ -859,18 +1168,7 @@ function cmInitScrollLinks() {
   });
 }
 
-// ── GD card hover expand hint ─────────────────────────────────────────────────
-
-function cmInitGDHovers() {
-  document.querySelectorAll('.cm-gd-expand-hint').forEach(hint => {
-    const card = hint.closest('button');
-    if (!card) return;
-    card.addEventListener('mouseenter', () => { hint.style.opacity = '1'; });
-    card.addEventListener('mouseleave', () => { hint.style.opacity = '0'; });
-  });
-}
-
-// ── Page Init ─────────────────────────────────────────────────────────────────
+// ── Page init ─────────────────────────────────────────────────────────────────
 
 function cmInitPage() {
   cmInjectFonts();
@@ -879,7 +1177,7 @@ function cmInitPage() {
   const el = document.getElementById('page-croissantsmoon');
   if (!el) return;
 
-  el.style.background = CM.cream;
+  el.style.background = CM.midnight;
   el.innerHTML = [
     cmBuildHero(),
     cmBuildServices(),
@@ -892,7 +1190,6 @@ function cmInitPage() {
   if (window.lucide) lucide.createIcons();
 
   setTimeout(() => {
-    // Animate logotype (600ms ease-out fade-in + upward drift)
     const logotype = document.getElementById('cm-logotype');
     if (logotype) {
       requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -902,7 +1199,6 @@ function cmInitPage() {
     }
     cmInitScrollLinks();
     cmInitScrollReveal();
-    cmInitGDHovers();
     cmFetchRepos();
   }, 80);
 }
