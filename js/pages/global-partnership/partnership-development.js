@@ -506,8 +506,14 @@ function pdRenderIntl() {
 
   const q = (document.getElementById('pd-intl-search')?.value || '').toLowerCase().trim();
 
+  // Dim continent filters while search is active — search scans all regions
+  document.querySelectorAll('.pd-cont-btn').forEach(btn => {
+    btn.style.opacity        = q ? '0.4' : '1';
+    btn.style.pointerEvents  = q ? 'none' : '';
+  });
+
   let filtered = pdIntlData;
-  if (pdIntlContinent !== 'all') {
+  if (pdIntlContinent !== 'all' && !q) {
     filtered = filtered.filter(p => pdContinent[p.country] === pdIntlContinent);
   }
   if (q) {
@@ -521,7 +527,7 @@ function pdRenderIntl() {
   const remaining = total - showing.length;
 
   if (countEl) countEl.textContent = q
-    ? `${total} result${total !== 1 ? 's' : ''} for "${q}"`
+    ? `${total} result${total !== 1 ? 's' : ''} for "${q}" — searching all regions`
     : `Showing ${showing.length} of ${total} institutions`;
 
   grid.innerHTML = showing.map(p => {
@@ -570,8 +576,14 @@ function pdRenderDom() {
 
   const q = (document.getElementById('pd-dom-search')?.value || '').toLowerCase().trim();
 
+  // Dim type filters while search is active — search scans all types
+  document.querySelectorAll('.pd-dtype-btn').forEach(btn => {
+    btn.style.opacity        = q ? '0.4' : '1';
+    btn.style.pointerEvents  = q ? 'none' : '';
+  });
+
   let filtered = pdDomData;
-  if (pdDomType !== 'all') {
+  if (pdDomType !== 'all' && !q) {
     filtered = filtered.filter(p => p.type === pdDomType);
   }
   if (q) {
@@ -587,7 +599,7 @@ function pdRenderDom() {
   const remaining = total - showing.length;
 
   if (countEl) countEl.textContent = q
-    ? `${total} result${total !== 1 ? 's' : ''} for "${q}"`
+    ? `${total} result${total !== 1 ? 's' : ''} for "${q}" — searching all types`
     : `Showing ${showing.length} of ${total} partners`;
 
   grid.innerHTML = showing.map(p => {
@@ -629,10 +641,11 @@ function partnershipsInitPage() {
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">32</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Countries</p></div>
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">52</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Domestic Cities</p></div>
        </div>
-       <!-- Tab Nav -->
+       <!-- Tab Nav — Partnership Dev is active -->
        <div class="flex gap-0 border-t" style="border-color:rgba(255,255,255,0.08)">
         <button onclick="goToPage('engagement')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Overview</button>
         <button onclick="goToPage('onboarding')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Student Support</button>
+        <button style="color:#fff;font-size:.75rem;font-weight:600;padding:12px 20px;border-bottom:2px solid #8B7355;background:transparent;cursor:default">Partnership Dev</button>
         <button onclick="goToPage('mou')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">MoU / MoA</button>
        </div>
       </div>
@@ -837,7 +850,7 @@ function partnershipsInitPage() {
         </div>
         <div class="flex flex-wrap gap-2 mb-5">
          <button onclick="pdDomSetType('all')" data-dtype="all" class="pd-dtype-btn px-4 py-1.5 rounded-full text-xs font-semibold border transition" style="background:#166534;color:#fff;border-color:#166534;cursor:pointer">All Types</button>
-         <button onclick="pdDomSetType('International')" data-dtype="International" class="pd-dtype-btn px-4 py-1.5 rounded-full text-xs font-semibold border transition" style="background:#fff;color:#5C5C5C;border-color:rgba(28,28,30,0.12);cursor:pointer">International</button>
+         <button onclick="pdDomSetType('International')" data-dtype="International" class="pd-dtype-btn px-4 py-1.5 rounded-full text-xs font-semibold border transition" style="background:#fff;color:#5C5C5C;border-color:rgba(28,28,30,0.12);cursor:pointer">Intl. Affiliated</button>
          <button onclick="pdDomSetType('National')" data-dtype="National" class="pd-dtype-btn px-4 py-1.5 rounded-full text-xs font-semibold border transition" style="background:#fff;color:#5C5C5C;border-color:rgba(28,28,30,0.12);cursor:pointer">National</button>
          <button onclick="pdDomSetType('Education')" data-dtype="Education" class="pd-dtype-btn px-4 py-1.5 rounded-full text-xs font-semibold border transition" style="background:#fff;color:#5C5C5C;border-color:rgba(28,28,30,0.12);cursor:pointer">Education</button>
          <button onclick="pdDomSetType('Government')" data-dtype="Government" class="pd-dtype-btn px-4 py-1.5 rounded-full text-xs font-semibold border transition" style="background:#fff;color:#5C5C5C;border-color:rgba(28,28,30,0.12);cursor:pointer">Government</button>
@@ -849,32 +862,30 @@ function partnershipsInitPage() {
        </div>
       </div>
      </div>
-     <!-- 5. CLOSING STATS — a memorable finish with unique figures not in the hero -->
+     <!-- 5. CLOSING STATS — deeper angles not shown in the hero -->
      <div style="padding:0 24px 80px;background:#FAFAF8">
       <div class="max-w-6xl mx-auto">
-       <div class="rounded-2xl p-10" style="background:linear-gradient(160deg,#1C1C1E 0%,#1E3A5F 100%)">
-        <p class="label-small mb-8" style="color:rgba(255,255,255,0.3);letter-spacing:.12em">By the numbers</p>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-         <div>
-          <p class="font-heading font-bold mb-1" style="font-size:2.5rem;line-height:1;color:#8B7355">505+</p>
-          <p class="text-sm font-medium mb-1" style="color:#fff">Total Partners</p>
-          <p class="text-xs" style="color:rgba(255,255,255,0.35)">International & domestic combined</p>
-         </div>
-         <div>
-          <p class="font-heading font-bold mb-1" style="font-size:2.5rem;line-height:1;color:#8B7355">25+</p>
-          <p class="text-sm font-medium mb-1" style="color:#fff">MoUs Reviewed / Month</p>
-          <p class="text-xs" style="color:rgba(255,255,255,0.35)">Ensuring compliance & alignment</p>
-         </div>
-         <div>
-          <p class="font-heading font-bold mb-1" style="font-size:2.5rem;line-height:1;color:#8B7355">15+</p>
-          <p class="text-sm font-medium mb-1" style="color:#fff">Meetings Facilitated / Month</p>
-          <p class="text-xs" style="color:rgba(255,255,255,0.35)">With minutes delivered within 24 hrs</p>
-         </div>
-         <div>
-          <p class="font-heading font-bold mb-1" style="font-size:2.5rem;line-height:1;color:#8B7355">3+</p>
-          <p class="text-sm font-medium mb-1" style="color:#fff">Years Managing Partnerships</p>
-          <p class="text-xs" style="color:rgba(255,255,255,0.35)">At Petra Christian University</p>
-         </div>
+       <div class="flex items-center gap-3 mb-8"><span class="accent-line"></span><span class="label-small">Deeper Breakdown</span></div>
+       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card rounded-2xl p-6 text-center" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold mb-1" style="font-size:2.5rem;line-height:1;color:#1E3A5F">8</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">ASEAN Nations</p>
+         <p class="text-xs" style="color:#9CA3AF">With active partnership agreements</p>
+        </div>
+        <div class="card rounded-2xl p-6 text-center" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold mb-1" style="font-size:2.5rem;line-height:1;color:#4A6B8A">4</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Continents Covered</p>
+         <p class="text-xs" style="color:#9CA3AF">Asia, Europe, Americas, Oceania</p>
+        </div>
+        <div class="card rounded-2xl p-6 text-center" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold mb-1" style="font-size:2.5rem;line-height:1;color:#8B7355">40+</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Active MoU/MoA Agreements</p>
+         <p class="text-xs" style="color:#9CA3AF">Lifecycle-managed from draft to renewal</p>
+        </div>
+        <div class="card rounded-2xl p-6 text-center" style="border:1px solid rgba(28,28,30,0.08)">
+         <p class="font-heading font-bold mb-1" style="font-size:2.5rem;line-height:1;color:#059669">3+</p>
+         <p class="text-sm font-medium mb-1" style="color:#1C1C1E">Years Building the Network</p>
+         <p class="text-xs" style="color:#9CA3AF">At Petra Christian University</p>
         </div>
        </div>
       </div>

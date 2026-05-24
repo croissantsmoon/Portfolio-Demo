@@ -4,6 +4,8 @@ var onboardingActivities = [
     icon: 'plane',
     color: '#1E3A5F',
     gradient: 'linear-gradient(135deg, #1E3A5F 0%, #4A6B8A 100%)',
+    thumbnail: 'assets/images/student-services/10162025_Arrival TIAS /Usman Yahaya Garba.jpg',
+    heroImage: 'assets/images/student-services/10162025_Arrival TIAS /Usman Yahaya Garba.jpg',
     title: 'Student Pick-Up Services',
     preview: 'Coordinating airport arrivals and ensuring every student felt welcomed from their very first moment in Indonesia.',
     role: 'I served as the first point of contact for international students arriving in Surabaya — managing transportation logistics, monitoring flight schedules, and ensuring a seamless first-arrival experience for every student that set a warm, welcoming tone for their entire stay.',
@@ -25,6 +27,38 @@ var onboardingActivities = [
     icon: 'book-open',
     color: '#4A6B8A',
     gradient: 'linear-gradient(135deg, #4A6B8A 0%, #6B8FAA 100%)',
+    thumbnail: 'assets/images/amerta/amerta/IMG_0637.JPG',
+    heroImage: 'assets/images/amerta/amerta/IMG_0637.JPG',
+    gallery: [
+      'assets/images/amerta/amerta/FullSizeRender 2.JPG',
+      'assets/images/amerta/amerta/FullSizeRender.JPG',
+      'assets/images/amerta/amerta/IMG_0570.JPG',
+      'assets/images/amerta/amerta/IMG_0576.JPG',
+      'assets/images/amerta/amerta/IMG_0578.JPG',
+      'assets/images/amerta/amerta/IMG_0589.JPG',
+      'assets/images/amerta/amerta/IMG_0590.JPG',
+      'assets/images/amerta/amerta/IMG_0594.JPG',
+      'assets/images/amerta/amerta/IMG_0629.JPG',
+      'assets/images/amerta/amerta/IMG_0637.JPG',
+      'assets/images/amerta/amerta/IMG_0641.JPG',
+      'assets/images/amerta/amerta/IMG_0642.JPG',
+      'assets/images/amerta/amerta/IMG_0980.JPG',
+      'assets/images/amerta/amerta/IMG_0993.JPG',
+      'assets/images/amerta/amerta/IMG_1003.JPG',
+      'assets/images/amerta/amerta/IMG_1006.JPG',
+      'assets/images/amerta/amerta/IMG_1007.JPG',
+      'assets/images/amerta/amerta/IMG_1008.JPG',
+      'assets/images/amerta/amerta/IMG_1807.JPG',
+      'assets/images/amerta/amerta/IMG_1813.JPG',
+      'assets/images/amerta/amerta/IMG_3529.JPG',
+      'assets/images/amerta/amerta/IMG_3534.JPG',
+      'assets/images/amerta/amerta/IMG_3535.JPG',
+      'assets/images/amerta/amerta/IMG_3720.JPG',
+      'assets/images/amerta/amerta/IMG_3723.JPG',
+      'assets/images/amerta/amerta/IMG_3867.JPG',
+      'assets/images/amerta/amerta/IMG_3868.JPG',
+      'assets/images/amerta/amerta/IMG_3869.JPG'
+    ],
     title: 'Onboarding & Orientation Session',
     preview: 'Designing and delivering comprehensive orientation programs that helped students adapt academically, culturally, and administratively from day one.',
     role: 'I co-designed and facilitated multi-day orientation sessions that equipped incoming international students with the knowledge, connections, and confidence they needed to succeed at Airlangga and in Surabaya — covering academic, cultural, and administrative dimensions.',
@@ -46,6 +80,15 @@ var onboardingActivities = [
     icon: 'heart-handshake',
     color: '#8B7355',
     gradient: 'linear-gradient(135deg, #8B7355 0%, #A69070 100%)',
+    thumbnail: 'assets/images/student-services/best-buddies/IMG_6934.JPG',
+    heroImage: 'assets/images/student-services/best-buddies/IMG_6934.JPG',
+    gallery: [
+      'assets/images/student-services/best-buddies/IMG_6927.jpeg',
+      'assets/images/student-services/best-buddies/IMG_6928.jpeg',
+      'assets/images/student-services/best-buddies/IMG_6929.jpeg',
+      'assets/images/student-services/best-buddies/IMG_6934.JPG',
+      'assets/images/student-services/best-buddies/IMG_6941.jpeg'
+    ],
     title: 'Best Buddies Support',
     preview: 'Building a peer mentoring ecosystem where local and international students formed meaningful, lasting cross-cultural friendships.',
     role: 'I coordinated the Best Buddies peer mentoring program — recruiting and training local student volunteers, matching them with international students based on shared interests, and facilitating ongoing relationship support and integration activities throughout the semester.',
@@ -67,6 +110,24 @@ var onboardingActivities = [
     icon: 'file-text',
     color: '#059669',
     gradient: 'linear-gradient(135deg, #064E3B 0%, #059669 100%)',
+    thumbnail: 'assets/images/student-services/03132025_Tax-Report-2025/Game Baraedi Dintle.jpeg',
+    heroImage: 'assets/images/student-services/03132025_Tax-Report-2025/Game Baraedi Dintle.jpeg',
+    gallery: [
+      'assets/images/student-services/03132025_Tax-Report-2025/Ariel David Dominguez Cardona.jpeg',
+      'assets/images/student-services/03132025_Tax-Report-2025/Game Baraedi Dintle.jpeg',
+      'assets/images/student-services/03132025_Tax-Report-2025/Ghulam Muhammad.jpeg',
+      'assets/images/student-services/03132025_Tax-Report-2025/Jaqueline Da Silva Figueiredo.jpeg',
+      'assets/images/student-services/03132025_Tax-Report-2025/Mohammed Abdullah Ahmed Mareai.jpeg',
+      'assets/images/student-services/03132025_Tax-Report-2025/Mojeeb Abdo Abdullah Qasem.jpeg',
+      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.14_0aff538d.jpg',
+      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.14_5d85b53f.jpg',
+      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.14_abc64d97.jpg',
+      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.15_c91f5f5d.jpg',
+      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.17_3bfffa00.jpg',
+      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.19_9b4125b3.jpg',
+      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.20_21b8db77.jpg',
+      'assets/images/student-services/03132025_Tax-Report-2025/Zainab Kasenya Selemani.jpeg'
+    ],
     title: 'Tax Reporting Support',
     preview: 'Guiding international students through Indonesian tax reporting obligations — turning a complex administrative process into a clear, manageable experience.',
     role: 'I assisted international students — particularly government scholarship recipients — in understanding, preparing for, and completing their Indonesian tax reporting obligations accurately and on time, coordinating across university offices and scholarship authorities to ensure compliance.',
@@ -88,6 +149,8 @@ var onboardingActivities = [
     icon: 'sparkles',
     color: '#EA580C',
     gradient: 'linear-gradient(135deg, #7C2D12 0%, #EA580C 100%)',
+    thumbnail: 'assets/images/amerta/amerta/IMG_3867.JPG',
+    heroImage: 'assets/images/amerta/amerta/IMG_3867.JPG',
     title: 'Farewell Party',
     preview: 'Celebrating the journeys of departing students with memorable farewell events that honored their time in Indonesia and strengthened lasting connections.',
     role: 'I organized and facilitated warm, meaningful farewell celebrations for international students completing their programs — creating a sense of closure, appreciation, and community for both departing students and the staff who supported them throughout their journey.',
@@ -109,6 +172,26 @@ var onboardingActivities = [
     icon: 'clipboard-list',
     color: '#7C3AED',
     gradient: 'linear-gradient(135deg, #3B0764 0%, #7C3AED 100%)',
+    thumbnail: 'assets/images/student-services/monev-tias/IMG_4586.jpeg',
+    heroImage: 'assets/images/student-services/monev-tias/IMG_4586.jpeg',
+    gallery: [
+      'assets/images/student-services/monev-tias/IMG_4586.jpeg',
+      'assets/images/student-services/monev-tias/IMG_4589.jpeg',
+      'assets/images/student-services/monev-tias/IMG_4590.jpeg',
+      'assets/images/student-services/monev-tias/IMG_4595.jpeg',
+      'assets/images/student-services/monev-tias/IMG_4596.jpeg',
+      'assets/images/student-services/monev-tias/IMG_4598.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7061.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7067.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7074.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7092.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7095.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7096.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7108.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7109.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7110.jpeg',
+      'assets/images/student-services/monev-tias/IMG_7111.jpeg'
+    ],
     title: 'Monitoring & Evaluation',
     preview: 'Ensuring government scholarship students met all program requirements through structured monitoring, stakeholder reporting, and proactive issue resolution.',
     role: 'I coordinated monitoring and evaluation activities for government-funded scholarship programs — specifically KNB (Kemitraan Negara Berkembang) and TIAS scholarships — ensuring full compliance with program obligations, maintaining accurate student progress records, and communicating regularly with national scholarship authorities.',
@@ -127,16 +210,35 @@ var onboardingActivities = [
   }
 ];
 
+function buildGalleryHTML(activity) {
+  if (!activity.gallery || !activity.gallery.length) return '';
+  return (
+    '<div class="mt-8 pt-8 border-t" style="border-color:rgba(28,28,30,0.1)">' +
+      '<span class="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style="color:' + activity.color + '">Photo Gallery</span>' +
+      '<div class="flex gap-3 overflow-x-auto pb-2" style="scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">' +
+        activity.gallery.map(function(img) {
+          return '<img loading="lazy" src="' + img + '" alt="" class="rounded-xl flex-shrink-0 object-cover" style="height:160px;width:auto;max-width:240px;scroll-snap-align:start">';
+        }).join('') +
+      '</div>' +
+    '</div>'
+  );
+}
+
 function buildModalHTML(activity, highlightsLabel) {
   var label = highlightsLabel || 'Highlights';
+  var hasImage = !!activity.heroImage;
+  var heroStyle = hasImage ? 'padding:48px 40px 40px;position:relative' : 'background:' + activity.gradient + ';padding:48px 40px 40px';
   return (
-    '<div class="relative overflow-hidden" style="background:' + activity.gradient + ';padding:48px 40px 40px">' +
-      '<div class="absolute -right-8 -top-8 w-48 h-48 rounded-full" style="background:rgba(255,255,255,0.06)"></div>' +
-      '<div class="absolute right-16 bottom-4 w-24 h-24 rounded-full" style="border:1.5px solid rgba(255,255,255,0.1)"></div>' +
-      '<button onclick="closeStudentModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center z-10" style="background:rgba(255,255,255,0.2)">' +
+    '<div class="relative overflow-hidden" style="' + heroStyle + '">' +
+      (hasImage ?
+        '<img src="' + activity.heroImage + '" alt="" class="absolute inset-0 w-full h-full object-cover" style="z-index:0;object-position:center top">' +
+        '<div class="absolute inset-0" style="z-index:1;background:linear-gradient(160deg,rgba(10,10,18,0.82) 0%,rgba(18,32,52,0.76) 60%,rgba(26,44,66,0.72) 100%)"></div>' : '') +
+      '<div class="absolute -right-8 -top-8 w-48 h-48 rounded-full" style="background:rgba(255,255,255,0.06);' + (hasImage ? 'z-index:2' : '') + '"></div>' +
+      '<div class="absolute right-16 bottom-4 w-24 h-24 rounded-full" style="border:1.5px solid rgba(255,255,255,0.1);' + (hasImage ? 'z-index:2' : '') + '"></div>' +
+      '<button onclick="closeStudentModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center" style="background:rgba(255,255,255,0.2);z-index:10">' +
         '<i data-lucide="x" style="width:16px;height:16px;color:#fff"></i>' +
       '</button>' +
-      '<div class="relative z-10">' +
+      '<div class="relative" style="z-index:5">' +
         '<div class="w-14 h-14 rounded-xl flex items-center justify-center mb-4" style="background:rgba(255,255,255,0.15)">' +
           '<i data-lucide="' + activity.icon + '" style="width:28px;height:28px;color:#fff"></i>' +
         '</div>' +
@@ -173,6 +275,7 @@ function buildModalHTML(activity, highlightsLabel) {
           }).join('') +
         '</div>' +
       '</div>' +
+      buildGalleryHTML(activity) +
     '</div>'
   );
 }
@@ -200,15 +303,50 @@ function closeStudentModal() {
   document.body.style.overflow = '';
 }
 
+function buildActivityCard(act) {
+  var hasThumbnail = !!act.thumbnail;
+  return (
+    '<div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="openOnboardingModal(\'' + act.id + '\')" style="border:1px solid rgba(28,28,30,0.08)">' +
+      (hasThumbnail ?
+        '<div class="relative overflow-hidden" style="height:160px">' +
+          '<img loading="lazy" src="' + act.thumbnail + '" alt="' + act.title + '" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'scale(1)\'">' +
+          '<div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.3))"></div>' +
+        '</div>' :
+        '<div class="h-1.5" style="background:' + act.gradient + '"></div>'
+      ) +
+      '<div class="p-6">' +
+        '<div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(28,28,30,0.06)">' +
+          '<i data-lucide="' + act.icon + '" style="width:24px;height:24px;color:' + act.color + '"></i>' +
+        '</div>' +
+        '<h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">' + act.title + '</h3>' +
+        '<p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">' + act.preview + '</p>' +
+        '<div class="flex items-center gap-1.5" style="color:' + act.color + '"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+var knbGallery = [
+  'assets/images/student-services/09012025_KNB-Orientation/IMG_8467.jpeg',
+  'assets/images/student-services/09012025_KNB-Orientation/IMG_8471.jpeg',
+  'assets/images/student-services/09012025_KNB-Orientation/IMG_8478.jpeg',
+  'assets/images/student-services/09012025_KNB-Orientation/IMG_8484.jpeg',
+  'assets/images/student-services/09012025_KNB-Orientation/IMG_8504.jpeg',
+  'assets/images/student-services/09012025_KNB-Orientation/IMG_8510.jpeg',
+  'assets/images/student-services/09012025_KNB-Orientation/IMG_8513.jpeg'
+];
+
 function onboardingInitPage() {
   var el = document.getElementById('page-onboarding');
   if (!el) return;
   el.innerHTML = `
      <!-- Hero -->
-     <div style="background:linear-gradient(160deg,#1C1C1E 0%,#1E3A5F 55%,#2C4A72 100%);padding:clamp(48px,8vh,72px) 24px 0;position:relative;overflow:hidden">
-      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 85% 20%,rgba(139,115,85,0.18),transparent 55%)"></div>
-      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="border:1px solid rgba(255,255,255,0.04)"></div>
-      <div class="max-w-6xl mx-auto relative z-10">
+     <div style="position:relative;overflow:hidden;padding:clamp(48px,8vh,72px) 24px 0">
+      <img src="assets/images/amerta/amerta/IMG_0578.JPG" alt="" class="absolute inset-0 w-full h-full object-cover" style="z-index:0;object-position:center top">
+      <div class="absolute inset-0 pointer-events-none" style="z-index:1;background:linear-gradient(160deg,rgba(28,28,30,0.88) 0%,rgba(30,58,95,0.82) 55%,rgba(44,74,114,0.78) 100%)"></div>
+      <div class="absolute inset-0 pointer-events-none" style="z-index:2;background:radial-gradient(ellipse at 85% 20%,rgba(139,115,85,0.18),transparent 55%)"></div>
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full pointer-events-none" style="z-index:2;border:1px solid rgba(255,255,255,0.04)"></div>
+      <div class="max-w-6xl mx-auto relative" style="z-index:10">
        <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
        <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="onboarding_hero_eyebrow">Student Welfare &amp; Mobility</div>
        <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em" data-edit-key="onboarding_hero_title">International<br><em style="font-style:italic;color:#8B7355">Student Support</em></h1>
@@ -225,6 +363,14 @@ function onboardingInitPage() {
         <button onclick="goToPage('engagement-detail')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Student Engagement</button>
         <button onclick="goToPage('partnerships')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Partnerships</button>
        </div>
+      </div>
+     </div>
+     <!-- Hero Gallery Strip -->
+     <div style="background:#1C1C1E;padding:16px 0">
+      <div class="flex gap-3 overflow-x-auto" style="padding:0 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch">
+       ${knbGallery.map(function(img) {
+         return '<img loading="lazy" src="' + img + '" alt="" class="rounded-xl flex-shrink-0 object-cover" style="height:120px;width:auto;max-width:200px;scroll-snap-align:start;opacity:.9;transition:opacity .2s" onmouseover="this.style.opacity=\'1\'" onmouseout="this.style.opacity=\'.9\'">';
+       }).join('')}
       </div>
      </div>
      <!-- Content Sections -->
@@ -273,62 +419,7 @@ function onboardingInitPage() {
        <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#059669">What I Did</span></div>
        <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Activities &amp; Student Services</h2>
        <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">Each activity below represents a specific service or program I coordinated for international students — from their first day of arrival to their final farewell. Click on any card to learn more about my role, responsibilities, and impact.</p>
-       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="openOnboardingModal('pickup')" style="border:1px solid rgba(28,28,30,0.08)">
-         <div class="h-1.5" style="background:linear-gradient(90deg,#1E3A5F,#4A6B8A)"></div>
-         <div class="p-6">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(30,58,95,0.08)"><i data-lucide="plane" style="width:24px;height:24px;color:#1E3A5F"></i></div>
-          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Student Pick-Up Services</h3>
-          <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">Airport coordination, transportation logistics, and first-arrival assistance — ensuring every student felt welcomed the moment they landed in Surabaya.</p>
-          <div class="flex items-center gap-1.5" style="color:#1E3A5F"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
-         </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="openOnboardingModal('orientation')" style="border:1px solid rgba(28,28,30,0.08)">
-         <div class="h-1.5" style="background:linear-gradient(90deg,#4A6B8A,#6B8FAA)"></div>
-         <div class="p-6">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(74,107,138,0.08)"><i data-lucide="book-open" style="width:24px;height:24px;color:#4A6B8A"></i></div>
-          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Onboarding &amp; Orientation Session</h3>
-          <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">Multi-day academic, cultural, and administrative orientation programs designed to set every student up for success from day one.</p>
-          <div class="flex items-center gap-1.5" style="color:#4A6B8A"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
-         </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="openOnboardingModal('bestbuddies')" style="border:1px solid rgba(28,28,30,0.08)">
-         <div class="h-1.5" style="background:linear-gradient(90deg,#8B7355,#A69070)"></div>
-         <div class="p-6">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(139,115,85,0.08)"><i data-lucide="heart-handshake" style="width:24px;height:24px;color:#8B7355"></i></div>
-          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Best Buddies Support</h3>
-          <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">Peer mentoring program connecting international students with local student volunteers for cross-cultural friendship and integration support.</p>
-          <div class="flex items-center gap-1.5" style="color:#8B7355"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
-         </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="openOnboardingModal('tax')" style="border:1px solid rgba(28,28,30,0.08)">
-         <div class="h-1.5" style="background:linear-gradient(90deg,#064E3B,#059669)"></div>
-         <div class="p-6">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(6,78,59,0.08)"><i data-lucide="file-text" style="width:24px;height:24px;color:#059669"></i></div>
-          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Tax Reporting Support</h3>
-          <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">Guided international students through Indonesian tax reporting requirements — turning a complex obligation into a clear, manageable process.</p>
-          <div class="flex items-center gap-1.5" style="color:#059669"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
-         </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="openOnboardingModal('farewell')" style="border:1px solid rgba(28,28,30,0.08)">
-         <div class="h-1.5" style="background:linear-gradient(90deg,#7C2D12,#EA580C)"></div>
-         <div class="p-6">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(124,45,18,0.08)"><i data-lucide="sparkles" style="width:24px;height:24px;color:#EA580C"></i></div>
-          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Farewell Party</h3>
-          <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">Meaningful farewell celebrations honoring departing students' journeys — appreciation events, cultural reflection moments, and alumni connection building.</p>
-          <div class="flex items-center gap-1.5" style="color:#EA580C"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
-         </div>
-        </div>
-        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="openOnboardingModal('monitoring')" style="border:1px solid rgba(28,28,30,0.08)">
-         <div class="h-1.5" style="background:linear-gradient(90deg,#3B0764,#7C3AED)"></div>
-         <div class="p-6">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(59,7,100,0.08)"><i data-lucide="clipboard-list" style="width:24px;height:24px;color:#7C3AED"></i></div>
-          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Monitoring &amp; Evaluation</h3>
-          <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">Structured progress monitoring and reporting for KNB and TIAS scholarship holders — ensuring full compliance with government scholarship obligations.</p>
-          <div class="flex items-center gap-1.5" style="color:#7C3AED"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
-         </div>
-        </div>
-       </div>
+       <div id="onboarding-cards-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </div>
       <!-- Student Overview Data Section -->
       <div class="mb-20">
@@ -507,6 +598,13 @@ function onboardingInitPage() {
       </div>
      </div>
     `;
+
+  // Render activity cards via JS to avoid template literal escaping issues
+  var grid = document.getElementById('onboarding-cards-grid');
+  if (grid) {
+    grid.innerHTML = onboardingActivities.map(buildActivityCard).join('');
+  }
+
   if (window.lucide) lucide.createIcons();
 }
 
