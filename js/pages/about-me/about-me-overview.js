@@ -11,6 +11,13 @@ function aboutOverviewInitPage() {
   var el = document.getElementById('page-about-overview');
   if (!el) return;
   el.innerHTML = `
+     <style>
+       @keyframes about-pulse-ring{0%{transform:scale(1);opacity:.65}70%,100%{transform:scale(1.22);opacity:0}}
+       @keyframes about-live-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.6)}}
+       @keyframes about-tl-pulse{0%{box-shadow:0 0 0 0 rgba(30,58,95,.55),0 0 0 3px #FAFAF8,0 0 0 5px #1E3A5F}70%{box-shadow:0 0 0 12px rgba(30,58,95,0),0 0 0 3px #FAFAF8,0 0 0 5px #1E3A5F}100%{box-shadow:0 0 0 0 rgba(30,58,95,0),0 0 0 3px #FAFAF8,0 0 0 5px #1E3A5F}}
+       .about-card-lift{transition:transform .22s ease,box-shadow .22s ease}
+       .about-card-lift:hover{transform:translateY(-4px);box-shadow:0 20px 56px rgba(0,0,0,0.14)!important}
+     </style>
 
      <!-- ═══ 1. HERO PROFILE HEADER ═══ -->
      <div style="background:linear-gradient(160deg,#1C1C1E 0%,#1E3A5F 55%,#2C4A72 100%);padding:64px 24px 0;position:relative;overflow:hidden">
@@ -20,8 +27,12 @@ function aboutOverviewInitPage() {
       <div class="max-w-6xl mx-auto relative z-10">
        <div class="flex flex-col lg:flex-row gap-10 pb-10">
         <div class="flex-shrink-0 flex flex-col items-center lg:items-start">
-         <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#8B7355 0%,#4A6B8A 100%);border:3px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3)">
-          <span style="font-family:'Playfair Display',serif;font-size:2.5rem;color:#fff;font-weight:700;font-style:italic">Z</span>
+         <div style="position:relative;width:120px;height:120px;margin-bottom:16px">
+          <div style="position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(139,115,85,0.35);animation:about-pulse-ring 2.8s ease-out infinite;pointer-events:none"></div>
+          <div style="position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);pointer-events:none"></div>
+          <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#8B7355 0%,#4A6B8A 100%);border:3px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.35),0 0 0 1px rgba(139,115,85,0.2)">
+           <span style="font-family:'Playfair Display',serif;font-size:2.5rem;color:#fff;font-weight:700;font-style:italic">Z</span>
+          </div>
          </div>
          <div class="flex gap-2">
           <a href="mailto:zefanya.kharisma@gmail.com" class="flex items-center justify-center" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12)" title="Email"><i data-lucide="mail" style="width:15px;height:15px;color:rgba(255,255,255,0.7)"></i></a>
@@ -33,11 +44,11 @@ function aboutOverviewInitPage() {
          <h1 class="font-heading font-bold mb-2" style="font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.0;color:#fff;letter-spacing:-.02em" data-edit-key="about_hero_title">Zefanya Kharisma<br><em style="font-style:italic;color:#8B7355">Nugroho</em></h1>
          <p class="mb-1" style="color:rgba(255,255,255,0.6);font-size:.95rem;font-family:'Playfair Display',serif;font-style:italic" data-edit-key="about_hero_subtitle">International Education Professional &amp; Creative Technologist</p>
          <p class="mb-6 flex items-center gap-2" style="color:rgba(255,255,255,0.4);font-size:.8rem"><i data-lucide="map-pin" style="width:13px;height:13px"></i> Surabaya, Indonesia</p>
-         <div class="flex flex-wrap gap-8 mb-8">
-          <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">3+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Years Experience</p></div>
-          <div><p class="font-heading font-bold text-2xl" style="color:#fff">200+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Students Supported</p></div>
-          <div><p class="font-heading font-bold text-2xl" style="color:#fff">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Global Partners</p></div>
-          <div><p class="font-heading font-bold text-2xl" style="color:#fff">5</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Programs Led</p></div>
+         <div class="flex flex-wrap gap-8 mb-8 pt-5" style="border-top:1px solid rgba(255,255,255,0.08)">
+          <div><p class="font-heading font-bold" style="font-size:2.2rem;line-height:1;letter-spacing:-.04em;color:#8B7355">3+</p><p class="label-small mt-1.5" style="color:rgba(255,255,255,0.35)">Years Experience</p></div>
+          <div><p class="font-heading font-bold" style="font-size:2.2rem;line-height:1;letter-spacing:-.04em;color:#fff">200+</p><p class="label-small mt-1.5" style="color:rgba(255,255,255,0.35)">Students Supported</p></div>
+          <div><p class="font-heading font-bold" style="font-size:2.2rem;line-height:1;letter-spacing:-.04em;color:#fff">30+</p><p class="label-small mt-1.5" style="color:rgba(255,255,255,0.35)">Global Partners</p></div>
+          <div><p class="font-heading font-bold" style="font-size:2.2rem;line-height:1;letter-spacing:-.04em;color:#fff">5</p><p class="label-small mt-1.5" style="color:rgba(255,255,255,0.35)">Programs Led</p></div>
          </div>
          <div class="flex flex-wrap gap-2">
           <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.65);padding:5px 14px;border-radius:999px;font-size:.72rem;border:1px solid rgba(255,255,255,0.1);font-weight:500">International Partnership</span>
@@ -49,11 +60,11 @@ function aboutOverviewInitPage() {
         </div>
        </div>
        <div class="flex gap-0 border-t" style="border-color:rgba(255,255,255,0.08)">
-        <button onclick="goToPage('expertise')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Expertise</button>
-        <button onclick="goToPage('experience')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Experience</button>
-        <button onclick="goToPage('skillset')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Skillset</button>
-        <button onclick="goToPage('education')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Education</button>
-        <button onclick="goToPage('contact')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Contact</button>
+        <button onclick="goToPage('expertise')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Expertise</button>
+        <button onclick="goToPage('experience')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Experience</button>
+        <button onclick="goToPage('skillset')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Skillset</button>
+        <button onclick="goToPage('education')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Education</button>
+        <button onclick="goToPage('contact')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Contact</button>
        </div>
       </div>
      </div>
@@ -70,7 +81,10 @@ function aboutOverviewInitPage() {
         </div>
         <div class="lg:col-span-2 space-y-4">
          <div class="card p-6" style="border-left:3px solid #1E3A5F">
-          <p class="label-small mb-2" style="color:#1E3A5F">Currently</p>
+          <div class="flex items-center gap-2 mb-2">
+           <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;flex-shrink:0;animation:about-live-dot 2s ease-in-out infinite"></span>
+           <p class="label-small" style="color:#1E3A5F">Currently</p>
+          </div>
           <p class="font-semibold text-sm" style="color:#1C1C1E">International Partnership Specialist</p>
           <p class="text-xs mt-1" style="color:#767676">Petra Christian University · Surabaya</p>
          </div>
@@ -100,37 +114,37 @@ function aboutOverviewInitPage() {
        <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E" data-edit-key="about_focus_title">What I'm Building &amp; Exploring</h2>
        <p class="text-sm mb-10" style="color:#5C5C5C;max-width:480px" data-edit-key="about_focus_tagline">The domains I'm actively investing in right now — professionally, creatively, and intellectually.</p>
        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="card p-7" style="background:#fff">
+        <div class="card p-7 about-card-lift" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(30,58,95,0.08)"><i data-lucide="globe-2" style="width:20px;height:20px;color:#1E3A5F"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">International Education Leadership</h3>
          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Deepening institutional partnership strategies and driving internationalization frameworks at Petra Christian University.</p>
          <div class="mt-4 flex items-center gap-2" style="color:#1E3A5F"><span style="width:18px;height:2px;background:currentColor;border-radius:2px;display:inline-block"></span><span class="text-xs font-medium">Active</span></div>
         </div>
-        <div class="card p-7" style="background:#fff">
+        <div class="card p-7 about-card-lift" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(139,115,85,0.08)"><i data-lucide="layout-dashboard" style="width:20px;height:20px;color:#8B7355"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Digital Systems &amp; Experience Design</h3>
          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Designing and building digital platforms that support international programs, from UI architecture to user journeys.</p>
          <div class="mt-4 flex items-center gap-2" style="color:#8B7355"><span style="width:18px;height:2px;background:currentColor;border-radius:2px;display:inline-block"></span><span class="text-xs font-medium">In Progress</span></div>
         </div>
-        <div class="card p-7" style="background:#fff">
+        <div class="card p-7 about-card-lift" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(74,107,138,0.08)"><i data-lucide="code-2" style="width:20px;height:20px;color:#4A6B8A"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Web Development</h3>
          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Building purpose-driven websites for institutional communications, including the PCU Global International Office platform.</p>
          <div class="mt-4 flex items-center gap-2" style="color:#4A6B8A"><span style="width:18px;height:2px;background:currentColor;border-radius:2px;display:inline-block"></span><span class="text-xs font-medium">Active</span></div>
         </div>
-        <div class="card p-7" style="background:#fff">
+        <div class="card p-7 about-card-lift" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(107,79,50,0.08)"><i data-lucide="moon" style="width:20px;height:20px;color:#6B4F32"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2 font-editorial" style="color:#1C1C1E">CroissantsMoon</h3>
          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Developing a creative boutique studio identity — editorial design, brand systems, and curated digital experiences.</p>
          <div class="mt-4 flex items-center gap-2" style="color:#6B4F32"><span style="width:18px;height:2px;background:currentColor;border-radius:2px;display:inline-block"></span><span class="text-xs font-medium">Developing</span></div>
         </div>
-        <div class="card p-7" style="background:#fff">
+        <div class="card p-7 about-card-lift" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(75,85,65,0.08)"><i data-lucide="pen-line" style="width:20px;height:20px;color:#4A5235"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Writing &amp; Reflection</h3>
          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Exploring ideas at the intersection of international education, leadership, and creative practice through essays and notes.</p>
          <div class="mt-4 flex items-center gap-2" style="color:#4A5235"><span style="width:18px;height:2px;background:currentColor;border-radius:2px;display:inline-block"></span><span class="text-xs font-medium">Ongoing</span></div>
         </div>
-        <div class="card p-7" style="background:#fff">
+        <div class="card p-7 about-card-lift" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(28,28,30,0.06)"><i data-lucide="network" style="width:20px;height:20px;color:#1C1C1E"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Interdisciplinary Problem Solving</h3>
          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Connecting international education, systems thinking, digital design, and creative strategy into integrated solutions.</p>
@@ -156,7 +170,7 @@ function aboutOverviewInitPage() {
         <div class="space-y-4">
 
          <div class="md:pl-16 relative">
-          <div class="hidden md:flex absolute left-0 top-6 w-10 h-10 rounded-full items-center justify-center z-10" style="background:#1E3A5F;box-shadow:0 0 0 3px #FAFAF8,0 0 0 5px #1E3A5F"><i data-lucide="briefcase" style="width:16px;height:16px;color:#fff"></i></div>
+          <div class="hidden md:flex absolute left-0 top-6 w-10 h-10 rounded-full items-center justify-center z-10" style="background:#1E3A5F;box-shadow:0 0 0 3px #FAFAF8,0 0 0 5px #1E3A5F;animation:about-tl-pulse 2.5s ease-in-out infinite"><i data-lucide="briefcase" style="width:16px;height:16px;color:#fff"></i></div>
           <div class="card overflow-hidden">
            <button class="w-full text-left p-6" onclick="toggleAboutTimeline(this)">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -358,31 +372,31 @@ function aboutOverviewInitPage() {
        <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">Core Expertise</h2>
        <p class="text-sm mb-10" style="color:#5C5C5C;max-width:480px">Competencies built through 3+ years of hands-on international education and creative digital work.</p>
        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(30,58,95,0.08)"><i data-lucide="handshake" style="width:18px;height:18px;color:#1E3A5F"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Strategic Partnerships</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">Managing 30+ institutional partners &amp; 15+ strategic meetings per month</p></div></div>
         </div>
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(30,58,95,0.08)"><i data-lucide="file-check" style="width:18px;height:18px;color:#1E3A5F"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">MoU / MoA Coordination</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">Reviewing 25+ partnership agreements monthly for compliance &amp; alignment</p></div></div>
         </div>
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="plane" style="width:18px;height:18px;color:#4A6B8A"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Student Mobility</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">End-to-end management of 5 exchange programs, 120+ students per semester</p></div></div>
         </div>
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="heart" style="width:18px;height:18px;color:#4A6B8A"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Student Welfare &amp; Support</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">Comprehensive non-academic support for 100+ international students per semester</p></div></div>
         </div>
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.08)"><i data-lucide="bar-chart-2" style="width:18px;height:18px;color:#8B7355"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Program &amp; Budget Management</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">IDR 50–100M per-program budgets, 50+ stakeholders, end-to-end delivery</p></div></div>
         </div>
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="languages" style="width:18px;height:18px;color:#4A6B8A"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Cross-Cultural Communication</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">English–Indonesian interpretation at international conferences &amp; company visits</p></div></div>
         </div>
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.08)"><i data-lucide="layout-dashboard" style="width:18px;height:18px;color:#8B7355"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">UI/UX Design</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">User-centered design for institutional platforms and international program portals</p></div></div>
         </div>
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.08)"><i data-lucide="code-2" style="width:18px;height:18px;color:#8B7355"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Full-Stack Development</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">Building responsive, purpose-driven websites for institutional communications</p></div></div>
         </div>
-        <div class="card p-6" style="background:#fff">
+        <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(28,28,30,0.06)"><i data-lucide="network" style="width:18px;height:18px;color:#1C1C1E"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Systems Thinking</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">Connecting education, digital design, and creative strategy into integrated frameworks</p></div></div>
         </div>
        </div>
@@ -554,9 +568,9 @@ function aboutOverviewInitPage() {
          <div style="width:40px;height:2px;background:#8B7355;border-radius:2px"></div>
         </div>
         <div class="space-y-6">
-         <div style="border-left:2px solid #8B7355;padding-left:20px">
+         <div style="border-left:2px solid #8B7355;padding-left:20px;padding:16px 20px;background:rgba(139,115,85,0.07);border-radius:0 8px 8px 0">
           <h3 class="font-heading font-semibold text-base mb-2" style="color:#fff">Systems Over Silos</h3>
-          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.45)">Complex problems in international education require connecting systems, not just solving individual tasks.</p>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.55)">Complex problems in international education require connecting systems, not just solving individual tasks.</p>
          </div>
          <div style="border-left:2px solid rgba(255,255,255,0.1);padding-left:20px">
           <h3 class="font-heading font-semibold text-base mb-2" style="color:#fff">Global Orientation, Local Action</h3>
@@ -577,32 +591,32 @@ function aboutOverviewInitPage() {
        <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Achievements</span></div>
        <h2 class="font-heading font-bold text-3xl mb-10" style="color:#1C1C1E">Certifications &amp; Milestones</h2>
        <div class="grid md:grid-cols-3 gap-5">
-        <div class="card p-6" style="border-top:3px solid #8B7355">
+        <div class="card p-6 about-card-lift" style="border-top:3px solid #8B7355">
          <div class="label-small mb-3" style="color:#8B7355">2022 · Gold Medal</div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">World Youth Invention &amp; Innovation Award</h3>
          <p class="text-xs" style="color:#5C5C5C">International recognition for innovation and creative problem-solving.</p>
         </div>
-        <div class="card p-6" style="border-top:3px solid #8B7355">
+        <div class="card p-6 about-card-lift" style="border-top:3px solid #8B7355">
          <div class="label-small mb-3" style="color:#8B7355">2022 · Bronze Medal</div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Your-K, Your-ASEAN Short Video Contest</h3>
          <p class="text-xs" style="color:#5C5C5C">Recognition for visual storytelling and creative communication in ASEAN context.</p>
         </div>
-        <div class="card p-6" style="border-top:3px solid #1E3A5F">
+        <div class="card p-6 about-card-lift" style="border-top:3px solid #1E3A5F">
          <div class="label-small mb-3" style="color:#1E3A5F">2023 · Conference</div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">9th ICoCSPA 2023 — Research Presenter</h3>
          <p class="text-xs" style="color:#5C5C5C">Presented research on U.S.–ASEAN economic cooperation at international conference.</p>
         </div>
-        <div class="card p-6" style="border-top:3px solid #4A6B8A">
+        <div class="card p-6 about-card-lift" style="border-top:3px solid #4A6B8A">
          <div class="label-small mb-3" style="color:#4A6B8A">2023–2024 · Publications</div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Academic Publications in IR</h3>
          <p class="text-xs" style="color:#5C5C5C">Peer-reviewed papers on U.S. foreign policy, Korea–China THAAD, and Abraham Accords.</p>
         </div>
-        <div class="card p-6" style="border-top:3px solid #4A6B8A">
+        <div class="card p-6 about-card-lift" style="border-top:3px solid #4A6B8A">
          <div class="label-small mb-3" style="color:#4A6B8A">2024–2025 · Program Leadership</div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">5 Exchange Programs Led</h3>
          <p class="text-xs" style="color:#5C5C5C">End-to-end delivery of AMERTA, ACI, AERO, and government scholarship programs (KNB &amp; TIAS).</p>
         </div>
-        <div class="card p-6" style="border-top:3px solid #1E3A5F">
+        <div class="card p-6 about-card-lift" style="border-top:3px solid #1E3A5F">
          <div class="label-small mb-3" style="color:#1E3A5F">2026 · Platform Launch</div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">PCU Global Digital Platform</h3>
          <p class="text-xs" style="color:#5C5C5C">Designed and built PCU International Office's flagship digital presence from ground up.</p>
@@ -618,7 +632,7 @@ function aboutOverviewInitPage() {
        <h2 class="font-heading font-bold text-3xl mb-10" style="color:#1C1C1E">Recommendations</h2>
        <div class="grid md:grid-cols-2 gap-6">
         <div class="card p-8" style="background:#fff">
-         <div style="font-size:3rem;color:#F2ECE4;line-height:1;font-family:'Playfair Display',serif;margin-bottom:4px">"</div>
+         <div style="font-size:3.5rem;color:#C4A875;line-height:1;font-family:'Playfair Display',serif;margin-bottom:4px;opacity:.7">"</div>
          <p class="text-base leading-relaxed mb-6" style="color:#1C1C1E;font-family:'Playfair Display',serif;font-style:italic">Zefanya consistently delivers with both strategic clarity and genuine care for every student and partner he works with. His ability to manage complex multi-stakeholder programs while maintaining quality is exceptional.</p>
          <div class="flex items-center gap-3">
           <div style="width:40px;height:40px;border-radius:50%;background:rgba(30,58,95,0.08);display:flex;align-items:center;justify-content:center"><i data-lucide="user" style="width:18px;height:18px;color:#1E3A5F"></i></div>
@@ -626,7 +640,7 @@ function aboutOverviewInitPage() {
          </div>
         </div>
         <div class="card p-8" style="background:#fff">
-         <div style="font-size:3rem;color:#F2ECE4;line-height:1;font-family:'Playfair Display',serif;margin-bottom:4px">"</div>
+         <div style="font-size:3.5rem;color:#C4A875;line-height:1;font-family:'Playfair Display',serif;margin-bottom:4px;opacity:.7">"</div>
          <p class="text-base leading-relaxed mb-6" style="color:#1C1C1E;font-family:'Playfair Display',serif;font-style:italic">What stands out about Zefanya is how he connects institutional priorities with creative thinking. He doesn't just execute — he brings perspective and design sensibility to every challenge.</p>
          <div class="flex items-center gap-3">
           <div style="width:40px;height:40px;border-radius:50%;background:rgba(139,115,85,0.08);display:flex;align-items:center;justify-content:center"><i data-lucide="user" style="width:18px;height:18px;color:#8B7355"></i></div>
