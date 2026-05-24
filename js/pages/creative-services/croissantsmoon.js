@@ -533,32 +533,62 @@ function cmBuildFeaturedProject(project) {
   const statusBg = project.statusBg || 'rgba(45,122,79,0.15)';
   const statusColor = project.statusColor || '#4CAF87';
 
+  // Thumbnail: scaled iframe (1620×800 → 0.2 scale = 324×160px display).
+  // Fallback gradient is shown until the iframe loads.
+  const thumbId = 'cmFP-' + project.page;
+  const thumbHtml = `
+    <div style="height:160px;position:relative;overflow:hidden;background:${project.bg}">
+      <!-- Fallback: gradient with constellation + label -->
+      <div id="${thumbId}-fallback" style="
+        position:absolute;inset:0;z-index:1;
+        background:${project.bg};
+        display:flex;align-items:center;justify-content:center;
+        transition:opacity .4s ease
+      ">
+        <div style="position:absolute;inset:0;pointer-events:none">${cmBuildStarField(16)}</div>
+        <div style="position:absolute;inset:0;pointer-events:none;opacity:.45">
+          ${cmConstellationSVG(320, 160, project.page.length)}
+        </div>
+        <div style="position:absolute;inset:0;opacity:.05;font-family:'Cormorant Garamond',serif;
+          font-size:5.5rem;font-weight:600;color:#fff;display:flex;align-items:center;
+          justify-content:center;letter-spacing:-.04em;user-select:none;overflow:hidden">${project.watermark}</div>
+        <div style="position:relative;z-index:1;text-align:center">
+          <div style="font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.18em;
+            text-transform:uppercase;color:rgba(217,230,255,0.45);margin-bottom:8px">${project.label}</div>
+          <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:500;
+            color:${CM.moonlight};line-height:1.15;text-shadow:0 2px 20px rgba(0,0,0,0.6)">${project.title}</div>
+        </div>
+      </div>
+      <!-- Live site thumbnail via scaled iframe -->
+      ${project.live ? `<iframe
+        src="${project.live}"
+        scrolling="no"
+        tabindex="-1"
+        aria-hidden="true"
+        title="${project.title} homepage preview"
+        style="
+          position:absolute;top:0;left:0;
+          width:1620px;height:800px;
+          transform:scale(0.2);
+          transform-origin:top left;
+          border:none;pointer-events:none;
+          z-index:2;
+        "
+        loading="lazy"
+        onload="(function(f){if(f)f.style.opacity='0'})(document.getElementById('${thumbId}-fallback'))"
+      ></iframe>` : ''}
+      <!-- Gradient polish overlay -->
+      <div style="
+        position:absolute;inset:0;z-index:3;pointer-events:none;
+        background:linear-gradient(to bottom,transparent 55%,rgba(7,17,38,0.45) 100%)
+      "></div>
+    </div>`;
+
   return `<div class="cm-card-hover cm-reveal" style="
     background:${CM.deepSpace};border-radius:18px;overflow:hidden;
     border:1px solid rgba(111,168,255,0.14);box-shadow:0 4px 28px rgba(3,7,18,0.4);
     position:relative">
-    <!-- Top gradient card header -->
-    <div style="height:160px;background:${project.bg};position:relative;overflow:hidden;
-      display:flex;align-items:center;justify-content:center;padding:0 20px">
-      <!-- Stars inside card -->
-      <div style="position:absolute;inset:0;pointer-events:none">${cmBuildStarField(16)}</div>
-      <!-- Constellation overlay -->
-      <div style="position:absolute;inset:0;pointer-events:none;opacity:.45">
-        ${cmConstellationSVG(320, 160, project.page.length)}
-      </div>
-      <!-- Top glow gradient -->
-      <div style="position:absolute;top:0;left:0;right:0;height:60px;
-        background:linear-gradient(to bottom,rgba(111,168,255,0.08),transparent);pointer-events:none"></div>
-      <div style="position:absolute;inset:0;opacity:.05;font-family:'Cormorant Garamond',serif;
-        font-size:5.5rem;font-weight:600;color:#fff;display:flex;align-items:center;
-        justify-content:center;letter-spacing:-.04em;user-select:none;overflow:hidden">${project.watermark}</div>
-      <div style="position:relative;z-index:1;text-align:center">
-        <div style="font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.18em;
-          text-transform:uppercase;color:rgba(217,230,255,0.45);margin-bottom:8px">${project.label}</div>
-        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:500;
-          color:${CM.moonlight};line-height:1.15;text-shadow:0 2px 20px rgba(0,0,0,0.6)">${project.title}</div>
-      </div>
-    </div>
+    ${thumbHtml}
     <div style="padding:20px 22px 22px">
       <p style="font-family:'Outfit',sans-serif;font-size:.79rem;line-height:1.66;
         color:${CM.stardust};margin-bottom:14px">${project.tagline}</p>
@@ -587,6 +617,7 @@ function cmBuildFeaturedProject(project) {
 const CM_FEATURED_PROJECTS = [
   {
     page:        'web-portfolio',
+    live:        'https://website-portfolio-liard-alpha.vercel.app/',
     title:       'Website Portfolio',
     label:       'SPA · Vanilla JS',
     watermark:   'Portfolio',
@@ -599,6 +630,7 @@ const CM_FEATURED_PROJECTS = [
   },
   {
     page:        'web-pcu-global-intl',
+    live:        'https://international-office-website.vercel.app/',
     title:       'International Office',
     label:       'Web App · PCU Global',
     watermark:   'Intl. Office',
@@ -611,10 +643,11 @@ const CM_FEATURED_PROJECTS = [
   },
   {
     page:        'web-dashboard-partnership',
+    live:        'https://dashboard-partnership.vercel.app/',
     title:       'Dashboard Partnership',
     label:       'Data Dashboard',
     watermark:   'Partnership',
-    tagline:     'Interactive dashboard visualising 30+ institutional partners — geographic view, status tracking, filters.',
+    tagline:     'Interactive dashboard visualising 2,289 institutional partnerships — workflow engine, analytics, archive.',
     tech:        ['JavaScript', 'Chart.js', 'Tailwind'],
     bg:          'linear-gradient(145deg,#0a1f2e,#0f3545)',
     status:      'Live',
@@ -623,11 +656,12 @@ const CM_FEATURED_PROJECTS = [
   },
   {
     page:        'web-dashboard-grants',
+    live:        'https://dashboard-international-grants.vercel.app/',
     title:       'International Grants',
     label:       'Data Dashboard',
     watermark:   'Grants',
-    tagline:     'Centralised grant tracking from application to outcome — deadline timeline, pipeline view, outcome analytics.',
-    tech:        ['JavaScript', 'Chart.js', 'Tailwind'],
+    tagline:     'Centralised grant tracking from application to outcome — deadline timeline, pipeline view, realtime updates.',
+    tech:        ['JavaScript', 'Chart.js', 'Supabase'],
     bg:          'linear-gradient(145deg,#120a2e,#2a1060)',
     status:      'Live',
     statusBg:    'rgba(45,180,79,0.12)',
@@ -674,8 +708,26 @@ function cmBuildWebProjects() {
           " data-edit-key="cm_web_title">Featured Projects</h2>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;margin-bottom:4rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;margin-bottom:2.5rem">
           ${featuredCards}
+        </div>
+
+        <!-- View All button -->
+        <div class="cm-reveal" style="display:flex;justify-content:center;margin-bottom:3.5rem">
+          <button onclick="goToPage('websites')" style="
+            font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;
+            background:${CM.nebulaGold};color:${CM.midnight};
+            padding:14px 32px;border-radius:999px;
+            border:none;cursor:pointer;
+            display:inline-flex;align-items:center;gap:9px;
+            letter-spacing:.03em;
+            box-shadow:0 0 24px rgba(212,177,90,0.32),0 4px 18px rgba(212,177,90,0.2);
+            transition:opacity .2s,transform .2s,box-shadow .2s
+          " onmouseover="this.style.opacity='.88';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 36px rgba(212,177,90,0.5),0 6px 24px rgba(212,177,90,0.3)'"
+             onmouseout="this.style.opacity='1';this.style.transform='translateY(0)';this.style.boxShadow='0 0 24px rgba(212,177,90,0.32),0 4px 18px rgba(212,177,90,0.2)'">
+            View All Web Projects
+            <i data-lucide="arrow-right" style="width:15px;height:15px"></i>
+          </button>
         </div>
 
         <!-- Divider with constellation line -->
@@ -849,8 +901,26 @@ function cmBuildGraphicDesign() {
             color:${CM.stardust};max-width:300px
           " data-edit-key="cm_design_subtitle">Branding, institutional materials, and communication design — click any to preview.</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;margin-bottom:2.5rem">
           ${CM_GRAPHIC_WORKS.map((g, i) => cmBuildGDCard(g, i)).join('')}
+        </div>
+
+        <!-- View All button -->
+        <div class="cm-reveal" style="display:flex;justify-content:center">
+          <button onclick="goToPage('designs')" style="
+            font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;
+            background:${CM.nebulaGold};color:${CM.midnight};
+            padding:14px 32px;border-radius:999px;
+            border:none;cursor:pointer;
+            display:inline-flex;align-items:center;gap:9px;
+            letter-spacing:.03em;
+            box-shadow:0 0 24px rgba(212,177,90,0.32),0 4px 18px rgba(212,177,90,0.2);
+            transition:opacity .2s,transform .2s,box-shadow .2s
+          " onmouseover="this.style.opacity='.88';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 36px rgba(212,177,90,0.5),0 6px 24px rgba(212,177,90,0.3)'"
+             onmouseout="this.style.opacity='1';this.style.transform='translateY(0)';this.style.boxShadow='0 0 24px rgba(212,177,90,0.32),0 4px 18px rgba(212,177,90,0.2)'">
+            View All Graphic Design Work
+            <i data-lucide="arrow-right" style="width:15px;height:15px"></i>
+          </button>
         </div>
       </div>
     </div>`;

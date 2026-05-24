@@ -44,12 +44,13 @@ const WD_PROJECTS = [
   {
     title: 'PCU Global',
     cat: 'Web Experience',
-    year: '2025',
+    year: '2026',
     desc: "Full-stack rebuild of PCU's International Office — clean architecture, live CMS, mobile-first design.",
     bg: WD.aurora, tc: '#0369A1',
-    page: 'pcu-global',
+    page: 'web-pcu-global-intl',
     emoji: '🌐',
-    url: 'pcuglobal.petra.ac.id',
+    url: 'international-office-website.vercel.app',
+    live: 'https://international-office-website.vercel.app/',
     tags: ['HTML · CSS · JS', 'Responsive Design', 'CMS'],
     pc: ['#0C4A6E', '#0369A1', '#0EA5E9', '#7BC8F6', '#F0F9FF'],
   },
@@ -59,23 +60,38 @@ const WD_PROJECTS = [
     year: '2025',
     desc: 'Premium editorial aesthetic — typography-led, intentional. International education storytelling through design.',
     bg: WD.nebulaGold, tc: '#854D0E',
-    page: 'home',
+    page: 'web-portfolio',
     emoji: '✦',
-    url: 'zefanya.portfolio',
-    tags: ['UI/UX Design', 'Tailwind CSS', 'Typography'],
+    url: 'website-portfolio-liard-alpha.vercel.app',
+    live: 'https://website-portfolio-liard-alpha.vercel.app/',
+    tags: ['UI/UX Design', 'Tailwind CSS', 'Supabase'],
     pc: ['#1C1C1E', '#8B7355', '#F5D05E', '#FAFAF8', '#F2ECE4'],
   },
   {
-    title: 'AERO Exhibition',
-    cat: 'Creative Direction',
+    title: 'Dashboard Partnership',
+    cat: 'Data Dashboard',
     year: '2025',
-    desc: 'Visual identity and event design for an annual global partnership exhibition at Universitas Airlangga.',
-    bg: WD.stardust, tc: '#9F1239',
-    page: 'aero',
-    emoji: '✈',
-    url: 'aero.unair.ac.id',
-    tags: ['Event Design', 'Brand Identity', 'Visual Direction'],
-    pc: ['#1C1C1E', '#9F1239', '#FF6B6B', '#FDA4AF', '#FFF5F5'],
+    desc: 'Interactive dashboard for visualising and managing 2,289 institutional partnerships with workflow management.',
+    bg: WD.moonlight, tc: '#1E3A5F',
+    page: 'web-dashboard-partnership',
+    emoji: '◈',
+    url: 'dashboard-partnership.vercel.app',
+    live: 'https://dashboard-partnership.vercel.app/',
+    tags: ['Chart.js', 'Tailwind CSS', 'Supabase Auth'],
+    pc: ['#0F172A', '#1E3A5F', '#3B82F6', '#93C5FD', '#EFF6FF'],
+  },
+  {
+    title: 'International Grants',
+    cat: 'Data Dashboard',
+    year: '2025',
+    desc: 'Grant discovery and management platform with realtime updates, deadline calendar, and admin CRUD.',
+    bg: WD.stardust, tc: '#4A1D5F',
+    page: 'web-dashboard-grants',
+    emoji: '✺',
+    url: 'dashboard-international-grants.vercel.app',
+    live: 'https://dashboard-international-grants.vercel.app/',
+    tags: ['Realtime', 'Supabase', 'Chart.js'],
+    pc: ['#1C1C1E', '#4A1D5F', '#8B5CF6', '#C4B5FD', '#F5F3FF'],
   },
 ];
 
@@ -307,8 +323,14 @@ function wdBuildMarquee() {
 
 function wdCardPreview(w) {
   const [c1, c2, c3, c4, c5] = w.pc;
-  return `
-    <div style="height:148px;background:${c5};position:relative;overflow:hidden">
+
+  // Abstract colour-block fallback (used while iframe loads or if embedding is blocked)
+  const fallback = `
+    <div id="wdFallback-${w.page}" style="
+      position:absolute;inset:0;
+      background:${c5};z-index:1;
+      transition:opacity .4s ease
+    ">
       <div style="height:26px;background:${c1};display:flex;align-items:center;padding:0 10px;gap:8px">
         <div style="height:4px;width:30px;background:${c4}30;border-radius:2px"></div>
         <div style="height:4px;width:42px;background:${c4}30;border-radius:2px"></div>
@@ -326,7 +348,39 @@ function wdCardPreview(w) {
         </div>
       </div>
       <div style="position:absolute;bottom:6px;right:12px;font-size:1.8rem;opacity:.18">${w.emoji}</div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,${c1}22 100%);pointer-events:none"></div>
+    </div>`;
+
+  // Scaled live-site iframe thumbnail:
+  // Renders the page at 1620×800 virtual viewport then scales to 148px tall.
+  // scale = 148/800 = 0.185  →  display width ≈ 1620×0.185 = 300px (fits the card)
+  const thumb = w.live ? `
+    <iframe
+      src="${w.live}"
+      scrolling="no"
+      tabindex="-1"
+      aria-hidden="true"
+      title="${w.title} homepage preview"
+      style="
+        position:absolute;top:0;left:0;
+        width:1620px;height:800px;
+        transform:scale(0.185);
+        transform-origin:top left;
+        border:none;pointer-events:none;
+        z-index:2;
+      "
+      loading="lazy"
+      onload="(function(f){if(f)f.style.opacity='0'})(document.getElementById('wdFallback-${w.page}'))"
+    ></iframe>` : '';
+
+  return `
+    <div style="height:148px;background:${c1};position:relative;overflow:hidden">
+      ${fallback}
+      ${thumb}
+      <!-- gradient polish + prevents click-through into iframe -->
+      <div style="
+        position:absolute;inset:0;z-index:3;pointer-events:none;
+        background:linear-gradient(to bottom,transparent 60%,rgba(7,17,38,0.35) 100%)
+      "></div>
     </div>`;
 }
 
@@ -446,7 +500,7 @@ function wdBuildProjects() {
           max-width:480px;line-height:1.65;
           font-family:'Outfit',sans-serif
         ">
-          Three real projects — each built with a different challenge, the same level of care.
+          Four real projects — each built with a different challenge, the same level of care.
         </p>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(274px,1fr));gap:18px">
           ${cards}
@@ -734,7 +788,7 @@ function wdBuildTechStack() {
 
 function wdBuildStats() {
   const stats = [
-    { num: '3+',   label: 'Live Projects'       },
+    { num: '4+',   label: 'Live Projects'       },
     { num: '100%', label: 'Mobile Responsive'   },
     { num: '9',    label: 'Graphic Design Works' },
     { num: '∞',    label: 'Details Cared About' },
