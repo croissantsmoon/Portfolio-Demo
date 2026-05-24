@@ -1,12 +1,12 @@
 // ── Web Project Detail Pages ─────────────────────────────────────────────────
-// Shared colour tokens (mirrors CroissantsMoon CM object)
+// Celestial Midnight Luxury colour tokens
 const WP = {
-  cream:   '#FAF7F2',
-  espresso:'#1C1410',
-  gold:    '#C9A84C',
-  blush:   '#F0E6D3',
-  muted:   '#8C7B6B',
-  border:  'rgba(28,20,16,0.1)',
+  cream:   '#D9E6FF',   // moonlight
+  espresso:'#071126',   // midnight
+  gold:    '#D4B15A',   // nebulaGold
+  blush:   '#0B1E3A',   // deepSpace
+  muted:   '#8FA8D6',   // stardust
+  border:  'rgba(111,168,255,0.14)',
 };
 
 const WP_PROJECTS = {
@@ -19,6 +19,14 @@ const WP_PROJECTS = {
     live:    'https://website-portfolio-liard-alpha.vercel.app/',
     tech:    ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'Supabase', 'Quill.js'],
     background: `This portfolio started as a personal challenge: how do you present two very different professional identities — international education professional and creative technologist — without splitting them into two separate sites or burying one under the other? The answer was a single-page application designed to feel like a native mobile app on phone and a polished editorial site on desktop. Every architectural decision, from the hash-based routing to the iOS-style bottom tab bar, was made in service of that dual narrative.`,
+    features: [
+      { icon: 'layout-dashboard', title: 'Five Canonical Sections', desc: 'About, Projects, International Education, Creative, and Contact — each with its own visual language, sub-pages, and navigation state.' },
+      { icon: 'smartphone',       title: 'iOS-Style Navigation Shell', desc: 'Bottom tab bar, Dynamic Island pill, and smooth page transitions replicate a native app feel using only vanilla CSS and a custom hash-router.' },
+      { icon: 'edit-3',           title: 'Admin CMS with Quill Editor', desc: 'An authenticated admin mode lets the owner write and publish articles via a Quill 2.x WYSIWYG editor, manage calendar events, and edit any heading or paragraph inline — no code push required.' },
+      { icon: 'git-branch',       title: '20+ Pages, One HTML File', desc: 'A custom 60-line hash-router handles dynamic meta titles, OG tags, browser history, scroll-to-top, and nav state across more than twenty distinct pages without any framework.' },
+      { icon: 'filter',           title: 'Skill Discovery Entry Point', desc: 'Home page hosts a filterable work grid where visitors can filter projects and work by skill area, surfacing relevant experience instantly.' },
+      { icon: 'calendar',         title: 'Calendar Widget', desc: 'A calendar on the home page shows published articles and upcoming events, all managed by the admin and stored in Supabase.' },
+    ],
     problems: [
       {
         icon: 'split',
@@ -82,6 +90,14 @@ const WP_PROJECTS = {
     live:    'https://international-office-website.vercel.app/',
     tech:    ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'Supabase'],
     background: `Petra Christian University's International Office had a digital presence that had not kept pace with its growing partnerships and ambitions. The old site was a static collection of pages with no content management, inconsistent design, and poor information architecture that made it hard for prospective partner universities and exchange students to find what they needed. The brief was clear: rebuild from scratch, with a content system that staff could maintain themselves, a design that reflected PCU's positioning as an internationally recognised institution, and a structure that served both inbound and outbound audiences.`,
+    features: [
+      { icon: 'globe',        title: 'Inbound & Outbound Programs', desc: 'Dedicated pages for every academic program — semester exchange, international degree, ICOP, Indonesian SPECTRUM, joint/double degree, and internship — structured around two distinct audience journeys.' },
+      { icon: 'users',        title: 'Role-Based Admin News CMS', desc: 'Four admin roles (Inbound, Outbound, Partnership, Head) can publish, edit, and delete news articles from a rich-text editor. Articles are stored in Supabase and merged with static seed data at runtime.' },
+      { icon: 'mail',         title: 'Meeting Request Form', desc: 'A multi-step modal form captures institution details, meeting preferences, and guest lists, writes directly to Supabase, and fires a Deno Edge Function to send email notifications via Resend.' },
+      { icon: 'map',          title: 'Interactive Partnership Directory', desc: 'A drill-down modal — continent → country → partner details — lets visitors explore PCU\'s global network. Domestic partners have a separate categorised modal with toggleable sections.' },
+      { icon: 'play-circle',  title: 'Animated Hero Carousel', desc: 'Auto-advancing hero slides with navigation arrows, dot indicators, and scroll-reveal animations built using IntersectionObserver — no animation library required.' },
+      { icon: 'database',     title: 'OSE & Internship CMS', desc: 'Admins can add custom university entries to the Outbound Semester Exchange page and manage internship opportunity listings via dedicated Supabase-backed modals.' },
+    ],
     problems: [
       {
         icon: 'file-x',
@@ -145,6 +161,14 @@ const WP_PROJECTS = {
     live:    'https://dashboard-partnership.vercel.app/',
     tech:    ['HTML', 'CSS', 'JavaScript', 'Chart.js', 'Tailwind CSS'],
     background: `International offices at universities manage dozens — sometimes hundreds — of institutional partnerships. At Petra Christian University, much of this data lived in spreadsheets: partner universities, agreement types, expiry dates, geographic regions, and activity status. There was no quick way to see the overall health of the network, identify which regions were underrepresented, or track which agreements were approaching expiry. This dashboard was built to transform that raw data into an interactive, at-a-glance overview that anyone in the team could use without opening a single spreadsheet.`,
+    features: [
+      { icon: 'bar-chart-2',  title: '2,289 Agreements at a Glance', desc: 'Real institutional dataset — 2,289 agreements across 1,201 institutions and 38 departments, normalised from raw spreadsheets into a fast, searchable JSON store.' },
+      { icon: 'workflow',     title: '8-Stage Workflow Engine', desc: 'Every agreement moves through Drafting → Internal Review → Legal Review → Partner Review → Waiting Signature → Signed → Completed → Archived, with progress tracking and status history.' },
+      { icon: 'archive',      title: 'Public Archive Library', desc: 'Signed and active agreements are auto-archived and made available in a public-facing library with advanced search, filter, and CSV export — no sign-in required.' },
+      { icon: 'pie-chart',    title: 'Executive Analytics', desc: 'Status distribution, agreements by department, monthly activity trends, and expiration timeline — all rendered with Chart.js and updated live as filters change.' },
+      { icon: 'users',        title: 'Role-Based Admin System', desc: 'Four roles (Admin, Manager, Staff, Viewer) with Supabase Auth. Admins manage users, workflows, and document attachments; viewers get read-only access.' },
+      { icon: 'moon',         title: 'Dark Mode & CSV Export', desc: 'Persistent dark/light mode toggle, keyboard shortcuts, confirmation modals on all destructive actions, and one-click data export to JSON or CSV from the Settings page.' },
+    ],
     problems: [
       {
         icon: 'table',
@@ -208,6 +232,14 @@ const WP_PROJECTS = {
     live:    'https://dashboard-international-grants.vercel.app/',
     tech:    ['HTML', 'CSS', 'JavaScript', 'Chart.js', 'Tailwind CSS'],
     background: `International grant programmes — from government scholarships to university-funded exchanges — require careful tracking across multiple stages: awareness, application, selection, placement, and completion. At the International Office, managing these journeys across multiple grant types and dozens of applicants per cycle created a coordination overhead that was hard to manage without a dedicated tool. This dashboard was built to centralise that information: one place to see every active grant, every applicant's stage, every upcoming deadline, and every outcome — without chasing status updates across emails and spreadsheets.`,
+    features: [
+      { icon: 'zap',          title: 'Realtime Updates', desc: 'Supabase Realtime subscriptions push INSERT/UPDATE/DELETE events from the grants table to every connected client instantly — no polling, no page refresh required.' },
+      { icon: 'calendar',     title: 'Deadline Calendar', desc: 'A dedicated calendar view surfaces every grant deadline across active programmes, sorted by urgency so no submission window is missed.' },
+      { icon: 'bookmark',     title: 'Local & Remote Bookmarks', desc: 'Public users can bookmark grants locally; authenticated users get their bookmarks synced across devices via Supabase, persisting across sessions.' },
+      { icon: 'cpu',          title: 'Grant Matching Engine', desc: 'A matching view cross-references a user\'s faculty and programme against grant eligibility criteria, surfacing the most relevant opportunities automatically.' },
+      { icon: 'shield',       title: 'Row Level Security Throughout', desc: 'Every table is protected by Supabase RLS — public read, admin write. The anon key is safely exposed in the client bundle; the service_role key is never used in frontend code.' },
+      { icon: 'upload-cloud', title: 'Admin File Attachments', desc: 'Admins can upload supporting documents (PDFs, forms) directly to Supabase Storage from the grant form — drag-and-drop or file picker, with a full audit trail in the activity log.' },
+    ],
     problems: [
       {
         icon: 'inbox',
@@ -263,6 +295,14 @@ const WP_PROJECTS = {
   },
 };
 
+// ── Star field helper ─────────────────────────────────────────────────────────
+function wpStars(n) {
+  return Array.from({length:n},(_,i)=>{
+    const x=(Math.random()*100).toFixed(1),y=(Math.random()*100).toFixed(1),s=(Math.random()*2+0.5).toFixed(1),d=(Math.random()*4).toFixed(1),op=(Math.random()*0.5+0.2).toFixed(2);
+    return `<span style="position:absolute;left:${x}%;top:${y}%;width:${s}px;height:${s}px;border-radius:50%;background:#fff;opacity:${op};pointer-events:none;animation:wpTwinkle ${(Math.random()*3+1.5).toFixed(1)}s ${d}s ease-in-out infinite"></span>`;
+  }).join('');
+}
+
 // ── Page builder ──────────────────────────────────────────────────────────────
 
 function wpBuildPage(projectId) {
@@ -273,93 +313,136 @@ function wpBuildPage(projectId) {
     <span style="
       font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:500;
       padding:4px 12px;border-radius:999px;
-      background:rgba(201,168,76,0.12);color:${WP.muted};
-      border:1px solid rgba(201,168,76,0.22)
+      background:rgba(212,177,90,0.1);color:#8FA8D6;
+      border:1px solid rgba(212,177,90,0.2)
     ">${t}</span>`).join('');
 
-  const statusColor = p.status === 'Live' ? '#2D7A4F' : WP.gold;
-  const statusBg    = p.status === 'Live' ? 'rgba(45,122,79,0.1)' : 'rgba(201,168,76,0.12)';
+  const statusColor = p.status === 'Live' ? '#4CAF87' : '#D4B15A';
+  const statusBg    = p.status === 'Live' ? 'rgba(45,180,79,0.15)' : 'rgba(212,177,90,0.15)';
+  const statusBorder = p.status === 'Live' ? 'rgba(45,180,79,0.25)' : 'rgba(212,177,90,0.25)';
+
+  const featureCards = p.features.map(f => `
+    <div class="wp-card" style="
+      background:rgba(11,30,58,0.7);border-radius:14px;padding:22px;
+      border:1px solid rgba(111,168,255,0.14);
+      backdrop-filter:blur(12px);
+      box-shadow:0 2px 12px rgba(3,7,18,0.3);
+      display:flex;gap:14px;align-items:flex-start
+    ">
+      <div style="
+        width:36px;height:36px;border-radius:10px;flex-shrink:0;
+        background:rgba(111,168,255,0.1);border:1px solid rgba(111,168,255,0.2);
+        display:flex;align-items:center;justify-content:center;margin-top:2px
+      ">
+        <i data-lucide="${f.icon}" style="width:16px;height:16px;color:#6FA8FF"></i>
+      </div>
+      <div>
+        <h4 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:1rem;font-weight:600;color:#D9E6FF;
+          line-height:1.25;margin-bottom:6px
+        ">${f.title}</h4>
+        <p style="
+          font-family:'Outfit',sans-serif;font-size:.83rem;line-height:1.65;color:#8FA8D6
+        ">${f.desc}</p>
+      </div>
+    </div>`).join('');
 
   const problemCards = p.problems.map(pr => `
     <div class="wp-card" style="
-      background:#fff;border-radius:14px;padding:24px;
-      border:1px solid ${WP.border};
-      box-shadow:0 2px 12px rgba(28,20,16,0.04)
+      background:rgba(11,30,58,0.7);border-radius:14px;padding:24px;
+      border:1px solid rgba(111,168,255,0.14);
+      backdrop-filter:blur(12px);
+      box-shadow:0 2px 12px rgba(3,7,18,0.3)
     ">
       <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:12px">
         <div style="
           width:36px;height:36px;border-radius:10px;flex-shrink:0;
-          background:rgba(200,80,60,0.08);
+          background:rgba(255,80,60,0.1);border:1px solid rgba(255,80,60,0.2);
           display:flex;align-items:center;justify-content:center
         ">
-          <i data-lucide="${pr.icon}" style="width:16px;height:16px;color:#C8503C"></i>
+          <i data-lucide="${pr.icon}" style="width:16px;height:16px;color:#FF6B6B"></i>
         </div>
         <div>
           <span style="
             font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:600;
-            letter-spacing:.08em;text-transform:uppercase;color:#C8503C;
+            letter-spacing:.08em;text-transform:uppercase;color:#FF6B6B;
             display:block;margin-bottom:4px
           ">${pr.tag}</span>
           <h4 style="
             font-family:'Cormorant Garamond',Georgia,serif;
-            font-size:1.05rem;font-weight:600;color:${WP.espresso};line-height:1.25
+            font-size:1.05rem;font-weight:600;color:#D9E6FF;line-height:1.25
           ">${pr.title}</h4>
         </div>
       </div>
       <p style="
-        font-family:'Outfit',sans-serif;font-size:.84rem;line-height:1.65;color:${WP.muted}
+        font-family:'Outfit',sans-serif;font-size:.84rem;line-height:1.65;color:#8FA8D6
       ">${pr.desc}</p>
     </div>`).join('');
 
   const solutionCards = p.solutions.map(s => `
     <div class="wp-card" style="
-      background:#fff;border-radius:14px;padding:24px;
-      border:1px solid ${WP.border};
-      box-shadow:0 2px 12px rgba(28,20,16,0.04)
+      background:rgba(11,30,58,0.7);border-radius:14px;padding:24px;
+      border:1px solid rgba(111,168,255,0.14);
+      backdrop-filter:blur(12px);
+      box-shadow:0 2px 12px rgba(3,7,18,0.3)
     ">
       <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:12px">
         <div style="
           width:36px;height:36px;border-radius:10px;flex-shrink:0;
-          background:rgba(201,168,76,0.12);
+          background:rgba(212,177,90,0.1);border:1px solid rgba(212,177,90,0.2);
           display:flex;align-items:center;justify-content:center
         ">
-          <i data-lucide="${s.icon}" style="width:16px;height:16px;color:${WP.gold}"></i>
+          <i data-lucide="${s.icon}" style="width:16px;height:16px;color:#D4B15A"></i>
         </div>
         <div>
           <span style="
             font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:600;
-            letter-spacing:.08em;text-transform:uppercase;color:${WP.gold};
+            letter-spacing:.08em;text-transform:uppercase;color:#D4B15A;
             display:block;margin-bottom:4px
           ">${s.tag}</span>
           <h4 style="
             font-family:'Cormorant Garamond',Georgia,serif;
-            font-size:1.05rem;font-weight:600;color:${WP.espresso};line-height:1.25
+            font-size:1.05rem;font-weight:600;color:#D9E6FF;line-height:1.25
           ">${s.title}</h4>
         </div>
       </div>
       <p style="
-        font-family:'Outfit',sans-serif;font-size:.84rem;line-height:1.65;color:${WP.muted}
+        font-family:'Outfit',sans-serif;font-size:.84rem;line-height:1.65;color:#8FA8D6
       ">${s.desc}</p>
     </div>`).join('');
 
   return `
     <style>
+      @keyframes wpTwinkle { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.15;transform:scale(.5)} }
       .wp-card { transition: box-shadow .2s, transform .2s; }
-      .wp-card:hover { box-shadow: 0 8px 32px rgba(28,20,16,0.1) !important; transform: translateY(-2px); }
+      .wp-card:hover { box-shadow: 0 12px 40px rgba(3,7,18,0.5) !important; transform: translateY(-3px); }
       @media (prefers-reduced-motion: reduce) { .wp-card:hover { transform: none; } }
     </style>
 
     <!-- Hero -->
     <div class="page-hero-banner" style="
-      background:${WP.espresso};
+      background:linear-gradient(160deg,#030712 0%,#071126 50%,#0B1E3A 100%);
       padding: clamp(5rem,10vh,7rem) 0 0;
       position:relative;overflow:hidden
     ">
+      <!-- Star field -->
+      ${wpStars(90)}
+
+      <!-- Nebula glow overlays -->
       <div style="
-        position:absolute;inset:0;
-        background:radial-gradient(ellipse at 80% 20%,rgba(201,168,76,0.12),transparent 55%),
-                   radial-gradient(ellipse at 5%  80%,rgba(240,230,211,0.06),transparent 50%)
+        position:absolute;inset:0;pointer-events:none;
+        background:radial-gradient(ellipse at 80% 20%,rgba(212,177,90,0.07),transparent 55%),
+                   radial-gradient(ellipse at 5%  80%,rgba(111,168,255,0.06),transparent 50%)
       "></div>
+
+      <!-- Decorative crescent moon -->
+      <div style="position:absolute;right:clamp(1rem,6vw,5rem);top:clamp(2rem,8vh,5rem);opacity:0.13;pointer-events:none">
+        <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="70" cy="70" r="60" fill="#D9E6FF"/>
+          <circle cx="95" cy="50" r="55" fill="#071126"/>
+        </svg>
+      </div>
 
       <div style="max-width:760px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);position:relative;z-index:1">
 
@@ -367,11 +450,11 @@ function wpBuildPage(projectId) {
         <button onclick="goToPage('croissantsmoon')" style="
           display:inline-flex;align-items:center;gap:7px;
           font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:500;
-          color:rgba(250,247,242,0.5);background:none;border:none;cursor:pointer;
+          color:rgba(143,168,214,0.5);background:none;border:none;cursor:pointer;
           padding:0;margin-bottom:clamp(1.5rem,4vh,2.5rem);
           transition:color .18s
-        " onmouseover="this.style.color='rgba(250,247,242,0.85)'"
-           onmouseout="this.style.color='rgba(250,247,242,0.5)'">
+        " onmouseover="this.style.color='rgba(143,168,214,0.85)'"
+           onmouseout="this.style.color='rgba(143,168,214,0.5)'">
           <i data-lucide="arrow-left" style="width:14px;height:14px"></i>
           CroissantsMoon
         </button>
@@ -383,10 +466,10 @@ function wpBuildPage(projectId) {
             letter-spacing:.1em;text-transform:uppercase;
             padding:3px 11px;border-radius:999px;
             background:${statusBg};color:${statusColor};
-            border:1px solid ${p.status === 'Live' ? 'rgba(45,122,79,0.2)' : 'rgba(201,168,76,0.25)'}
+            border:1px solid ${statusBorder}
           ">${p.status}</span>
           <span style="
-            font-family:'Outfit',sans-serif;font-size:.68rem;color:rgba(250,247,242,0.35);
+            font-family:'Outfit',sans-serif;font-size:.68rem;color:rgba(217,230,255,0.35);
             letter-spacing:.06em
           ">${p.year}</span>
         </div>
@@ -395,14 +478,15 @@ function wpBuildPage(projectId) {
         <h1 style="
           font-family:'Cormorant Garamond',Georgia,serif;
           font-size:clamp(2.2rem,5.5vw,3.5rem);font-weight:600;
-          color:${WP.cream};letter-spacing:-.02em;line-height:1.1;
-          margin-bottom:16px
+          color:#D9E6FF;letter-spacing:-.02em;line-height:1.1;
+          margin-bottom:16px;
+          text-shadow:0 0 60px rgba(111,168,255,0.18)
         ">${p.title}</h1>
 
         <!-- Tagline -->
         <p style="
           font-family:'Outfit',sans-serif;font-size:clamp(.9rem,2vw,1.05rem);
-          color:rgba(240,230,211,0.65);line-height:1.6;
+          color:rgba(217,230,255,0.6);line-height:1.6;
           margin-bottom:clamp(1.5rem,4vh,2.5rem);max-width:520px
         ">${p.tagline}</p>
 
@@ -417,8 +501,9 @@ function wpBuildPage(projectId) {
             display:inline-flex;align-items:center;gap:8px;
             font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;
             padding:11px 24px;border-radius:999px;
-            background:${WP.gold};color:${WP.espresso};
+            background:#D4B15A;color:#071126;
             text-decoration:none;border:none;
+            box-shadow:0 0 18px rgba(212,177,90,0.3);
             transition:opacity .18s,transform .18s
           " onmouseover="this.style.opacity='.85';this.style.transform='translateY(-1px)'"
              onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
@@ -429,12 +514,12 @@ function wpBuildPage(projectId) {
             display:inline-flex;align-items:center;gap:8px;
             font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;
             padding:10px 22px;border-radius:999px;
-            background:transparent;color:${WP.cream};
+            background:transparent;color:#D9E6FF;
             text-decoration:none;
-            border:1px solid rgba(250,247,242,0.2);
+            border:1px solid rgba(217,230,255,0.2);
             transition:border-color .18s,background .18s
-          " onmouseover="this.style.borderColor='rgba(250,247,242,0.5)';this.style.background='rgba(250,247,242,0.06)'"
-             onmouseout="this.style.borderColor='rgba(250,247,242,0.2)';this.style.background='transparent'">
+          " onmouseover="this.style.borderColor='rgba(217,230,255,0.4)';this.style.background='rgba(217,230,255,0.06)'"
+             onmouseout="this.style.borderColor='rgba(217,230,255,0.2)';this.style.background='transparent'">
             <i data-lucide="github" style="width:14px;height:14px"></i>
             View on GitHub
           </a>
@@ -443,7 +528,7 @@ function wpBuildPage(projectId) {
     </div>
 
     <!-- Body -->
-    <div style="background:${WP.cream};padding-bottom:80px">
+    <div style="background:#071126;padding-bottom:80px">
       <div style="max-width:760px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)">
 
         <!-- Background -->
@@ -451,26 +536,43 @@ function wpBuildPage(projectId) {
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
             <span style="
               font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:700;
-              letter-spacing:.13em;text-transform:uppercase;color:${WP.gold}
+              letter-spacing:.13em;text-transform:uppercase;color:#D4B15A
             ">Background</span>
-            <div style="flex:1;height:1px;background:${WP.border}"></div>
+            <div style="flex:1;height:1px;background:rgba(111,168,255,0.1)"></div>
           </div>
           <p style="
-            font-family:'Outfit',sans-serif;font-size:.9375rem;line-height:1.75;color:#3D342C
+            font-family:'Outfit',sans-serif;font-size:.9375rem;line-height:1.75;color:#8FA8D6
           ">${p.background}</p>
         </section>
 
         <!-- Divider -->
-        <div style="height:1px;background:${WP.border};margin-bottom:clamp(2rem,5vh,3.5rem)"></div>
+        <div style="height:1px;background:rgba(111,168,255,0.1);margin-bottom:clamp(2rem,5vh,3.5rem)"></div>
+
+        <!-- Features -->
+        <section style="margin-bottom:clamp(2rem,5vh,3.5rem)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+            <span style="
+              font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:700;
+              letter-spacing:.13em;text-transform:uppercase;color:#6FA8FF
+            ">What It Does</span>
+            <div style="flex:1;height:1px;background:rgba(111,168,255,0.1)"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
+            ${featureCards}
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div style="height:1px;background:rgba(111,168,255,0.1);margin-bottom:clamp(2rem,5vh,3.5rem)"></div>
 
         <!-- Problems -->
         <section style="margin-bottom:clamp(2rem,5vh,3.5rem)">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
             <span style="
               font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:700;
-              letter-spacing:.13em;text-transform:uppercase;color:#C8503C
+              letter-spacing:.13em;text-transform:uppercase;color:#FF6B6B
             ">Problems That Arose</span>
-            <div style="flex:1;height:1px;background:${WP.border}"></div>
+            <div style="flex:1;height:1px;background:rgba(111,168,255,0.1)"></div>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
             ${problemCards}
@@ -478,16 +580,16 @@ function wpBuildPage(projectId) {
         </section>
 
         <!-- Divider -->
-        <div style="height:1px;background:${WP.border};margin-bottom:clamp(2rem,5vh,3.5rem)"></div>
+        <div style="height:1px;background:rgba(111,168,255,0.1);margin-bottom:clamp(2rem,5vh,3.5rem)"></div>
 
         <!-- Solutions -->
         <section style="margin-bottom:clamp(2rem,5vh,3.5rem)">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
             <span style="
               font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:700;
-              letter-spacing:.13em;text-transform:uppercase;color:${WP.gold}
+              letter-spacing:.13em;text-transform:uppercase;color:#D4B15A
             ">How It Was Handled</span>
-            <div style="flex:1;height:1px;background:${WP.border}"></div>
+            <div style="flex:1;height:1px;background:rgba(111,168,255,0.1)"></div>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
             ${solutionCards}
@@ -495,28 +597,28 @@ function wpBuildPage(projectId) {
         </section>
 
         <!-- Divider -->
-        <div style="height:1px;background:${WP.border};margin-bottom:clamp(2rem,5vh,3.5rem)"></div>
+        <div style="height:1px;background:rgba(111,168,255,0.1);margin-bottom:clamp(2rem,5vh,3.5rem)"></div>
 
         <!-- Live Preview -->
         <section>
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
             <span style="
               font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:700;
-              letter-spacing:.13em;text-transform:uppercase;color:${WP.muted}
+              letter-spacing:.13em;text-transform:uppercase;color:#8FA8D6
             ">Live Preview</span>
-            <div style="flex:1;height:1px;background:${WP.border}"></div>
+            <div style="flex:1;height:1px;background:rgba(111,168,255,0.1)"></div>
           </div>
 
           <!-- Browser chrome frame -->
           <div style="
             border-radius:16px;overflow:hidden;
-            border:1px solid ${WP.border};
-            box-shadow:0 8px 40px rgba(28,20,16,0.1)
+            border:1px solid rgba(111,168,255,0.14);
+            box-shadow:0 8px 40px rgba(3,7,18,0.4)
           ">
-            <!-- Address bar -->
+            <!-- Address bar / chrome -->
             <div style="
-              background:#F5EEE6;padding:9px 14px;
-              border-bottom:1px solid ${WP.border};
+              background:rgba(11,30,58,0.8);padding:9px 14px;
+              border-bottom:1px solid rgba(111,168,255,0.12);
               display:flex;align-items:center;gap:8px
             ">
               <div style="display:flex;gap:5px;flex-shrink:0">
@@ -525,24 +627,24 @@ function wpBuildPage(projectId) {
                 <span style="width:9px;height:9px;border-radius:50%;background:#28C840;display:block"></span>
               </div>
               <div style="
-                flex:1;background:#fff;border-radius:5px;padding:4px 10px;
-                font-family:'Outfit',sans-serif;font-size:.66rem;color:#B0988A;
-                border:1px solid #EDE0D3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+                flex:1;background:rgba(7,17,38,0.6);border-radius:5px;padding:4px 10px;
+                font-family:'Outfit',sans-serif;font-size:.66rem;color:#8FA8D6;
+                border:1px solid rgba(111,168,255,0.1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis
               ">${p.live}</div>
               <a href="${p.live}" target="_blank" rel="noopener noreferrer" style="
                 flex-shrink:0;display:flex;align-items:center;justify-content:center;
                 width:26px;height:26px;border-radius:6px;
-                background:rgba(201,168,76,0.15);
-                color:${WP.gold};text-decoration:none;
+                background:rgba(212,177,90,0.12);
+                color:#D4B15A;text-decoration:none;
                 transition:background .18s
               " title="Open in new tab"
-                 onmouseover="this.style.background='rgba(201,168,76,0.28)'"
-                 onmouseout="this.style.background='rgba(201,168,76,0.15)'">
+                 onmouseover="this.style.background='rgba(212,177,90,0.25)'"
+                 onmouseout="this.style.background='rgba(212,177,90,0.12)'">
                 <i data-lucide="external-link" style="width:12px;height:12px"></i>
               </a>
             </div>
             <!-- iframe -->
-            <div style="position:relative;height:520px;background:#F5EEE6">
+            <div style="position:relative;height:520px;background:#0B1E3A">
               <iframe
                 id="wp-iframe-${projectId}"
                 src="${p.live}"
@@ -556,18 +658,18 @@ function wpBuildPage(projectId) {
               <div id="wp-iframe-fallback-${projectId}" style="
                 display:none;position:absolute;inset:0;
                 flex-direction:column;align-items:center;justify-content:center;
-                gap:18px;background:${WP.blush};
+                gap:18px;background:#071126;
                 font-family:'Outfit',sans-serif;text-align:center;padding:32px
               ">
-                <i data-lucide="monitor-off" style="width:32px;height:32px;color:${WP.muted};opacity:.5"></i>
-                <p style="font-size:.875rem;color:${WP.muted};line-height:1.6;max-width:300px">
+                <i data-lucide="monitor-off" style="width:32px;height:32px;color:#8FA8D6;opacity:.5"></i>
+                <p style="font-size:.875rem;color:#8FA8D6;line-height:1.6;max-width:300px">
                   This site cannot be embedded here.<br>Open it directly to see it in action.
                 </p>
                 <a href="${p.live}" target="_blank" rel="noopener noreferrer" style="
                   display:inline-flex;align-items:center;gap:8px;
                   font-size:.85rem;font-weight:600;
                   padding:11px 24px;border-radius:999px;
-                  background:${WP.espresso};color:${WP.cream};
+                  background:#D4B15A;color:#071126;
                   text-decoration:none;transition:opacity .18s
                 " onmouseover="this.style.opacity='.8'"
                    onmouseout="this.style.opacity='1'">
@@ -593,6 +695,7 @@ function wpBuildPage(projectId) {
     .forEach(function(id) {
       var el = document.getElementById('page-' + id);
       if (!el) return;
+      el.style.background = '#071126';
       el.innerHTML = wpBuildPage(id);
     });
   // lucide icons are created by main.js DOMContentLoaded — no need to call here

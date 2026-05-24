@@ -1,25 +1,43 @@
-// ── Web Development & Design — CroissantsMoon Aesthetic ──────────────────────
+// ── Web Development & Design — Celestial Midnight Luxury ──────────────────────
 
 function wdInjectFonts() {
   if (document.querySelector('[data-cm-fonts]')) return;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap';
+  link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap';
   link.setAttribute('data-cm-fonts', '1');
   document.head.appendChild(link);
 }
 
+function wdInjectPageCSS() {
+  if (document.querySelector('[data-wd-page-css]')) return;
+  const style = document.createElement('style');
+  style.setAttribute('data-wd-page-css', '1');
+  style.textContent = `
+    @keyframes cmGlowPulse {
+      0%,100%{box-shadow:0 0 18px rgba(212,177,90,0.35),0 4px 28px rgba(212,177,90,0.22)}
+      50%{box-shadow:0 0 36px rgba(212,177,90,0.6),0 4px 42px rgba(212,177,90,0.38)}
+    }
+    @keyframes wdTwinkle {
+      0%,100%{opacity:1;transform:scale(1)}
+      50%{opacity:.15;transform:scale(.5)}
+    }
+    .cm-reveal { opacity:0; transform:translateY(20px); transition:opacity .65s ease-out,transform .65s ease-out; }
+    .cm-visible { opacity:1!important; transform:none!important; }
+  `;
+  document.head.appendChild(style);
+}
+
 const WD = {
-  yellow:   '#F5D05E',
-  blue:     '#7BC8F6',
-  orange:   '#F4874B',
-  coral:    '#FF6B6B',
-  lavender: '#C4B5FD',
-  cream:    '#FFFBF5',
-  mint:     '#6EE7B7',
-  peach:    '#FDBA8C',
-  pink:     '#FDA4AF',
-  purple:   '#A78BFA',
+  midnight:   '#071126',
+  deepSpace:  '#0B1E3A',
+  moonlight:  '#D9E6FF',
+  stardust:   '#8FA8D6',
+  nebulaGold: '#D4B15A',
+  cosmicBlue: '#183B6B',
+  aurora:     '#6FA8FF',
+  void:       '#030712',
+  border:     'rgba(111,168,255,0.14)',
 };
 
 const WD_PROJECTS = [
@@ -28,7 +46,7 @@ const WD_PROJECTS = [
     cat: 'Web Experience',
     year: '2025',
     desc: "Full-stack rebuild of PCU's International Office — clean architecture, live CMS, mobile-first design.",
-    bg: WD.blue, tc: '#0369A1',
+    bg: WD.aurora, tc: '#0369A1',
     page: 'pcu-global',
     emoji: '🌐',
     url: 'pcuglobal.petra.ac.id',
@@ -40,7 +58,7 @@ const WD_PROJECTS = [
     cat: 'Editorial Design',
     year: '2025',
     desc: 'Premium editorial aesthetic — typography-led, intentional. International education storytelling through design.',
-    bg: WD.yellow, tc: '#854D0E',
+    bg: WD.nebulaGold, tc: '#854D0E',
     page: 'home',
     emoji: '✦',
     url: 'zefanya.portfolio',
@@ -52,7 +70,7 @@ const WD_PROJECTS = [
     cat: 'Creative Direction',
     year: '2025',
     desc: 'Visual identity and event design for an annual global partnership exhibition at Universitas Airlangga.',
-    bg: WD.pink, tc: '#9F1239',
+    bg: WD.stardust, tc: '#9F1239',
     page: 'aero',
     emoji: '✈',
     url: 'aero.unair.ac.id',
@@ -68,138 +86,191 @@ const WD_MARQUEE_ITEMS = [
 ];
 
 const WD_PROCESS = [
-  { icon: '✦', label: 'Discover',  color: WD.yellow,   desc: 'Understanding the goal, the audience, and what success looks like. Questions first. Answers second.' },
-  { icon: '◈', label: 'Design',    color: WD.blue,     desc: 'Wireframes, hierarchy, visual language. Establishing structure and feeling before touching code.' },
-  { icon: '◉', label: 'Build',     color: WD.mint,     desc: 'Clean HTML, semantic structure, responsive layouts. Code that reads like good writing.' },
-  { icon: '◎', label: 'Refine',    color: WD.lavender, desc: 'Testing across devices, optimizing performance, sweating the details. The work that makes it feel right.' },
-  { icon: '✺', label: 'Ship',      color: WD.orange,   desc: 'Launching with intention. Optimized, accessible, and ready to meet the people it was made for.' },
+  { icon: '✦', label: 'Discover',  color: WD.nebulaGold, desc: 'Understanding the goal, the audience, and what success looks like. Questions first. Answers second.' },
+  { icon: '◈', label: 'Design',    color: WD.aurora,     desc: 'Wireframes, hierarchy, visual language. Establishing structure and feeling before touching code.' },
+  { icon: '◉', label: 'Build',     color: WD.moonlight,  desc: 'Clean HTML, semantic structure, responsive layouts. Code that reads like good writing.' },
+  { icon: '◎', label: 'Refine',    color: WD.stardust,   desc: 'Testing across devices, optimizing performance, sweating the details. The work that makes it feel right.' },
+  { icon: '✺', label: 'Ship',      color: WD.nebulaGold, desc: 'Launching with intention. Optimized, accessible, and ready to meet the people it was made for.' },
 ];
 
 const WD_SKILLS = [
-  { text: 'HTML · CSS',           color: WD.blue     },
-  { text: 'JavaScript',           color: WD.yellow   },
-  { text: 'Tailwind CSS',         color: WD.mint     },
-  { text: 'Responsive Design',    color: WD.pink     },
-  { text: 'UI/UX Design',         color: WD.lavender },
-  { text: 'Typography',           color: WD.peach    },
-  { text: 'CMS Integration',      color: WD.coral    },
-  { text: 'Web Animation',        color: WD.purple   },
-  { text: 'Mobile-First',         color: WD.blue     },
-  { text: 'Editorial Design',     color: WD.yellow   },
-  { text: 'Accessibility',        color: WD.mint     },
-  { text: 'Performance',          color: WD.orange   },
-  { text: 'Git & Version Control', color: WD.pink    },
-  { text: 'Cross-Browser Testing', color: WD.lavender},
-  { text: 'Design Systems',       color: WD.peach    },
-  { text: 'Color Theory',         color: WD.coral    },
+  { text: 'HTML · CSS',            color: WD.aurora     },
+  { text: 'JavaScript',            color: WD.nebulaGold },
+  { text: 'Tailwind CSS',          color: WD.moonlight  },
+  { text: 'Responsive Design',     color: WD.stardust   },
+  { text: 'UI/UX Design',          color: WD.aurora     },
+  { text: 'Typography',            color: WD.nebulaGold },
+  { text: 'CMS Integration',       color: WD.moonlight  },
+  { text: 'Web Animation',         color: WD.stardust   },
+  { text: 'Mobile-First',          color: WD.aurora     },
+  { text: 'Editorial Design',      color: WD.nebulaGold },
+  { text: 'Accessibility',         color: WD.moonlight  },
+  { text: 'Performance',           color: WD.stardust   },
+  { text: 'Git & Version Control',  color: WD.aurora     },
+  { text: 'Cross-Browser Testing',  color: WD.nebulaGold },
+  { text: 'Design Systems',         color: WD.moonlight  },
+  { text: 'Color Theory',           color: WD.stardust   },
 ];
 
 // ── Section Builders ─────────────────────────────────────────────────────────
 
 function wdBuildHero() {
-  const blobs = [
-    { color: WD.blue,     size: 380, x: '-80px', y: '-60px', opacity: 0.45, delay: '0s'  },
-    { color: WD.yellow,   size: 280, x: '65%',   y: '-40px', opacity: 0.4,  delay: '2s'  },
-    { color: WD.mint,     size: 220, x: '38%',   y: '55%',   opacity: 0.32, delay: '4s'  },
-    { color: WD.lavender, size: 200, x: '-40px', y: '50%',   opacity: 0.28, delay: '1s'  },
-  ].map(b => `
-    <div class="cm-blob" style="
-      position:absolute;width:${b.size}px;height:${b.size}px;
-      left:${b.x};top:${b.y};background:${b.color};
-      opacity:${b.opacity};filter:blur(70px);
-      animation-delay:${b.delay};pointer-events:none;z-index:0
-    "></div>`).join('');
+  // Star field: 70 small absolute-positioned spans with twinkle animation
+  const stars = Array.from({ length: 70 }, (_, i) => {
+    const size    = 1 + Math.random() * 2.5;
+    const x       = Math.random() * 100;
+    const y       = Math.random() * 100;
+    const delay   = (Math.random() * 4).toFixed(2);
+    const dur     = (2.5 + Math.random() * 3).toFixed(2);
+    return `<span style="
+      position:absolute;
+      left:${x.toFixed(2)}%;top:${y.toFixed(2)}%;
+      width:${size.toFixed(1)}px;height:${size.toFixed(1)}px;
+      background:#D9E6FF;border-radius:50%;
+      animation:wdTwinkle ${dur}s ease-in-out ${delay}s infinite;
+      pointer-events:none;z-index:0
+    "></span>`;
+  }).join('');
+
+  // Constellation SVG overlay (5 line segments between points)
+  const constellation = `
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.18" xmlns="http://www.w3.org/2000/svg">
+      <line x1="12%" y1="18%" x2="28%" y2="32%" stroke="#6FA8FF" stroke-width="0.6"/>
+      <line x1="28%" y1="32%" x2="44%" y2="22%" stroke="#6FA8FF" stroke-width="0.6"/>
+      <line x1="44%" y1="22%" x2="62%" y2="38%" stroke="#8FA8D6" stroke-width="0.6"/>
+      <line x1="62%" y1="38%" x2="78%" y2="20%" stroke="#8FA8D6" stroke-width="0.6"/>
+      <line x1="78%" y1="20%" x2="88%" y2="44%" stroke="#6FA8FF" stroke-width="0.6"/>
+      <circle cx="12%" cy="18%" r="2" fill="#6FA8FF" opacity=".7"/>
+      <circle cx="28%" cy="32%" r="1.5" fill="#6FA8FF" opacity=".6"/>
+      <circle cx="44%" cy="22%" r="2.5" fill="#D9E6FF" opacity=".6"/>
+      <circle cx="62%" cy="38%" r="1.5" fill="#8FA8D6" opacity=".5"/>
+      <circle cx="78%" cy="20%" r="2" fill="#6FA8FF" opacity=".65"/>
+      <circle cx="88%" cy="44%" r="1.5" fill="#8FA8D6" opacity=".55"/>
+    </svg>`;
+
+  // Crescent moon SVG (upper-right, low opacity)
+  const crescent = `
+    <svg style="position:absolute;right:6%;top:8%;width:80px;height:80px;pointer-events:none;z-index:0;opacity:.13" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 10 A30 30 0 1 0 50 70 A20 20 0 1 1 50 10Z" fill="#D9E6FF"/>
+    </svg>`;
+
+  // Radial aurora glow blob
+  const aurora = `
+    <div style="
+      position:absolute;left:55%;top:10%;
+      width:480px;height:380px;
+      background:radial-gradient(ellipse at center,rgba(111,168,255,0.09) 0%,rgba(143,168,214,0.04) 45%,transparent 70%);
+      pointer-events:none;z-index:0;transform:translateX(-30%)
+    "></div>`;
 
   const heroTags = [
-    ['HTML · CSS · JS',    WD.blue,     '#0369A1'],
-    ['UI/UX Design',       WD.pink,     '#9F1239'],
-    ['Responsive Design',  WD.mint,     '#065F46'],
-    ['Editorial Websites', WD.yellow,   '#854D0E'],
-    ['CMS & Web Apps',     WD.lavender, '#5B21B6'],
-  ].map(([tag, bg, tc]) => `
+    'HTML · CSS · JS',
+    'UI/UX Design',
+    'Responsive Design',
+    'Editorial Websites',
+    'CMS & Web Apps',
+  ].map(tag => `
     <span style="
-      background:${bg}28;color:${tc};
+      background:rgba(111,168,255,0.08);color:#8FA8D6;
       padding:6px 16px;border-radius:999px;
-      font-size:.72rem;font-weight:600;letter-spacing:.04em;
-      border:1px solid ${bg}50
+      font-size:.72rem;font-weight:500;letter-spacing:.04em;
+      font-family:'Outfit',sans-serif;
+      border:1px solid rgba(111,168,255,0.18)
     ">${tag}</span>`).join('');
 
   return `
-    <div id="wd-hero" class="cm-grain" style="
+    <div id="wd-hero" style="
       position:relative;overflow:hidden;
       padding:clamp(5rem,12vh,9rem) 24px clamp(4rem,8vh,7rem);
-      background:${WD.cream};min-height:90vh;
+      background:linear-gradient(160deg,#030712 0%,#071126 40%,#0B1E3A 100%);
+      min-height:92vh;
       display:flex;align-items:center
     ">
       <div id="wd-cursor-glow" style="
         position:absolute;pointer-events:none;z-index:1;
         width:520px;height:520px;border-radius:50%;
         transform:translate(-50%,-50%);
-        background:radial-gradient(circle,rgba(123,200,246,0.16) 0%,transparent 60%);
+        background:radial-gradient(circle,rgba(111,168,255,0.12) 0%,transparent 60%);
         transition:left .1s ease,top .1s ease
       "></div>
       <canvas id="wd-particles-canvas" style="position:absolute;inset:0;pointer-events:none;z-index:0"></canvas>
-      ${blobs}
-      <div class="cm-float"  style="position:absolute;right:8%;top:22%;font-size:3rem;opacity:0.45;pointer-events:none;z-index:1">◈</div>
-      <div class="cm-float-2" style="position:absolute;right:22%;top:68%;font-size:2rem;opacity:0.38;pointer-events:none;z-index:1;color:${WD.coral}">✦</div>
-      <div class="cm-float-3" style="position:absolute;left:6%;top:42%;font-size:1.5rem;opacity:0.32;pointer-events:none;z-index:1;color:${WD.purple}">◎</div>
-      <div class="cm-spin-slow" style="position:absolute;right:14%;bottom:22%;width:72px;height:72px;border:2px solid ${WD.blue}44;border-radius:50%;pointer-events:none;z-index:1"></div>
-      <div class="cm-spin-slow" style="position:absolute;left:16%;top:14%;width:44px;height:44px;border:2px dashed ${WD.mint}44;border-radius:50%;pointer-events:none;z-index:1;animation-direction:reverse"></div>
+      ${stars}
+      ${constellation}
+      ${crescent}
+      ${aurora}
       <div class="max-w-5xl mx-auto relative z-10 w-full">
-        <button onclick="goToPage('home')" style="
+        <button onclick="goToPage('croissantsmoon')" style="
           display:inline-flex;align-items:center;gap:8px;margin-bottom:3rem;
-          font-size:.875rem;color:rgba(28,28,30,0.4);
-          background:none;border:none;cursor:pointer;padding:0
-        ">
+          font-size:.875rem;color:rgba(143,168,214,0.5);
+          background:none;border:none;cursor:pointer;padding:0;
+          font-family:'Outfit',sans-serif;
+          transition:color .18s
+        " onmouseover="this.style.color='rgba(143,168,214,0.8)'" onmouseout="this.style.color='rgba(143,168,214,0.5)'">
           <i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back
         </button>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${WD.blue};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${WD.blue}">Creative Services</span>
+          <span style="display:inline-block;width:28px;height:2px;background:#D4B15A;border-radius:2px"></span>
+          <span style="
+            font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+            font-family:'Outfit',sans-serif;
+            background:rgba(212,177,90,0.12);color:#D4B15A;
+            padding:4px 12px;border-radius:999px
+          ">Creative Services</span>
         </div>
-        <h1 class="cm-gradient-text" style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(3rem,8vw,7rem);
-          font-weight:700;line-height:.95;
-          letter-spacing:-.04em;
+        <h1 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(3rem,9vw,7rem);
+          font-weight:500;line-height:.95;
+          letter-spacing:-.02em;
+          font-style:italic;
+          color:#D9E6FF;
           margin-bottom:1.5rem
         " data-edit-key="websites_hero_title">Web Development<br>&amp; Design</h1>
         <p style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:400;
-          color:rgba(28,28,30,0.52);max-width:540px;
+          font-family:'Outfit',sans-serif;
+          font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:300;
+          color:rgba(143,168,214,0.75);max-width:540px;
           line-height:1.45;margin-bottom:1.25rem;min-height:2.4em
         "><span id="wd-typewriter"></span></p>
-        <p style="max-width:490px;font-size:.95rem;line-height:1.7;color:rgba(28,28,30,0.45);margin-bottom:2.75rem" data-edit-key="websites_hero_body">
+        <p style="
+          max-width:490px;font-size:.95rem;line-height:1.7;
+          color:rgba(143,168,214,0.6);margin-bottom:2.75rem;
+          font-family:'Outfit',sans-serif
+        " data-edit-key="websites_hero_body">
           Purposeful digital experiences built with craft, care, and a clear sense of what they're trying to say. From institutional portals to editorial portfolios.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:2.5rem">
           <button onclick="document.getElementById('wd-projects').scrollIntoView({behavior:'smooth'})" style="
-            background:#1C1C1E;color:#fff;
+            background:#D4B15A;color:#071126;
             padding:14px 28px;border-radius:999px;
             font-size:.875rem;font-weight:600;
+            font-family:'Outfit',sans-serif;
             border:none;cursor:pointer;
             display:inline-flex;align-items:center;gap:8px;
+            animation:cmGlowPulse 2.6s ease-in-out infinite;
             transition:opacity .2s
-          " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+          " onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
             View Projects <i data-lucide="arrow-right" style="width:15px;height:15px"></i>
           </button>
           <button onclick="goToPage('contact')" style="
-            border:1.5px solid rgba(28,28,30,0.2);color:#1C1C1E;
-            background:transparent;padding:14px 28px;border-radius:999px;
-            font-size:.875rem;font-weight:600;cursor:pointer;transition:all .2s
-          " onmouseover="this.style.background='rgba(28,28,30,0.05)'"
-            onmouseout="this.style.background='transparent'">
+            border:1px solid rgba(212,177,90,0.32);color:#D4B15A;
+            background:rgba(212,177,90,0.06);
+            padding:14px 28px;border-radius:999px;
+            font-size:.875rem;font-weight:500;
+            font-family:'Outfit',sans-serif;
+            cursor:pointer;transition:all .2s
+          " onmouseover="this.style.background='rgba(212,177,90,0.12)'"
+            onmouseout="this.style.background='rgba(212,177,90,0.06)'">
             Work Together
           </button>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px">${heroTags}</div>
       </div>
       <div class="cm-scroll-indicator">
-        <span style="font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(28,28,30,0.4)">Scroll</span>
+        <span style="font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(143,168,214,0.35);font-family:'Outfit',sans-serif">Scroll</span>
         <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="1" width="14" height="22" rx="7" stroke="rgba(28,28,30,0.3)" stroke-width="1.5"/>
-          <rect x="7" y="5" width="2" height="5" rx="1" fill="rgba(28,28,30,0.35)"/>
+          <rect x="1" y="1" width="14" height="22" rx="7" stroke="rgba(111,168,255,0.25)" stroke-width="1.5"/>
+          <rect x="7" y="5" width="2" height="5" rx="1" fill="rgba(111,168,255,0.3)"/>
         </svg>
       </div>
     </div>`;
@@ -207,20 +278,25 @@ function wdBuildHero() {
 
 function wdBuildMarquee() {
   const doubled = [...WD_MARQUEE_ITEMS, ...WD_MARQUEE_ITEMS];
-  const colors  = [WD.blue, '#1C1C1E', WD.coral, WD.mint, WD.yellow];
+  const colors  = [WD.nebulaGold, WD.moonlight, WD.aurora, WD.stardust];
   const items   = doubled.map((t, i) => `
     <span style="
       display:inline-block;padding:0 32px;
-      font-family:'Space Grotesk',Inter,sans-serif;
-      font-size:1.05rem;font-weight:600;
+      font-family:'Outfit',sans-serif;
+      font-size:1.05rem;font-weight:500;
       color:${colors[i % colors.length]};
       white-space:nowrap;letter-spacing:.01em
     ">${t}</span>
-    <span style="color:rgba(255,255,255,0.18);font-size:1.1rem;padding:0 4px">·</span>
+    <span style="color:rgba(111,168,255,0.2);font-size:1.1rem;padding:0 4px">·</span>
   `).join('');
 
   return `
-    <div class="cm-reveal" style="background:#1C1C1E;padding:20px 0;overflow:hidden">
+    <div class="cm-reveal" style="
+      background:rgba(3,7,18,0.8);
+      border-top:1px solid rgba(111,168,255,0.08);
+      border-bottom:1px solid rgba(111,168,255,0.08);
+      padding:20px 0;overflow:hidden
+    ">
       <div style="display:flex;overflow:hidden">
         <div class="cm-marquee-track">${items}</div>
       </div>
@@ -256,31 +332,70 @@ function wdCardPreview(w) {
 
 function wdProjectCard(w) {
   const tags = w.tags.map(t =>
-    `<span style="background:${w.bg}28;color:${w.tc};padding:2px 9px;border-radius:999px;font-size:.6rem;font-weight:600;border:1px solid ${w.bg}44">${t}</span>`
+    `<span style="
+      background:rgba(212,177,90,0.1);color:#8FA8D6;
+      padding:2px 9px;border-radius:999px;
+      font-size:.6rem;font-weight:500;
+      font-family:'Outfit',sans-serif;
+      border:1px solid rgba(212,177,90,0.18)
+    ">${t}</span>`
   ).join('');
   return `
     <button onclick="goToPage('${w.page}')" class="cm-work-card text-left" style="
-      background:#fff;border-radius:18px;overflow:hidden;
-      border:1px solid rgba(28,28,30,0.07);
+      background:rgba(11,30,58,0.65);
+      border-radius:18px;overflow:hidden;
+      border:1px solid rgba(111,168,255,0.14);
+      backdrop-filter:blur(14px);
       cursor:pointer;
-      box-shadow:0 4px 20px rgba(0,0,0,0.055);
-      position:relative;width:100%;display:block
-    ">
-      <div style="background:#F6F6F4;padding:7px 12px;border-bottom:1px solid #EBEBEB;display:flex;align-items:center;gap:7px">
+      position:relative;width:100%;display:block;
+      transition:transform .25s ease,box-shadow .25s ease
+    " onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(3,7,18,0.55),0 0 0 1px rgba(111,168,255,0.22)'"
+       onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="
+        background:rgba(7,17,38,0.6);
+        padding:7px 12px;
+        border-bottom:1px solid rgba(111,168,255,0.08);
+        display:flex;align-items:center;gap:7px
+      ">
         <div style="display:flex;gap:4px;flex-shrink:0">
-          <span style="width:9px;height:9px;border-radius:50%;background:#FF5F57;display:block"></span>
-          <span style="width:9px;height:9px;border-radius:50%;background:#FEBC2E;display:block"></span>
-          <span style="width:9px;height:9px;border-radius:50%;background:#28C840;display:block"></span>
+          <span style="width:9px;height:9px;border-radius:50%;background:#FF5F5788;display:block"></span>
+          <span style="width:9px;height:9px;border-radius:50%;background:#FEBC2E88;display:block"></span>
+          <span style="width:9px;height:9px;border-radius:50%;background:#28C84088;display:block"></span>
         </div>
-        <span style="flex:1;background:#fff;border-radius:4px;padding:2px 9px;font-size:.58rem;color:#bbb;border:1px solid #E8E8E8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${w.url}</span>
+        <span style="
+          flex:1;
+          background:rgba(3,7,18,0.5);
+          border-radius:4px;padding:2px 9px;
+          font-size:.58rem;color:#8FA8D6;
+          border:1px solid rgba(111,168,255,0.1);
+          white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+          font-family:'Outfit',sans-serif
+        ">${w.url}</span>
       </div>
       ${wdCardPreview(w)}
       <div style="padding:15px 17px 18px">
-        <div style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${w.tc};opacity:.75;margin-bottom:5px">${w.cat} · ${w.year}</div>
-        <h4 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:.95rem;color:#1C1C1E;margin-bottom:6px;line-height:1.25">${w.title}</h4>
-        <p style="font-size:.76rem;line-height:1.55;color:rgba(28,28,30,0.5);margin-bottom:11px">${w.desc}</p>
+        <div style="
+          font-size:.6rem;font-weight:600;letter-spacing:.12em;
+          text-transform:uppercase;color:#D4B15A;opacity:.75;
+          margin-bottom:5px;font-family:'Outfit',sans-serif
+        ">${w.cat} · ${w.year}</div>
+        <h4 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-weight:500;font-size:1.05rem;
+          color:#D9E6FF;margin-bottom:6px;line-height:1.25;
+          font-style:italic
+        ">${w.title}</h4>
+        <p style="
+          font-size:.76rem;line-height:1.55;
+          color:#8FA8D6;margin-bottom:11px;
+          font-family:'Outfit',sans-serif
+        ">${w.desc}</p>
         <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${tags}</div>
-        <div style="display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600;color:${w.tc}">
+        <div style="
+          display:inline-flex;align-items:center;gap:6px;
+          font-size:.76rem;font-weight:600;color:#D4B15A;
+          font-family:'Outfit',sans-serif
+        ">
           View Project <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
         </div>
       </div>
@@ -288,34 +403,81 @@ function wdProjectCard(w) {
 }
 
 function wdBuildProjects() {
+  // Star field at low opacity for background
+  const stars = Array.from({ length: 30 }, () => {
+    const x   = Math.random() * 100;
+    const y   = Math.random() * 100;
+    const sz  = 1 + Math.random() * 1.5;
+    const del = (Math.random() * 5).toFixed(2);
+    const dur = (3 + Math.random() * 3).toFixed(2);
+    return `<span style="
+      position:absolute;left:${x.toFixed(1)}%;top:${y.toFixed(1)}%;
+      width:${sz.toFixed(1)}px;height:${sz.toFixed(1)}px;
+      background:#D9E6FF;border-radius:50%;opacity:.25;
+      animation:wdTwinkle ${dur}s ease-in-out ${del}s infinite;
+      pointer-events:none
+    "></span>`;
+  }).join('');
+
   const cards = WD_PROJECTS.map(w => wdProjectCard(w)).join('');
   return `
-    <div id="wd-projects" class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:${WD.cream}">
-      <div class="max-w-5xl mx-auto">
+    <div id="wd-projects" class="cm-reveal" style="
+      padding:clamp(4rem,8vh,6rem) 24px;
+      background:linear-gradient(180deg,#071126 0%,#0B1E3A 100%);
+      position:relative;overflow:hidden
+    ">
+      ${stars}
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${WD.blue};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${WD.blue}">Selected Projects</span>
+          <span style="display:inline-block;width:28px;height:2px;background:#D4B15A;border-radius:2px"></span>
+          <span style="
+            font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+            color:#D4B15A;font-family:'Outfit',sans-serif
+          ">Selected Projects</span>
         </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.5rem;letter-spacing:-.03em">The Work</h2>
-        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:2.5rem;max-width:480px;line-height:1.65">
+        <h2 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(2rem,4vw,3rem);font-weight:500;
+          color:#D9E6FF;margin-bottom:.5rem;
+          font-style:italic
+        ">The Work</h2>
+        <p style="
+          font-size:.93rem;color:#8FA8D6;margin-bottom:2.5rem;
+          max-width:480px;line-height:1.65;
+          font-family:'Outfit',sans-serif
+        ">
           Three real projects — each built with a different challenge, the same level of care.
         </p>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(274px,1fr));gap:18px">
           ${cards}
         </div>
-        <div style="margin-top:2rem;padding:20px 26px;background:rgba(123,200,246,0.08);border:1px solid rgba(123,200,246,0.2);border-radius:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div style="
+          margin-top:2rem;padding:20px 26px;
+          background:rgba(111,168,255,0.06);
+          border:1px solid rgba(111,168,255,0.14);
+          border-radius:14px;
+          display:flex;align-items:center;gap:16px;flex-wrap:wrap
+        ">
           <div style="flex:1;min-width:220px">
-            <p style="font-family:'Space Grotesk',Inter,sans-serif;font-size:.84rem;font-weight:600;color:#1C1C1E;margin-bottom:3px">More in CroissantsMoon</p>
-            <p style="font-size:.76rem;color:rgba(28,28,30,0.48);line-height:1.55">Graphic design, branding, and visual works live in the full creative universe.</p>
+            <p style="
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-size:.98rem;font-weight:500;
+              font-style:italic;color:#D9E6FF;margin-bottom:3px
+            ">More in CroissantsMoon</p>
+            <p style="
+              font-size:.76rem;color:#8FA8D6;line-height:1.55;
+              font-family:'Outfit',sans-serif
+            ">Graphic design, branding, and visual works live in the full creative universe.</p>
           </div>
           <button onclick="goToPage('croissantsmoon')" style="
-            background:${WD.blue}22;color:#0369A1;
-            border:1px solid ${WD.blue}44;
+            background:rgba(212,177,90,0.12);color:#D4B15A;
+            border:1px solid rgba(212,177,90,0.28);
             padding:10px 22px;border-radius:999px;
             font-size:.78rem;font-weight:600;cursor:pointer;
+            font-family:'Outfit',sans-serif;
             display:inline-flex;align-items:center;gap:7px;
             transition:background .2s;white-space:nowrap;flex-shrink:0
-          " onmouseover="this.style.background='${WD.blue}33'" onmouseout="this.style.background='${WD.blue}22'">
+          " onmouseover="this.style.background='rgba(212,177,90,0.2)'" onmouseout="this.style.background='rgba(212,177,90,0.12)'">
             Explore CroissantsMoon <i data-lucide="arrow-right" style="width:12px;height:12px"></i>
           </button>
         </div>
@@ -332,51 +494,84 @@ function wdBuildProcess() {
         <div style="display:flex;flex-direction:column;align-items:center;width:56px;flex-shrink:0">
           <div style="
             width:56px;height:56px;border-radius:50%;
-            background:${s.color};
+            background:rgba(111,168,255,0.08);
             display:flex;align-items:center;justify-content:center;
             font-size:1.35rem;flex-shrink:0;
-            box-shadow:0 6px 22px ${s.color}55;
-            border:3px solid #F8F4EE;
+            color:#D4B15A;
+            border:1px solid rgba(111,168,255,0.18);
             position:relative;z-index:2
           ">${s.icon}</div>
           ${!isLast ? `<div style="
-            flex:1;width:2px;min-height:20px;
-            background:linear-gradient(to bottom,${s.color}88,${nextColor}88);
+            flex:1;width:1px;min-height:20px;
+            background:linear-gradient(to bottom,rgba(111,168,255,0.2),rgba(111,168,255,0.05));
             border-radius:1px
           "></div>` : ''}
         </div>
         <div style="flex:1;margin-left:22px;${!isLast ? 'padding-bottom:28px' : ''}">
           <div class="cm-process-card" style="
-            background:#fff;border-radius:16px;padding:22px 24px;
-            border:1px solid rgba(28,28,30,0.07);
-            border-left:3px solid ${s.color};
-            box-shadow:0 2px 16px rgba(0,0,0,0.04)
+            background:rgba(24,59,107,0.28);
+            backdrop-filter:blur(12px);
+            border:1px solid rgba(111,168,255,0.15);
+            border-radius:16px;
+            border-left:3px solid #6FA8FF;
+            padding:22px 24px;
           ">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
-              <span style="font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(28,28,30,0.28)">Step ${String(i + 1).padStart(2, '0')}</span>
-              <span style="height:1px;flex:1;background:rgba(28,28,30,0.07)"></span>
-              <span style="font-size:.68rem;font-weight:600;color:${s.color};background:${s.color}18;padding:2px 10px;border-radius:999px">${s.label}</span>
+              <span style="
+                font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+                background:rgba(111,168,255,0.08);color:#D4B15A;
+                padding:2px 8px;border-radius:999px;
+                font-family:'Outfit',sans-serif
+              ">Step ${String(i + 1).padStart(2, '0')}</span>
+              <span style="height:1px;flex:1;background:rgba(111,168,255,0.1)"></span>
+              <span style="
+                font-size:.68rem;font-weight:600;color:#D4B15A;
+                background:rgba(212,177,90,0.12);padding:2px 10px;border-radius:999px;
+                font-family:'Outfit',sans-serif
+              ">${s.label}</span>
             </div>
-            <p style="font-size:.84rem;line-height:1.68;color:rgba(28,28,30,0.54)">${s.desc}</p>
+            <p style="
+              font-size:.84rem;line-height:1.68;color:#8FA8D6;
+              font-family:'Outfit',sans-serif
+            ">${s.desc}</p>
           </div>
         </div>
       </div>`;
   }).join('');
 
   return `
-    <div class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:linear-gradient(135deg,#F2ECE4 0%,${WD.cream} 100%)">
+    <div class="cm-reveal" style="
+      padding:clamp(4rem,8vh,6rem) 24px;
+      background:linear-gradient(180deg,#030712 0%,#071126 100%)
+    ">
       <div class="max-w-4xl mx-auto">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${WD.purple};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${WD.purple}">How I Build</span>
+          <span style="display:inline-block;width:28px;height:2px;background:#6FA8FF;border-radius:2px"></span>
+          <span style="
+            font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+            color:#6FA8FF;font-family:'Outfit',sans-serif
+          ">How I Build</span>
         </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.6rem;letter-spacing:-.03em">From Concept to Code</h2>
-        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:2.75rem;max-width:440px;line-height:1.65">Not a checklist. A way of thinking — iterative, craft-led, and always grounded in purpose.</p>
+        <h2 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(2rem,4vw,3rem);font-weight:500;
+          color:#D9E6FF;margin-bottom:.6rem;
+          font-style:italic
+        ">From Concept to Code</h2>
+        <p style="
+          font-size:.93rem;color:#8FA8D6;margin-bottom:2.75rem;
+          max-width:440px;line-height:1.65;
+          font-family:'Outfit',sans-serif
+        ">Not a checklist. A way of thinking — iterative, craft-led, and always grounded in purpose.</p>
         <div style="max-width:640px">
           ${steps}
         </div>
-        <div style="display:flex;align-items:center;gap:10px;padding-left:68px;margin-top:8px;opacity:.38">
-          <span style="font-family:'Caveat',cursive;font-size:1rem;color:${WD.orange}">↩ and every launch teaches something new</span>
+        <div style="display:flex;align-items:center;gap:10px;padding-left:68px;margin-top:8px">
+          <span style="
+            font-family:'Cormorant Garamond',Georgia,serif;
+            font-style:italic;font-size:1rem;
+            color:#D4B15A;opacity:.45
+          ">↩ and every launch teaches something new</span>
         </div>
       </div>
     </div>`;
@@ -384,53 +579,89 @@ function wdBuildProcess() {
 
 function wdBuildPhilosophy() {
   const pillars = [
-    ['Clarity',  'Design that communicates before it impresses.',           '✦'],
-    ['Craft',    'The spacing, the weight, the timing. Nothing is too small.','◈'],
-    ['Purpose',  'Every element earns its place. Nothing decorative for its own sake.','◉'],
+    ['Clarity',  'Design that communicates before it impresses.',              '✦'],
+    ['Craft',    'The spacing, the weight, the timing. Nothing is too small.', '◈'],
+    ['Purpose',  'Every element earns its place. Nothing decorative for its own sake.', '◉'],
   ].map(([title, desc, icon]) => `
     <div style="
-      background:rgba(255,255,255,0.45);
-      border:1px solid rgba(255,255,255,0.6);
+      background:rgba(24,59,107,0.32);
+      border:1px solid rgba(111,168,255,0.15);
       border-radius:16px;padding:24px;
-      backdrop-filter:blur(4px)
+      backdrop-filter:blur(12px)
     ">
-      <span style="font-size:1.4rem;display:block;margin-bottom:12px">${icon}</span>
+      <span style="
+        font-size:1.4rem;display:block;margin-bottom:12px;
+        color:#D4B15A;text-shadow:0 0 12px rgba(212,177,90,0.4)
+      ">${icon}</span>
       <h4 style="
-        font-family:'Space Grotesk',Inter,sans-serif;
-        font-weight:700;font-size:1.05rem;color:#1C1C1E;margin-bottom:8px
+        font-family:'Cormorant Garamond',Georgia,serif;
+        font-weight:500;font-size:1.1rem;color:#D9E6FF;
+        margin-bottom:8px;font-style:italic
       ">${title}</h4>
-      <p style="font-size:.83rem;line-height:1.6;color:rgba(28,28,30,0.65)">${desc}</p>
+      <p style="
+        font-size:.83rem;line-height:1.6;color:#8FA8D6;
+        font-family:'Outfit',sans-serif
+      ">${desc}</p>
     </div>`).join('');
 
   return `
     <div class="cm-reveal" style="
       padding:clamp(4rem,10vh,7rem) 24px;
-      background:${WD.yellow};position:relative;overflow:hidden
+      background:linear-gradient(160deg,#071126 0%,#0B1E3A 100%);
+      position:relative;overflow:hidden
     ">
-      <div style="position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.15);pointer-events:none"></div>
-      <div style="position:absolute;left:-30px;bottom:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,140,0,0.1);pointer-events:none"></div>
-      <div class="max-w-5xl mx-auto">
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:2.5rem">
-          <span style="display:inline-block;width:28px;height:3px;background:rgba(28,28,30,0.35);border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(28,28,30,0.45)">Design Philosophy</span>
+          <span style="display:inline-block;width:28px;height:2px;background:#8FA8D6;border-radius:2px"></span>
+          <span style="
+            font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+            color:#8FA8D6;font-family:'Outfit',sans-serif
+          ">Design Philosophy</span>
         </div>
         <p style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(2.5rem,6vw,5rem);
-          font-weight:700;line-height:1.05;
-          letter-spacing:-.03em;color:#1C1C1E;
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(2.5rem,6vw,5.5rem);
+          font-weight:400;line-height:1.05;
+          font-style:italic;color:#D9E6FF;
           margin-bottom:2.5rem
-        ">Websites that<br><em style="font-style:italic;color:#C05C11">actually say something.</em></p>
+        ">Websites that<br><em style="color:#D4B15A;font-style:italic">actually say something.</em></p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;align-items:start">
           <div>
-            <p style="font-size:1.1rem;line-height:1.7;color:rgba(28,28,30,0.72);font-weight:500">
+            <p style="
+              font-size:1.05rem;line-height:1.75;color:#8FA8D6;
+              font-weight:300;font-family:'Outfit',sans-serif
+            ">
               The web is full of noise. A good website isn't just functional — it has a point of view. It knows who it's talking to, what it wants to say, and exactly how much is enough.
             </p>
           </div>
           <div style="display:flex;flex-direction:column;gap:14px">
-            <div class="cm-sticky-note" style="transform:rotate(-2deg)">"Design is the space between content and reader." ✦</div>
-            <div class="cm-sticky-note" style="transform:rotate(1.5deg);background:${WD.pink};margin-top:6px;align-self:flex-end">intentional > impressive ◈</div>
-            <div class="cm-sticky-note" style="transform:rotate(-1deg);background:#fff">every pixel should earn its place ◉</div>
+            <div style="
+              background:rgba(212,177,90,0.12);color:#D4B15A;
+              border:1px solid rgba(212,177,90,0.2);border-radius:8px;
+              backdrop-filter:blur(8px);
+              padding:12px 16px;
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-style:italic;font-size:.95rem;line-height:1.5;
+              transform:rotate(-2deg)
+            ">"Design is the space between content and reader." ✦</div>
+            <div style="
+              background:rgba(111,168,255,0.1);color:#6FA8FF;
+              border:1px solid rgba(111,168,255,0.2);border-radius:8px;
+              backdrop-filter:blur(8px);
+              padding:12px 16px;margin-top:6px;align-self:flex-end;
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-style:italic;font-size:.95rem;line-height:1.5;
+              transform:rotate(1.5deg)
+            ">intentional &gt; impressive ◈</div>
+            <div style="
+              background:rgba(217,230,255,0.05);color:#D9E6FF;
+              border:1px solid rgba(217,230,255,0.1);border-radius:8px;
+              backdrop-filter:blur(8px);
+              padding:12px 16px;
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-style:italic;font-size:.95rem;line-height:1.5;
+              transform:rotate(-1deg)
+            ">every pixel should earn its place ◉</div>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:2.5rem">
@@ -444,39 +675,57 @@ function wdBuildTechStack() {
   const rotations = ['-2deg','1deg','-1.5deg','2.5deg','0deg','-0.8deg','1.2deg','-1deg','0.5deg','-1.2deg','1.8deg','-0.5deg'];
   const fontSizes = ['.77rem', '.9rem', '1.05rem'];
   const paddings  = ['5px 14px', '7px 18px', '9px 22px'];
+  const tagColors = [WD.aurora, WD.nebulaGold, WD.moonlight, WD.stardust];
 
   const tags = WD_SKILLS.map((item, i) => {
-    const sz  = i % 3;
-    const rot = rotations[i % rotations.length];
-    const textColor = (item.color === WD.yellow || item.color === WD.mint || item.color === WD.peach)
-      ? '#1C1C1E' : '#2A1A4A';
+    const sz    = i % 3;
+    const rot   = rotations[i % rotations.length];
+    const col   = tagColors[i % tagColors.length];
+    // aurora and moonlight are lighter, rest use same stardust text
     return `
       <span style="
         display:inline-block;
-        background:${item.color}28;color:${textColor};
+        background:rgba(111,168,255,0.08);color:#8FA8D6;
         padding:${paddings[sz]};border-radius:999px;
-        font-size:${fontSizes[sz]};font-weight:600;
-        border:1.5px solid ${item.color}55;
+        font-size:${fontSizes[sz]};font-weight:500;
+        font-family:'Outfit',sans-serif;
+        border:1.5px solid rgba(111,168,255,0.18);
         transform:rotate(${rot});
         transition:transform .22s cubic-bezier(0.34,1.56,0.64,1),box-shadow .22s;
         cursor:default;margin:6px
-      " onmouseover="this.style.transform='scale(1.09) rotate(0deg)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='rotate(${rot})';this.style.boxShadow='none'"
+      " onmouseover="this.style.transform='scale(1.09) rotate(0deg)';this.style.boxShadow='0 8px 24px rgba(3,7,18,0.4)';this.style.color='${col}';this.style.borderColor='${col}44'"
+         onmouseout="this.style.transform='rotate(${rot})';this.style.boxShadow='none';this.style.color='#8FA8D6';this.style.borderColor='rgba(111,168,255,0.18)'"
       >${item.text}</span>`;
   }).join('');
 
   return `
-    <div class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:${WD.cream}">
+    <div class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:#0B1E3A">
       <div class="max-w-5xl mx-auto">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${WD.coral};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${WD.coral}">Tech Stack</span>
+          <span style="display:inline-block;width:28px;height:2px;background:#D4B15A;border-radius:2px"></span>
+          <span style="
+            font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+            color:#D4B15A;font-family:'Outfit',sans-serif
+          ">Tech Stack</span>
         </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.75rem;letter-spacing:-.03em">Tools of the Trade</h2>
-        <p style="font-size:.95rem;color:rgba(28,28,30,0.55);margin-bottom:2.5rem;max-width:480px;line-height:1.72">
+        <h2 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(2rem,4vw,3rem);font-weight:500;
+          color:#D9E6FF;margin-bottom:.75rem;
+          font-style:italic
+        ">Tools of the Trade</h2>
+        <p style="
+          font-size:.95rem;color:#8FA8D6;margin-bottom:2.5rem;
+          max-width:480px;line-height:1.72;
+          font-family:'Outfit',sans-serif
+        ">
           The technologies and disciplines that shape every project — chosen for clarity, not credentials.
         </p>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;padding:28px;background:#fff;border-radius:24px;border:1px solid rgba(28,28,30,0.07);box-shadow:0 4px 24px rgba(0,0,0,0.04)">
+        <div style="
+          display:flex;flex-wrap:wrap;align-items:center;padding:28px;
+          background:rgba(7,17,38,0.6);border-radius:24px;
+          border:1px solid rgba(111,168,255,0.12)
+        ">
           ${tags}
         </div>
       </div>
@@ -485,63 +734,96 @@ function wdBuildTechStack() {
 
 function wdBuildStats() {
   const stats = [
-    { num: '3+',   label: 'Live Projects',         color: WD.blue   },
-    { num: '100%', label: 'Mobile Responsive',      color: WD.mint   },
-    { num: '9',    label: 'Graphic Design Works',   color: WD.yellow },
-    { num: '∞',    label: 'Details Cared About',    color: WD.coral  },
+    { num: '3+',   label: 'Live Projects'       },
+    { num: '100%', label: 'Mobile Responsive'   },
+    { num: '9',    label: 'Graphic Design Works' },
+    { num: '∞',    label: 'Details Cared About' },
   ];
 
   const statCards = stats.map(s => `
     <div style="
       text-align:center;padding:28px 20px;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(217,230,255,0.03);
+      border:1px solid rgba(111,168,255,0.1);
       border-radius:18px;
-      transition:background .2s,transform .2s
-    " onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.transform='translateY(-4px)'"
-       onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.transform=''">
-      <div style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:${s.color};line-height:1;margin-bottom:10px">${s.num}</div>
-      <div style="font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.4)">${s.label}</div>
+      transition:background .2s,transform .2s,box-shadow .2s
+    " onmouseover="this.style.background='rgba(111,168,255,0.06)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 0 32px rgba(111,168,255,0.1)'"
+       onmouseout="this.style.background='rgba(217,230,255,0.03)';this.style.transform='';this.style.boxShadow=''">
+      <div style="
+        font-family:'Cormorant Garamond',Georgia,serif;
+        font-size:clamp(2rem,5vw,3.2rem);font-weight:400;
+        font-style:italic;color:#D4B15A;
+        line-height:1;margin-bottom:10px
+      ">${s.num}</div>
+      <div style="
+        font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+        color:rgba(143,168,214,0.5);font-family:'Outfit',sans-serif
+      ">${s.label}</div>
     </div>`).join('');
 
   return `
-    <div class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:#1C1C1E;position:relative;overflow:hidden">
-      <div style="position:absolute;top:-80px;right:-80px;width:360px;height:360px;border-radius:50%;background:${WD.blue};opacity:.04;pointer-events:none"></div>
-      <div style="position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:${WD.purple};opacity:.05;pointer-events:none"></div>
+    <div class="cm-reveal" style="
+      padding:clamp(4rem,8vh,6rem) 24px;
+      background:linear-gradient(180deg,#030712 0%,#071126 100%);
+      position:relative;overflow:hidden
+    ">
       <div class="max-w-5xl mx-auto relative" style="z-index:1">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${WD.mint};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${WD.mint}">By the Numbers</span>
+          <span style="display:inline-block;width:28px;height:2px;background:#6FA8FF;border-radius:2px"></span>
+          <span style="
+            font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+            color:#6FA8FF;font-family:'Outfit',sans-serif
+          ">By the Numbers</span>
         </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;margin-bottom:.6rem;letter-spacing:-.03em">Work That Ships</h2>
-        <p style="font-size:.93rem;color:rgba(255,255,255,0.42);margin-bottom:2.5rem;max-width:440px;line-height:1.65">Real projects, real audiences, real constraints. Numbers as a reflection of work done, not ambition claimed.</p>
+        <h2 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(2rem,4vw,3rem);font-weight:500;
+          color:#D9E6FF;margin-bottom:.6rem;
+          font-style:italic
+        ">Work That Ships</h2>
+        <p style="
+          font-size:.93rem;color:#8FA8D6;margin-bottom:2.5rem;
+          max-width:440px;line-height:1.65;
+          font-family:'Outfit',sans-serif
+        ">Real projects, real audiences, real constraints. Numbers as a reflection of work done, not ambition claimed.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px">
           ${statCards}
         </div>
         <div style="
           margin-top:28px;padding:22px 26px;
-          background:rgba(255,255,255,0.04);
-          border:1px solid rgba(255,255,255,0.1);
-          border-left:3px solid ${WD.mint};
+          background:rgba(217,230,255,0.03);
+          border:1px solid rgba(111,168,255,0.12);
+          border-left:3px solid #6FA8FF;
           border-radius:16px;
           display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap
         ">
           <div style="flex:1;min-width:240px">
             <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">
-              <span style="width:8px;height:8px;border-radius:50%;background:#28C840;display:inline-block;animation:cmPulseDot 2s infinite"></span>
-              <span style="font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#28C840">Currently Active</span>
+              <span style="width:8px;height:8px;border-radius:50%;background:#4CAF87;display:inline-block;animation:cmPulseDot 2s infinite"></span>
+              <span style="
+                font-size:.64rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+                color:#4CAF87;font-family:'Outfit',sans-serif
+              ">Currently Active</span>
             </div>
-            <h3 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:7px">This Portfolio</h3>
-            <p style="font-size:.82rem;line-height:1.65;color:rgba(255,255,255,0.45);max-width:440px">An ongoing experiment in editorial web design — every interaction and section is being refined in public. You're inside the experiment right now.</p>
+            <h3 style="
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-size:1.1rem;font-weight:500;font-style:italic;
+              color:#D9E6FF;margin-bottom:7px
+            ">This Portfolio</h3>
+            <p style="
+              font-size:.82rem;line-height:1.65;color:#8FA8D6;
+              max-width:440px;font-family:'Outfit',sans-serif
+            ">An ongoing experiment in editorial web design — every interaction and section is being refined in public. You're inside the experiment right now.</p>
           </div>
           <button onclick="goToPage('pcu-global')" style="
-            background:${WD.mint}22;color:${WD.mint};
-            border:1px solid ${WD.mint}44;
+            background:rgba(111,168,255,0.1);color:#6FA8FF;
+            border:1px solid rgba(111,168,255,0.22);
             padding:10px 22px;border-radius:999px;
             font-size:.78rem;font-weight:600;cursor:pointer;
+            font-family:'Outfit',sans-serif;
             display:inline-flex;align-items:center;gap:7px;
             transition:background .2s;white-space:nowrap;flex-shrink:0;align-self:center
-          " onmouseover="this.style.background='${WD.mint}33'" onmouseout="this.style.background='${WD.mint}22'">
+          " onmouseover="this.style.background='rgba(111,168,255,0.18)'" onmouseout="this.style.background='rgba(111,168,255,0.1)'">
             See featured project <i data-lucide="arrow-right" style="width:12px;height:12px"></i>
           </button>
         </div>
@@ -550,42 +832,78 @@ function wdBuildStats() {
 }
 
 function wdBuildCTA() {
+  // Floating stars for CTA background
+  const stars = Array.from({ length: 40 }, () => {
+    const x   = Math.random() * 100;
+    const y   = Math.random() * 100;
+    const sz  = 1 + Math.random() * 2;
+    const del = (Math.random() * 4).toFixed(2);
+    const dur = (2.5 + Math.random() * 3).toFixed(2);
+    return `<span style="
+      position:absolute;left:${x.toFixed(1)}%;top:${y.toFixed(1)}%;
+      width:${sz.toFixed(1)}px;height:${sz.toFixed(1)}px;
+      background:#D9E6FF;border-radius:50%;opacity:.18;
+      animation:wdTwinkle ${dur}s ease-in-out ${del}s infinite;
+      pointer-events:none
+    "></span>`;
+  }).join('');
+
+  // Large decorative crescent moon at very low opacity
+  const bigCrescent = `
+    <svg style="
+      position:absolute;right:-60px;top:-40px;
+      width:340px;height:340px;
+      pointer-events:none;z-index:0;opacity:.045
+    " viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M120 20 A80 80 0 1 0 120 180 A55 55 0 1 1 120 20Z" fill="#D9E6FF"/>
+    </svg>`;
+
   return `
-    <div class="cm-reveal" style="padding:clamp(5rem,10vh,7rem) 24px;background:${WD.orange};position:relative;overflow:hidden">
-      <div style="position:absolute;top:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.1);pointer-events:none"></div>
-      <div style="position:absolute;bottom:-40px;right:-40px;width:240px;height:240px;border-radius:50%;background:rgba(0,0,0,0.06);pointer-events:none"></div>
+    <div class="cm-reveal" style="
+      padding:clamp(5rem,10vh,7rem) 24px;
+      background:linear-gradient(160deg,#030712 0%,#071126 60%,#0a1530 100%);
+      position:relative;overflow:hidden
+    ">
+      ${stars}
+      ${bigCrescent}
       <div class="max-w-4xl mx-auto text-center relative" style="z-index:1">
-        <span style="font-size:2.5rem;display:block;margin-bottom:24px">◈</span>
         <h2 style="
-          font-family:'Space Grotesk',Inter,sans-serif;
+          font-family:'Cormorant Garamond',Georgia,serif;
           font-size:clamp(2rem,5vw,3.8rem);
-          font-weight:700;color:#fff;
-          line-height:1.1;letter-spacing:-.04em;margin-bottom:1.5rem
-        ">Have a website in mind?<br><span style="opacity:.82">Let's build it right.</span></h2>
-        <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.75);max-width:480px;margin:0 auto 2.5rem">
+          font-weight:400;color:#D9E6FF;
+          line-height:1.1;font-style:italic;
+          margin-bottom:1.5rem
+        ">Have a website in mind?<br><span style="color:#D4B15A">Let's build it right.</span></h2>
+        <p style="
+          font-size:1rem;line-height:1.7;color:#8FA8D6;
+          max-width:480px;margin:0 auto 2.5rem;
+          font-family:'Outfit',sans-serif
+        ">
           Whether it's a portfolio, an institutional portal, or something new — every good site starts with a clear idea and the patience to do it properly.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center">
           <button onclick="goToPage('contact')" style="
-            background:#1C1C1E;color:#fff;
+            background:#D4B15A;color:#071126;
             padding:16px 36px;border-radius:999px;
-            font-family:'Space Grotesk',Inter,sans-serif;
+            font-family:'Outfit',sans-serif;
             font-size:.92rem;font-weight:700;
             border:none;cursor:pointer;
             display:inline-flex;align-items:center;gap:10px;
-            transition:opacity .2s;
-            box-shadow:0 4px 20px rgba(28,28,30,0.18)
-          " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+            animation:cmGlowPulse 2.6s ease-in-out infinite;
+            transition:opacity .2s
+          " onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
             Start a Conversation <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
           </button>
           <button onclick="goToPage('croissantsmoon')" style="
-            background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.4);
-            color:#fff;padding:16px 28px;border-radius:999px;
+            background:rgba(212,177,90,0.1);
+            border:1px solid rgba(212,177,90,0.28);
+            color:#D4B15A;padding:16px 28px;border-radius:999px;
             font-size:.86rem;font-weight:600;
+            font-family:'Outfit',sans-serif;
             cursor:pointer;
             display:inline-flex;align-items:center;gap:8px;
             transition:background .2s
-          " onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.18)'">
+          " onmouseover="this.style.background='rgba(212,177,90,0.18)'" onmouseout="this.style.background='rgba(212,177,90,0.1)'">
             Explore CroissantsMoon ✦
           </button>
         </div>
@@ -593,9 +911,10 @@ function wdBuildCTA() {
           <button onclick="goToPage('home')" style="
             display:inline-flex;align-items:center;gap:6px;
             background:none;border:none;cursor:pointer;
-            font-size:.8rem;color:rgba(255,255,255,0.45);
+            font-size:.8rem;color:rgba(143,168,214,0.3);
+            font-family:'Outfit',sans-serif;
             padding:8px 12px;border-radius:8px;transition:color .18s
-          " onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+          " onmouseover="this.style.color='rgba(143,168,214,0.6)'" onmouseout="this.style.color='rgba(143,168,214,0.3)'">
             <i data-lucide="arrow-left" style="width:14px;height:14px"></i> Back to main portfolio
           </button>
         </div>
@@ -607,10 +926,11 @@ function wdBuildCTA() {
 
 function wdInitPage() {
   wdInjectFonts();
+  wdInjectPageCSS();
   const el = document.getElementById('page-websites');
   if (!el) return;
 
-  el.style.background = WD.cream;
+  el.style.background = WD.void;
   el.innerHTML = [
     wdBuildHero(),
     wdBuildMarquee(),
@@ -672,8 +992,8 @@ function wdInitParticles() {
   if (!canvas) return;
 
   const ctx    = canvas.getContext('2d');
-  const colors = [WD.yellow, WD.blue, WD.pink, WD.mint, WD.lavender, WD.peach, WD.coral];
-  const syms   = ['✦', '◈', '◉', '◎', '·', '✺', '⬡', '★', '◈'];
+  const colors = ['#D4B15A', '#6FA8FF', '#D9E6FF', '#8FA8D6'];
+  const syms   = ['✦', '·', '★', '◦', '•'];
 
   let W, H, particles;
 
