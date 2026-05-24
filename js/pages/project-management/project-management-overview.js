@@ -1,5 +1,33 @@
 // ── Projects Overview Page ────────────────────────────────────────────────────
 
+const INTL_SITE = 'https://zefanyakharisma-cell.github.io/international-office-website/';
+
+function _pcuIframePanel(height) {
+  const iframeH = Math.round(height / 0.333);
+  return `
+    <div style="position:relative;overflow:hidden;height:${height}px;background:#001560;flex-shrink:0">
+      <iframe
+        src="${INTL_SITE}"
+        style="position:absolute;top:0;left:0;width:300%;height:${iframeH}px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none"
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin"
+        aria-hidden="true"
+        title="PCU International Office Website"
+      ></iframe>
+      <div style="position:absolute;top:0;left:0;right:0;z-index:2;background:rgba(0,10,40,0.72);padding:9px 14px;display:flex;align-items:center;gap:8px">
+        <div style="display:flex;gap:5px;flex-shrink:0">
+          <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57;display:inline-block"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#FFBD2E;display:inline-block"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#28CA41;display:inline-block"></span>
+        </div>
+        <div style="flex:1;background:rgba(255,255,255,0.07);border-radius:6px;padding:3px 10px;font-size:.6rem;color:rgba(255,255,255,0.42);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+          zefanyakharisma-cell.github.io/international-office-website/
+        </div>
+      </div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 72%,rgba(255,255,255,0.04) 100%);pointer-events:none;z-index:1"></div>
+    </div>`;
+}
+
 function projectsOverviewInitPage() {
   const el = document.getElementById('page-projects-overview');
   if (!el) return;
@@ -33,21 +61,21 @@ function projectsOverviewInitPage() {
 
     <div class="absolute bottom-0 left-0 right-0" style="background:rgba(250,250,248,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(28,28,30,0.07);z-index:10">
      <div class="max-w-6xl mx-auto px-6 md:px-16 lg:px-24">
-      <div class="flex flex-wrap gap-0">
-       <div style="padding:18px 32px 18px 0;border-right:1px solid rgba(28,28,30,0.07);margin-right:32px">
-        <div class="font-heading font-bold" style="font-size:1.75rem;letter-spacing:-.025em;color:#1C1C1E;line-height:1">3</div>
+      <div class="proj-stats-bar">
+       <div class="proj-stats-item">
+        <div class="font-heading font-bold proj-stats-number">3</div>
         <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Flagship Programs</div>
        </div>
-       <div style="padding:18px 32px 18px 0;border-right:1px solid rgba(28,28,30,0.07);margin-right:32px">
-        <div class="font-heading font-bold" style="font-size:1.75rem;letter-spacing:-.025em;color:#1C1C1E;line-height:1">200+</div>
+       <div class="proj-stats-item">
+        <div class="font-heading font-bold proj-stats-number">200+</div>
         <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Students Supported</div>
        </div>
-       <div style="padding:18px 32px 18px 0;border-right:1px solid rgba(28,28,30,0.07);margin-right:32px">
-        <div class="font-heading font-bold" style="font-size:1.75rem;letter-spacing:-.025em;color:#1C1C1E;line-height:1">IDR 290M</div>
+       <div class="proj-stats-item">
+        <div class="font-heading font-bold proj-stats-number">IDR 290M</div>
         <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Budget Peak</div>
        </div>
-       <div style="padding:18px 0">
-        <div class="font-heading font-bold" style="font-size:1.75rem;letter-spacing:-.025em;color:#1C1C1E;line-height:1">50+</div>
+       <div class="proj-stats-item">
+        <div class="font-heading font-bold proj-stats-number">50+</div>
         <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Stakeholders Engaged</div>
        </div>
       </div>
@@ -57,6 +85,7 @@ function projectsOverviewInitPage() {
 
    <div class="max-w-6xl mx-auto px-6 py-16">
 
+    <!-- ── Featured Programs ─────────────────────────────────────────── -->
     <div class="flex items-center gap-4 mb-10">
      <span style="font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8B7355">Featured Programs</span>
      <div style="flex:1;height:1px;background:rgba(28,28,30,0.08)"></div>
@@ -86,18 +115,9 @@ function projectsOverviewInitPage() {
         <div class="flex flex-wrap gap-1.5"><span class="tag">Student Mobility</span><span class="tag">Project Management</span><span class="tag">Leadership</span></div>
        </div>
        <div class="flex flex-wrap items-center gap-8 pt-6 mt-6" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div>
-         <div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">120+</div>
-         <div style="font-size:.7rem;color:#767676;margin-top:2px">Students / cohort</div>
-        </div>
-        <div>
-         <div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">IDR 50–100M</div>
-         <div style="font-size:.7rem;color:#767676;margin-top:2px">Budget / program</div>
-        </div>
-        <div>
-         <div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">10+</div>
-         <div style="font-size:.7rem;color:#767676;margin-top:2px">Stakeholders</div>
-        </div>
+        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">120+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Students / cohort</div></div>
+        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">IDR 50–100M</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Budget / program</div></div>
+        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">10+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Stakeholders</div></div>
         <div class="ml-auto flex items-center gap-2 font-medium text-sm" style="color:#8B7355">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></div>
        </div>
       </div>
@@ -106,17 +126,13 @@ function projectsOverviewInitPage() {
 
     <!-- ACI + AERO -->
     <div class="grid md:grid-cols-2 gap-5 mb-20">
-
      <div class="cursor-pointer group" onclick="goToPage('aci')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:18px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 10px 36px rgba(28,28,30,0.09)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
       <div class="relative overflow-hidden" style="height:170px">
        <img loading="lazy" src="assets/images/aci/aci-4.JPEG" alt="ACI" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(55,62,38,0.9) 0%,rgba(55,62,38,0.25) 65%,transparent 100%)"></div>
        <div class="absolute top-4 left-5" style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;letter-spacing:-.04em;user-select:none">02</div>
        <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
-        <div>
-         <div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Cultural Immersion</div>
-         <div class="font-heading font-bold text-3xl" style="color:#fff;letter-spacing:-.02em">ACI</div>
-        </div>
+        <div><div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Cultural Immersion</div><div class="font-heading font-bold text-3xl" style="color:#fff;letter-spacing:-.02em">ACI</div></div>
         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.12)">Student Support</span>
        </div>
       </div>
@@ -124,10 +140,7 @@ function projectsOverviewInitPage() {
        <p style="font-size:.875rem;color:#5C5C5C;line-height:1.68;margin-bottom:16px">Bringing together international and local students through collaborative activities, site visits, and structured engagement throughout the semester.</p>
        <div class="flex flex-wrap gap-1.5 mb-5"><span class="tag">Cross-Cultural</span><span class="tag">Project Management</span></div>
        <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div>
-         <span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">100+</span>
-         <span style="font-size:.75rem;color:#767676;margin-left:4px">students / program</span>
-        </div>
+        <div><span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">100+</span><span style="font-size:.75rem;color:#767676;margin-left:4px">students / program</span></div>
         <span class="flex items-center gap-1.5 text-sm font-medium" style="color:#8B7355">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
        </div>
       </div>
@@ -139,10 +152,7 @@ function projectsOverviewInitPage() {
        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(20,20,22,0.9) 0%,rgba(20,20,22,0.25) 65%,transparent 100%)"></div>
        <div class="absolute top-4 left-5" style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;letter-spacing:-.04em;user-select:none">03</div>
        <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
-        <div>
-         <div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Annual Exhibition</div>
-         <div class="font-heading font-bold text-3xl" style="color:#fff;letter-spacing:-.02em">AERO</div>
-        </div>
+        <div><div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Annual Exhibition</div><div class="font-heading font-bold text-3xl" style="color:#fff;letter-spacing:-.02em">AERO</div></div>
         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.12)">Int'l Partnership</span>
        </div>
       </div>
@@ -150,101 +160,77 @@ function projectsOverviewInitPage() {
        <p style="font-size:.875rem;color:#5C5C5C;line-height:1.68;margin-bottom:16px">Annual exhibition at Universitas Airlangga showcasing global partnerships — coordinated logistics, vendor management, and event planning across 50+ stakeholders.</p>
        <div class="flex flex-wrap gap-1.5 mb-5"><span class="tag">Branding</span><span class="tag">Creative Direction</span></div>
        <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div>
-         <span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">50+</span>
-         <span style="font-size:.75rem;color:#767676;margin-left:4px">stakeholders coordinated</span>
-        </div>
+        <div><span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">50+</span><span style="font-size:.75rem;color:#767676;margin-left:4px">stakeholders coordinated</span></div>
         <span class="flex items-center gap-1.5 text-sm font-medium" style="color:#8B7355">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
        </div>
       </div>
      </div>
-
     </div>
 
-    <!-- Digital Projects -->
+    <!-- ── PCU Global — Digital Transformation ───────────────────────── -->
     <div class="flex items-center gap-4 mb-10">
-     <span style="font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#003087">Digital Projects</span>
+     <span style="font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#003087">Digital Transformation</span>
      <div style="flex:1;height:1px;background:rgba(28,28,30,0.08)"></div>
      <span style="font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C0B8AE">Petra Christian University</span>
     </div>
 
-    <div class="mb-10">
-     <h2 class="font-heading font-bold" style="font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:-.02em;color:#1C1C1E;margin-bottom:10px">Digital Transformation</h2>
-     <p style="font-size:.9375rem;color:#5C5C5C;line-height:1.65;max-width:560px">Rebuilding institutional web presence for higher education — from research and diagnosis through to full-stack delivery.</p>
-    </div>
+    <!-- PCU Global — full-width featured card with live site preview -->
+    <div class="cursor-pointer" onclick="goToPage('pcu-global')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;margin-bottom:16px;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 16px 56px rgba(0,48,135,0.12)';this.style.borderColor='rgba(0,48,135,0.22)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
+     <div class="grid md:grid-cols-5" style="min-height:320px">
 
-    <div class="grid md:grid-cols-2 gap-5">
-
-     <!-- PCU Global -->
-     <div class="cursor-pointer group" onclick="goToPage('pcu-global')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(0,48,135,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#002070,#1a4fa0);height:200px">
-       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 25% 40%,rgba(255,255,255,0.12),transparent 55%)"></div>
-       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <span class="font-heading font-bold select-none" style="font-size:clamp(3.5rem,8vw,6rem);color:rgba(255,255,255,0.055);letter-spacing:-.03em;white-space:nowrap">PCU Global</span>
-       </div>
-       <div class="relative z-10 text-center px-8">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:10px">Web Application</div>
-        <div class="font-heading font-bold" style="font-size:2.2rem;color:#fff;letter-spacing:-.025em;line-height:1.05">PCU Global</div>
-        <div style="width:28px;height:2px;background:rgba(255,255,255,0.25);border-radius:2px;margin:14px auto 10px"></div>
-        <div style="font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.45)">International Office</div>
-       </div>
+      <!-- Live site preview panel -->
+      <div class="md:col-span-2 relative overflow-hidden" style="min-height:280px">
+       ${_pcuIframePanel(280)}
+       <div class="absolute top-14 left-5" style="font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:rgba(255,255,255,0.06);line-height:1;letter-spacing:-.04em;user-select:none;z-index:3;pointer-events:none">04</div>
       </div>
-      <div class="p-7 flex flex-col justify-between" style="min-height:200px">
+
+      <!-- Content -->
+      <div class="md:col-span-3 p-9 flex flex-col justify-between">
        <div>
-        <div class="flex items-center gap-3 mb-4">
-         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(0,48,135,0.08);color:#003087">Full-Stack</span>
-         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">2026 · In progress</span>
+        <div class="flex items-center gap-3 mb-5">
+         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(0,48,135,0.08);color:#003087">Full-Stack + International</span>
+         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">2026 · Comprehensive</span>
         </div>
-        <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">PCU Global — International Office Website</h3>
-        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Rebuilding and rebranding PCU's International Office — full-stack delivery including news CMS, partnership directory, and mobile-first design.</p>
-        <div class="flex flex-wrap gap-1.5"><span class="tag">Full-Stack Development</span><span class="tag">UI/UX Design</span><span class="tag">Digital Strategy</span></div>
+        <h3 class="font-heading font-bold" style="font-size:1.45rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:14px">PCU Global — International Office</h3>
+        <p style="font-size:.875rem;color:#5C5C5C;line-height:1.7;margin-bottom:20px">Ground-up rebuild of PCU's International Office website with full-stack delivery — news CMS, partnership directory, and mobile-first design. Includes the international engagement context behind the project: 200+ students supported, 30+ partner institutions, and multi-stakeholder coordination across Southeast Asia and beyond.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">Full-Stack Development</span><span class="tag">UI/UX Design</span><span class="tag">International Partnership</span><span class="tag">Digital Strategy</span></div>
        </div>
-       <div class="flex items-center justify-between pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div style="font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#767676">Petra Christian University</div>
-        <span class="flex items-center gap-2 text-sm font-medium" style="color:#003087">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
+       <div class="flex flex-wrap items-center gap-8 pt-6 mt-6" style="border-top:1px solid rgba(28,28,30,0.07)">
+        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">200+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Students Supported</div></div>
+        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">30+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Partner Institutions</div></div>
+        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">6</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Features Built</div></div>
+        <div class="ml-auto flex items-center gap-2 font-medium text-sm" style="color:#003087">View Full Case Study <i data-lucide="arrow-right" style="width:15px;height:15px"></i></div>
        </div>
       </div>
      </div>
-
-     <!-- Graphic Design -->
-     <div class="cursor-pointer group" onclick="goToPage('designs')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(139,115,85,0.3)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-      <div class="relative overflow-hidden" style="height:200px;background:#1C1C1E">
-       <div class="absolute inset-0 grid grid-cols-3" aria-hidden="true" style="gap:2px;opacity:0.82">
-        <img src="assets/images/graphic-designs/aero-2025-unair/1.png" alt="" loading="lazy" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        <img src="assets/images/graphic-designs/booklet-aci-2025-b2-unair/1.png" alt="" loading="lazy" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        <img src="assets/images/graphic-designs/partnership-booklet-pcu/1.png" alt="" loading="lazy" class="w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-       </div>
-       <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(28,28,30,0.88) 0%,rgba(28,28,30,0.3) 55%,rgba(28,28,30,0.1) 100%)"></div>
-       <div class="absolute top-4 left-5" style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;letter-spacing:-.04em;user-select:none">GD</div>
-       <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
-        <div>
-         <div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Print &amp; Digital</div>
-         <div class="font-heading font-bold" style="font-size:1.6rem;color:#fff;letter-spacing:-.02em;line-height:1">Graphic Design</div>
-        </div>
-        <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.1)">7 Projects</span>
-       </div>
-      </div>
-      <div class="p-7 flex flex-col justify-between" style="min-height:200px">
-       <div>
-        <div class="flex items-center gap-3 mb-4">
-         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(139,115,85,0.08);color:#8B7355">Editorial Design</span>
-         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">2024–2025</span>
-        </div>
-        <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">Guidebooks, Booklets &amp; Event Collateral</h3>
-        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Print and digital design for institutional programs — from student guidebooks and orientation booklets to exhibition collateral and partnership materials.</p>
-        <div class="flex flex-wrap gap-1.5"><span class="tag">Print Design</span><span class="tag">Branding</span><span class="tag">Editorial Layout</span></div>
-       </div>
-       <div class="flex items-center justify-between pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div style="font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#767676">Airlangga &amp; PCU</div>
-        <span class="flex items-center gap-2 text-sm font-medium" style="color:#8B7355">View Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
-       </div>
-      </div>
-     </div>
-
     </div>
 
-    <!-- Web Development Projects -->
-    <div style="height:1px;background:rgba(28,28,30,0.07);margin:0 0 48px"></div>
+    <!-- Graphic Design — compact horizontal card -->
+    <div class="cursor-pointer" onclick="goToPage('designs')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:18px;overflow:hidden;margin-bottom:20px;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 10px 36px rgba(28,28,30,0.09)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
+     <div class="grid md:grid-cols-5" style="min-height:160px">
+      <div class="md:col-span-3 p-7 flex flex-col justify-center">
+       <div class="flex items-center gap-3 mb-3">
+        <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(139,115,85,0.08);color:#8B7355">Editorial Design</span>
+        <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">2024–2025</span>
+       </div>
+       <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:8px">Guidebooks, Booklets &amp; Event Collateral</h3>
+       <p style="font-size:.84rem;color:#5C5C5C;line-height:1.6;margin-bottom:14px;max-width:480px">Print and digital design for institutional programs — student guidebooks, orientation booklets, exhibition collateral, and partnership materials.</p>
+       <div class="flex flex-wrap gap-1.5 mb-0"><span class="tag">Print Design</span><span class="tag">Branding</span><span class="tag">Editorial Layout</span></div>
+      </div>
+      <div class="md:col-span-2 relative overflow-hidden" style="min-height:160px;background:#1C1C1E">
+       <div class="absolute inset-0 grid grid-cols-3" aria-hidden="true" style="gap:2px;opacity:0.84">
+        <img src="assets/images/graphic-designs/aero-2025-unair/1.png" alt="" loading="lazy" class="w-full h-full object-cover">
+        <img src="assets/images/graphic-designs/booklet-aci-2025-b2-unair/1.png" alt="" loading="lazy" class="w-full h-full object-cover">
+        <img src="assets/images/graphic-designs/partnership-booklet-pcu/1.png" alt="" loading="lazy" class="w-full h-full object-cover">
+       </div>
+       <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(255,255,255,0.03) 0%,transparent 40%)"></div>
+       <div class="absolute bottom-4 right-5 flex items-center gap-2 font-medium text-sm" style="color:rgba(255,255,255,0.7)">Browse Design Work <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
+      </div>
+     </div>
+    </div>
+
+    <!-- ── Web Development ───────────────────────────────────────────── -->
+    <div style="height:1px;background:rgba(28,28,30,0.07);margin:28px 0 48px"></div>
 
     <div class="flex items-center gap-4 mb-10">
      <span style="font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8B7355">Web Development</span>
@@ -257,7 +243,28 @@ function projectsOverviewInitPage() {
      <p style="font-size:.9375rem;color:#5C5C5C;line-height:1.65;max-width:560px">Responsive web applications and dashboards — from personal portfolio SPAs to institutional data tools.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-5 mb-16">
+    <div class="grid md:grid-cols-2 gap-5 mb-5">
+
+     <!-- PCU Global International Office — iframe preview -->
+     <div class="cursor-pointer group" onclick="goToPage('web-pcu-global-intl')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(0,48,135,0.1)';this.style.borderColor='rgba(0,48,135,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
+      <div class="relative overflow-hidden" style="height:200px">
+       ${_pcuIframePanel(200)}
+      </div>
+      <div class="p-7 flex flex-col justify-between" style="min-height:180px">
+       <div>
+        <div class="flex items-center gap-3 mb-4">
+         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(0,48,135,0.08);color:#003087">Full-Stack</span>
+         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">In Progress</span>
+        </div>
+        <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">PCU Global — International Office Website</h3>
+        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Rebuilding PCU's International Office website — news CMS, partnership directory, audience-first information architecture, and mobile-first design.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Flask</span><span class="tag">SQLite</span></div>
+       </div>
+       <div class="flex items-center justify-end pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
+        <span class="flex items-center gap-2 text-sm font-medium" style="color:#003087">View Web Case Study <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
+       </div>
+      </div>
+     </div>
 
      <!-- Website Portfolio -->
      <div class="cursor-pointer group" onclick="goToPage('web-portfolio')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(201,168,76,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
@@ -279,6 +286,7 @@ function projectsOverviewInitPage() {
          <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(201,168,76,0.08);color:#8B7355">Full-Stack</span>
          <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">Live</span>
         </div>
+        <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">This Portfolio Site</h3>
         <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Dual-identity SPA with hash-based routing, iOS-style navigation shell, Supabase inline editing, and 20+ pages — no framework.</p>
         <div class="flex flex-wrap gap-1.5"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Tailwind CSS</span><span class="tag">Supabase</span></div>
        </div>
@@ -288,50 +296,23 @@ function projectsOverviewInitPage() {
       </div>
      </div>
 
-     <!-- PCU Global International Office -->
-     <div class="cursor-pointer group" onclick="goToPage('web-pcu-global-intl')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(0,48,135,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#002070,#1a4fa0);height:200px">
-       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 25% 40%,rgba(255,255,255,0.1),transparent 55%)"></div>
-       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(255,255,255,0.04);letter-spacing:-.03em;white-space:nowrap">Intl. Office</span>
-       </div>
-       <div class="relative z-10 text-center px-8">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:10px">Web App · PCU</div>
-        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#fff;letter-spacing:-.02em;line-height:1.1">International Office</div>
-        <div style="width:28px;height:1px;background:rgba(255,255,255,0.25);border-radius:2px;margin:12px auto 10px"></div>
-        <div style="font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">PCU Global · 2026</div>
-       </div>
-      </div>
-      <div class="p-7 flex flex-col justify-between" style="min-height:180px">
-       <div>
-        <div class="flex items-center gap-3 mb-4">
-         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(0,48,135,0.08);color:#003087">Full-Stack</span>
-         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">In Progress</span>
-        </div>
-        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Rebuilding PCU's International Office website — news CMS, partnership directory, audience-first information architecture, and mobile-first design.</p>
-        <div class="flex flex-wrap gap-1.5"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Supabase</span></div>
-       </div>
-       <div class="flex items-center justify-end pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <span class="flex items-center gap-2 text-sm font-medium" style="color:#003087">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
-       </div>
-      </div>
-     </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 mb-16">
 
      <!-- Dashboard Partnership -->
      <div class="cursor-pointer group" onclick="goToPage('web-dashboard-partnership')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(45,107,80,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#1A3A2B,#2D6B4A);height:200px">
+      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#1A3A2B,#2D6B4A);height:160px">
        <div class="absolute inset-0" style="background:radial-gradient(ellipse at 70% 30%,rgba(255,255,255,0.07),transparent 55%)"></div>
        <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
         <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(255,255,255,0.04);letter-spacing:-.03em;white-space:nowrap">Partnership</span>
        </div>
        <div class="relative z-10 text-center px-8">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:10px">Dashboard · Data</div>
-        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#fff;letter-spacing:-.02em;line-height:1.1">Partnership</div>
-        <div style="width:28px;height:1px;background:rgba(255,255,255,0.25);border-radius:2px;margin:12px auto 10px"></div>
-        <div style="font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Dashboard · 2025</div>
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:8px">Dashboard · Data</div>
+        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;color:#fff;letter-spacing:-.02em;line-height:1.1">Partnership</div>
        </div>
       </div>
-      <div class="p-7 flex flex-col justify-between" style="min-height:180px">
+      <div class="p-7 flex flex-col justify-between" style="min-height:160px">
        <div>
         <div class="flex items-center gap-3 mb-4">
          <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(45,107,80,0.08);color:#2D6B50">Data Viz</span>
@@ -348,19 +329,17 @@ function projectsOverviewInitPage() {
 
      <!-- Dashboard International Grants -->
      <div class="cursor-pointer group" onclick="goToPage('web-dashboard-grants')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(90,60,140,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
-      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#2A1A4A,#5C3A8A);height:200px">
+      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#2A1A4A,#5C3A8A);height:160px">
        <div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 35%,rgba(255,255,255,0.07),transparent 55%)"></div>
        <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
         <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(255,255,255,0.04);letter-spacing:-.03em;white-space:nowrap">Grants</span>
        </div>
        <div class="relative z-10 text-center px-8">
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:10px">Dashboard · Grants</div>
-        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#fff;letter-spacing:-.02em;line-height:1.1">Intl. Grants</div>
-        <div style="width:28px;height:1px;background:rgba(255,255,255,0.25);border-radius:2px;margin:12px auto 10px"></div>
-        <div style="font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Dashboard · 2025</div>
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:8px">Dashboard · Grants</div>
+        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;color:#fff;letter-spacing:-.02em;line-height:1.1">Intl. Grants</div>
        </div>
       </div>
-      <div class="p-7 flex flex-col justify-between" style="min-height:180px">
+      <div class="p-7 flex flex-col justify-between" style="min-height:160px">
        <div>
         <div class="flex items-center gap-3 mb-4">
          <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(92,58,138,0.08);color:#5C3A8A">Data Viz</span>

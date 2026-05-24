@@ -541,7 +541,7 @@ function buildFaculties(d) {
   const rows = d.faculties.map(f => {
     const pct = ((f.count / max) * 100).toFixed(1);
     return `<div class="flex items-center gap-3">
-      <span class="text-sm w-52 flex-shrink-0" style="color:#0F172A">${esc(f.name)}</span>
+      <span class="text-sm flex-shrink-0" style="color:#0F172A;max-width:min(13rem,40vw);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(f.name)}">${esc(f.name)}</span>
       <div class="flex-1 rounded-full overflow-hidden" style="background:#F1F5F9;height:10px">
         <div class="h-full rounded-full" data-w="${pct}%" style="width:0;background:linear-gradient(90deg,#1E3A5F,#4A6B8A);transition:width .55s ease"></div>
       </div>
@@ -609,7 +609,7 @@ function amertaInitPage() {
      <span class="font-heading font-bold" style="font-size:clamp(5rem,16vw,13rem);color:rgba(255,255,255,0.05);letter-spacing:-.04em;line-height:1">AMERTA</span>
     </div>
     <div class="relative z-10 max-w-6xl mx-auto px-6">
-     <button onclick="goToPage('projects-overview')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.7)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
+     <a href="#/projects-overview" class="inline-flex items-center gap-2 mb-8 px-3.5 py-1.5 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,0.9);text-decoration:none;border:1px solid rgba(255,255,255,0.18)"><i data-lucide="chevron-left" style="width:14px;height:14px"></i> Back</a>
      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.12);color:#fff">Project Management</span>
      <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="amerta_hero_title">AMERTA</h1>
      <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.75)" data-edit-key="amerta_hero_tagline">Airlangga Mobility, Exchange, Research &amp; Transfer Academic — Universitas Airlangga's flagship semester exchange, managed end-to-end across 4 batches.</p>

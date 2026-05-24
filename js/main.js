@@ -439,7 +439,7 @@ const _navActiveMap = {
   'experience':        { tab: 'tab-about',   label: 'About' },
   'skillset':          { tab: 'tab-about',   label: 'About' },
   'education':         { tab: 'tab-about',   label: 'About' },
-  'international':     { tab: 'tab-about',   label: 'About' },
+  'international':     { tab: 'tab-projects', label: 'Projects' },
   'values':            { tab: 'tab-about',   label: 'About' },
   // Projects
   'projects-overview': { tab: 'tab-projects', label: 'Projects' },
@@ -776,12 +776,12 @@ const heroConfigs = {
   'aero':         { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AERO',        desc: 'Annual exhibition at Universitas Airlangga showcasing global partnerships and international programs.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
   'pcu-global':   { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'PCU Global', desc: "Rebuilding PCU's International Office online presence — full-stack web app, news CMS, and mobile-first design.", gradient: '#003087 0%, #0050A0 60%, #3B82F6 100%' },
   // Intl. Education
-  'onboarding':        { back: 'engagement', backLabel: 'Back', category: 'Student Services',    title: 'Student Onboarding & Orientation', desc: 'End-to-end welfare support for 100+ international students per semester — housing, healthcare, immigration.', gradient: '#1B3A2A 0%, #2D6A4F 60%, #52B788 100%' },
-  'engagement-detail': { back: 'engagement', backLabel: 'Back', category: 'Student Services',    title: 'Student Engagement',              desc: 'Building meaningful connections and fostering personal growth through curated exchange programs.',              gradient: '#1B3A2A 0%, #2D6A4F 60%, #52B788 100%' },
-  'partnerships':      { back: 'engagement', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development',         desc: 'Managing 30+ institutional partners and facilitating 15+ strategic meetings per month.',                        gradient: '#4A6B8A 0%, #2563EB 50%, #38BDF8 100%' },
-  'mou':               { back: 'engagement', backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination',          desc: 'Formalizing academic partnerships through strategic agreements — ensuring compliance and institutional alignment.', gradient: '#4A6B8A 0%, #2563EB 50%, #38BDF8 100%' },
-  'partnership-detail':{ back: 'partnerships', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development',       desc: 'Building and nurturing strategic academic partnerships that drive institutional excellence.',                     gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%' },
-  'mou-detail':        { back: 'mou',          backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination',        desc: 'Reviewing 25+ partnership agreements per month — ensuring compliance and institutional alignment.',              gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%' },
+  'onboarding':        { back: 'engagement', backLabel: 'Back', category: 'Student Services',    title: 'Student Onboarding & Orientation', desc: 'End-to-end welfare support for 100+ international students per semester — housing, healthcare, immigration.', gradient: '#1B3A2A 0%, #2D6A4F 60%, #52B788 100%', type: 'marquee', items: ['Student Pick-Up Services', 'Onboarding & Orientation', 'Best Buddies Support', 'Tax Reporting Assistance', 'Farewell Events', 'Monitoring & Evaluation', '480+ Students', '30+ Countries', '4 AMERTA Batches'] },
+  'engagement-detail': { back: 'engagement', backLabel: 'Back', category: 'Student Services',    title: 'Student Engagement',              desc: 'Building meaningful connections and fostering personal growth through curated exchange programs.',              gradient: '#1B3A2A 0%, #2D6A4F 60%, #52B788 100%', type: 'marquee', items: ['City Tour', 'Rujak Uleg Festival', 'Tari Topeng Panji', 'Government Seminars', 'Volunteering Programs', 'Best Buddies', '120+ Students / Semester', '20+ Countries', '5 Community Partners'] },
+  'partnerships':      { back: 'engagement', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development',         desc: 'Managing 30+ institutional partners and facilitating 15+ strategic meetings per month.',                        gradient: '#4A6B8A 0%, #2563EB 50%, #38BDF8 100%', type: 'marquee', items: ['Partnership Development', 'Institutional Partnerships', 'Research Collaboration', 'Faculty Exchange', 'Curriculum Development', 'Student Mobility', '30+ Partners', '15+ Meetings / Month'] },
+  'mou':               { back: 'engagement', backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination',          desc: 'Formalizing academic partnerships through strategic agreements — ensuring compliance and institutional alignment.', gradient: '#4A6B8A 0%, #2563EB 50%, #38BDF8 100%', type: 'marquee', items: ['MoU Drafting', 'MoA Review', 'Compliance Monitoring', 'Agreement Renewals', 'Institutional Alignment', 'Partnership Agreements', '25+ Agreements / Month'] },
+  'partnership-detail':{ back: 'partnerships', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development',       desc: 'Building and nurturing strategic academic partnerships that drive institutional excellence.',                     gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%', type: 'marquee', items: ['Strategic Alignment', 'Institutional Excellence', 'Global Collaboration', 'Research Exchange', 'Faculty Development', 'Student Mobility', 'Joint Programs'] },
+  'mou-detail':        { back: 'mou',          backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination',        desc: 'Reviewing 25+ partnership agreements per month — ensuring compliance and institutional alignment.',              gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%', type: 'marquee', items: ['Agreement Review', 'Compliance', 'Renewals', 'Institutional Alignment', 'MoU Drafting', 'MoA Coordination', 'Partnership Formalization'] },
   // Creative
   // CroissantsMoon has its own custom hero — banner injection skipped for this page
   'writing':        { back: 'home', backLabel: 'Back', category: 'Creative',          title: 'Writing & Reflections',    desc: 'Essays and insights on international education, leadership, systems thinking, and digital craft.',        gradient: '#2C2C2E 0%, #5C5C5C 60%, #9A9A9A 100%' },
@@ -799,6 +799,24 @@ function injectHeroBanners() {
     if (!page || page.querySelector('.page-hero-banner')) return;
     page.classList.remove('py-20');
     const hero = document.createElement('div');
+
+    if (cfg.type === 'marquee') {
+      const items = cfg.items || [cfg.title];
+      const buildInner = () => items.map(item =>
+        '<span style="padding:0 28px;color:rgba(255,255,255,0.88);font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;font-family:\'DM Sans\',sans-serif">' + item + '</span>' +
+        '<span style="color:rgba(255,255,255,0.3);font-size:.8rem">·</span>'
+      ).join('');
+      hero.className = 'page-hero-banner overflow-hidden';
+      hero.style.cssText = 'background:linear-gradient(135deg,' + cfg.gradient + ')';
+      hero.innerHTML =
+        '<div class="cm-marquee-track" style="animation:cmMarquee 30s linear infinite;width:max-content;padding:13px 0">' +
+          '<div style="display:flex;align-items:center;white-space:nowrap">' + buildInner() + '</div>' +
+          '<div style="display:flex;align-items:center;white-space:nowrap" aria-hidden="true">' + buildInner() + '</div>' +
+        '</div>';
+      page.insertBefore(hero, page.firstChild);
+      return;
+    }
+
     hero.className = 'page-hero-banner relative overflow-hidden';
     hero.style.cssText = 'background:linear-gradient(135deg,' + cfg.gradient + ');padding:52px 0 44px';
     hero.innerHTML = '<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.04)"></div>' +

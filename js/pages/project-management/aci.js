@@ -555,7 +555,7 @@ function aciBuildDemographics(key, d) {
   const progRows = progs.map(p => {
     const pct = ((p.count / maxProg) * 100).toFixed(1);
     return `<div class="flex items-center gap-3">
-      <span class="text-sm w-52 flex-shrink-0" style="color:#0F172A">${aciEsc(p.name)}</span>
+      <span class="text-sm flex-shrink-0" style="color:#0F172A;max-width:min(13rem,40vw);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${aciEsc(p.name)}">${aciEsc(p.name)}</span>
       <div class="flex-1 rounded-full overflow-hidden" style="background:#F1F5F9;height:10px">
         <div class="h-full rounded-full" data-w="${pct}%" style="width:0;background:${p.color};transition:width .55s ease"></div>
       </div>
@@ -820,7 +820,7 @@ function aciInitPage() {
      <span class="font-heading font-bold" style="font-size:clamp(6rem,20vw,16rem);color:rgba(255,255,255,0.05);letter-spacing:-.04em;line-height:1">ACI</span>
     </div>
     <div class="relative z-10 max-w-6xl mx-auto px-6">
-     <button onclick="goToPage('projects-overview')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.7)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
+     <a href="#/projects-overview" class="inline-flex items-center gap-2 mb-8 px-3.5 py-1.5 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,0.9);text-decoration:none;border:1px solid rgba(255,255,255,0.18)"><i data-lucide="chevron-left" style="width:14px;height:14px"></i> Back</a>
      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.12);color:#fff">Project Management</span>
      <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="aci_hero_title">ACI</h1>
      <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.75)" data-edit-key="aci_hero_tagline">Airlangga Cultural Immersion — 2-day cultural immersion trips for international students, managed end-to-end across 4 batches and 3 destinations in Java.</p>
@@ -902,15 +902,15 @@ function aciRenderBatch(key) {
   let html = aciBuildOverview(key);
 
   if (key === 'all') {
-    html += `<div class="card p-6 mb-6">${aciBuildVendorsOverall()}</div>`;
-    html += `<div class="card p-6 mb-6">${aciBuildBudget(key, d)}</div>`;
-    html += `<div class="card p-6 mb-6">${aciBuildDemographics(key, d)}</div>`;
-    html += `<div class="card p-6 mb-6">${aciBuildSatisfactionOverall(d)}</div>`;
+    html += `<div class="card no-hover p-6 mb-6">${aciBuildVendorsOverall()}</div>`;
+    html += `<div class="card no-hover p-6 mb-6">${aciBuildBudget(key, d)}</div>`;
+    html += `<div class="card no-hover p-6 mb-6">${aciBuildDemographics(key, d)}</div>`;
+    html += `<div class="card no-hover p-6 mb-6">${aciBuildSatisfactionOverall(d)}</div>`;
   } else {
-    html += `<div class="card p-6 mb-6">${aciBuildVendors(d)}</div>`;
-    html += `<div class="card p-6 mb-6">${aciBuildBudget(key, d)}</div>`;
-    html += `<div class="card p-6 mb-6">${aciBuildDemographics(key, d)}</div>`;
-    html += `<div class="card p-6 mb-6">${aciBuildSatisfaction(d)}</div>`;
+    html += `<div class="card no-hover p-6 mb-6">${aciBuildVendors(d)}</div>`;
+    html += `<div class="card no-hover p-6 mb-6">${aciBuildBudget(key, d)}</div>`;
+    html += `<div class="card no-hover p-6 mb-6">${aciBuildDemographics(key, d)}</div>`;
+    html += `<div class="card no-hover p-6 mb-6">${aciBuildSatisfaction(d)}</div>`;
   }
 
   html += `<div class="mb-6">${aciBuildAnalysis(d)}</div>`;

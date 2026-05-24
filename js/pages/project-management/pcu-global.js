@@ -56,6 +56,23 @@ const PCU_MARQUEE = [
   '⬡ Mobile-First', '◎ Open Source', '✺ Flask + Python', '✦ 6 Core Features',
 ];
 
+const PCU_IO_REGIONS = [
+  { color: PCU_C.blue,    label: 'Southeast Asia',      desc: 'Core focus region — coordinating with universities, immigration authorities, and government bodies across Indonesia and ASEAN partner nations.' },
+  { color: PCU_C.midBlue, label: 'East Asia & Pacific', desc: 'Exchange programs and MoU coordination with partner institutions in Australia, Japan, South Korea, and other Indo-Pacific nations.' },
+  { color: '#059669',     label: 'Europe & Americas',   desc: "Institutional partnerships facilitated through PCU's global network, spanning European and North American universities." },
+];
+
+const PCU_IO_STAKEHOLDERS = [
+  ['building-2',  'Faculties & Academic Units'],
+  ['landmark',    'Immigration Authorities'],
+  ['heart-pulse', 'Hospitals & Healthcare'],
+  ['banknote',    'Banking Institutions'],
+  ['award',       'Scholarship Bodies (KNB & TIAS)'],
+  ['package',     'Vendor & Service Networks'],
+  ['globe-2',     'Partner Universities'],
+  ['flag',        'Government Bodies'],
+];
+
 // ── Section Builders ─────────────────────────────────────────────────────────
 
 function pcuBuildHero() {
@@ -231,6 +248,86 @@ function pcuBuildBuildStory() {
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:2.5rem">
           ${pillars}
+        </div>
+      </div>
+    </div>`;
+}
+
+function pcuBuildInternationalContext() {
+  const stats = [
+    ['200+', 'International Students Supported'],
+    ['30+',  'Partner Institutions'],
+    ['25+',  'MoU/MoA Reviews / Month'],
+    ['10+',  'Stakeholder Types'],
+  ];
+
+  const statsHtml = stats.map(([num, label]) => `
+    <div style="text-align:center">
+      <p style="font-family:'Space Grotesk',Inter,sans-serif;font-size:2.25rem;font-weight:700;color:${PCU_C.blue};line-height:1">${num}</p>
+      <p style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(28,28,30,0.42);margin-top:6px">${label}</p>
+    </div>`).join('');
+
+  const regionsHtml = PCU_IO_REGIONS.map(r => `
+    <div style="
+      background:#fff;border-radius:16px;padding:22px;
+      border:1px solid rgba(28,28,30,0.07);border-left:4px solid ${r.color}
+    ">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div style="
+          width:38px;height:38px;border-radius:12px;
+          background:${r.color}12;display:flex;align-items:center;justify-content:center;flex-shrink:0
+        ">
+          <i data-lucide="map-pin" style="width:18px;height:18px;color:${r.color}"></i>
+        </div>
+        <div>
+          <p style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:.95rem;color:#1C1C1E;margin-bottom:6px">${r.label}</p>
+          <p style="font-size:.81rem;line-height:1.65;color:rgba(28,28,30,0.52)">${r.desc}</p>
+        </div>
+      </div>
+    </div>`).join('');
+
+  const stakeholdersHtml = PCU_IO_STAKEHOLDERS.map(([icon, label]) => `
+    <div style="
+      display:flex;align-items:center;gap:12px;
+      padding:12px 14px;border-radius:12px;
+      background:${PCU_C.blue}07
+    ">
+      <i data-lucide="${icon}" style="width:16px;height:16px;color:${PCU_C.blue};flex-shrink:0"></i>
+      <span style="font-size:.84rem;font-weight:500;color:#1C1C1E">${label}</span>
+    </div>`).join('');
+
+  return `
+    <div style="padding:clamp(4rem,8vh,6rem) 24px;background:#FAFAF8">
+      <div class="max-w-5xl mx-auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
+          <span style="display:inline-block;width:28px;height:3px;background:${PCU_C.blue};border-radius:2px"></span>
+          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${PCU_C.blue}">The Organization</span>
+        </div>
+        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.6rem;letter-spacing:-.03em">Who the IO Serves</h2>
+        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:2.5rem;max-width:500px;line-height:1.65">The International Office bridges institutions, students, and cultures across Southeast Asia and beyond. This is the scale of what the old site was failing to represent.</p>
+
+        <div style="
+          display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+          gap:24px;padding:32px;background:#fff;
+          border-radius:20px;border:1px solid rgba(28,28,30,0.07);margin-bottom:2.5rem
+        ">${statsHtml}</div>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem">
+          <span style="display:inline-block;width:18px;height:2px;background:rgba(28,28,30,0.18);border-radius:2px"></span>
+          <span style="font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,28,30,0.35)">Geographic Coverage</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:2.5rem">${regionsHtml}</div>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem">
+          <span style="display:inline-block;width:18px;height:2px;background:rgba(28,28,30,0.18);border-radius:2px"></span>
+          <span style="font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,28,30,0.35)">Stakeholder Network</span>
+        </div>
+        <h3 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:1.35rem;color:#1C1C1E;margin-bottom:.4rem">Multi-Stakeholder Coordination</h3>
+        <p style="font-size:.87rem;line-height:1.65;color:rgba(28,28,30,0.48);max-width:500px;margin-bottom:1.5rem">International education requires navigating 10+ distinct institutional players — each with different protocols, priorities, and communication norms.</p>
+        <div style="background:#fff;border-radius:16px;padding:20px;border:1px solid rgba(28,28,30,0.07)">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
+            ${stakeholdersHtml}
+          </div>
         </div>
       </div>
     </div>`;
@@ -554,6 +651,7 @@ function pcuInitPage() {
     pcuBuildHero(),
     pcuBuildMarquee(),
     pcuBuildBuildStory(),
+    pcuBuildInternationalContext(),
     pcuBuildProblems(),
     pcuBuildResponse(),
     pcuBuildPreview(),
