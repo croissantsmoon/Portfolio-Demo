@@ -1,1280 +1,794 @@
-// ── CroissantsMoon — Creative Universe Page ──────────────────────────────────
+// ── CroissantsMoon — Boutique Creative Studio ──────────────────────────────────
 
 function cmInjectFonts() {
   if (document.querySelector('[data-cm-fonts]')) return;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap';
+  link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap';
   link.setAttribute('data-cm-fonts', '1');
   document.head.appendChild(link);
 }
 
 const CM = {
-  yellow:   '#F5D05E',
-  blue:     '#7BC8F6',
-  orange:   '#F4874B',
-  coral:    '#FF6B6B',
-  lavender: '#C4B5FD',
-  cream:    '#FFFBF5',
-  mint:     '#6EE7B7',
-  peach:    '#FDBA8C',
-  pink:     '#FDA4AF',
-  purple:   '#A78BFA',
+  cream:    '#FAF7F2',
+  espresso: '#1C1410',
+  gold:     '#C9A84C',
+  blush:    '#F0E6D3',
+  muted:    '#8C7B6B',
+  border:   'rgba(28,20,16,0.1)',
 };
 
-const CM_WORKS = [
-  {
-    emoji: '🌐', title: 'PCU Global', cat: 'Web Experience',
-    desc: "A full-stack rebuild of PCU's International Office — clean architecture, live CMS, mobile-first design.",
-    bg: CM.blue, textColor: '#0369A1', page: 'pcu-global', rotate: '-1.5deg',
-  },
-  {
-    emoji: '✦', title: 'This Portfolio', cat: 'Editorial Design',
-    desc: 'Premium editorial aesthetic — typography-led, intentional. International education storytelling through design.',
-    bg: CM.yellow, textColor: '#854D0E', page: 'home', rotate: '2deg',
-  },
-  {
-    emoji: '✈', title: 'AERO Exhibition', cat: 'Creative Direction',
-    desc: 'Visual identity and event design for an annual global partnership exhibition at Universitas Airlangga.',
-    bg: CM.pink, textColor: '#9F1239', page: 'aero', rotate: '-0.8deg',
-  },
-  {
-    emoji: '◈', title: 'Graphic Design', cat: 'Visual Design',
-    desc: '9 communication design projects — guidebooks, presentations, and institutional materials for international education.',
-    bg: CM.mint, textColor: '#065F46', page: 'designs', rotate: '1.2deg',
-  },
-  {
-    emoji: '◉', title: 'Brand Systems', cat: 'Branding',
-    desc: 'Visual language and identity design for thoughtful organizations. Currently in development.',
-    bg: CM.lavender, textColor: '#5B21B6', page: 'croissantsmoon', rotate: '-2deg', soon: true,
-  },
-  {
-    emoji: '◎', title: 'Motion Studies', cat: 'Exploration',
-    desc: 'Animation concepts, transition experiments, and interactive web explorations. Slowly growing.',
-    bg: CM.peach, textColor: '#9A3412', page: 'croissantsmoon', rotate: '0.8deg', soon: true,
-  },
-];
-
-const CM_PROCESS = [
-  { icon: '✦', label: 'Inspiration', color: CM.yellow, desc: 'Absorbing the world — architecture, film, type, travel. Ideas live everywhere.' },
-  { icon: '◉', label: 'Sketching',   color: CM.pink,    desc: 'Rough ideas, no judgment. Capturing what the mind sees before it disappears.' },
-  { icon: '◈', label: 'Exploration', color: CM.blue,    desc: 'Testing directions in code and design. One idea becomes five, then back to one.' },
-  { icon: '⬡', label: 'Building',    color: CM.mint,    desc: 'Turning vision into systems, components, interactions. Craft over speed.' },
-  { icon: '◎', label: 'Refining',    color: CM.lavender,desc: 'The details. Spacing, weight, timing. The work that happens when big work is done.' },
-  { icon: '✺', label: 'Releasing',   color: CM.peach,   desc: 'Letting go of perfect. Shipping with intention and telling the story behind it.' },
-];
-
-const CM_INSPO = [
-  { text: 'Information as belonging',    color: CM.blue     },
-  { text: 'Wayfinding for strangers',    color: CM.mint     },
-  { text: 'The anxious arrival',         color: CM.pink     },
-  { text: 'Cross-cultural clarity',      color: CM.yellow   },
-  { text: 'Designing for first-timers',  color: CM.lavender },
-  { text: 'Every page a welcome letter', color: CM.peach    },
-  { text: 'Cultural translation',        color: CM.coral    },
-  { text: 'Typography that reassures',   color: CM.purple   },
-  { text: 'Data told as story',          color: CM.blue     },
-  { text: 'Making the unfamiliar safe',  color: CM.yellow   },
-  { text: 'Editorial empathy',           color: CM.pink     },
-  { text: 'Color as navigation',         color: CM.mint     },
-  { text: 'Clarity over noise',          color: CM.lavender },
-  { text: 'Institutional care by design',color: CM.peach    },
-  { text: 'Motion & transition',         color: CM.coral    },
-  { text: 'Generative art',              color: CM.purple   },
-  { text: 'Japanese minimalism',         color: CM.blue     },
-  { text: 'Dieter Rams',                 color: CM.yellow   },
-];
-
-const CM_STICKERS = [
-  { text: '✦ ideas',  bg: CM.yellow,   rotate: '-8deg',  x: '8%',  y: '12%' },
-  { text: 'design',   bg: CM.pink,     rotate: '5deg',   x: '58%', y: '7%'  },
-  { text: '◎ create', bg: CM.mint,     rotate: '-3deg',  x: '28%', y: '58%' },
-  { text: 'explore',  bg: CM.blue,     rotate: '10deg',  x: '72%', y: '43%' },
-  { text: '✺ build',  bg: CM.lavender, rotate: '-6deg',  x: '4%',  y: '68%' },
-  { text: 'play',     bg: CM.peach,    rotate: '4deg',   x: '48%', y: '72%' },
-  { text: '⬡ craft',  bg: CM.coral,    rotate: '-12deg', x: '78%', y: '18%' },
-  { text: 'dream',    bg: CM.purple,   rotate: '7deg',   x: '18%', y: '28%' },
-];
-
-const CM_MARQUEE_ITEMS = [
-  '✦ Creative Ideas', '◈ Digital Experiences', '◉ Experiments in Progress',
-  '⬡ Branding', '◎ Motion Design', '✺ Web Experience', '✦ Editorial',
-];
-
-const CM_WEB_WORKS = [
-  {
-    title: 'PCU Global',
-    cat: 'Web Experience',
-    year: '2025',
-    desc: "Full-stack rebuild of PCU's International Office — clean architecture, live CMS, mobile-first design.",
-    bg: CM.blue, tc: '#0369A1',
-    page: 'pcu-global',
-    emoji: '🌐',
-    url: 'pcuglobal.petra.ac.id',
-    tags: ['HTML · CSS · JS', 'Responsive Design', 'CMS'],
-    pc: ['#0C4A6E', '#0369A1', '#0EA5E9', '#7BC8F6', '#F0F9FF'],
-  },
-  {
-    title: 'This Portfolio',
-    cat: 'Editorial Design',
-    year: '2025',
-    desc: 'Premium editorial aesthetic — typography-led, intentional. International education storytelling.',
-    bg: CM.yellow, tc: '#854D0E',
-    page: 'home',
-    emoji: '✦',
-    url: 'zefanya.portfolio',
-    tags: ['UI/UX Design', 'Tailwind CSS', 'Typography'],
-    pc: ['#1C1C1E', '#8B7355', '#F5D05E', '#FAFAF8', '#F2ECE4'],
-  },
-  {
-    title: 'AERO Exhibition',
-    cat: 'Creative Direction',
-    year: '2025',
-    desc: 'Visual identity and event design for an annual global partnership exhibition at Universitas Airlangga.',
-    bg: CM.pink, tc: '#9F1239',
-    page: 'aero',
-    emoji: '✈',
-    url: 'aero.unair.ac.id',
-    tags: ['Event Design', 'Brand Identity', 'Visual Direction'],
-    pc: ['#1C1C1E', '#9F1239', '#FF6B6B', '#FDA4AF', '#FFF5F5'],
-  },
-];
+// Maps GitHub repo names to internal detail-page routes
+const CM_REPO_DETAIL_PAGE = {
+  'Website-Portfolio':           'web-portfolio',
+  'International-Office-Website':'web-pcu-global-intl',
+  'Dashboard-Partnership':       'web-dashboard-partnership',
+  'Dashboard-International-Grants': 'web-dashboard-grants',
+};
 
 const CM_GRAPHIC_WORKS = [
-  { title: 'PCU Partnership Booklet',            cat: 'Institutional Design',  folder: 'partnership-booklet-pcu',                  imgs: 3, bg: CM.lavender, tc: '#5B21B6', link: 'https://canva.link/partnershipbookletpetra',            year: '2024–2025', inst: 'Petra Christian University'          },
-  { title: 'PCU International Students Guide',   cat: 'Student Guidebook',     folder: 'international-students-guidebook-pcu',      imgs: 3, bg: CM.yellow,   tc: '#854D0E', link: 'https://canva.link/internationalstudentsguidebookpetra', year: '2024–2025', inst: 'Petra Christian University'          },
-  { title: 'PCU Presentation Template',          cat: 'Presentation Design',   folder: 'general-ppt-pcu',                          imgs: 3, bg: CM.pink,     tc: '#9F1239', link: 'https://canva.link/jat6f7jcsawdmnu',                    year: '2024–2025', inst: 'Petra Christian University'          },
-  { title: 'ACI 2025 Batch 2 Guidebook',         cat: 'Event Guidebook',       folder: 'booklet-aci-2025-b2-unair',                imgs: 3, bg: CM.blue,     tc: '#0369A1', link: 'https://canva.link/motmeousw72spno',                    year: '2025',      inst: 'Universitas Airlangga'               },
-  { title: 'ACI 2025 Batch 1 Guidebook',         cat: 'Event Guidebook',       folder: 'guidebook-aci-2025-b1-unair',              imgs: 3, bg: CM.mint,     tc: '#065F46', link: 'https://canva.link/6bysygp89hi879s',                    year: '2025',      inst: 'Universitas Airlangga'               },
-  { title: 'Staffordshire Banyuwangi Booklet',   cat: 'Partnership Booklet',   folder: 'guidebook-staffordshire-unair',            imgs: 3, bg: CM.peach,    tc: '#9A3412', link: 'https://canva.link/i1i6dbnby7ho36z',                    year: '2025',      inst: 'Staffordshire × Airlangga'           },
-  { title: 'AERO 2025 Presentation',             cat: 'Presentation Design',   folder: 'aero-2025-unair',                          imgs: 3, bg: CM.coral,    tc: '#7F1D1D', link: 'https://canva.link/odx5kh4eara7iuh',                    year: '2025',      inst: 'Universitas Airlangga'               },
-  { title: 'Airlangga Accommodation Guide',      cat: 'Student Guidebook',     folder: 'accommodation-guidebook-unair',            imgs: 3, bg: CM.orange,   tc: '#7C2D12', link: 'https://canva.link/l8pkkjs0x8f24sy',                    year: '2024–2025', inst: 'Universitas Airlangga'               },
-  { title: 'Airlangga International Students Guide', cat: 'Student Guidebook', folder: 'international-students-guidebook-unair',  imgs: 3, bg: CM.purple,   tc: '#4C1D95', link: 'https://canva.link/xehf9jz9v781sn7',                    year: '2024–2025', inst: 'Universitas Airlangga'               },
+  { title: 'PCU Partnership Booklet',               cat: 'Brand Identity',   folder: 'partnership-booklet-pcu',               imgs: 3, link: 'https://canva.link/partnershipbookletpetra',            year: '2024–2025', inst: 'Petra Christian University'    },
+  { title: 'PCU International Students Guide',      cat: 'Print & Digital',  folder: 'international-students-guidebook-pcu',  imgs: 3, link: 'https://canva.link/internationalstudentsguidebookpetra',year: '2024–2025', inst: 'Petra Christian University'    },
+  { title: 'PCU Presentation Template',             cat: 'Visual Identity',  folder: 'general-ppt-pcu',                       imgs: 3, link: 'https://canva.link/jat6f7jcsawdmnu',                    year: '2024–2025', inst: 'Petra Christian University'    },
+  { title: 'ACI 2025 Batch 2 Guidebook',            cat: 'Event Materials',  folder: 'booklet-aci-2025-b2-unair',             imgs: 3, link: 'https://canva.link/motmeousw72spno',                    year: '2025',      inst: 'Universitas Airlangga'         },
+  { title: 'ACI 2025 Batch 1 Guidebook',            cat: 'Event Materials',  folder: 'guidebook-aci-2025-b1-unair',           imgs: 3, link: 'https://canva.link/6bysygp89hi879s',                    year: '2025',      inst: 'Universitas Airlangga'         },
+  { title: 'Staffordshire Banyuwangi Booklet',      cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: 'https://canva.link/i1i6dbnby7ho36z',                    year: '2025',      inst: 'Staffordshire × Airlangga'     },
+  { title: 'AERO 2025 Presentation',                cat: 'Event Materials',  folder: 'aero-2025-unair',                       imgs: 3, link: 'https://canva.link/odx5kh4eara7iuh',                    year: '2025',      inst: 'Universitas Airlangga'         },
+  { title: 'Airlangga Accommodation Guide',         cat: 'Print & Digital',  folder: 'accommodation-guidebook-unair',         imgs: 3, link: 'https://canva.link/l8pkkjs0x8f24sy',                    year: '2024–2025', inst: 'Universitas Airlangga'         },
+  { title: 'Airlangga International Students Guide',cat: 'Social Media Kits',folder: 'international-students-guidebook-unair',imgs: 3, link: 'https://canva.link/xehf9jz9v781sn7',                    year: '2024–2025', inst: 'Universitas Airlangga'         },
 ];
 
-// ── Section Builders ─────────────────────────────────────────────────────────
+const CM_LANG_COLORS = {
+  'HTML': '#E34C26', 'CSS': '#9B4F96',
+  'JavaScript': '#c9a21e', 'TypeScript': '#2B7489',
+  'Python': '#3572A5', 'PHP': '#4F5D95',
+};
+
+let cmRepoFilter = 'all';
+
+function cmLangColor(lang) { return CM_LANG_COLORS[lang] || CM.muted; }
+
+function cmLangFilterKey(lang) {
+  if (!lang) return 'other';
+  if (lang === 'HTML' || lang === 'CSS') return 'html-css';
+  if (lang === 'JavaScript' || lang === 'TypeScript') return 'javascript';
+  return 'other';
+}
+
+function cmHumanize(name) {
+  return name.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).trim();
+}
+
+// ── CSS ───────────────────────────────────────────────────────────────────────
+
+function cmInjectPageCSS() {
+  if (document.getElementById('cm-page-css')) return;
+  const s = document.createElement('style');
+  s.id = 'cm-page-css';
+  s.textContent = `
+    @keyframes cmPulse { 0%,100%{opacity:1} 50%{opacity:.55} }
+    @keyframes cmFadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    .cm-reveal { opacity:0; transform:translateY(16px); transition:opacity .55s ease-out, transform .55s ease-out; }
+    .cm-visible { opacity:1 !important; transform:none !important; }
+    .cm-card-hover { transition: transform .28s cubic-bezier(0.34,1.56,0.64,1), box-shadow .28s; }
+    .cm-card-hover:hover { transform: translateY(-5px); box-shadow: 0 14px 42px rgba(28,20,16,0.11) !important; }
+  `;
+  document.head.appendChild(s);
+}
+
+// ── Section 1: Hero ───────────────────────────────────────────────────────────
 
 function cmBuildHero() {
-  const blobs = [
-    { color: CM.yellow,   size: 380, x: '-80px', y: '-60px', opacity: 0.5,  delay: '0s'  },
-    { color: CM.blue,     size: 280, x: '65%',   y: '-40px', opacity: 0.4,  delay: '2s'  },
-    { color: CM.pink,     size: 220, x: '38%',   y: '55%',   opacity: 0.35, delay: '4s'  },
-    { color: CM.mint,     size: 200, x: '-40px', y: '50%',   opacity: 0.3,  delay: '1s'  },
-  ].map(b => `
-    <div class="cm-blob" style="
-      position:absolute;width:${b.size}px;height:${b.size}px;
-      left:${b.x};top:${b.y};background:${b.color};
-      opacity:${b.opacity};filter:blur(70px);
-      animation-delay:${b.delay};pointer-events:none;z-index:0
-    "></div>`).join('');
-
-  const heroTags = [
-    ['UI/UX Design',       CM.blue,     '#0369A1'],
-    ['Branding',           CM.pink,     '#9F1239'],
-    ['Creative Direction', CM.mint,     '#065F46'],
-    ['Web Experience',     CM.yellow,   '#854D0E'],
-    ['Digital Strategy',   CM.lavender, '#5B21B6'],
-  ].map(([tag, bg, tc]) => `
-    <span style="
-      background:${bg}28;color:${tc};
-      padding:6px 16px;border-radius:999px;
-      font-size:.72rem;font-weight:600;letter-spacing:.04em;
-      border:1px solid ${bg}50
-    ">${tag}</span>`).join('');
+  const logoSVG = `<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M40 28C40 36.28 33.28 43 25 43 16.72 43 10 36.28 10 28 10 19.72 16.72 13 25 13 22.2 16.4 20.5 20.8 20.5 25.5 20.5 33.06 25.24 39.4 32 41.6 36.4 39 40 34.1 40 28Z" fill="${CM.gold}" opacity="0.88"/>
+    <path d="M14 38 Q19 31 27 32.5 Q35 34 40 27" stroke="${CM.gold}" stroke-width="1.75" stroke-linecap="round" fill="none" opacity="0.5"/>
+    <circle cx="37" cy="15" r="2.2" fill="${CM.gold}" opacity="0.65"/>
+    <circle cx="42" cy="20" r="1.2" fill="${CM.gold}" opacity="0.4"/>
+  </svg>`;
 
   return `
-    <div id="cm-hero" class="cm-grain" style="
+    <div class="page-hero-banner" id="cm-hero-section" style="
       position:relative;overflow:hidden;
-      padding:clamp(5rem,12vh,9rem) 24px clamp(4rem,8vh,7rem);
-      background:${CM.cream};min-height:90vh;
-      display:flex;align-items:center
+      background:linear-gradient(155deg,${CM.espresso} 0%,#2A1B11 50%,#3C2418 100%);
+      padding:clamp(6rem,15vh,10rem) 24px clamp(5rem,12vh,9rem);
+      min-height:92vh;display:flex;align-items:center;justify-content:center;
     ">
-      <div id="cm-cursor-glow" class="cm-cursor-glow"></div>
-      <canvas id="cm-particles-canvas"></canvas>
-      ${blobs}
-      <div class="cm-float"  style="position:absolute;right:8%;top:22%;font-size:3rem;opacity:0.45;pointer-events:none;z-index:1">✦</div>
-      <div class="cm-float-2" style="position:absolute;right:22%;top:68%;font-size:2rem;opacity:0.38;pointer-events:none;z-index:1;color:${CM.coral}">◈</div>
-      <div class="cm-float-3" style="position:absolute;left:6%;top:42%;font-size:1.5rem;opacity:0.32;pointer-events:none;z-index:1;color:${CM.purple}">◎</div>
-      <div class="cm-spin-slow" style="position:absolute;right:14%;bottom:22%;width:72px;height:72px;border:2px solid ${CM.yellow}44;border-radius:50%;pointer-events:none;z-index:1"></div>
-      <div class="cm-spin-slow" style="position:absolute;left:16%;top:14%;width:44px;height:44px;border:2px dashed ${CM.blue}44;border-radius:50%;pointer-events:none;z-index:1;animation-direction:reverse"></div>
-      <div class="max-w-5xl mx-auto relative z-10 w-full">
-        <button onclick="goToPage('home')" style="
-          display:inline-flex;align-items:center;gap:8px;margin-bottom:3rem;
-          font-size:.875rem;color:rgba(28,28,30,0.4);
-          background:none;border:none;cursor:pointer;padding:0
-        ">
-          <i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back
-        </button>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${CM.orange};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${CM.orange}">Creative Universe</span>
+      <div style="position:absolute;inset:0;opacity:.028;pointer-events:none;z-index:0;
+        background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.68%22 numOctaves=%224%22 stitchTiles=%22stitch%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>');
+        background-size:180px 180px"></div>
+      <div style="position:absolute;left:-140px;top:-100px;width:560px;height:560px;border-radius:50%;
+        background:radial-gradient(circle,${CM.gold}1E 0%,transparent 68%);pointer-events:none;z-index:0"></div>
+      <div style="position:absolute;right:-100px;bottom:-80px;width:400px;height:400px;border-radius:50%;
+        background:radial-gradient(circle,#7A4A2014 0%,transparent 70%);pointer-events:none;z-index:0"></div>
+      <div style="position:absolute;right:8%;top:15%;opacity:.06;pointer-events:none;z-index:0;
+        font-family:'Cormorant Garamond',serif;font-size:18rem;font-style:italic;color:${CM.gold};
+        line-height:1;user-select:none">C</div>
+
+      <div class="max-w-3xl mx-auto text-center relative" style="z-index:1;width:100%">
+        <div id="cm-logotype" style="opacity:0;transform:translateY(12px);transition:opacity 600ms ease-out,transform 600ms ease-out">
+          <div style="display:flex;justify-content:center;margin-bottom:1.75rem">${logoSVG}</div>
+          <h1 style="
+            font-family:'Cormorant Garamond',Georgia,serif;
+            font-size:clamp(3rem,9vw,6.5rem);font-weight:400;font-style:italic;
+            letter-spacing:.01em;line-height:.92;color:${CM.cream};margin-bottom:0
+          " data-edit-key="cm_hero_title">CroissantsMoon</h1>
         </div>
-        <h1 class="cm-gradient-text" style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(3.5rem,9vw,8rem);
-          font-weight:700;line-height:.95;
-          letter-spacing:-.04em;
-          margin-bottom:1.5rem
-        " data-edit-key="croissantsmoon_hero_title">CroissantsMoon</h1>
+
         <p style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(1.1rem,2.5vw,1.55rem);font-weight:400;
-          color:rgba(28,28,30,0.52);max-width:540px;
-          line-height:1.45;margin-bottom:1.25rem;min-height:2.4em
-        "><span id="cm-typewriter"></span></p>
-        <p style="max-width:490px;font-size:.95rem;line-height:1.7;color:rgba(28,28,30,0.45);margin-bottom:2.75rem" data-edit-key="croissantsmoon_hero_body">
-          A growing creative identity exploring web experiences, visual storytelling, branding, and digital creativity. Not a finished studio — an honest, evolving beginning.
-        </p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:2.5rem">
-          <button onclick="document.getElementById('cm-works').scrollIntoView({behavior:'smooth'})" style="
-            background:#1C1C1E;color:#fff;
-            padding:14px 28px;border-radius:999px;
-            font-size:.875rem;font-weight:600;
-            border:none;cursor:pointer;
-            display:inline-flex;align-items:center;gap:8px;
-            transition:opacity .2s
+          font-family:'Outfit',sans-serif;font-size:clamp(.75rem,1.5vw,.82rem);
+          font-weight:400;letter-spacing:.18em;color:${CM.gold};
+          text-transform:uppercase;margin:1.75rem 0 2.75rem;opacity:.85
+        " data-edit-key="cm_hero_tagline">Digital presence, crafted with intention.</p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+          <a data-cm-scroll="cm-web-projects" href="#cm-web-projects" style="
+            font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;
+            background:${CM.gold};color:${CM.espresso};padding:13px 28px;border-radius:999px;
+            text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+            letter-spacing:.02em;transition:opacity .2s;box-shadow:0 4px 22px rgba(201,168,76,0.32)
           " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
-            See the Work <i data-lucide="arrow-right" style="width:15px;height:15px"></i>
-          </button>
-          <button onclick="goToPage('contact')" style="
-            border:1.5px solid rgba(28,28,30,0.2);color:#1C1C1E;
-            background:transparent;padding:14px 28px;border-radius:999px;
-            font-size:.875rem;font-weight:600;cursor:pointer;transition:all .2s
-          " onmouseover="this.style.background='rgba(28,28,30,0.05)'"
-            onmouseout="this.style.background='transparent'">
-            Let's Collaborate
-          </button>
+            View Web Projects
+            <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+          </a>
+          <a data-cm-scroll="cm-graphic-design" href="#cm-graphic-design" style="
+            font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:400;
+            border:1px solid rgba(201,168,76,0.4);color:${CM.gold};
+            padding:13px 28px;border-radius:999px;text-decoration:none;
+            display:inline-flex;align-items:center;gap:8px;
+            background:transparent;transition:background .2s
+          " onmouseover="this.style.background='rgba(201,168,76,0.1)'" onmouseout="this.style.background='transparent'">
+            View Design Work
+            <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+          </a>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:10px">${heroTags}</div>
-      </div>
-      <div class="cm-scroll-indicator">
-        <span style="font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(28,28,30,0.4)">Scroll</span>
-        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="1" width="14" height="22" rx="7" stroke="rgba(28,28,30,0.3)" stroke-width="1.5"/>
-          <rect x="7" y="5" width="2" height="5" rx="1" fill="rgba(28,28,30,0.35)"/>
-        </svg>
+
+        <div style="margin-top:clamp(3.5rem,7vh,6rem);display:flex;flex-direction:column;align-items:center;gap:7px;opacity:.28">
+          <span style="font-family:'Outfit',sans-serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:${CM.cream}">Scroll</span>
+          <div style="width:1px;height:38px;background:linear-gradient(to bottom,${CM.cream},transparent)"></div>
+        </div>
       </div>
     </div>`;
 }
 
-function cmBuildMarquee() {
-  const doubled = [...CM_MARQUEE_ITEMS, ...CM_MARQUEE_ITEMS];
-  const colors  = [CM.orange, '#1C1C1E', CM.coral, '#4A6B8A', '#8B7355'];
-  const items   = doubled.map((t, i) => `
-    <span style="
-      display:inline-block;padding:0 32px;
-      font-family:'Space Grotesk',Inter,sans-serif;
-      font-size:1.05rem;font-weight:600;
-      color:${colors[i % colors.length]};
-      white-space:nowrap;letter-spacing:.01em
-    ">${t}</span>
-    <span style="color:rgba(255,255,255,0.18);font-size:1.1rem;padding:0 4px">·</span>
-  `).join('');
+// ── Section 2: Services ───────────────────────────────────────────────────────
 
-  return `
-    <div class="cm-reveal" style="background:#1C1C1E;padding:20px 0;overflow:hidden">
-      <div style="display:flex;overflow:hidden">
-        <div class="cm-marquee-track">${items}</div>
-      </div>
-    </div>`;
-}
-
-function cmBuildManifesto() {
-  const pillars = [
-    ['Curiosity', 'Every project starts with genuine curiosity — not a brief.', '✦'],
-    ['Craft',     'Attention to the details most people skip over.',            '◈'],
-    ['Courage',   'Shipping before feeling fully ready.',                       '◉'],
-  ].map(([title, desc, icon]) => `
-    <div style="
-      background:rgba(255,255,255,0.45);
-      border:1px solid rgba(255,255,255,0.6);
-      border-radius:16px;padding:24px;
-      backdrop-filter:blur(4px)
+function cmBuildServices() {
+  const cards = [
+    {
+      icon: 'monitor',
+      headline: 'Websites that work as hard as you do',
+      desc: 'Purposeful web builds for educational institutions and companies — clean, accessible, and built to grow.',
+      tags: ['Landing Pages', 'Institution Sites', 'Web Portfolios', 'CMS Integration'],
+      editKey: 'cm_service_web',
+    },
+    {
+      icon: 'pen-tool',
+      headline: 'Visual identity that earns trust',
+      desc: 'Brand identities, digital assets, and visual systems that position your institution or company with clarity and confidence.',
+      tags: ['Brand Identity', 'Social Media Kits', 'Event Materials', 'Print & Digital'],
+      editKey: 'cm_service_design',
+    },
+  ].map(card => `
+    <div class="cm-card-hover cm-reveal" style="
+      background:#FFFFFF;border:1px solid ${CM.border};
+      border-radius:22px;padding:clamp(2rem,4vw,2.75rem);
+      box-shadow:0 4px 28px rgba(28,20,16,0.06)
     ">
-      <span style="font-size:1.4rem;display:block;margin-bottom:12px">${icon}</span>
-      <h4 style="
-        font-family:'Space Grotesk',Inter,sans-serif;
-        font-weight:700;font-size:1.05rem;color:#1C1C1E;margin-bottom:8px
-      ">${title}</h4>
-      <p style="font-size:.83rem;line-height:1.6;color:rgba(28,28,30,0.65)">${desc}</p>
-    </div>`).join('');
-
-  return `
-    <div class="cm-reveal" style="
-      padding:clamp(4rem,10vh,7rem) 24px;
-      background:${CM.yellow};position:relative;overflow:hidden
-    ">
-      <div style="position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.15);pointer-events:none"></div>
-      <div style="position:absolute;left:-30px;bottom:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,140,0,0.1);pointer-events:none"></div>
-      <div class="max-w-5xl mx-auto">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:2.5rem">
-          <span style="display:inline-block;width:28px;height:3px;background:rgba(28,28,30,0.35);border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(28,28,30,0.45)">Creative Manifesto</span>
-        </div>
-        <p style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(2.5rem,6vw,5rem);
-          font-weight:700;line-height:1.05;
-          letter-spacing:-.03em;color:#1C1C1E;
-          margin-bottom:2.5rem
-        ">This is where<br><em style="font-style:italic;color:#C05C11">ideas play.</em></p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;align-items:start">
-          <div>
-            <p style="font-size:1.1rem;line-height:1.7;color:rgba(28,28,30,0.72);font-weight:500">
-              CroissantsMoon exists because creativity is an act of exploration — not execution. It's the space where questions matter more than answers, and unfinished work is still honest work.
-            </p>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:14px">
-            <div class="cm-sticky-note" style="transform:rotate(-2deg)">"Ideas don't wait for permission." ✦</div>
-            <div class="cm-sticky-note" style="transform:rotate(1.5deg);background:${CM.pink};margin-top:6px;align-self:flex-end">combining tech with storytelling ◈</div>
-            <div class="cm-sticky-note" style="transform:rotate(-1deg);background:#fff">embrace the experiment ◉</div>
-          </div>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:2.5rem">
-          ${pillars}
-        </div>
+      <div style="width:48px;height:48px;border-radius:14px;background:${CM.blush};
+        display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+        <i data-lucide="${card.icon}" style="width:22px;height:22px;color:${CM.muted}"></i>
       </div>
-    </div>`;
-}
-
-// ── Works: card helpers ───────────────────────────────────────────────────────
-
-function cmWebCardPreview(w) {
-  const [c1, c2, c3, c4, c5] = w.pc;
-  return `
-    <div style="height:148px;background:${c5};position:relative;overflow:hidden">
-      <div style="height:26px;background:${c1};display:flex;align-items:center;padding:0 10px;gap:8px">
-        <div style="height:4px;width:30px;background:${c4}30;border-radius:2px"></div>
-        <div style="height:4px;width:42px;background:${c4}30;border-radius:2px"></div>
-        <div style="height:4px;width:22px;background:${c4}30;border-radius:2px"></div>
-        <div style="flex:1"></div>
-        <div style="height:13px;width:36px;background:${c4}40;border-radius:3px"></div>
-      </div>
-      <div style="padding:10px 12px">
-        <div style="height:9px;width:52%;background:${c2};border-radius:4px;margin-bottom:6px;opacity:.75"></div>
-        <div style="height:5px;width:80%;background:${c3};border-radius:3px;margin-bottom:4px;opacity:.45"></div>
-        <div style="height:5px;width:60%;background:${c3};border-radius:3px;margin-bottom:10px;opacity:.35"></div>
-        <div style="display:flex;gap:6px">
-          <div style="height:20px;width:60px;background:${c2};border-radius:10px;opacity:.85"></div>
-          <div style="height:20px;width:50px;background:transparent;border:1.5px solid ${c2};border-radius:10px;opacity:.55"></div>
-        </div>
-      </div>
-      <div style="position:absolute;bottom:6px;right:12px;font-size:1.8rem;opacity:.18">${w.emoji}</div>
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,${c1}22 100%);pointer-events:none"></div>
-    </div>`;
-}
-
-function cmWebCard(w) {
-  const tags = w.tags.map(t =>
-    `<span style="background:${w.bg}28;color:${w.tc};padding:2px 9px;border-radius:999px;font-size:.6rem;font-weight:600;border:1px solid ${w.bg}44">${t}</span>`
-  ).join('');
-  return `
-    <button onclick="goToPage('${w.page}')" class="cm-work-card text-left" style="
-      background:#fff;border-radius:18px;overflow:hidden;
-      border:1px solid rgba(28,28,30,0.07);
-      cursor:pointer;
-      box-shadow:0 4px 20px rgba(0,0,0,0.055);
-      position:relative;width:100%;display:block
-    ">
-      <div style="background:#F6F6F4;padding:7px 12px;border-bottom:1px solid #EBEBEB;display:flex;align-items:center;gap:7px">
-        <div style="display:flex;gap:4px;flex-shrink:0">
-          <span style="width:9px;height:9px;border-radius:50%;background:#FF5F57;display:block"></span>
-          <span style="width:9px;height:9px;border-radius:50%;background:#FEBC2E;display:block"></span>
-          <span style="width:9px;height:9px;border-radius:50%;background:#28C840;display:block"></span>
-        </div>
-        <span style="flex:1;background:#fff;border-radius:4px;padding:2px 9px;font-size:.58rem;color:#bbb;border:1px solid #E8E8E8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${w.url}</span>
-      </div>
-      ${cmWebCardPreview(w)}
-      <div style="padding:15px 17px 18px">
-        <div style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${w.tc};opacity:.75;margin-bottom:5px">${w.cat} · ${w.year}</div>
-        <h4 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:.95rem;color:#1C1C1E;margin-bottom:6px;line-height:1.25">${w.title}</h4>
-        <p style="font-size:.76rem;line-height:1.55;color:rgba(28,28,30,0.5);margin-bottom:11px">${w.desc}</p>
-        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">${tags}</div>
-        <div style="display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600;color:${w.tc}">
-          View Project <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
-        </div>
-      </div>
-    </button>`;
-}
-
-function cmGDCard(g, i) {
-  return `
-    <button onclick="cmOpenGDPreview(${i})" class="cm-gd-card">
-      <div style="position:relative;overflow:hidden;height:175px">
-        <img
-          src="./assets/images/graphic-designs/${g.folder}/1.png"
-          alt="${g.title}"
-          style="width:100%;height:100%;object-fit:cover;transition:transform .4s ease"
-          onmouseover="this.style.transform='scale(1.06)'"
-          onmouseout="this.style.transform='scale(1)'"
-          loading="lazy"
-        />
-        <div class="cm-gd-overlay">
+      <h3 style="
+        font-family:'Cormorant Garamond',Georgia,serif;
+        font-size:clamp(1.35rem,2.5vw,1.7rem);font-weight:500;font-style:italic;
+        color:${CM.espresso};line-height:1.25;margin-bottom:1rem
+      " data-edit-key="${card.editKey}_headline">${card.headline}</h3>
+      <p style="
+        font-family:'Outfit',sans-serif;font-size:.88rem;line-height:1.74;
+        color:${CM.muted};margin-bottom:1.5rem
+      " data-edit-key="${card.editKey}_desc">${card.desc}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        ${card.tags.map(t => `
           <span style="
-            background:rgba(255,255,255,0.14);
-            border:1.5px solid rgba(255,255,255,0.32);
-            color:#fff;padding:7px 18px;border-radius:999px;
-            font-size:.76rem;font-weight:600;
-            backdrop-filter:blur(6px)
-          ">◈ Preview</span>
-        </div>
-        <div style="position:absolute;top:10px;right:10px;background:${g.bg};color:${g.tc};padding:2px 9px;border-radius:999px;font-size:.58rem;font-weight:700">${g.year}</div>
+            font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:400;
+            background:${CM.blush};color:${CM.muted};
+            padding:4px 13px;border-radius:999px;border:1px solid ${CM.border}
+          ">${t}</span>`).join('')}
       </div>
-      <div style="padding:12px 14px 15px">
-        <div style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${g.tc};opacity:.8;margin-bottom:4px">${g.cat}</div>
-        <h4 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:.84rem;color:#1C1C1E;line-height:1.35;margin-bottom:3px">${g.title}</h4>
-        <span style="font-size:.68rem;color:rgba(28,28,30,0.4)">${g.inst}</span>
-      </div>
-    </button>`;
-}
-
-// ── Works: section builder ────────────────────────────────────────────────────
-
-function cmBuildWorks() {
-  const webCards = CM_WEB_WORKS.map(w => cmWebCard(w)).join('');
-  const gdCards  = CM_GRAPHIC_WORKS.map((g, i) => cmGDCard(g, i)).join('');
+    </div>`).join('');
 
   return `
-    <div id="cm-works" class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:${CM.cream}">
+    <div style="background:${CM.cream};padding:clamp(4.5rem,9vh,7rem) 24px">
       <div class="max-w-5xl mx-auto">
-
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${CM.coral};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${CM.coral}">Selected Works</span>
+        <div class="cm-reveal" style="text-align:center;margin-bottom:3.5rem">
+          <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
+            letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};margin-bottom:.85rem">What We Do</p>
+          <h2 style="
+            font-family:'Cormorant Garamond',Georgia,serif;
+            font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;font-style:italic;
+            color:${CM.espresso};line-height:1.1;letter-spacing:-.01em
+          " data-edit-key="cm_services_title">Two crafts. One studio.</h2>
         </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.5rem;letter-spacing:-.03em">The Creative Lab</h2>
-        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:1.75rem;max-width:460px;line-height:1.65">
-          Web experiences and graphic design — ${CM_WEB_WORKS.length} websites and ${CM_GRAPHIC_WORKS.length} print & digital publications, all designed with care and intention.
-        </p>
-
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2.75rem">
-          <button onclick="cmFilterWorks('all')"     id="cm-fw-all"     class="cm-filter-btn cm-f-active">All Works</button>
-          <button onclick="cmFilterWorks('web')"     id="cm-fw-web"     class="cm-filter-btn">✦ Web Design</button>
-          <button onclick="cmFilterWorks('graphic')" id="cm-fw-graphic" class="cm-filter-btn">◈ Graphic Design</button>
-        </div>
-
-        <div id="cm-section-web">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${CM.blue};margin-bottom:1.2rem;display:flex;align-items:center;gap:10px">
-            <span style="width:18px;height:2px;background:${CM.blue};border-radius:1px;display:inline-block"></span>
-            Web Design
-            <span style="font-weight:500;color:rgba(28,28,30,0.28);letter-spacing:.06em">${CM_WEB_WORKS.length} projects</span>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(274px,1fr));gap:18px;margin-bottom:3.5rem">
-            ${webCards}
-          </div>
-        </div>
-
-        <div id="cm-section-graphic">
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${CM.coral};margin-bottom:1.2rem;display:flex;align-items:center;gap:10px">
-            <span style="width:18px;height:2px;background:${CM.coral};border-radius:1px;display:inline-block"></span>
-            Graphic Design
-            <span style="font-weight:500;color:rgba(28,28,30,0.28);letter-spacing:.06em">${CM_GRAPHIC_WORKS.length} projects — click any to preview</span>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px">
-            ${gdCards}
-          </div>
-        </div>
-
-      </div>
-    </div>`;
-}
-
-function cmBuildProcess() {
-  const steps = CM_PROCESS.map((s, i, arr) => {
-    const isLast = i === arr.length - 1;
-    const nextColor = !isLast ? arr[i + 1].color : s.color;
-    return `
-      <div style="display:flex;align-items:flex-start">
-        <div style="display:flex;flex-direction:column;align-items:center;width:56px;flex-shrink:0">
-          <div style="
-            width:56px;height:56px;border-radius:50%;
-            background:${s.color};
-            display:flex;align-items:center;justify-content:center;
-            font-size:1.35rem;flex-shrink:0;
-            box-shadow:0 6px 22px ${s.color}55;
-            border:3px solid #F8F4EE;
-            position:relative;z-index:2
-          ">${s.icon}</div>
-          ${!isLast ? `<div style="
-            flex:1;width:2px;min-height:20px;
-            background:linear-gradient(to bottom,${s.color}88,${nextColor}88);
-            border-radius:1px
-          "></div>` : ''}
-        </div>
-        <div style="flex:1;margin-left:22px;${!isLast ? 'padding-bottom:28px' : ''}">
-          <div class="cm-process-card" style="
-            background:#fff;border-radius:16px;padding:22px 24px;
-            border:1px solid rgba(28,28,30,0.07);
-            border-left:3px solid ${s.color};
-            box-shadow:0 2px 16px rgba(0,0,0,0.04)
-          ">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
-              <span style="font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(28,28,30,0.28)">Step ${String(i + 1).padStart(2, '0')}</span>
-              <span style="height:1px;flex:1;background:rgba(28,28,30,0.07)"></span>
-              <span style="font-size:.68rem;font-weight:600;color:${s.color};background:${s.color}18;padding:2px 10px;border-radius:999px">${s.label}</span>
-            </div>
-            <p style="font-size:.84rem;line-height:1.68;color:rgba(28,28,30,0.54)">${s.desc}</p>
-          </div>
-        </div>
-      </div>`;
-  }).join('');
-
-  return `
-    <div class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:linear-gradient(135deg,#F2ECE4 0%,${CM.cream} 100%)">
-      <div class="max-w-4xl mx-auto">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${CM.purple};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${CM.purple}">Creative Process</span>
-        </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.6rem;letter-spacing:-.03em">How Ideas Evolve</h2>
-        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:2.75rem;max-width:440px;line-height:1.65">Organic, not linear. Each step flows into the next — and then it starts again.</p>
-        <div style="max-width:640px">
-          ${steps}
-        </div>
-        <div style="
-          display:flex;align-items:center;gap:10px;
-          padding-left:68px;margin-top:8px;opacity:.38
-        ">
-          <span style="font-family:'Caveat',cursive;font-size:1rem;color:${CM.orange}">↩ and then it starts over</span>
-        </div>
-      </div>
-    </div>`;
-}
-
-function cmExptVisual(type, color) {
-  if (type === 'bars') {
-    const bars = [72, 100, 48, 88, 60, 78].map(w =>
-      `<div style="height:3px;width:${w}%;background:${color};border-radius:2px;opacity:${0.25 + w / 250}"></div>`
-    ).join('');
-    return `<div style="height:52px;padding:10px 16px;display:flex;flex-direction:column;justify-content:space-between">${bars}</div>`;
-  }
-  if (type === 'dots') {
-    const dots = Array.from({ length: 30 }, (_, i) =>
-      `<span style="width:5px;height:5px;border-radius:50%;background:${color};display:inline-block;opacity:${0.15 + (i % 5) * 0.16}"></span>`
-    ).join('');
-    return `<div style="height:52px;padding:8px 14px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;overflow:hidden">${dots}</div>`;
-  }
-  if (type === 'layers') {
-    return `<div style="height:52px;padding:8px 14px;position:relative;overflow:hidden">
-      <div style="position:absolute;left:14px;top:8px;width:72%;height:14px;border-radius:4px;background:${color};opacity:.18;border:1px solid ${color}"></div>
-      <div style="position:absolute;left:22px;top:18px;width:54%;height:14px;border-radius:4px;background:${color};opacity:.28;border:1px solid ${color}60"></div>
-      <div style="position:absolute;left:18px;top:28px;width:62%;height:14px;border-radius:4px;background:${color};opacity:.14;border:1px solid ${color}40"></div>
-    </div>`;
-  }
-  return `<div style="height:52px;padding:10px 14px;display:flex;align-items:center;overflow:hidden">
-    <svg viewBox="0 0 130 32" width="130" height="32" fill="none" style="overflow:visible">
-      <path d="M0,16 Q16,4 32,16 Q48,28 64,16 Q80,4 96,16 Q112,28 128,16" stroke="${color}" stroke-width="2" opacity=".45"/>
-      <path d="M0,21 Q16,8 32,21 Q48,34 64,21 Q80,8 96,21 Q112,34 128,21" stroke="${color}" stroke-width="1.5" opacity=".25"/>
-    </svg>
-  </div>`;
-}
-
-function cmBuildExperiments() {
-  const expts = [
-    { icon: 'monitor', title: 'Frontend Experiments', desc: 'Interactive UI concepts and web animation studies — built in vanilla JS and CSS.', color: CM.blue,     tag: 'HTML + CSS + JS', status: 'ACTIVE',     statusHex: '#28C840', progress: 75, visual: 'bars'   },
-    { icon: 'code-2',  title: 'Creative Coding',      desc: 'Generative visuals, canvas sketches, and algorithmic art experiments.',          color: CM.mint,     tag: 'Canvas API',      status: 'BUILDING',   statusHex: '#FEBC2E', progress: 35, visual: 'dots'   },
-    { icon: 'layers',  title: 'Interface Explorations',desc: 'Prototypes and design experiments — trying ideas that might become real projects.',color: CM.lavender, tag: 'Figma + Code',    status: 'EXPLORING',  statusHex: CM.blue,   progress: 50, visual: 'layers' },
-    { icon: 'zap',     title: 'Micro-Interactions',   desc: 'Hover effects, transitions, and the tiny animations that make experiences feel alive.', color: CM.peach, tag: 'CSS Animations', status: 'ACTIVE',    statusHex: '#28C840', progress: 68, visual: 'waves'  },
-  ];
-
-  const cards = expts.map(e => `
-    <div style="
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.09);
-      border-radius:16px;overflow:hidden;
-      transition:background .2s,transform .2s,box-shadow .2s
-    " onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.25)'"
-       onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.transform='';this.style.boxShadow=''">
-      <div style="background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.07)">
-        ${cmExptVisual(e.visual, e.color)}
-      </div>
-      <div style="padding:20px 22px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:13px">
-          <span style="width:7px;height:7px;border-radius:50%;background:${e.statusHex};display:inline-block;${e.status === 'ACTIVE' ? 'animation:cmPulseDot 2s infinite' : ''}"></span>
-          <span style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${e.statusHex}">${e.status}</span>
-          <span style="flex:1"></span>
-          <div style="width:30px;height:30px;border-radius:8px;background:${e.color}1A;display:flex;align-items:center;justify-content:center">
-            <i data-lucide="${e.icon}" style="width:14px;height:14px;color:${e.color}"></i>
-          </div>
-        </div>
-        <h4 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:.95rem;color:#fff;margin-bottom:8px;line-height:1.3">${e.title}</h4>
-        <p style="font-size:.79rem;line-height:1.6;color:rgba(255,255,255,0.4);margin-bottom:16px">${e.desc}</p>
-        <div style="margin-bottom:14px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:5px">
-            <span style="font-size:.6rem;color:rgba(255,255,255,0.28);font-weight:500">progress</span>
-            <span style="font-size:.6rem;color:${e.color};font-weight:700">${e.progress}%</span>
-          </div>
-          <div style="height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden">
-            <div style="height:100%;width:${e.progress}%;background:${e.color};border-radius:2px;transition:width .4s ease"></div>
-          </div>
-        </div>
-        <span style="background:${e.color}18;color:${e.color};padding:3px 10px;border-radius:999px;font-size:.64rem;font-weight:600;letter-spacing:.05em">${e.tag}</span>
-      </div>
-    </div>`).join('');
-
-  const commits = [
-    ['feat', 'add scroll-reveal + particle canvas',         CM.mint   ],
-    ['feat', 'typewriter effect on hero subtitle',          CM.blue   ],
-    ['refactor', 'restructure creative lab section',        CM.yellow ],
-    ['experiment', 'gradient text animation on title',      CM.lavender],
-  ].map(([type, msg, color]) => `
-    <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
-      <span style="width:8px;height:8px;border-radius:50%;border:2px solid ${color};flex-shrink:0"></span>
-      <span style="font-size:.64rem;color:${color};font-weight:700;font-family:'Space Mono',monospace;letter-spacing:.02em;flex-shrink:0">${type}</span>
-      <span style="font-size:.7rem;color:rgba(255,255,255,0.35);font-family:'Space Mono',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${msg}</span>
-    </div>`).join('');
-
-  return `
-    <div class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:#1C1C1E;position:relative;overflow:hidden">
-      <div style="position:absolute;top:-100px;right:-100px;width:420px;height:420px;border-radius:50%;background:${CM.blue};opacity:.04;pointer-events:none"></div>
-      <div style="position:absolute;bottom:-80px;left:-60px;width:340px;height:340px;border-radius:50%;background:${CM.purple};opacity:.05;pointer-events:none"></div>
-      <div class="max-w-5xl mx-auto relative" style="z-index:1">
-
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${CM.mint};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${CM.mint}">Digital Experiments</span>
-        </div>
-        <div style="font-family:'Space Mono',monospace;font-size:.8rem;color:${CM.mint};margin-bottom:.6rem;display:flex;align-items:center;gap:6px;opacity:.7">
-          <span>$</span>
-          <span>experiments.run()</span>
-          <span class="cm-type-cursor" style="width:7px;height:.85em;background:${CM.mint}"></span>
-        </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;margin-bottom:.6rem;letter-spacing:-.03em">The Sandbox</h2>
-        <p style="font-size:.93rem;color:rgba(255,255,255,0.42);margin-bottom:2.5rem;max-width:440px;line-height:1.65">Where ideas get tested before they're real. Active experiments, works in progress, and things being figured out.</p>
-
-        <div style="
-          padding:22px 26px;
-          background:rgba(255,255,255,0.04);
-          border:1px solid rgba(255,255,255,0.1);
-          border-left:3px solid ${CM.mint};
-          border-radius:16px;
-          display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;
-          margin-bottom:22px
-        ">
-          <div style="flex:1;min-width:240px">
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">
-              <span style="width:8px;height:8px;border-radius:50%;background:#28C840;display:inline-block;animation:cmPulseDot 2s infinite"></span>
-              <span style="font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#28C840">Live Experiment</span>
-            </div>
-            <h3 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:7px">This Portfolio</h3>
-            <p style="font-size:.82rem;line-height:1.65;color:rgba(255,255,255,0.45);max-width:440px">An ongoing experiment in editorial web design — every interaction, transition, and section is being designed and refined in public. You're inside the experiment right now.</p>
-          </div>
-          <button onclick="goToPage('websites')" style="
-            background:${CM.mint}22;color:${CM.mint};
-            border:1px solid ${CM.mint}44;
-            padding:10px 22px;border-radius:999px;
-            font-size:.78rem;font-weight:600;cursor:pointer;
-            display:inline-flex;align-items:center;gap:7px;
-            transition:background .2s;white-space:nowrap;flex-shrink:0;align-self:center
-          " onmouseover="this.style.background='${CM.mint}33'" onmouseout="this.style.background='${CM.mint}22'">
-            Explore web work <i data-lucide="arrow-right" style="width:12px;height:12px"></i>
-          </button>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:16px;margin-bottom:28px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
           ${cards}
         </div>
-
-        <div style="
-          padding:18px 22px;
-          background:rgba(255,255,255,0.02);
-          border:1px solid rgba(255,255,255,0.07);
-          border-radius:12px
-        ">
-          <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:10px;font-family:'Space Mono',monospace">recent commits</div>
-          ${commits}
-        </div>
-
       </div>
     </div>`;
 }
 
-function cmBuildMoodboard() {
-  const rotations = ['-2deg','1deg','-1.5deg','2.5deg','0deg','-0.8deg','1.2deg','-1deg','0.5deg','-1.2deg','1.8deg','-0.5deg','2deg','-1.8deg','0.8deg'];
-  const fontSizes = ['.77rem', '.9rem', '1.05rem'];
-  const paddings  = ['5px 14px', '7px 18px', '9px 22px'];
+// ── Section 3: Web Projects (GitHub API) ─────────────────────────────────────
 
-  const tags = CM_INSPO.map((item, i) => {
-    const sz  = i % 3;
-    const rot = rotations[i % rotations.length];
-    const textColor = (item.color === CM.yellow || item.color === CM.mint || item.color === CM.peach)
-      ? '#1C1C1E' : '#2A1A4A';
-    return `
-      <span style="
-        display:inline-block;
-        background:${item.color}28;color:${textColor};
-        padding:${paddings[sz]};border-radius:999px;
-        font-size:${fontSizes[sz]};font-weight:600;
-        border:1.5px solid ${item.color}55;
-        transform:rotate(${rot});
-        transition:transform .22s cubic-bezier(0.34,1.56,0.64,1),box-shadow .22s;
-        cursor:default;margin:6px
-      " onmouseover="this.style.transform='scale(1.09) rotate(0deg)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='rotate(${rot})';this.style.boxShadow='none'"
-      >${item.text}</span>`;
-  }).join('');
+function cmBuildRepoSkeletons() {
+  return Array.from({ length: 6 }, () => `
+    <div style="background:#FFF;border-radius:16px;overflow:hidden;border:1px solid ${CM.border};
+      animation:cmPulse 1.6s ease-in-out infinite">
+      <div style="height:3px;background:linear-gradient(to right,${CM.blush},${CM.border})"></div>
+      <div style="background:#F8F2EC;padding:9px 12px;border-bottom:1px solid ${CM.border};display:flex;align-items:center;gap:7px">
+        <div style="display:flex;gap:4px">
+          <span style="width:8px;height:8px;border-radius:50%;background:#EDE0D3;display:block"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#EDE0D3;display:block"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#EDE0D3;display:block"></span>
+        </div>
+        <div style="flex:1;height:10px;background:#EDE0D3;border-radius:4px"></div>
+      </div>
+      <div style="background:#FAF5EE;padding:16px 18px;height:72px"></div>
+      <div style="padding:18px 20px 22px">
+        <div style="height:13px;background:#F0E8DF;border-radius:4px;width:68%;margin-bottom:10px"></div>
+        <div style="height:9px;background:#F5EFE6;border-radius:3px;width:90%;margin-bottom:6px"></div>
+        <div style="height:9px;background:#F5EFE6;border-radius:3px;width:75%;margin-bottom:16px"></div>
+        <div style="height:22px;background:#F5EFE6;border-radius:999px;width:90px"></div>
+      </div>
+    </div>`).join('');
+}
+
+function cmBuildRepoCard(repo) {
+  const filterKey = cmLangFilterKey(repo.language);
+  const langColor = cmLangColor(repo.language);
+  return `
+    <div data-cm-lang-filter="${filterKey}" class="cm-card-hover" style="
+      background:#FFFFFF;border-radius:16px;overflow:hidden;
+      border:1px solid ${CM.border};box-shadow:0 2px 16px rgba(28,20,16,0.05)
+    ">
+      <div style="height:3px;background:linear-gradient(to right,${CM.gold},${CM.blush})"></div>
+      <div style="background:#F8F2EC;padding:9px 12px;border-bottom:1px solid ${CM.border};display:flex;align-items:center;gap:7px">
+        <div style="display:flex;gap:4px;flex-shrink:0">
+          <span style="width:8px;height:8px;border-radius:50%;background:#FF5F57;display:block"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#FEBC2E;display:block"></span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#28C840;display:block"></span>
+        </div>
+        <div style="flex:1;background:#FFF;border-radius:4px;padding:3px 9px;
+          font-family:'Outfit',sans-serif;font-size:.57rem;color:#C4AE98;
+          border:1px solid #EDE0D3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+        ">github.com/zefanyakharisma-cell/${repo.name}</div>
+      </div>
+      <div style="background:#FAF5EE;padding:14px 18px 16px;border-bottom:1px solid ${CM.border};min-height:72px;position:relative;overflow:hidden">
+        <div style="height:8px;width:52%;background:${CM.gold}38;border-radius:4px;margin-bottom:8px"></div>
+        <div style="height:6px;width:78%;background:${CM.blush};border-radius:3px;margin-bottom:5px"></div>
+        <div style="height:6px;width:62%;background:${CM.blush};border-radius:3px;opacity:.65"></div>
+        <div style="position:absolute;right:14px;bottom:10px;font-size:2rem;opacity:.07;
+          font-family:'Cormorant Garamond',serif;color:${CM.espresso}">◇</div>
+      </div>
+      <div style="padding:18px 20px 22px">
+        <h4 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:1.05rem;font-weight:500;color:${CM.espresso};
+          margin-bottom:6px;line-height:1.3
+        ">${cmHumanize(repo.name)}</h4>
+        <p style="
+          font-family:'Outfit',sans-serif;font-size:.78rem;line-height:1.62;
+          color:${CM.muted};margin-bottom:14px;
+          display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden
+        ">${repo.description}</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+          ${repo.language ? `
+            <span style="display:inline-flex;align-items:center;gap:5px;
+              font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:400;color:${CM.muted}">
+              <span style="width:9px;height:9px;border-radius:50%;background:${langColor};
+                flex-shrink:0;display:inline-block"></span>
+              ${repo.language}
+            </span>` : '<span></span>'}
+          ${CM_REPO_DETAIL_PAGE[repo.name]
+            ? `<button onclick="goToPage('${CM_REPO_DETAIL_PAGE[repo.name]}')" style="
+                font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:600;
+                color:${CM.espresso};background:transparent;cursor:pointer;
+                display:inline-flex;align-items:center;gap:5px;
+                padding:5px 14px;border-radius:999px;
+                border:1px solid ${CM.border};
+                transition:background .18s,color .18s,border-color .18s
+               " onmouseover="this.style.background='${CM.espresso}';this.style.color='${CM.cream}';this.style.borderColor='${CM.espresso}'"
+                  onmouseout="this.style.background='transparent';this.style.color='${CM.espresso}';this.style.borderColor='${CM.border}'">
+                View Project
+                <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
+              </button>`
+            : `<a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" style="
+                font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:600;
+                color:${CM.espresso};text-decoration:none;
+                display:inline-flex;align-items:center;gap:5px;
+                padding:5px 14px;border-radius:999px;
+                border:1px solid ${CM.border};background:transparent;
+                transition:background .18s,color .18s,border-color .18s
+               " onmouseover="this.style.background='${CM.espresso}';this.style.color='${CM.cream}';this.style.borderColor='${CM.espresso}'"
+                  onmouseout="this.style.background='transparent';this.style.color='${CM.espresso}';this.style.borderColor='${CM.border}'">
+                View Project
+                <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
+              </a>`
+          }
+        </div>
+      </div>
+    </div>`;
+}
+
+function cmBuildFeaturedProject(project) {
+  const techBadges = project.tech.map(t =>
+    '<span style="font-family:\'Outfit\',sans-serif;font-size:.68rem;font-weight:400;' +
+    'padding:3px 11px;border-radius:999px;background:rgba(201,168,76,0.12);color:' + CM.muted + ';' +
+    'border:1px solid rgba(201,168,76,0.2)">' + t + '</span>'
+  ).join('');
+
+  return '<div class="cm-card-hover cm-reveal" style="' +
+    'background:#FFFFFF;border-radius:18px;overflow:hidden;' +
+    'border:1px solid ' + CM.border + ';box-shadow:0 2px 16px rgba(28,20,16,0.05)">' +
+    '<div style="height:160px;background:' + project.bg + ';position:relative;overflow:hidden;' +
+    'display:flex;align-items:center;justify-content:center;padding:0 20px">' +
+    '<div style="position:absolute;inset:0;opacity:.06;font-family:\'Cormorant Garamond\',serif;' +
+    'font-size:6rem;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;' +
+    'letter-spacing:-.04em;user-select:none;overflow:hidden">' + project.watermark + '</div>' +
+    '<div style="position:relative;z-index:1;text-align:center">' +
+    '<div style="font-family:\'Outfit\',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.16em;' +
+    'text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px">' + project.label + '</div>' +
+    '<div style="font-family:\'Cormorant Garamond\',Georgia,serif;font-size:1.55rem;font-weight:500;' +
+    'color:#fff;line-height:1.15">' + project.title + '</div>' +
+    '</div></div>' +
+    '<div style="padding:20px 22px 22px">' +
+    '<p style="font-family:\'Outfit\',sans-serif;font-size:.8rem;line-height:1.65;color:' + CM.muted + ';' +
+    'margin-bottom:14px">' + project.tagline + '</p>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px">' + techBadges + '</div>' +
+    '<div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;' +
+    'border-top:1px solid ' + CM.border + '">' +
+    '<span style="font-family:\'Outfit\',sans-serif;font-size:.68rem;font-weight:600;' +
+    'letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;' +
+    'background:' + project.statusBg + ';color:' + project.statusColor + '">' + project.status + '</span>' +
+    '<button onclick="goToPage(\'' + project.page + '\')" style="' +
+    'font-family:\'Outfit\',sans-serif;font-size:.78rem;font-weight:600;' +
+    'color:' + CM.espresso + ';background:transparent;cursor:pointer;' +
+    'display:inline-flex;align-items:center;gap:5px;' +
+    'padding:6px 16px;border-radius:999px;' +
+    'border:1px solid ' + CM.border + ';' +
+    'transition:background .18s,color .18s,border-color .18s" ' +
+    'onmouseover="this.style.background=\'' + CM.espresso + '\';this.style.color=\'' + CM.cream + '\';this.style.borderColor=\'' + CM.espresso + '\'" ' +
+    'onmouseout="this.style.background=\'transparent\';this.style.color=\'' + CM.espresso + '\';this.style.borderColor=\'' + CM.border + '\'">' +
+    'Explore <i data-lucide="arrow-right" style="width:11px;height:11px"></i>' +
+    '</button></div></div></div>';
+}
+
+const CM_FEATURED_PROJECTS = [
+  {
+    page:        'web-portfolio',
+    title:       'Website Portfolio',
+    label:       'SPA · Vanilla JS',
+    watermark:   'Portfolio',
+    tagline:     'Dual-identity single-page app with iOS-style navigation, Supabase CMS, and 20+ pages — no framework.',
+    tech:        ['HTML/CSS', 'JavaScript', 'Tailwind', 'Supabase'],
+    bg:          'linear-gradient(145deg,#1C1410,#3D2B1F)',
+    status:      'Live',
+    statusBg:    'rgba(45,122,79,0.1)',
+    statusColor: '#2D7A4F',
+  },
+  {
+    page:        'web-pcu-global-intl',
+    title:       'International Office',
+    label:       'Web App · PCU Global',
+    watermark:   'Intl. Office',
+    tagline:     'Full rebuild of PCU\'s International Office website — news CMS, partnership directory, mobile-first.',
+    tech:        ['HTML/CSS', 'JavaScript', 'Tailwind', 'Supabase'],
+    bg:          'linear-gradient(145deg,#002070,#1a4fa0)',
+    status:      'In Progress',
+    statusBg:    'rgba(201,168,76,0.12)',
+    statusColor: '#8B7355',
+  },
+  {
+    page:        'web-dashboard-partnership',
+    title:       'Dashboard Partnership',
+    label:       'Data Dashboard',
+    watermark:   'Partnership',
+    tagline:     'Interactive dashboard visualising 30+ institutional partners — geographic view, status tracking, filters.',
+    tech:        ['JavaScript', 'Chart.js', 'Tailwind'],
+    bg:          'linear-gradient(145deg,#1A3A2B,#2D6B4A)',
+    status:      'Live',
+    statusBg:    'rgba(45,122,79,0.1)',
+    statusColor: '#2D7A4F',
+  },
+  {
+    page:        'web-dashboard-grants',
+    title:       'International Grants',
+    label:       'Data Dashboard',
+    watermark:   'Grants',
+    tagline:     'Centralised grant tracking from application to outcome — deadline timeline, pipeline view, outcome analytics.',
+    tech:        ['JavaScript', 'Chart.js', 'Tailwind'],
+    bg:          'linear-gradient(145deg,#2A1A4A,#5C3A8A)',
+    status:      'Live',
+    statusBg:    'rgba(45,122,79,0.1)',
+    statusColor: '#2D7A4F',
+  },
+];
+
+function cmBuildWebProjects() {
+  const featuredCards = CM_FEATURED_PROJECTS.map(p => cmBuildFeaturedProject(p)).join('');
+
+  const pills = [
+    { id: 'all',        label: 'All' },
+    { id: 'html-css',   label: 'HTML / CSS' },
+    { id: 'javascript', label: 'JavaScript' },
+    { id: 'other',      label: 'Other' },
+  ].map(f => `
+    <button data-cm-filter="${f.id}" onclick="cmSetRepoFilter('${f.id}')" style="
+      font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:500;
+      padding:7px 18px;border-radius:999px;cursor:pointer;letter-spacing:.02em;
+      transition:background .18s,color .18s,border-color .18s;
+      ${f.id === 'all'
+        ? 'background:' + CM.espresso + ';color:' + CM.cream + ';border:1px solid ' + CM.espresso
+        : 'background:transparent;color:' + CM.muted + ';border:1px solid ' + CM.border}
+    ">${f.label}</button>`).join('');
 
   return `
-    <div class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:${CM.cream}">
+    <div id="cm-web-projects" style="background:${CM.blush};padding:clamp(4.5rem,9vh,7rem) 24px">
       <div class="max-w-5xl mx-auto">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${CM.orange};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${CM.orange}">Design Philosophy</span>
+
+        <!-- Section heading -->
+        <div class="cm-reveal" style="margin-bottom:2.75rem">
+          <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
+            letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};margin-bottom:.85rem">Web Development</p>
+          <h2 style="
+            font-family:'Cormorant Garamond',Georgia,serif;
+            font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;font-style:italic;
+            color:${CM.espresso};line-height:1.1
+          " data-edit-key="cm_web_title">Featured Projects</h2>
         </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.75rem;letter-spacing:-.03em">What Drives the Work</h2>
-        <p style="font-size:.95rem;color:rgba(28,28,30,0.55);margin-bottom:2.5rem;max-width:520px;line-height:1.72">
-          Design is urgency made visible. Every piece bridges a real person — someone who just landed in an unfamiliar country, holding a document they can barely read — with the information they need to belong. These are the ideas and tensions that shape everything.
-        </p>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;padding:28px;background:#fff;border-radius:24px;border:1px solid rgba(28,28,30,0.07);box-shadow:0 4px 24px rgba(0,0,0,0.04)">
-          ${tags}
+
+        <!-- Static featured project cards — always visible -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;margin-bottom:4rem">
+          ${featuredCards}
+        </div>
+
+        <!-- Open-source section divider -->
+        <div class="cm-reveal" style="display:flex;align-items:center;gap:16px;margin-bottom:2rem">
+          <div style="flex:1;height:1px;background:${CM.border}"></div>
+          <span style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
+            letter-spacing:.16em;text-transform:uppercase;color:${CM.muted}">Open Source</span>
+          <div style="flex:1;height:1px;background:${CM.border}"></div>
+        </div>
+
+        <div class="cm-reveal" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem">
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            ${pills}
+          </div>
+          <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
+            font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:400;
+            color:${CM.muted};text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+            border:1px solid ${CM.border};padding:8px 16px;border-radius:999px;
+            background:transparent;transition:border-color .18s,color .18s
+          " onmouseover="this.style.borderColor='${CM.espresso}';this.style.color='${CM.espresso}'"
+             onmouseout="this.style.borderColor='${CM.border}';this.style.color='${CM.muted}'">
+            <i data-lucide="github" style="width:14px;height:14px"></i>
+            @zefanyakharisma-cell
+          </a>
+        </div>
+
+        <div id="cm-repo-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+          ${cmBuildRepoSkeletons()}
         </div>
       </div>
     </div>`;
 }
 
-function cmBuildFunSection() {
-  const stickers = CM_STICKERS.map(s => {
-    const lightBg  = [CM.yellow, CM.mint, CM.peach, CM.blue].includes(s.bg);
-    const textColor = lightBg ? '#1C1C1E' : (s.bg === CM.purple ? '#fff' : '#1C1C1E');
-    return `
-      <div class="cm-sticker" style="
-        left:${s.x};top:${s.y};
-        background:${s.bg};color:${textColor};
-        padding:10px 18px;border-radius:8px;
-        font-family:'Caveat',cursive;font-size:1.15rem;font-weight:600;
-        transform:rotate(${s.rotate});
-        box-shadow:2px 4px 14px rgba(0,0,0,0.12),0 1px 0 rgba(255,255,255,0.28) inset;
-        z-index:10;white-space:nowrap;position:absolute
-      ">${s.text}</div>`;
-  }).join('');
+function cmRenderRepos(repos) {
+  const grid = document.getElementById('cm-repo-grid');
+  if (!grid) return;
+  if (!repos || repos.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:64px 24px">
+        <p style="font-family:'Outfit',sans-serif;font-size:.9rem;color:${CM.muted};margin-bottom:14px">
+          Couldn't load projects — view them directly on GitHub.
+        </p>
+        <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
+          font-family:'Outfit',sans-serif;font-size:.84rem;font-weight:600;
+          color:${CM.espresso};text-decoration:none;
+          border-bottom:1px solid ${CM.gold};padding-bottom:1px
+        ">@zefanyakharisma-cell ↗</a>
+      </div>`;
+    return;
+  }
+  grid.innerHTML = repos.map(r => cmBuildRepoCard(r)).join('');
+  if (window.lucide) lucide.createIcons();
+  cmApplyRepoFilter(cmRepoFilter);
+}
 
-  const reactions = [['✨','Inspired'],['🎨','Creative'],['🌙','Dreamy'],['🔥','Energized']]
-    .map(([emoji, label]) => `
-      <button onclick="cmReact(this,'${label}')" style="
-        background:#fff;border:1.5px solid rgba(28,28,30,0.1);
-        padding:8px 16px;border-radius:999px;
-        font-size:.85rem;cursor:pointer;
-        display:inline-flex;align-items:center;gap:6px;
-        transition:background .18s
-      " onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='#fff'">
-        ${emoji} <span style="font-size:.74rem;font-weight:500;color:rgba(28,28,30,0.58)">${label}</span>
-      </button>`).join('');
+function cmApplyRepoFilter(filter) {
+  document.querySelectorAll('[data-cm-lang-filter]').forEach(card => {
+    card.style.display = (filter === 'all' || card.getAttribute('data-cm-lang-filter') === filter) ? '' : 'none';
+  });
+  document.querySelectorAll('[data-cm-filter]').forEach(btn => {
+    const active = btn.getAttribute('data-cm-filter') === filter;
+    btn.style.background  = active ? CM.espresso : 'transparent';
+    btn.style.color       = active ? CM.cream    : CM.muted;
+    btn.style.borderColor = active ? CM.espresso : CM.border;
+  });
+}
 
+window.cmSetRepoFilter = function(filter) {
+  cmRepoFilter = filter;
+  cmApplyRepoFilter(filter);
+};
+
+async function cmFetchRepos() {
+  const KEY = 'cm_gh_repos_v2';
+  const cached = sessionStorage.getItem(KEY);
+  if (cached) {
+    try { cmRenderRepos(JSON.parse(cached)); return; } catch(e) {}
+  }
+  try {
+    const res = await fetch('https://api.github.com/users/zefanyakharisma-cell/repos?sort=updated&per_page=20');
+    if (!res.ok) throw new Error('fetch failed');
+    const all = await res.json();
+    const filtered = all.filter(r => !r.fork && r.description && r.name !== 'zefanyakharisma-cell');
+    sessionStorage.setItem(KEY, JSON.stringify(filtered));
+    cmRenderRepos(filtered);
+  } catch(e) {
+    cmRenderRepos(null);
+  }
+}
+
+// ── Section 4: Graphic Design Portfolio ──────────────────────────────────────
+
+const CM_CAT_COLORS = {
+  'Brand Identity':   CM.gold,
+  'Event Materials':  '#A06848',
+  'Print & Digital':  CM.muted,
+  'Visual Identity':  '#7A6A5A',
+  'Social Media Kits':'#B8956A',
+};
+
+function cmBuildGDCard(g, i) {
+  const catColor = CM_CAT_COLORS[g.cat] || CM.muted;
   return `
-    <div class="cm-reveal" style="padding:clamp(4rem,8vh,6rem) 24px;background:linear-gradient(135deg,${CM.lavender}2A,${CM.blue}1A)">
+    <button onclick="cmOpenGDPreview(${i})" class="cm-card-hover" style="
+      background:#FFFFFF;border-radius:16px;overflow:hidden;
+      border:1px solid ${CM.border};cursor:pointer;text-align:left;width:100%;
+      box-shadow:0 2px 16px rgba(28,20,16,0.05)
+    ">
+      <div style="position:relative;overflow:hidden;height:185px">
+        <img src="./assets/images/graphic-designs/${g.folder}/1.png" alt="${g.title}"
+          style="width:100%;height:100%;object-fit:cover;object-position:top;
+            transition:transform .4s ease"
+          onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''"
+          loading="lazy">
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 52%,rgba(28,20,16,0.14));pointer-events:none"></div>
+        <span style="position:absolute;top:10px;right:10px;
+          font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:500;
+          background:rgba(28,20,16,0.48);backdrop-filter:blur(4px);
+          color:rgba(250,247,242,0.88);padding:3px 9px;border-radius:999px">${g.year}</span>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;
+          transition:opacity .25s;background:rgba(28,20,16,0.22)" class="cm-gd-expand-hint">
+          <span style="font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;
+            color:${CM.cream};background:rgba(28,20,16,0.55);padding:7px 18px;
+            border-radius:999px;backdrop-filter:blur(6px);
+            border:1px solid rgba(250,247,242,0.22)">Preview</span>
+        </div>
+      </div>
+      <div style="padding:16px 18px 20px">
+        <p style="font-family:'Outfit',sans-serif;font-size:.64rem;font-weight:600;
+          letter-spacing:.1em;text-transform:uppercase;color:${catColor};margin-bottom:6px">${g.cat}</p>
+        <h4 style="font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:1.02rem;font-weight:500;color:${CM.espresso};
+          line-height:1.3;margin-bottom:4px">${g.title}</h4>
+        <p style="font-family:'Outfit',sans-serif;font-size:.72rem;color:${CM.muted}">${g.inst}</p>
+      </div>
+    </button>`;
+}
+
+function cmBuildGraphicDesign() {
+  return `
+    <div id="cm-graphic-design" style="background:${CM.cream};padding:clamp(4.5rem,9vh,7rem) 24px">
       <div class="max-w-5xl mx-auto">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
-          <span style="display:inline-block;width:28px;height:3px;background:${CM.purple};border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${CM.purple}">Just for Fun</span>
+        <div class="cm-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem">
+          <div>
+            <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
+              letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};margin-bottom:.85rem">Graphic Design</p>
+            <h2 style="
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;font-style:italic;
+              color:${CM.espresso};line-height:1.1
+            " data-edit-key="cm_design_title">Visual identity work</h2>
+          </div>
+          <p style="font-family:'Outfit',sans-serif;font-size:.88rem;line-height:1.68;
+            color:${CM.muted};max-width:300px
+          " data-edit-key="cm_design_subtitle">Branding, institutional materials, and communication design — click any to preview.</p>
         </div>
-        <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.6rem;letter-spacing:-.03em">Drag the Stickers ✦</h2>
-        <p style="font-size:.93rem;color:rgba(28,28,30,0.52);margin-bottom:2rem;max-width:420px;line-height:1.65">Every creative space needs a corkboard. This one is interactive — drag the stickers around.</p>
-        <div id="cm-sticker-board" style="
-          position:relative;height:420px;
-          background:rgba(255,255,255,0.52);
-          border:1.5px dashed rgba(28,28,30,0.12);
-          border-radius:24px;overflow:hidden;
-          backdrop-filter:blur(8px)
-        ">
-          <div style="
-            position:absolute;inset:0;pointer-events:none;
-            background-image:radial-gradient(circle,rgba(28,28,30,0.055) 1px,transparent 1px);
-            background-size:28px 28px
-          "></div>
-          ${stickers}
-          <div style="position:absolute;bottom:18px;right:20px;font-family:'Caveat',cursive;font-size:.95rem;color:rgba(28,28,30,0.22);pointer-events:none">← drag to rearrange</div>
-        </div>
-        <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap;align-items:center">
-          <span style="font-size:.8rem;font-weight:600;color:rgba(28,28,30,0.38)">How does this page make you feel?</span>
-          ${reactions}
-          <span id="cm-react-msg" style="font-family:'Caveat',cursive;font-size:1.15rem;color:${CM.orange};display:none"></span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px">
+          ${CM_GRAPHIC_WORKS.map((g, i) => cmBuildGDCard(g, i)).join('')}
         </div>
       </div>
     </div>`;
 }
 
-function cmBuildFutureVision() {
-  const visionTags = [
-    ['◉ Web Experiences', CM.blue],
-    ['◈ Brand Identities', CM.mint],
-    ['✦ Editorial Design', CM.yellow],
-    ['⬡ Digital Strategy', CM.lavender],
-  ].map(([tag, color]) => `
-    <span style="
-      background:rgba(255,255,255,0.18);
-      border:1.5px solid rgba(255,255,255,0.35);
-      color:#fff;padding:8px 20px;border-radius:999px;
-      font-size:.79rem;font-weight:600
-    ">${tag}</span>`).join('');
+// ── Section 5: Process ────────────────────────────────────────────────────────
+
+function cmBuildProcess() {
+  const steps = [
+    { num: '01', icon: 'search',      label: 'Discover',       editKey: 'cm_process_1', desc: 'We start with your goals, audience, and brand values to define what success looks like.' },
+    { num: '02', icon: 'pen-tool',    label: 'Design & Build', editKey: 'cm_process_2', desc: 'From wireframes to final delivery — every pixel and line of code is intentional.' },
+    { num: '03', icon: 'trending-up', label: 'Launch & Grow',  editKey: 'cm_process_3', desc: 'We hand off a product that your team can own, maintain, and scale.' },
+  ];
+
+  const stepHTML = steps.map((step, i) => `
+    <div style="flex:1;min-width:200px;display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div style="position:relative;margin-bottom:1.5rem">
+        <div style="width:58px;height:58px;border-radius:18px;background:${CM.espresso};
+          display:flex;align-items:center;justify-content:center;
+          box-shadow:0 6px 24px rgba(28,20,16,0.2)">
+          <i data-lucide="${step.icon}" style="width:22px;height:22px;color:${CM.gold}"></i>
+        </div>
+        <span style="position:absolute;top:-8px;right:-8px;
+          font-family:'Outfit',sans-serif;font-size:.54rem;font-weight:700;
+          letter-spacing:.1em;color:${CM.gold};opacity:.65">${step.num}</span>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',Georgia,serif;
+        font-size:1.3rem;font-weight:500;font-style:italic;
+        color:${CM.espresso};margin-bottom:.75rem;line-height:1.2
+      " data-edit-key="${step.editKey}_label">${step.label}</h3>
+      <p style="font-family:'Outfit',sans-serif;font-size:.84rem;line-height:1.72;
+        color:${CM.muted};max-width:210px
+      " data-edit-key="${step.editKey}_desc">${step.desc}</p>
+    </div>
+    ${i < steps.length - 1 ? `
+      <div style="flex-shrink:0;padding-top:28px;font-family:'Cormorant Garamond',serif;
+        font-size:1.5rem;color:${CM.gold};opacity:.3;align-self:flex-start;
+        display:none" class="cm-step-arrow">→</div>` : ''}`).join('');
 
   return `
-    <div class="cm-reveal" style="padding:clamp(4rem,10vh,7rem) 24px;background:${CM.orange};position:relative;overflow:hidden">
-      <div style="position:absolute;top:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.1);pointer-events:none"></div>
-      <div style="position:absolute;bottom:-40px;right:-40px;width:240px;height:240px;border-radius:50%;background:rgba(0,0,0,0.06);pointer-events:none"></div>
-      <div class="max-w-4xl mx-auto text-center relative" style="z-index:1">
-        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:2rem">
-          <span style="display:inline-block;width:28px;height:3px;background:rgba(255,255,255,0.5);border-radius:2px"></span>
-          <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.6)">Future Vision</span>
-          <span style="display:inline-block;width:28px;height:3px;background:rgba(255,255,255,0.5);border-radius:2px"></span>
+    <div style="background:${CM.blush};padding:clamp(4.5rem,9vh,7rem) 24px">
+      <style>@media(min-width:768px){.cm-step-arrow{display:block!important}}</style>
+      <div class="max-w-5xl mx-auto">
+        <div class="cm-reveal" style="text-align:center;margin-bottom:3.5rem">
+          <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
+            letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};margin-bottom:.85rem">Process</p>
+          <h2 style="
+            font-family:'Cormorant Garamond',Georgia,serif;
+            font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;font-style:italic;
+            color:${CM.espresso};line-height:1.1
+          " data-edit-key="cm_process_title">How We Work</h2>
         </div>
-        <h2 style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(2rem,5vw,3.8rem);
-          font-weight:700;color:#fff;
-          line-height:1.1;letter-spacing:-.04em;margin-bottom:1.5rem
-        ">"A creative ecosystem where education,<br>technology, and design converge."</h2>
-        <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.72);max-width:500px;margin:0 auto 2.5rem">
-          CroissantsMoon will grow into a boutique creative practice specializing in experiences for education, culture, and institutions that value craft over noise. This is the beginning.
-        </p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">${visionTags}</div>
+        <div class="cm-reveal" style="display:flex;flex-wrap:wrap;gap:clamp(1.5rem,3vw,2.5rem);
+          align-items:flex-start;justify-content:center">
+          ${stepHTML}
+        </div>
       </div>
     </div>`;
 }
+
+// ── Section 6: Contact CTA ────────────────────────────────────────────────────
 
 function cmBuildContact() {
   return `
-    <div class="cm-reveal" style="padding:clamp(5rem,10vh,7rem) 24px;background:${CM.cream};border-top:1px solid rgba(28,28,30,0.06)">
-      <div class="max-w-4xl mx-auto text-center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:24px">✉</span>
+    <div style="background:${CM.espresso};padding:clamp(5rem,11vh,9rem) 24px;position:relative;overflow:hidden">
+      <div style="position:absolute;right:-100px;top:-100px;width:460px;height:460px;border-radius:50%;
+        background:radial-gradient(circle,${CM.gold}16 0%,transparent 68%);pointer-events:none"></div>
+      <div style="position:absolute;left:-60px;bottom:-80px;width:360px;height:360px;border-radius:50%;
+        background:radial-gradient(circle,#6A341810 0%,transparent 70%);pointer-events:none"></div>
+      <div class="max-w-3xl mx-auto text-center cm-reveal" style="position:relative;z-index:1">
+        <p style="font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:600;
+          letter-spacing:.18em;text-transform:uppercase;color:${CM.gold};opacity:.75;margin-bottom:1.5rem">Let's Work Together</p>
         <h2 style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(2rem,5vw,3.8rem);
-          font-weight:700;color:#1C1C1E;
-          margin-bottom:1rem;letter-spacing:-.04em
-        ">Got an idea?<br><span style="color:${CM.orange}">Let's make something fun.</span></h2>
-        <p style="font-size:.98rem;line-height:1.7;color:rgba(28,28,30,0.48);max-width:440px;margin:0 auto 2.5rem">
-          Whether it's a wild concept, a half-formed idea, or a clear brief — the conversation starts the same way. Say hello.
-        </p>
-        <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center">
-          <button onclick="goToPage('contact')" style="
-            background:#1C1C1E;color:#fff;
-            padding:16px 36px;border-radius:999px;
-            font-family:'Space Grotesk',Inter,sans-serif;
-            font-size:.92rem;font-weight:700;
-            border:none;cursor:pointer;
-            display:inline-flex;align-items:center;gap:10px;
-            transition:opacity .2s;
-            box-shadow:0 4px 20px rgba(28,28,30,0.18)
-          " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
-            Start a Conversation <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
-          </button>
-          <a href="mailto:zefanya.kharisma@gmail.com" style="
-            border:1.5px solid rgba(28,28,30,0.2);
-            color:#1C1C1E;background:transparent;
-            padding:16px 28px;border-radius:999px;
-            font-size:.86rem;font-weight:600;
-            cursor:pointer;text-decoration:none;
-            display:inline-flex;align-items:center;gap:8px;
-            transition:background .2s
-          " onmouseover="this.style.background='rgba(28,28,30,0.05)'" onmouseout="this.style.background='transparent'">
-            <i data-lucide="mail" style="width:15px;height:15px"></i>
-            zefanya.kharisma@gmail.com
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(2.5rem,7vw,5rem);font-weight:400;font-style:italic;
+          color:${CM.cream};line-height:1;margin-bottom:1.5rem;letter-spacing:-.01em
+        " data-edit-key="cm_contact_headline">Let's build something meaningful.</h2>
+        <p style="font-family:'Outfit',sans-serif;font-size:.95rem;line-height:1.78;
+          color:${CM.muted};max-width:460px;margin:0 auto 3rem
+        " data-edit-key="cm_contact_body">Whether you need a website, a brand identity, or both — CroissantsMoon is open for new projects.</p>
+
+        <button onclick="goToPage('contact')" style="
+          font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;
+          background:${CM.gold};color:${CM.espresso};padding:15px 36px;border-radius:999px;
+          border:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;
+          letter-spacing:.02em;transition:opacity .2s;
+          box-shadow:0 4px 28px rgba(201,168,76,0.32)
+        " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+          Start a Conversation
+          <i data-lucide="arrow-right" style="width:15px;height:15px"></i>
+        </button>
+
+        <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(250,247,242,0.07)">
+          <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
+            font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:400;
+            color:rgba(250,247,242,0.28);text-decoration:none;
+            display:inline-flex;align-items:center;gap:6px;transition:color .2s
+          " onmouseover="this.style.color='rgba(250,247,242,0.62)'" onmouseout="this.style.color='rgba(250,247,242,0.28)'">
+            <i data-lucide="github" style="width:13px;height:13px"></i>
+            See all open-source work on GitHub →
           </a>
-        </div>
-        <div style="display:flex;justify-content:center;margin-top:48px">
-          <button onclick="goToPage('home')" style="
-            display:inline-flex;align-items:center;gap:6px;
-            background:none;border:none;cursor:pointer;
-            font-size:.8rem;color:rgba(28,28,30,0.32);
-            padding:8px 12px;border-radius:8px;transition:color .18s
-          " onmouseover="this.style.color='rgba(28,28,30,0.6)'" onmouseout="this.style.color='rgba(28,28,30,0.32)'">
-            <i data-lucide="arrow-left" style="width:14px;height:14px"></i> Back to main portfolio
-          </button>
         </div>
       </div>
     </div>`;
 }
-
-// ── Interactive JS ────────────────────────────────────────────────────────────
-
-function cmInitCursorGlow() {
-  const glow = document.getElementById('cm-cursor-glow');
-  const hero  = document.getElementById('cm-hero');
-  if (!glow || !hero) return;
-  hero.addEventListener('mousemove', e => {
-    const rect = hero.getBoundingClientRect();
-    glow.style.left = (e.clientX - rect.left) + 'px';
-    glow.style.top  = (e.clientY - rect.top)  + 'px';
-  });
-}
-
-function cmInitDraggableStickers() {
-  const board = document.getElementById('cm-sticker-board');
-  if (!board) return;
-
-  board.querySelectorAll('.cm-sticker').forEach(sticker => {
-    let dragging = false, sx, sy, sl, st;
-
-    const onStart = (cx, cy) => {
-      dragging = true;
-      sx = cx; sy = cy;
-      const cs = window.getComputedStyle(sticker);
-      sl = parseFloat(cs.left) || 0;
-      st = parseFloat(cs.top)  || 0;
-      sticker.style.zIndex     = '100';
-      sticker.style.transition = 'none';
-    };
-    const onMove = (cx, cy) => {
-      if (!dragging) return;
-      sticker.style.left = (sl + cx - sx) + 'px';
-      sticker.style.top  = (st + cy - sy) + 'px';
-    };
-    const onEnd = () => {
-      dragging = false;
-      sticker.style.zIndex     = '10';
-      sticker.style.transition = '';
-    };
-
-    sticker.addEventListener('mousedown',  e => { onStart(e.clientX, e.clientY); e.preventDefault(); });
-    document.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
-    document.addEventListener('mouseup',   onEnd);
-
-    sticker.addEventListener('touchstart', e => { const t = e.touches[0]; onStart(t.clientX, t.clientY); e.preventDefault(); }, { passive: false });
-    document.addEventListener('touchmove', e => { const t = e.touches[0]; onMove(t.clientX, t.clientY); });
-    document.addEventListener('touchend',  onEnd);
-  });
-}
-
-function cmReact(btn, label) {
-  const msgs = {
-    Inspired: "That's what this is all about! ✨",
-    Creative: "Yes! Let's make something together. 🎨",
-    Dreamy:   "CroissantsMoon vibes. 🌙",
-    Energized:"Let's channel that energy into something. 🔥",
-  };
-  const el = document.getElementById('cm-react-msg');
-  if (!el) return;
-  el.textContent = msgs[label] || '✦';
-  el.style.display = 'inline';
-  setTimeout(() => { el.style.display = 'none'; }, 3200);
-
-  const rect = btn.getBoundingClientRect();
-  cmFireConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
-}
-
-window.cmReact = cmReact;
-
-// ── Page Init ─────────────────────────────────────────────────────────────────
-
-function cmInitPage() {
-  cmInjectFonts();
-  const el = document.getElementById('page-croissantsmoon');
-  if (!el) return;
-
-  el.style.background = CM.cream;
-  el.innerHTML = [
-    cmBuildHero(),
-    cmBuildMarquee(),
-    cmBuildManifesto(),
-    cmBuildWorks(),
-    cmBuildProcess(),
-    cmBuildExperiments(),
-    cmBuildMoodboard(),
-    cmBuildFunSection(),
-    cmBuildFutureVision(),
-    cmBuildContact(),
-  ].join('');
-
-  if (window.lucide) lucide.createIcons();
-
-  setTimeout(() => {
-    cmInitCursorGlow();
-    cmInitDraggableStickers();
-    cmInitScrollReveal();
-    cmInitCustomCursor();
-    cmInitParticles();
-    cmInitTypewriter();
-  }, 80);
-}
-
-document.addEventListener('DOMContentLoaded', cmInitPage);
-
-// ── Scroll Reveal ─────────────────────────────────────────────────────────────
-
-function cmInitScrollReveal() {
-  const page = document.getElementById('page-croissantsmoon');
-  if (!page) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('cm-visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-  page.querySelectorAll('.cm-reveal').forEach(el => observer.observe(el));
-}
-
-// ── Custom Creative Cursor ────────────────────────────────────────────────────
-
-function cmInitCustomCursor() {
-  if (window.__cmCursorInited) return;
-  window.__cmCursorInited = true;
-
-  const dot  = document.createElement('div');
-  dot.id = 'cm-cursor-dot';
-  dot.className = 'cm-cursor-dot';
-
-  const ring = document.createElement('div');
-  ring.id = 'cm-cursor-ring';
-  ring.className = 'cm-cursor-ring';
-
-  document.body.appendChild(dot);
-  document.body.appendChild(ring);
-
-  document.addEventListener('mousemove', e => {
-    const page = document.getElementById('page-croissantsmoon');
-    const isActive = page && page.classList.contains('active');
-
-    if (!isActive) {
-      dot.style.opacity = ring.style.opacity = '0';
-      return;
-    }
-
-    dot.style.opacity  = '1';
-    ring.style.opacity = '1';
-    dot.style.left  = e.clientX + 'px';
-    dot.style.top   = e.clientY + 'px';
-    ring.style.left = e.clientX + 'px';
-    ring.style.top  = e.clientY + 'px';
-  });
-
-  document.addEventListener('mouseleave', () => {
-    dot.style.opacity = ring.style.opacity = '0';
-  });
-}
-
-// ── Particle Canvas ───────────────────────────────────────────────────────────
-
-function cmInitParticles() {
-  const canvas = document.getElementById('cm-particles-canvas');
-  if (!canvas) return;
-
-  const ctx    = canvas.getContext('2d');
-  const colors = [CM.yellow, CM.blue, CM.pink, CM.mint, CM.lavender, CM.peach, CM.coral];
-  const syms   = ['✦', '◈', '◉', '◎', '·', '✺', '⬡', '★', '✿'];
-
-  let W, H, particles, rafId;
-
-  const resize = () => {
-    const hero = canvas.parentElement;
-    W = canvas.width  = hero.offsetWidth;
-    H = canvas.height = hero.offsetHeight;
-  };
-
-  const makeParticle = () => ({
-    x:       Math.random() * (W || 800),
-    y:       Math.random() * (H || 600),
-    size:    9 + Math.random() * 13,
-    color:   colors[Math.floor(Math.random() * colors.length)],
-    sym:     syms[Math.floor(Math.random() * syms.length)],
-    vx:      (Math.random() - 0.5) * 0.32,
-    vy:      (Math.random() - 0.5) * 0.22,
-    opacity: 0.07 + Math.random() * 0.16,
-    rot:     Math.random() * Math.PI * 2,
-    rotV:    (Math.random() - 0.5) * 0.007,
-  });
-
-  resize();
-  window.addEventListener('resize', resize);
-  particles = Array.from({ length: 42 }, makeParticle);
-
-  const draw = () => {
-    const page = document.getElementById('page-croissantsmoon');
-    if (!page || !page.classList.contains('active')) { rafId = null; return; }
-
-    ctx.clearRect(0, 0, W, H);
-
-    particles.forEach(p => {
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.rot);
-      ctx.globalAlpha = p.opacity;
-      ctx.font        = `${p.size}px serif`;
-      ctx.fillStyle   = p.color;
-      ctx.textAlign   = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(p.sym, 0, 0);
-      ctx.restore();
-
-      p.x   += p.vx;
-      p.y   += p.vy;
-      p.rot += p.rotV;
-
-      if (p.x < -20)      p.x = W + 20;
-      else if (p.x > W + 20) p.x = -20;
-      if (p.y < -20)      p.y = H + 20;
-      else if (p.y > H + 20) p.y = -20;
-    });
-
-    rafId = requestAnimationFrame(draw);
-  };
-
-  draw();
-}
-
-// ── Typewriter Effect ─────────────────────────────────────────────────────────
-
-function cmInitTypewriter() {
-  const el = document.getElementById('cm-typewriter');
-  if (!el) return;
-
-  const text = 'Creative Ideas, Digital Experiences,\nand Experiments in Progress.';
-  let i = 0;
-
-  const tick = () => {
-    if (i <= text.length) {
-      const visible = text.slice(0, i).replace('\n', '<br>');
-      el.innerHTML = visible + '<span class="cm-type-cursor"></span>';
-      i++;
-      setTimeout(tick, i < 2 ? 300 : (i < 20 ? 52 : 36));
-    } else {
-      el.innerHTML = text.replace('\n', '<br>');
-    }
-  };
-
-  setTimeout(tick, 700);
-}
-
-// ── Confetti Burst ────────────────────────────────────────────────────────────
-
-function cmFireConfetti(x, y) {
-  const colors = [CM.yellow, CM.blue, CM.pink, CM.mint, CM.lavender, CM.peach, CM.coral, CM.orange, '#fff'];
-  const count  = 28;
-
-  for (let i = 0; i < count; i++) {
-    const piece  = document.createElement('div');
-    piece.className = 'cm-confetti-piece';
-
-    const size   = 5 + Math.random() * 8;
-    const angle  = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.8;
-    const dist   = 55 + Math.random() * 130;
-    const dx     = Math.cos(angle) * dist;
-    const dy     = Math.sin(angle) * dist - 30;
-    const color  = colors[Math.floor(Math.random() * colors.length)];
-    const round  = Math.random() > 0.45 ? '50%' : '2px';
-    const delay  = (Math.random() * 0.1).toFixed(3);
-
-    piece.style.cssText = `
-      left:${x}px; top:${y}px;
-      width:${size}px; height:${size}px;
-      background:${color};
-      border-radius:${round};
-      --cm-dx:${dx}px;
-      --cm-dy:${dy + 80}px;
-      animation-delay:${delay}s;
-    `;
-
-    document.body.appendChild(piece);
-    setTimeout(() => piece.remove(), 1500);
-  }
-}
-
-window.cmFireConfetti = cmFireConfetti;
-
-// ── Works Filter ──────────────────────────────────────────────────────────────
-
-function cmFilterWorks(filter) {
-  const webSec = document.getElementById('cm-section-web');
-  const gdSec  = document.getElementById('cm-section-graphic');
-  const btnAll = document.getElementById('cm-fw-all');
-  const btnWeb = document.getElementById('cm-fw-web');
-  const btnGfx = document.getElementById('cm-fw-graphic');
-  if (!webSec || !gdSec) return;
-
-  webSec.style.display = (filter === 'all' || filter === 'web')     ? '' : 'none';
-  gdSec.style.display  = (filter === 'all' || filter === 'graphic') ? '' : 'none';
-
-  [btnAll, btnWeb, btnGfx].forEach(b => b && b.classList.remove('cm-f-active'));
-  ({ all: btnAll, web: btnWeb, graphic: btnGfx }[filter] || btnAll)?.classList.add('cm-f-active');
-}
-window.cmFilterWorks = cmFilterWorks;
 
 // ── Graphic Design Lightbox ───────────────────────────────────────────────────
 
 function cmOpenGDPreview(idx) {
   const g = CM_GRAPHIC_WORKS[idx];
   if (!g) return;
-
   const prev = document.getElementById('cm-gd-lightbox');
   if (prev) prev.remove();
-
   window.__cmGDP = { idx, imgIdx: 1 };
 
   const thumbs = Array.from({ length: g.imgs }, (_, i) => `
     <button onclick="cmGDJumpTo(${i + 1})" id="cm-gd-thumb-${i + 1}" style="
       width:58px;height:40px;border-radius:6px;overflow:hidden;padding:0;flex-shrink:0;cursor:pointer;
-      border:2px solid ${i === 0 ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.2)'};
-      transition:border-color .18s
-    ">
+      border:2px solid ${i === 0 ? CM.gold : 'rgba(250,247,242,0.2)'};transition:border-color .18s">
       <img src="./assets/images/graphic-designs/${g.folder}/${i + 1}.png"
-           style="width:100%;height:100%;object-fit:cover" loading="lazy">
-    </button>`
-  ).join('');
+        style="width:100%;height:100%;object-fit:cover" loading="lazy">
+    </button>`).join('');
 
   const lb = document.createElement('div');
   lb.id = 'cm-gd-lightbox';
-  lb.className = 'cm-gd-lightbox';
+  lb.style.cssText = `position:fixed;inset:0;z-index:9999;background:rgba(28,20,16,0.94);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:20px;backdrop-filter:blur(14px)`;
   lb.addEventListener('click', e => { if (e.target === lb) cmCloseGDPreview(); });
 
   lb.innerHTML = `
     <button onclick="cmCloseGDPreview()" style="
-      position:absolute;top:18px;right:18px;
-      background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.18);
-      color:#fff;width:40px;height:40px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      cursor:pointer;font-size:1rem;z-index:10;flex-shrink:0
+      position:absolute;top:18px;right:18px;z-index:10;
+      background:rgba(250,247,242,0.1);border:1px solid rgba(250,247,242,0.18);
+      color:${CM.cream};width:40px;height:40px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem
     ">✕</button>
-
-    <div id="cm-gd-counter" style="
-      position:absolute;top:22px;left:50%;transform:translateX(-50%);
-      font-size:.72rem;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:.08em
-    ">1 / ${g.imgs}</div>
-
-    <img id="cm-gd-img"
-      src="./assets/images/graphic-designs/${g.folder}/1.png"
-      alt="${g.title}"
-      class="cm-gd-lightbox-img"
-    />
-
-    <button onclick="cmNavGDPreview(-1)" class="cm-gd-nav-btn" style="left:max(16px,2.5vw)">‹</button>
-    <button onclick="cmNavGDPreview(1)"  class="cm-gd-nav-btn" style="right:max(16px,2.5vw)">›</button>
-
+    <div id="cm-gd-counter" style="position:absolute;top:22px;left:50%;transform:translateX(-50%);
+      font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:500;
+      color:rgba(250,247,242,0.4);letter-spacing:.08em">1 / ${g.imgs}</div>
+    <img id="cm-gd-img" src="./assets/images/graphic-designs/${g.folder}/1.png" alt="${g.title}"
+      style="max-width:min(860px,90vw);max-height:68vh;object-fit:contain;border-radius:10px;
+        box-shadow:0 32px 100px rgba(0,0,0,0.55);display:block;transition:opacity .16s ease"/>
+    <button onclick="cmNavGDPreview(-1)" style="position:absolute;left:max(16px,2.5vw);top:50%;
+      transform:translateY(-50%);z-index:10;background:rgba(250,247,242,0.1);
+      border:1px solid rgba(250,247,242,0.18);color:${CM.cream};width:46px;height:46px;
+      border-radius:50%;display:flex;align-items:center;justify-content:center;
+      cursor:pointer;font-size:1.5rem;transition:background .15s
+    " onmouseover="this.style.background='rgba(250,247,242,0.2)'" onmouseout="this.style.background='rgba(250,247,242,0.1)'">‹</button>
+    <button onclick="cmNavGDPreview(1)" style="position:absolute;right:max(16px,2.5vw);top:50%;
+      transform:translateY(-50%);z-index:10;background:rgba(250,247,242,0.1);
+      border:1px solid rgba(250,247,242,0.18);color:${CM.cream};width:46px;height:46px;
+      border-radius:50%;display:flex;align-items:center;justify-content:center;
+      cursor:pointer;font-size:1.5rem;transition:background .15s
+    " onmouseover="this.style.background='rgba(250,247,242,0.2)'" onmouseout="this.style.background='rgba(250,247,242,0.1)'">›</button>
     <div style="display:flex;gap:8px;margin-top:16px">${thumbs}</div>
-
-    <div style="
-      margin-top:14px;padding:14px 22px;
-      background:rgba(255,255,255,0.055);
-      border:1px solid rgba(255,255,255,0.09);
-      border-radius:12px;
+    <div style="margin-top:13px;padding:13px 22px;background:rgba(250,247,242,0.05);
+      border:1px solid rgba(250,247,242,0.09);border-radius:12px;
       display:flex;align-items:center;gap:18px;flex-wrap:wrap;
-      max-width:min(860px,90vw);width:100%
-    ">
+      max-width:min(860px,90vw);width:100%">
       <div style="flex:1;min-width:180px">
-        <div style="font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:4px">${g.cat} · ${g.year}</div>
-        <div style="font-family:'Space Grotesk',Inter,sans-serif;font-size:.92rem;font-weight:700;color:#fff">${g.title}</div>
-        <div style="font-size:.72rem;color:rgba(255,255,255,0.4);margin-top:2px">${g.inst}</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:600;
+          letter-spacing:.12em;text-transform:uppercase;color:rgba(250,247,242,0.38);margin-bottom:4px">${g.cat} · ${g.year}</div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:.95rem;
+          font-weight:500;color:${CM.cream}">${g.title}</div>
+        <div style="font-family:'Outfit',sans-serif;font-size:.72rem;
+          color:rgba(250,247,242,0.38);margin-top:2px">${g.inst}</div>
       </div>
       <a href="${g.link}" target="_blank" rel="noopener noreferrer" style="
-        background:${g.bg};color:${g.tc};
-        padding:9px 20px;border-radius:999px;
-        font-family:'Space Grotesk',Inter,sans-serif;
-        font-size:.76rem;font-weight:700;
-        display:inline-flex;align-items:center;gap:7px;
-        text-decoration:none;white-space:nowrap;flex-shrink:0
-      ">View on Canva ↗</a>
+        background:${CM.gold};color:${CM.espresso};padding:9px 20px;border-radius:999px;
+        font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:700;
+        display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+        white-space:nowrap;flex-shrink:0;transition:opacity .2s
+      " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">View on Canva ↗</a>
     </div>
-    <p style="margin-top:10px;font-size:.65rem;color:rgba(255,255,255,0.25)">← → arrow keys to navigate · Esc to close</p>
-  `;
+    <p style="margin-top:10px;font-family:'Outfit',sans-serif;font-size:.62rem;
+      color:rgba(250,247,242,0.2)">← → arrow keys · Esc to close</p>`;
 
   document.body.appendChild(lb);
-
   const onKey = e => {
-    if (e.key === 'Escape')     { cmCloseGDPreview(); }
-    if (e.key === 'ArrowLeft')  { cmNavGDPreview(-1); }
-    if (e.key === 'ArrowRight') { cmNavGDPreview(1); }
+    if (e.key === 'Escape')     cmCloseGDPreview();
+    if (e.key === 'ArrowLeft')  cmNavGDPreview(-1);
+    if (e.key === 'ArrowRight') cmNavGDPreview(1);
   };
   document.addEventListener('keydown', onKey);
   lb._cmKey = onKey;
@@ -1306,22 +820,91 @@ function cmGDJumpTo(i) {
   const g = CM_GRAPHIC_WORKS[window.__cmGDP.idx];
   if (!g) return;
   window.__cmGDP.imgIdx = i;
-
   const img = document.getElementById('cm-gd-img');
   if (img) {
     img.style.opacity = '0';
-    setTimeout(() => {
-      img.src = `./assets/images/graphic-designs/${g.folder}/${i}.png`;
-      img.style.opacity = '1';
-    }, 160);
+    setTimeout(() => { img.src = `./assets/images/graphic-designs/${g.folder}/${i}.png`; img.style.opacity = '1'; }, 160);
   }
-
   const counter = document.getElementById('cm-gd-counter');
   if (counter) counter.textContent = `${i} / ${g.imgs}`;
-
   for (let t = 1; t <= g.imgs; t++) {
     const thumb = document.getElementById(`cm-gd-thumb-${t}`);
-    if (thumb) thumb.style.borderColor = t === i ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.2)';
+    if (thumb) thumb.style.borderColor = t === i ? CM.gold : 'rgba(250,247,242,0.2)';
   }
 }
 window.cmGDJumpTo = cmGDJumpTo;
+
+// ── Scroll Reveal ─────────────────────────────────────────────────────────────
+
+function cmInitScrollReveal() {
+  const page = document.getElementById('page-croissantsmoon');
+  if (!page) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('cm-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07, rootMargin: '0px 0px -32px 0px' });
+  page.querySelectorAll('.cm-reveal').forEach(el => obs.observe(el));
+}
+
+// ── Smooth scroll for hero CTAs ───────────────────────────────────────────────
+
+function cmInitScrollLinks() {
+  const page = document.getElementById('page-croissantsmoon');
+  if (!page) return;
+  page.addEventListener('click', function(e) {
+    const a = e.target.closest('[data-cm-scroll]');
+    if (!a) return;
+    e.preventDefault();
+    const target = document.getElementById(a.getAttribute('data-cm-scroll'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+// ── GD card hover expand hint ─────────────────────────────────────────────────
+
+function cmInitGDHovers() {
+  document.querySelectorAll('.cm-gd-expand-hint').forEach(hint => {
+    const card = hint.closest('button');
+    if (!card) return;
+    card.addEventListener('mouseenter', () => { hint.style.opacity = '1'; });
+    card.addEventListener('mouseleave', () => { hint.style.opacity = '0'; });
+  });
+}
+
+// ── Page Init ─────────────────────────────────────────────────────────────────
+
+function cmInitPage() {
+  cmInjectFonts();
+  cmInjectPageCSS();
+
+  const el = document.getElementById('page-croissantsmoon');
+  if (!el) return;
+
+  el.style.background = CM.cream;
+  el.innerHTML = [
+    cmBuildHero(),
+    cmBuildServices(),
+    cmBuildWebProjects(),
+    cmBuildGraphicDesign(),
+    cmBuildProcess(),
+    cmBuildContact(),
+  ].join('');
+
+  if (window.lucide) lucide.createIcons();
+
+  setTimeout(() => {
+    // Animate logotype (600ms ease-out fade-in + upward drift)
+    const logotype = document.getElementById('cm-logotype');
+    if (logotype) {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        logotype.style.opacity = '1';
+        logotype.style.transform = 'translateY(0)';
+      }));
+    }
+    cmInitScrollLinks();
+    cmInitScrollReveal();
+    cmInitGDHovers();
+    cmFetchRepos();
+  }, 80);
+}
+
+document.addEventListener('DOMContentLoaded', cmInitPage);

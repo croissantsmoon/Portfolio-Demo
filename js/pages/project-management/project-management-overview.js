@@ -243,6 +243,140 @@ function projectsOverviewInitPage() {
 
     </div>
 
+    <!-- Web Development Projects -->
+    <div style="height:1px;background:rgba(28,28,30,0.07);margin:0 0 48px"></div>
+
+    <div class="flex items-center gap-4 mb-10">
+     <span style="font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8B7355">Web Development</span>
+     <div style="flex:1;height:1px;background:rgba(28,28,30,0.08)"></div>
+     <span style="font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C0B8AE">CroissantsMoon Studio</span>
+    </div>
+
+    <div class="mb-10">
+     <h2 class="font-heading font-bold" style="font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:-.02em;color:#1C1C1E;margin-bottom:10px">Web Projects</h2>
+     <p style="font-size:.9375rem;color:#5C5C5C;line-height:1.65;max-width:560px">Responsive web applications and dashboards — from personal portfolio SPAs to institutional data tools.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 mb-16">
+
+     <!-- Website Portfolio -->
+     <div class="cursor-pointer group" onclick="goToPage('web-portfolio')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(201,168,76,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
+      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#1C1410,#3D2B1F);height:200px">
+       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 75% 30%,rgba(201,168,76,0.15),transparent 55%)"></div>
+       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(250,247,242,0.04);letter-spacing:-.03em;white-space:nowrap">Portfolio</span>
+       </div>
+       <div class="relative z-10 text-center px-8">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,230,211,0.4);margin-bottom:10px">SPA · Vanilla JS</div>
+        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#FAF7F2;letter-spacing:-.02em;line-height:1.1">Website Portfolio</div>
+        <div style="width:28px;height:1px;background:rgba(201,168,76,0.5);border-radius:2px;margin:12px auto 10px"></div>
+        <div style="font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,0.6)">Personal · 2025</div>
+       </div>
+      </div>
+      <div class="p-7 flex flex-col justify-between" style="min-height:180px">
+       <div>
+        <div class="flex items-center gap-3 mb-4">
+         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(201,168,76,0.08);color:#8B7355">Full-Stack</span>
+         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">Live</span>
+        </div>
+        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Dual-identity SPA with hash-based routing, iOS-style navigation shell, Supabase inline editing, and 20+ pages — no framework.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Tailwind CSS</span><span class="tag">Supabase</span></div>
+       </div>
+       <div class="flex items-center justify-end pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
+        <span class="flex items-center gap-2 text-sm font-medium" style="color:#8B7355">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
+       </div>
+      </div>
+     </div>
+
+     <!-- PCU Global International Office -->
+     <div class="cursor-pointer group" onclick="goToPage('web-pcu-global-intl')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(0,48,135,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
+      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#002070,#1a4fa0);height:200px">
+       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 25% 40%,rgba(255,255,255,0.1),transparent 55%)"></div>
+       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(255,255,255,0.04);letter-spacing:-.03em;white-space:nowrap">Intl. Office</span>
+       </div>
+       <div class="relative z-10 text-center px-8">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:10px">Web App · PCU</div>
+        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#fff;letter-spacing:-.02em;line-height:1.1">International Office</div>
+        <div style="width:28px;height:1px;background:rgba(255,255,255,0.25);border-radius:2px;margin:12px auto 10px"></div>
+        <div style="font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">PCU Global · 2026</div>
+       </div>
+      </div>
+      <div class="p-7 flex flex-col justify-between" style="min-height:180px">
+       <div>
+        <div class="flex items-center gap-3 mb-4">
+         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(0,48,135,0.08);color:#003087">Full-Stack</span>
+         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">In Progress</span>
+        </div>
+        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Rebuilding PCU's International Office website — news CMS, partnership directory, audience-first information architecture, and mobile-first design.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Supabase</span></div>
+       </div>
+       <div class="flex items-center justify-end pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
+        <span class="flex items-center gap-2 text-sm font-medium" style="color:#003087">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
+       </div>
+      </div>
+     </div>
+
+     <!-- Dashboard Partnership -->
+     <div class="cursor-pointer group" onclick="goToPage('web-dashboard-partnership')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(45,107,80,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
+      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#1A3A2B,#2D6B4A);height:200px">
+       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 70% 30%,rgba(255,255,255,0.07),transparent 55%)"></div>
+       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(255,255,255,0.04);letter-spacing:-.03em;white-space:nowrap">Partnership</span>
+       </div>
+       <div class="relative z-10 text-center px-8">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:10px">Dashboard · Data</div>
+        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#fff;letter-spacing:-.02em;line-height:1.1">Partnership</div>
+        <div style="width:28px;height:1px;background:rgba(255,255,255,0.25);border-radius:2px;margin:12px auto 10px"></div>
+        <div style="font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Dashboard · 2025</div>
+       </div>
+      </div>
+      <div class="p-7 flex flex-col justify-between" style="min-height:180px">
+       <div>
+        <div class="flex items-center gap-3 mb-4">
+         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(45,107,80,0.08);color:#2D6B50">Data Viz</span>
+         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">Live · 2025</span>
+        </div>
+        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Interactive dashboard for international partnership networks — geographic breakdown, agreement status tracking, and compound filters across 30+ partners.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">JavaScript</span><span class="tag">Chart.js</span><span class="tag">Tailwind CSS</span></div>
+       </div>
+       <div class="flex items-center justify-end pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
+        <span class="flex items-center gap-2 text-sm font-medium" style="color:#2D6B50">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
+       </div>
+      </div>
+     </div>
+
+     <!-- Dashboard International Grants -->
+     <div class="cursor-pointer group" onclick="goToPage('web-dashboard-grants')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(90,60,140,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
+      <div class="relative flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#2A1A4A,#5C3A8A);height:200px">
+       <div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 35%,rgba(255,255,255,0.07),transparent 55%)"></div>
+       <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <span class="font-heading font-bold select-none" style="font-size:clamp(2rem,6vw,4.5rem);color:rgba(255,255,255,0.04);letter-spacing:-.03em;white-space:nowrap">Grants</span>
+       </div>
+       <div class="relative z-10 text-center px-8">
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:10px">Dashboard · Grants</div>
+        <div class="font-heading font-bold" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:#fff;letter-spacing:-.02em;line-height:1.1">Intl. Grants</div>
+        <div style="width:28px;height:1px;background:rgba(255,255,255,0.25);border-radius:2px;margin:12px auto 10px"></div>
+        <div style="font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Dashboard · 2025</div>
+       </div>
+      </div>
+      <div class="p-7 flex flex-col justify-between" style="min-height:180px">
+       <div>
+        <div class="flex items-center gap-3 mb-4">
+         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(92,58,138,0.08);color:#5C3A8A">Data Viz</span>
+         <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">Live · 2025</span>
+        </div>
+        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Centralised grant tracking from application through to outcome — deadline timeline, stage-based pipeline view, and outcome analytics for leadership reporting.</p>
+        <div class="flex flex-wrap gap-1.5"><span class="tag">JavaScript</span><span class="tag">Chart.js</span><span class="tag">Tailwind CSS</span></div>
+       </div>
+       <div class="flex items-center justify-end pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">
+        <span class="flex items-center gap-2 text-sm font-medium" style="color:#5C3A8A">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></span>
+       </div>
+      </div>
+     </div>
+
+    </div>
+
    </div>
   `;
 
