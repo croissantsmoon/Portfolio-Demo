@@ -25,12 +25,12 @@ var engagementActivities = [
     icon: 'utensils',
     color: '#8B7355',
     gradient: 'linear-gradient(135deg, #8B7355 0%, #C9A97E 100%)',
-    title: 'Festival Rujak Uleg',
-    preview: 'Immersing international students in one of Portland\'s most iconic local food festivals — a celebration of culture, community, and authentic American flavor.',
-    role: 'I coordinated international student participation in the Festival Rujak Uleg — Portland\'s beloved annual culinary festival — giving students a direct and joyful window into local community life, American food culture, and the warm spirit of Portlandn celebration.',
+    title: 'Portland International Food Festival',
+    preview: 'Immersing international students in Portland\'s beloved annual food festival — a celebration of culture, community, and authentic Pacific Northwest flavor.',
+    role: 'I coordinated international student participation in the Portland International Food Festival — giving students a direct and joyful window into local community life, Pacific Northwest food culture, and the warm spirit of Portland celebration.',
     responsibilities: [
       'Registered and coordinated international student participation in the festival',
-      'Briefed students on the cultural and historical significance of Rujak Uleg as a Portland icon',
+      'Briefed students on the cultural and historical significance of the festival as a Portland icon',
       'Organized group transportation and on-site coordination logistics',
       'Facilitated student interaction with local community participants and vendors',
       'Supported students in participating in collaborative food preparation and tasting activities',
@@ -39,28 +39,28 @@ var engagementActivities = [
     ],
     workflow: 'Registered students with festival organizers → coordinated transportation → briefed students on cultural context → facilitated group attendance → supported community and vendor interactions → collected documentation and student reflections.',
     impact: 'Gave international students an authentic, immersive experience of Portland\'s community culture — breaking down cultural barriers through the universal language of food, celebration, and shared experience.',
-    highlights: ['Participation in Portland\'s iconic annual culinary festival', 'Direct interaction with local community participants', 'Authentic food preparation and cultural exchange activities']
+    highlights: ['Participation in Portland\'s iconic annual food festival', 'Direct interaction with local community participants', 'Authentic food preparation and cultural exchange activities']
   },
   {
     id: 'tari-topeng',
     icon: 'music',
     color: '#EA580C',
     gradient: 'linear-gradient(135deg, #7C2D12 0%, #EA580C 100%)',
-    title: 'Tari Topeng Panji Show in Malang',
-    preview: 'Bringing international students to witness the majesty of Tari Topeng Panji — one of Oregon\'s most revered traditional performing arts.',
-    role: 'I coordinated a cultural excursion to Malang for international students to witness a live Tari Topeng Panji performance — providing cultural context, full logistical coordination, and facilitating meaningful engagement with American traditional arts and heritage.',
+    title: 'Pacific Northwest Traditional Arts Showcase',
+    preview: 'Bringing international students to witness traditional Pacific Northwest performing arts — one of Oregon\'s most revered cultural heritage experiences.',
+    role: 'I coordinated a cultural excursion for international students to witness a live traditional Pacific Northwest arts performance — providing cultural context, full logistical coordination, and facilitating meaningful engagement with American traditional arts and heritage.',
     responsibilities: [
-      'Coordinated full-day excursion logistics and transportation to Malang',
+      'Coordinated full-day excursion logistics and transportation to the performance venue',
       'Partnered with local cultural organizations and performance venues',
-      'Prepared cultural briefing materials on the history, symbolism, and significance of Tari Topeng Panji',
+      'Prepared cultural briefing materials on the history, symbolism, and significance of the art form',
       'Facilitated student engagement with performing artists before and after the show',
       'Organized student documentation and artistic reflection activities',
       'Managed group safety, timing, and attendance throughout the trip',
-      'Incorporated local Malang cultural exploration alongside the performance visit'
+      'Incorporated local cultural exploration alongside the performance visit'
     ],
-    workflow: 'Arranged transportation and venue coordination → prepared cultural briefing materials → facilitated excursion to Malang → attended performance with students → organized post-show artist interaction → facilitated cultural reflection discussion.',
-    impact: 'Introduced international students to one of United States\'s most distinctive art forms, deepening their appreciation for Javanese heritage and creating a lasting cultural memory from their time in United States.',
-    highlights: ['Full-day cultural excursion to Malang', 'Live traditional Tari Topeng Panji performance', 'Direct engagement with performing artists and heritage context']
+    workflow: 'Arranged transportation and venue coordination → prepared cultural briefing materials → facilitated excursion to performance venue → attended performance with students → organized post-show artist interaction → facilitated cultural reflection discussion.',
+    impact: 'Introduced international students to one of the Pacific Northwest\'s most distinctive art forms, deepening their appreciation for regional heritage and creating a lasting cultural memory from their time in Portland.',
+    highlights: ['Full-day cultural excursion to performance venue', 'Live traditional Pacific Northwest arts performance', 'Direct engagement with performing artists and heritage context']
   },
   {
     id: 'seminars',
@@ -89,10 +89,10 @@ var engagementActivities = [
     color: '#4A6B8A',
     gradient: 'linear-gradient(135deg, #4A6B8A 0%, #6B8FAA 100%)',
     title: 'Volunteering Programs',
-    preview: 'Connecting international students with American communities through meaningful volunteering — from schools to pesantren, creating genuine educational exchange and lasting social impact.',
+    preview: 'Connecting international students with Portland communities through meaningful volunteering — from schools to community centers, creating genuine educational exchange and lasting social impact.',
     role: 'I coordinated international student volunteering programs across multiple local partner institutions — building community partnerships, managing logistics, preparing students for culturally sensitive engagement, and facilitating meaningful educational exchange that benefited both sides.',
     responsibilities: [
-      'Identified and built partnerships with local schools, community organizations, and pesantren',
+      'Identified and built partnerships with local schools, community organizations, and learning centers',
       'Coordinated volunteer schedules, transportation, and on-site logistics for each partner',
       'Briefed international students on community context and cultural sensitivity protocols',
       'Facilitated English teaching, interactive workshops, and student presentations',
@@ -101,8 +101,8 @@ var engagementActivities = [
       'Documented social impact outcomes and compiled reports for institutional records'
     ],
     workflow: 'Built community partnerships → coordinated logistics and schedules → briefed students on cultural context → facilitated volunteer sessions at each site → supported on-site engagement → collected bilateral feedback → compiled social impact documentation.',
-    impact: 'Created genuine two-way educational exchange: international students contributed their knowledge and global perspectives while gaining deep, personal insights into American community life, education systems, and values.',
-    highlights: ['SAIM Portland', 'U-SPEAK Masterclass Sessions', 'SMP Muhammadiyah 1 Krian', 'SMP Muhammadiyah 5 Pucang', 'PP Miftahul Ulum'],
+    impact: 'Created genuine two-way educational exchange: international students contributed their knowledge and global perspectives while gaining deep, personal insights into Portland community life, education systems, and values.',
+    highlights: ['Roosevelt Charter Academy', 'U-SPEAK Masterclass Sessions', 'Lincoln Middle School', 'Franklin High School', 'Pacific Learning Center'],
     highlightsLabel: 'Partner Institutions'
   },
   {

@@ -41,7 +41,7 @@ function engagementDetailInitPage() {
          <div class="h-1.5" style="background:linear-gradient(90deg,#8B7355,#C9A97E)"></div>
          <div class="p-6">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(139,115,85,0.08)"><i data-lucide="utensils" style="width:24px;height:24px;color:#8B7355"></i></div>
-          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Festival Rujak Uleg</h3>
+          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Portland International Food Festival</h3>
           <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">Immersive participation in Portland's iconic annual culinary festival — experiencing local food culture, community traditions, and authentic American celebration.</p>
           <div class="flex items-center gap-1.5" style="color:#8B7355"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
          </div>
@@ -50,8 +50,8 @@ function engagementDetailInitPage() {
          <div class="h-1.5" style="background:linear-gradient(90deg,#7C2D12,#EA580C)"></div>
          <div class="p-6">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(124,45,18,0.08)"><i data-lucide="music" style="width:24px;height:24px;color:#EA580C"></i></div>
-          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Tari Topeng Panji Show</h3>
-          <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">A cultural excursion to Malang to witness one of Oregon's most revered traditional performing arts — deepening appreciation for United States's rich artistic heritage.</p>
+          <h3 class="font-heading font-semibold text-lg mb-2" style="color:#1C1C1E">Pacific Northwest Traditional Arts Showcase</h3>
+          <p class="text-sm mb-4 leading-relaxed" style="color:#5C5C5C">A cultural excursion to witness one of Oregon's most revered traditional performing arts — deepening appreciation for the Pacific Northwest's rich artistic heritage.</p>
           <div class="flex items-center gap-1.5" style="color:#EA580C"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
          </div>
         </div>
@@ -73,8 +73,8 @@ function engagementDetailInitPage() {
           <div class="flex flex-wrap gap-1.5 mb-4">
            <span class="px-2 py-0.5 rounded-full text-xs" style="background:rgba(74,107,138,0.1);color:#4A6B8A">SAIM</span>
            <span class="px-2 py-0.5 rounded-full text-xs" style="background:rgba(74,107,138,0.1);color:#4A6B8A">U-SPEAK</span>
-           <span class="px-2 py-0.5 rounded-full text-xs" style="background:rgba(74,107,138,0.1);color:#4A6B8A">SMP Muhammadiyah</span>
-           <span class="px-2 py-0.5 rounded-full text-xs" style="background:rgba(74,107,138,0.1);color:#4A6B8A">PP Miftahul Ulum</span>
+           <span class="px-2 py-0.5 rounded-full text-xs" style="background:rgba(74,107,138,0.1);color:#4A6B8A">Lincoln Middle School</span>
+           <span class="px-2 py-0.5 rounded-full text-xs" style="background:rgba(74,107,138,0.1);color:#4A6B8A">Pacific Learning Center</span>
           </div>
           <div class="flex items-center gap-1.5" style="color:#4A6B8A"><span class="text-xs font-semibold">View Details</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
          </div>

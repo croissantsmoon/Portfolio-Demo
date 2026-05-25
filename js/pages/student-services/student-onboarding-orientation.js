@@ -4,8 +4,8 @@ var onboardingActivities = [
     icon: 'plane',
     color: '#1E3A5F',
     gradient: 'linear-gradient(135deg, #1E3A5F 0%, #4A6B8A 100%)',
-    thumbnail: 'assets/images/student-services/10162025_Arrival TIAS /Usman Yahaya Garba.jpg',
-    heroImage: 'assets/images/student-services/10162025_Arrival TIAS /Usman Yahaya Garba.jpg',
+    thumbnail: 'https://picsum.photos/seed/arrival-intl/800/600',
+    heroImage: 'https://picsum.photos/seed/arrival-intl/800/600',
     title: 'Student Pick-Up Services',
     preview: 'Coordinating airport arrivals and ensuring every student felt welcomed from their very first moment in United States.',
     role: 'I served as the first point of contact for international students arriving in Portland — managing transportation logistics, monitoring flight schedules, and ensuring a seamless first-arrival experience for every student that set a warm, welcoming tone for their entire stay.',
@@ -13,7 +13,7 @@ var onboardingActivities = [
       'Received and reviewed flight manifests from inbound mobility staff',
       'Communicated directly with students before arrival to confirm schedules and needs',
       'Coordinated transportation teams and driver assignments for each batch',
-      'Welcomed students personally at Juanda International Airport',
+      'Welcomed students personally at Portland International Airport (PDX)',
       'Assisted with luggage, local SIM cards, and immediate settlement logistics',
       'Transferred students safely to their designated accommodation',
       'Provided welcome packages with essential Portland information and emergency contacts'
@@ -110,23 +110,17 @@ var onboardingActivities = [
     icon: 'file-text',
     color: '#059669',
     gradient: 'linear-gradient(135deg, #064E3B 0%, #059669 100%)',
-    thumbnail: 'assets/images/student-services/03132025_Tax-Report-2025/Game Baraedi Dintle.jpeg',
-    heroImage: 'assets/images/student-services/03132025_Tax-Report-2025/Game Baraedi Dintle.jpeg',
+    thumbnail: 'https://picsum.photos/seed/tax-report-1/800/600',
+    heroImage: 'https://picsum.photos/seed/tax-report-1/800/600',
     gallery: [
-      'assets/images/student-services/03132025_Tax-Report-2025/Ariel David Dominguez Cardona.jpeg',
-      'assets/images/student-services/03132025_Tax-Report-2025/Game Baraedi Dintle.jpeg',
-      'assets/images/student-services/03132025_Tax-Report-2025/Ghulam Muhammad.jpeg',
-      'assets/images/student-services/03132025_Tax-Report-2025/Jaqueline Da Silva Figueiredo.jpeg',
-      'assets/images/student-services/03132025_Tax-Report-2025/Mohammed Abdullah Ahmed Mareai.jpeg',
-      'assets/images/student-services/03132025_Tax-Report-2025/Mojeeb Abdo Abdullah Qasem.jpeg',
-      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.14_0aff538d.jpg',
-      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.14_5d85b53f.jpg',
-      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.14_abc64d97.jpg',
-      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.15_c91f5f5d.jpg',
-      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.17_3bfffa00.jpg',
-      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.19_9b4125b3.jpg',
-      'assets/images/student-services/03132025_Tax-Report-2025/WhatsApp Image 2025-04-23 at 09.04.20_21b8db77.jpg',
-      'assets/images/student-services/03132025_Tax-Report-2025/Zainab Kasenya Selemani.jpeg'
+      'https://picsum.photos/seed/tax-session-1/800/600',
+      'https://picsum.photos/seed/tax-session-2/800/600',
+      'https://picsum.photos/seed/tax-session-3/800/600',
+      'https://picsum.photos/seed/tax-session-4/800/600',
+      'https://picsum.photos/seed/tax-session-5/800/600',
+      'https://picsum.photos/seed/tax-session-6/800/600',
+      'https://picsum.photos/seed/tax-session-7/800/600',
+      'https://picsum.photos/seed/tax-session-8/800/600',
     ],
     title: 'Tax Reporting Support',
     preview: 'Guiding international students through American tax reporting obligations — turning a complex administrative process into a clear, manageable experience.',
@@ -141,8 +135,8 @@ var onboardingActivities = [
       'Liaised with scholarship offices to confirm compliance status'
     ],
     workflow: 'Identified students with tax reporting obligations → coordinated with finance office for official guidance → hosted group information session → provided individual assistance with documents → monitored submission deadlines → confirmed compliance with scholarship authorities.',
-    impact: 'Ensured 100% tax reporting compliance for all government scholarship students, protecting their visa and scholarship status and maintaining institutional credibility with DIKTI.',
-    highlights: ['Supported KNB and TIAS scholarship holders', 'Zero compliance issues or missed deadlines', 'Created step-by-step guidance materials in accessible English']
+    impact: 'Ensured 100% tax reporting compliance for all government scholarship students, protecting their visa and scholarship status and maintaining institutional credibility with the scholarship authority.',
+    highlights: ['Supported GPEX and INTEX scholarship holders', 'Zero compliance issues or missed deadlines', 'Created step-by-step guidance materials in accessible English']
   },
   {
     id: 'farewell',
@@ -172,41 +166,33 @@ var onboardingActivities = [
     icon: 'clipboard-list',
     color: '#7C3AED',
     gradient: 'linear-gradient(135deg, #3B0764 0%, #7C3AED 100%)',
-    thumbnail: 'assets/images/student-services/monev-tias/IMG_4586.jpeg',
-    heroImage: 'assets/images/student-services/monev-tias/IMG_4586.jpeg',
+    thumbnail: 'https://picsum.photos/seed/monev-1/800/600',
+    heroImage: 'https://picsum.photos/seed/monev-1/800/600',
     gallery: [
-      'assets/images/student-services/monev-tias/IMG_4586.jpeg',
-      'assets/images/student-services/monev-tias/IMG_4589.jpeg',
-      'assets/images/student-services/monev-tias/IMG_4590.jpeg',
-      'assets/images/student-services/monev-tias/IMG_4595.jpeg',
-      'assets/images/student-services/monev-tias/IMG_4596.jpeg',
-      'assets/images/student-services/monev-tias/IMG_4598.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7061.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7067.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7074.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7092.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7095.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7096.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7108.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7109.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7110.jpeg',
-      'assets/images/student-services/monev-tias/IMG_7111.jpeg'
+      'https://picsum.photos/seed/monev-1/800/600',
+      'https://picsum.photos/seed/monev-2/800/600',
+      'https://picsum.photos/seed/monev-3/800/600',
+      'https://picsum.photos/seed/monev-4/800/600',
+      'https://picsum.photos/seed/monev-5/800/600',
+      'https://picsum.photos/seed/monev-6/800/600',
+      'https://picsum.photos/seed/monev-7/800/600',
+      'https://picsum.photos/seed/monev-8/800/600',
     ],
     title: 'Monitoring & Evaluation',
     preview: 'Ensuring government scholarship students met all program requirements through structured monitoring, stakeholder reporting, and proactive issue resolution.',
-    role: 'I coordinated monitoring and evaluation activities for government-funded scholarship programs — specifically KNB (Kemitraan Negara Berkembang) and TIAS scholarships — ensuring full compliance with program obligations, maintaining accurate student progress records, and communicating regularly with national scholarship authorities.',
+    role: 'I coordinated monitoring and evaluation activities for government-funded scholarship programs — specifically GPEX (Global Partnership Exchange) and INTEX scholarships — ensuring full compliance with program obligations, maintaining accurate student progress records, and communicating regularly with national scholarship authorities.',
     responsibilities: [
-      'Conducted regular individual and group check-in meetings with KNB and TIAS scholarship holders',
+      'Conducted regular individual and group check-in meetings with GPEX and INTEX scholarship holders',
       'Monitored academic progress, attendance, and wellbeing indicators throughout the semester',
       'Prepared structured progress reports for formal submission to scholarship authorities',
-      'Communicated officially with DIKTI and relevant scholarship stakeholders',
+      'Communicated officially with the US Department of International Education and relevant scholarship stakeholders',
       'Organized evaluation sessions and collected qualitative student feedback',
       'Proactively identified and resolved compliance issues before reporting deadlines',
       'Coordinated with academic and visa staff on student status updates and concerns'
     ],
     workflow: 'Established semester-long monitoring schedules → conducted regular check-ins with scholarship holders → collected academic and welfare data → compiled official progress reports → submitted to scholarship offices → addressed any flagged concerns with relevant departments.',
     impact: 'Maintained 100% reporting compliance across all government scholarship programs, ensuring uninterrupted funding and sustaining strong institutional credibility with national scholarship authorities.',
-    highlights: ['Full oversight of KNB and TIAS scholarship programs', 'Regular structured reporting to DIKTI', 'Zero reporting compliance failures across all monitored semesters']
+    highlights: ['Full oversight of GPEX and INTEX scholarship programs', 'Regular structured reporting to US Department of International Education', 'Zero reporting compliance failures across all monitored semesters']
   }
 ];
 
@@ -327,13 +313,13 @@ function buildActivityCard(act) {
 }
 
 var knbGallery = [
-  'assets/images/student-services/09012025_KNB-Orientation/IMG_8467.jpeg',
-  'assets/images/student-services/09012025_KNB-Orientation/IMG_8471.jpeg',
-  'assets/images/student-services/09012025_KNB-Orientation/IMG_8478.jpeg',
-  'assets/images/student-services/09012025_KNB-Orientation/IMG_8484.jpeg',
-  'assets/images/student-services/09012025_KNB-Orientation/IMG_8504.jpeg',
-  'assets/images/student-services/09012025_KNB-Orientation/IMG_8510.jpeg',
-  'assets/images/student-services/09012025_KNB-Orientation/IMG_8513.jpeg'
+  'https://picsum.photos/seed/orientation-1/800/600',
+  'https://picsum.photos/seed/orientation-2/800/600',
+  'https://picsum.photos/seed/orientation-3/800/600',
+  'https://picsum.photos/seed/orientation-4/800/600',
+  'https://picsum.photos/seed/orientation-5/800/600',
+  'https://picsum.photos/seed/orientation-6/800/600',
+  'https://picsum.photos/seed/orientation-7/800/600',
 ];
 
 function onboardingInitPage() {
@@ -390,7 +376,7 @@ function onboardingInitPage() {
         <div class="card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(74,107,138,0.08)"><i data-lucide="shield-check" style="width:24px;height:24px;color:#4A6B8A"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Immigration &amp; Visa Assistance</h3>
-         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Guided students through KITAS applications, extensions, and immigration reporting requirements — coordinating closely with visa staff to keep every student legally compliant.</p>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Guided students through F-1 visa applications, extensions, and immigration reporting requirements — coordinating closely with visa staff to keep every student legally compliant.</p>
         </div>
         <div class="card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(139,115,85,0.08)"><i data-lucide="heart" style="width:24px;height:24px;color:#8B7355"></i></div>
@@ -405,7 +391,7 @@ function onboardingInitPage() {
         <div class="card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(59,7,100,0.08)"><i data-lucide="award" style="width:24px;height:24px;color:#7C3AED"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Government Scholarship Administration</h3>
-         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Managed administrative obligations for KNB and TIAS scholarship holders — including progress monitoring, tax reporting support, and formal reporting to scholarship authorities.</p>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Managed administrative obligations for GPEX and INTEX scholarship holders — including progress monitoring, tax reporting support, and formal reporting to scholarship authorities.</p>
         </div>
         <div class="card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(124,45,18,0.08)"><i data-lucide="users" style="width:24px;height:24px;color:#EA580C"></i></div>
@@ -443,7 +429,7 @@ function onboardingInitPage() {
         <div class="card p-5 rounded-2xl" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:rgba(124,58,237,0.1)"><i data-lucide="award" style="width:20px;height:20px;color:#7C3AED"></i></div>
          <p class="font-heading font-bold text-3xl mb-0.5" style="color:#1C1C1E">27</p>
-         <p class="text-sm font-semibold mb-1" style="color:#1C1C1E">KNB Scholarship</p>
+         <p class="text-sm font-semibold mb-1" style="color:#1C1C1E">GPEX Scholarship</p>
          <p class="text-xs leading-relaxed" style="color:#5C5C5C">Government-funded · 10+ countries · monitored &amp; evaluated</p>
          <div class="mt-3 flex flex-wrap gap-1">
           <span class="px-1.5 py-0.5 rounded text-xs" style="background:rgba(124,58,237,0.08);color:#7C3AED">Pakistan · Yemen</span>
@@ -453,7 +439,7 @@ function onboardingInitPage() {
         <div class="card p-5 rounded-2xl" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:rgba(234,88,12,0.1)"><i data-lucide="star" style="width:20px;height:20px;color:#EA580C"></i></div>
          <p class="font-heading font-bold text-3xl mb-0.5" style="color:#1C1C1E">9</p>
-         <p class="text-sm font-semibold mb-1" style="color:#1C1C1E">TIAS Scholarship</p>
+         <p class="text-sm font-semibold mb-1" style="color:#1C1C1E">INTEX Scholarship</p>
          <p class="text-xs leading-relaxed" style="color:#5C5C5C">Government-funded · 5 countries · monitored &amp; evaluated</p>
          <div class="mt-3 flex flex-wrap gap-1">
           <span class="px-1.5 py-0.5 rounded text-xs" style="background:rgba(234,88,12,0.08);color:#EA580C">Kenya · Nigeria</span>
@@ -565,7 +551,7 @@ function onboardingInitPage() {
           </div>
          </div>
          <div class="mt-6 pt-4 border-t" style="border-color:rgba(28,28,30,0.08)">
-          <p class="text-xs" style="color:#767676">Data based on Batches 22–24 where study level was recorded. All KNB and TIAS students are government scholarship recipients.</p>
+          <p class="text-xs" style="color:#767676">Data based on Batches 22–24 where study level was recorded. All GPEX and INTEX students are government scholarship recipients.</p>
          </div>
         </div>
        </div>

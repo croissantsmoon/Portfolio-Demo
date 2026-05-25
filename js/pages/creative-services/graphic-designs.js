@@ -54,7 +54,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'Data Storytelling', text: 'Partnership statistics visualized as infographic blocks rather than tables — numbers reframed as achievements, not just data.' },
       { icon: '⬡', label: 'Color Language', text: 'Anchored in NGU institutional tones with a refined lavender-and-white palette — distinguished, memorable, and aligned with the institution\'s identity.' },
     ],
-    link: 'https://canva.link/partnershipbookletpetra',
+    link: '#',
   },
   {
     id: 'pcu-intl-students',
@@ -81,7 +81,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'Icon Language', text: 'Created a consistent icon set for tips, warnings, steps, and definitions — reducing cognitive load so students can scan before they read.' },
       { icon: '⬡', label: 'Friendly Tone by Design', text: 'Visual breathing room, warm yellow, and generous margins communicate safety — anxious first-time arrivals should feel guided, never overwhelmed.' },
     ],
-    link: 'https://canva.link/internationalstudentsguidebookpetra',
+    link: '#',
   },
   {
     id: 'pcu-presentation',
@@ -108,7 +108,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'White Space Strategy', text: 'Generous margins and restrained content per slide ensure the speaker\'s voice leads — the deck should support, not compete.' },
       { icon: '⬡', label: 'Reuse Flexibility', text: 'Color and font variables defined systematically — any team member can rearrange slides without accidentally breaking visual consistency.' },
     ],
-    link: 'https://canva.link/jat6f7jcsawdmnu',
+    link: '#',
   },
   {
     id: 'aci-b2-2025',
@@ -135,7 +135,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'Cultural Warmth', text: 'Soft blues and clean editorial whites evoke trust and calm — essential for participants arriving in an unfamiliar country for the first time.' },
       { icon: '⬡', label: 'Scan-first Design', text: 'Every spread was designed to be understood in under 10 seconds — headers, icons, and color blocks guide the eye before a single word is read.' },
     ],
-    link: 'https://canva.link/motmeousw72spno',
+    link: '#',
   },
   {
     id: 'aci-b1-2025',
@@ -162,7 +162,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'Itinerary as Visual Story', text: 'Transformed a text-heavy schedule into a visual timeline with icons and color blocks — making participants feel excited, not administratively processed.' },
       { icon: '⬡', label: 'Bilingual Layout Awareness', text: 'Grid and spacing decisions account for bilingual content — generous white space ensures the layout holds even when text expands across languages.' },
     ],
-    link: 'https://canva.link/6bysygp89hi879s',
+    link: '#',
   },
   {
     id: 'staffs-banyuwangi',
@@ -189,7 +189,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'Destination Storytelling', text: 'Banyuwangi\'s natural beauty became the visual metaphor — organic shapes and rich textures made the program feel like an adventure, not just an exchange.' },
       { icon: '⬡', label: 'Premium Booklet Feel', text: 'Structured like a travel magazine editorial — aspirational, airy layouts that made participants feel selected for something genuinely special.' },
     ],
-    link: 'https://canva.link/i1i6dbnby7ho36z',
+    link: '#',
   },
   {
     id: 'aero-2025',
@@ -216,7 +216,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'Data as Achievement', text: 'Partnership numbers presented as visual milestones — not just facts, but evidence of a growing network worth belonging to.' },
       { icon: '⬡', label: 'Brand Elevation', text: 'Honored Westbridge University\'s institutional identity while modernizing its visual presence — familiar enough to be recognized, refined enough to be respected.' },
     ],
-    link: 'https://canva.link/odx5kh4eara7iuh',
+    link: '#',
   },
   {
     id: 'unair-accommodation',
@@ -243,7 +243,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'Visual Comparison', text: 'Housing options side-by-side as scannable cards — enabling quick decision-making across budget, distance to campus, and available amenities.' },
       { icon: '⬡', label: 'Anxiety Reduction', text: 'Warm orange tones, friendly language, and generous imagery communicate that someone thought of you — turning a bureaucratic guide into a genuine welcome.' },
     ],
-    link: 'https://canva.link/l8pkkjs0x8f24sy',
+    link: '#',
   },
   {
     id: 'unair-intl-students',
@@ -270,7 +270,7 @@ const GD_PROJECTS = [
       { icon: '✦', label: 'Chapter Color System', text: 'Each chapter has a distinct accent drawn from a unified palette — students navigate by color without needing to read a single chapter title.' },
       { icon: '⬡', label: 'Human Voice', text: 'Copywriting and design worked in tandem — tips framed as personal advice, not institutional rules — making a 32-page handbook feel like a letter from a friend.' },
     ],
-    link: 'https://canva.link/xehf9jz9v781sn7',
+    link: '#',
   },
 ];
 

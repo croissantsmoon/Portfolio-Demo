@@ -35,15 +35,15 @@ const CM_REPO_DETAIL_PAGE = {
 };
 
 const CM_GRAPHIC_WORKS = [
-  { title: 'NGU Partnership Booklet',                cat: 'Brand Identity',   folder: 'partnership-booklet-pcu',               imgs: 3, link: 'https://canva.link/partnershipbookletpetra',             year: '2024–2025', inst: 'Northgate University'    },
-  { title: 'NGU International Students Guide',       cat: 'Print & Digital',  folder: 'international-students-guidebook-pcu',  imgs: 3, link: 'https://canva.link/internationalstudentsguidebookpetra', year: '2024–2025', inst: 'Northgate University'    },
-  { title: 'NGU Presentation Template',              cat: 'Visual Identity',  folder: 'general-ppt-pcu',                       imgs: 3, link: 'https://canva.link/jat6f7jcsawdmnu',                     year: '2024–2025', inst: 'Northgate University'    },
-  { title: 'ACI 2025 Batch 2 Guidebook',             cat: 'Event Materials',  folder: 'booklet-aci-2025-b2-unair',             imgs: 3, link: 'https://canva.link/motmeousw72spno',                     year: '2025',      inst: 'Westbridge University'         },
-  { title: 'ACI 2025 Batch 1 Guidebook',             cat: 'Event Materials',  folder: 'guidebook-aci-2025-b1-unair',           imgs: 3, link: 'https://canva.link/6bysygp89hi879s',                     year: '2025',      inst: 'Westbridge University'         },
-  { title: 'Staffordshire Banyuwangi Booklet',       cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: 'https://canva.link/i1i6dbnby7ho36z',                     year: '2025',      inst: 'Staffordshire × Westbridge'     },
-  { title: 'AERO 2025 Presentation',                 cat: 'Event Materials',  folder: 'aero-2025-unair',                       imgs: 3, link: 'https://canva.link/odx5kh4eara7iuh',                     year: '2025',      inst: 'Westbridge University'         },
-  { title: 'Westbridge Accommodation Guide',          cat: 'Print & Digital',  folder: 'accommodation-guidebook-unair',         imgs: 3, link: 'https://canva.link/l8pkkjs0x8f24sy',                     year: '2024–2025', inst: 'Westbridge University'         },
-  { title: 'Westbridge International Students Guide', cat: 'Social Media Kits',folder: 'international-students-guidebook-unair',imgs: 3, link: 'https://canva.link/xehf9jz9v781sn7',                     year: '2024–2025', inst: 'Westbridge University'         },
+  { title: 'NGU Partnership Booklet',                cat: 'Brand Identity',   folder: 'partnership-booklet-pcu',               imgs: 3, link: '#', year: '2024–2025', inst: 'Northgate University'    },
+  { title: 'NGU International Students Guide',       cat: 'Print & Digital',  folder: 'international-students-guidebook-pcu',  imgs: 3, link: '#', year: '2024–2025', inst: 'Northgate University'    },
+  { title: 'NGU Presentation Template',              cat: 'Visual Identity',  folder: 'general-ppt-pcu',                       imgs: 3, link: '#', year: '2024–2025', inst: 'Northgate University'    },
+  { title: 'ACI 2025 Batch 2 Guidebook',             cat: 'Event Materials',  folder: 'booklet-aci-2025-b2-unair',             imgs: 3, link: '#', year: '2025',      inst: 'Westbridge University'         },
+  { title: 'ACI 2025 Batch 1 Guidebook',             cat: 'Event Materials',  folder: 'guidebook-aci-2025-b1-unair',           imgs: 3, link: '#', year: '2025',      inst: 'Westbridge University'         },
+  { title: 'Staffordshire Banyuwangi Booklet',       cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: '#', year: '2025',      inst: 'Staffordshire × Westbridge'     },
+  { title: 'AERO 2025 Presentation',                 cat: 'Event Materials',  folder: 'aero-2025-unair',                       imgs: 3, link: '#', year: '2025',      inst: 'Westbridge University'         },
+  { title: 'Westbridge Accommodation Guide',          cat: 'Print & Digital',  folder: 'accommodation-guidebook-unair',         imgs: 3, link: '#', year: '2024–2025', inst: 'Westbridge University'         },
+  { title: 'Westbridge International Students Guide', cat: 'Social Media Kits',folder: 'international-students-guidebook-unair',imgs: 3, link: '#', year: '2024–2025', inst: 'Westbridge University'         },
 ];
 
 const CM_LANG_COLORS = {
