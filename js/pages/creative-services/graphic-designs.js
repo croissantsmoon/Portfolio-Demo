@@ -520,7 +520,7 @@ function gdBuildProjectCard(p) {
       display:block;width:100%;box-shadow:0 4px 28px rgba(3,7,18,0.4)
     ">
       <div style="position:relative;overflow:hidden;height:185px;background:#071126">
-        <img src="./assets/images/graphic-designs/${p.folder}/1.png" alt="${p.title}"
+        <img src="/assets/images/graphic-designs/${p.folder}/1.png" alt="${p.title}"
           class="gd-cover-img"
           style="width:100%;height:100%;object-fit:cover;object-position:top;
             transition:transform .45s ease;display:block">
@@ -608,7 +608,7 @@ function gdBuildProjectShowcase() {
       ">
         <!-- Thumbnail left -->
         <div style="position:relative;overflow:hidden;min-height:240px;background:#071126">
-          <img src="./assets/images/graphic-designs/${featured.folder}/1.png"
+          <img src="/assets/images/graphic-designs/${featured.folder}/1.png"
             alt="${featured.title}"
             style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:absolute;inset:0">
           <div style="position:absolute;inset:0;
@@ -966,7 +966,7 @@ function gdLightboxContent() {
       border:2px solid ${i === gdLightboxIndex ? '#D4B15A' : 'transparent'};
       opacity:${i === gdLightboxIndex ? '1' : '0.4'};transition:all .15s
     " onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='${i === gdLightboxIndex ? '1' : '0.4'}'">
-      <img src="./assets/images/graphic-designs/${p.folder}/${i + 1}.png" style="width:100%;height:100%;object-fit:cover;object-position:top" loading="lazy">
+      <img src="/assets/images/graphic-designs/${p.folder}/${i + 1}.png" style="width:100%;height:100%;object-fit:cover;object-position:top" loading="lazy">
     </div>`).join('');
 
   return `
@@ -992,7 +992,7 @@ function gdLightboxContent() {
 
     <!-- Main image -->
     <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%;padding:56px 80px 80px">
-      <img loading="lazy" id="gd-lb-img" src="./assets/images/graphic-designs/${p.folder}/${n}.png"
+      <img loading="lazy" id="gd-lb-img" src="/assets/images/graphic-designs/${p.folder}/${n}.png"
            alt="${p.title} — page ${n}"
            style="max-width:100%;max-height:75vh;object-fit:contain;border-radius:10px;
              box-shadow:0 32px 100px rgba(0,0,0,0.65);display:block;
@@ -1082,7 +1082,7 @@ function gdBuildImageGallery(project) {
       transition:transform .22s cubic-bezier(0.34,1.56,0.64,1),box-shadow .22s
     " onmouseover="this.style.transform='translateY(-5px) scale(1.02)';this.style.boxShadow='0 16px 40px rgba(3,7,18,0.65)'"
        onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(3,7,18,0.5)'">
-      <img src="./assets/images/graphic-designs/${project.folder}/${n}.png"
+      <img src="/assets/images/graphic-designs/${project.folder}/${n}.png"
            alt="${project.title} — page ${n}"
            style="width:100%;display:block;object-fit:cover;aspect-ratio:3/2;object-position:top center">
       <div style="position:absolute;inset:0;background:rgba(7,17,38,0);transition:background .2s;
@@ -1383,7 +1383,7 @@ function gdBuildProjectDetail(project) {
         <div style="border-radius:24px;overflow:hidden;margin-bottom:3.5rem;
           border:1px solid rgba(111,168,255,0.12)">
           <div onclick="gdOpenLightbox('${project.id}', 0)" style="height:220px;overflow:hidden;position:relative;cursor:zoom-in">
-            <img src="./assets/images/graphic-designs/${project.folder}/1.png"
+            <img src="/assets/images/graphic-designs/${project.folder}/1.png"
               alt="${project.title} — cover preview"
               style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
                 transition:transform .45s ease"
