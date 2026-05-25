@@ -40,6 +40,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.lavender,
     textAccent: '#C4B5FD',
     folder: 'partnership-booklet-pcu',
+    imgs: 3,
     pages: 35,
     skills: ['Graphic Design', 'Branding', 'Editorial Layout', 'International Education'],
     summary: 'A comprehensive booklet showcasing PCU\'s international partnership initiatives — designed to attract new institutional partners and communicate the depth of existing collaborations.',
@@ -66,6 +67,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.yellow,
     textAccent: '#F5D05E',
     folder: 'international-students-guidebook-pcu',
+    imgs: 3,
     pages: 30,
     skills: ['Graphic Design', 'Information Architecture', 'Communication Design', 'International Education'],
     summary: 'A comprehensive guidebook helping international students navigate life at PCU — from academic processes to daily living in Surabaya.',
@@ -92,6 +94,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.pink,
     textAccent: '#FDA4AF',
     folder: 'general-ppt-pcu',
+    imgs: 3,
     pages: 35,
     skills: ['Presentation Design', 'Branding', 'Typography', 'Communication Design'],
     summary: 'A modular, reusable presentation template giving PCU\'s international partnership team a consistent, polished voice in every meeting, pitch, and partner visit.',
@@ -118,6 +121,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.blue,
     textAccent: '#7BC8F6',
     folder: 'booklet-aci-2025-b2-unair',
+    imgs: 3,
     pages: 7,
     skills: ['Graphic Design', 'Editorial Layout', 'Information Architecture', 'Communication Design'],
     summary: 'A concise, high-impact guidebook for international students joining the Airlangga Cultural Immersion program — every page designed to make participants feel welcomed, informed, and genuinely excited.',
@@ -144,6 +148,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.mint,
     textAccent: '#6EE7B7',
     folder: 'guidebook-aci-2025-b1-unair',
+    imgs: 3,
     pages: 15,
     skills: ['Graphic Design', 'Editorial Layout', 'Information Architecture', 'Communication Design'],
     summary: 'The inaugural guidebook for ACI 2025\'s first batch — setting the visual identity and design system for the entire Airlangga Cultural Immersion series.',
@@ -170,6 +175,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.peach,
     textAccent: '#FDBA8C',
     folder: 'guidebook-staffordshire-unair',
+    imgs: 15,
     pages: 15,
     skills: ['Graphic Design', 'Editorial Layout', 'Branding', 'International Education'],
     summary: 'A tailor-made program booklet for Staffordshire University students visiting Banyuwangi — blending academic immersion with cultural exploration in a visually distinctive editorial format.',
@@ -196,6 +202,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.coral,
     textAccent: '#FF6B6B',
     folder: 'aero-2025-unair',
+    imgs: 3,
     pages: 13,
     skills: ['Presentation Design', 'Branding', 'Communication Design', 'Typography'],
     summary: 'A flagship institutional presentation for AERO 2025 — communicating Universitas Airlangga\'s global partnerships to an international audience of institutional leaders.',
@@ -222,6 +229,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.orange,
     textAccent: '#F4874B',
     folder: 'accommodation-guidebook-unair',
+    imgs: 3,
     pages: 28,
     skills: ['Graphic Design', 'Information Architecture', 'Communication Design', 'International Education'],
     summary: 'A dedicated accommodation guide for international students at Universitas Airlangga — covering housing options, neighborhoods, costs, and practical tips for settling into Surabaya.',
@@ -248,6 +256,7 @@ const GD_PROJECTS = [
     accent: GD_ACCENTS.purple,
     textAccent: '#A78BFA',
     folder: 'international-students-guidebook-unair',
+    imgs: 3,
     pages: 32,
     skills: ['Graphic Design', 'Editorial Layout', 'Information Architecture', 'Communication Design'],
     summary: 'The comprehensive international student handbook for Universitas Airlangga — covering everything from enrollment to campus life for students arriving from around the world.',
@@ -315,6 +324,24 @@ function gdInjectCSS() {
 
     .gd-reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease-out, transform .65s ease-out; }
     .gd-visible { opacity: 1 !important; transform: none !important; }
+
+    @keyframes gdMarquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+    @keyframes gdMarqueeRev { from { transform: translateX(-50%) } to { transform: translateX(0) } }
+    .gd-marquee-track { animation: gdMarquee 28s linear infinite; display: flex; width: max-content; }
+    .gd-marquee-track.rev { animation: gdMarqueeRev 32s linear infinite; }
+    .gd-marquee-wrap:hover .gd-marquee-track { animation-play-state: paused; }
+    .gd-marquee-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 20px; border-radius: 999px; margin: 0 8px;
+      font-family: 'Outfit', sans-serif; font-weight: 500; white-space: nowrap;
+      background: rgba(111,168,255,0.07); border: 1px solid rgba(111,168,255,0.16);
+      transition: background .2s, border-color .2s, box-shadow .2s;
+      cursor: default;
+    }
+    .gd-marquee-pill:hover {
+      background: rgba(111,168,255,0.14); border-color: rgba(111,168,255,0.32);
+      box-shadow: 0 4px 16px rgba(7,17,38,0.4);
+    }
   `;
   document.head.appendChild(s);
 }
@@ -496,8 +523,7 @@ function gdBuildProjectCard(p) {
         <img src="./assets/images/graphic-designs/${p.folder}/1.png" alt="${p.title}"
           class="gd-cover-img"
           style="width:100%;height:100%;object-fit:cover;object-position:top;
-            transition:transform .45s ease;display:block"
-          loading="lazy">
+            transition:transform .45s ease;display:block">
         <!-- gradient overlay -->
         <div style="position:absolute;inset:0;
           background:linear-gradient(to bottom,transparent 40%,rgba(7,17,38,0.75));
@@ -582,7 +608,7 @@ function gdBuildProjectShowcase() {
       ">
         <!-- Thumbnail left -->
         <div style="position:relative;overflow:hidden;min-height:240px;background:#071126">
-          <img loading="lazy" src="./assets/images/graphic-designs/${featured.folder}/1.png"
+          <img src="./assets/images/graphic-designs/${featured.folder}/1.png"
             alt="${featured.title}"
             style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:absolute;inset:0">
           <div style="position:absolute;inset:0;
@@ -765,32 +791,29 @@ function gdBuildCreativeDirections() {
 // ── SECTION 4: Inspirations ───────────────────────────────────────────────────
 
 function gdBuildInspirations() {
-  const rotations = ['-2deg','1.2deg','-1.5deg','2deg','0deg','-0.8deg','1deg','-1.2deg','0.5deg','-1.5deg','1.8deg','-0.5deg'];
-  const accents = ['#D4B15A','#6FA8FF','#8FA8D6','#D9E6FF','#D4B15A','#6FA8FF'];
+  const accents = ['#D4B15A','#6FA8FF','#8FA8D6','#D9E6FF','#A78BFA','#D4B15A','#6FA8FF','#C4B5FD','#FDA4AF','#6EE7B7','#FDBA8C','#7BC8F6'];
+  const dots    = ['✦','◈','⬡','✺','◉','✦','◈','⬡','✺','◉','✦','◈'];
 
-  const tags = GD_INSPO.map((text, i) => {
-    const accent = accents[i % accents.length];
-    const rot = rotations[i % rotations.length];
-    const sizes = ['.76rem', '.88rem', '1rem'];
-    const pads  = ['5px 14px', '6px 17px', '8px 20px'];
-    const sz = i % 3;
-    return `
-      <span style="
-        display:inline-block;
-        background:rgba(111,168,255,0.06);color:${accent};
-        padding:${pads[sz]};border-radius:999px;font-size:${sizes[sz]};
-        font-family:'Outfit',sans-serif;font-weight:500;
-        border:1px solid rgba(111,168,255,0.14);transform:rotate(${rot});
-        transition:transform .22s cubic-bezier(0.34,1.56,0.64,1),box-shadow .22s,border-color .22s;
-        cursor:default;margin:5px
-      " onmouseover="this.style.transform='scale(1.08) rotate(0deg)';this.style.boxShadow='0 6px 20px rgba(7,17,38,0.4)';this.style.borderColor='rgba(111,168,255,0.3)'"
-         onmouseout="this.style.transform='rotate(${rot})';this.style.boxShadow='none';this.style.borderColor='rgba(111,168,255,0.14)'">${text}</span>`;
-  }).join('');
+  // Build two rows — row1 goes forward, row2 goes reverse
+  const row1Items = GD_INSPO;
+  const row2Items = [...GD_INSPO].reverse();
+
+  function buildRow(items, cls) {
+    // Duplicate for seamless loop
+    const pills = [...items, ...items].map((text, i) => {
+      const accent = accents[i % accents.length];
+      const dot = dots[i % dots.length];
+      return `<span class="gd-marquee-pill" style="color:${accent};font-size:.82rem">
+        <span style="opacity:.55;font-size:.72rem">${dot}</span>${text}
+      </span>`;
+    }).join('');
+    return `<div class="gd-marquee-track ${cls}">${pills}</div>`;
+  }
 
   return `
     <div style="
       background:linear-gradient(180deg,#071126 0%,#030712 100%);
-      padding:clamp(4rem,8vh,6rem) 24px;position:relative;overflow:hidden">
+      padding:clamp(4rem,8vh,6rem) 0;position:relative;overflow:hidden">
       <!-- Stars -->
       <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5">
         ${cmBuildStarField(28)}
@@ -799,38 +822,40 @@ function gdBuildInspirations() {
         ${cmConstellationSVG(1200, 500, 13)}
       </div>
 
-      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
-        <div class="gd-reveal" style="display:flex;align-items:center;justify-content:space-between;
-          margin-bottom:2rem;flex-wrap:wrap;gap:12px">
-          <div>
-            <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
-              letter-spacing:.2em;text-transform:uppercase;color:#D4B15A;margin-bottom:.9rem">Influences &amp; Inspirations</p>
-            <h2 style="
-              font-family:'Cormorant Garamond',Georgia,serif;
-              font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;font-style:italic;
-              color:#D9E6FF;line-height:1.05
-            ">What shapes my visual thinking.</h2>
-          </div>
-          <p style="font-family:'Outfit',sans-serif;font-size:.82rem;color:#8FA8D6;
-            max-width:260px;line-height:1.64;opacity:.75">
-            Design traditions and ideas that shape how I see and communicate visually.
-          </p>
-        </div>
+      <!-- Fade edges -->
+      <div style="position:absolute;top:0;bottom:0;left:0;width:80px;z-index:2;pointer-events:none;
+        background:linear-gradient(to right,#071126,transparent)"></div>
+      <div style="position:absolute;top:0;bottom:0;right:0;width:80px;z-index:2;pointer-events:none;
+        background:linear-gradient(to left,#071126,transparent)"></div>
 
-        <!-- Constellation-style tag cloud -->
-        <div class="gd-reveal" style="
-          display:flex;flex-wrap:wrap;align-items:center;
-          padding:28px 24px;
-          background:rgba(11,30,58,0.45);border-radius:22px;
-          border:1px solid rgba(111,168,255,0.12);
-          backdrop-filter:blur(14px);
-          box-shadow:0 4px 28px rgba(3,7,18,0.35);
-          position:relative;overflow:hidden
-        ">
-          <div style="position:absolute;inset:0;pointer-events:none;opacity:.3">
-            ${cmConstellationSVG(900, 300, 17)}
-          </div>
-          <div style="position:relative;z-index:1">${tags}</div>
+      <!-- Header (centered, with padding) -->
+      <div class="max-w-5xl mx-auto gd-reveal" style="position:relative;z-index:1;
+        padding:0 24px;margin-bottom:2.5rem;
+        display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <div>
+          <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+            letter-spacing:.2em;text-transform:uppercase;color:#D4B15A;margin-bottom:.9rem">Influences &amp; Inspirations</p>
+          <h2 style="
+            font-family:'Cormorant Garamond',Georgia,serif;
+            font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;font-style:italic;
+            color:#D9E6FF;line-height:1.05
+          ">What shapes my visual thinking.</h2>
+        </div>
+        <p style="font-family:'Outfit',sans-serif;font-size:.82rem;color:#8FA8D6;
+          max-width:260px;line-height:1.64;opacity:.75">
+          Design traditions and ideas that shape how I see and communicate visually.
+        </p>
+      </div>
+
+      <!-- Marquee rows -->
+      <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:14px">
+        <!-- Row 1 — left to right -->
+        <div class="gd-marquee-wrap" style="overflow:hidden">
+          ${buildRow(row1Items, '')}
+        </div>
+        <!-- Row 2 — right to left -->
+        <div class="gd-marquee-wrap" style="overflow:hidden">
+          ${buildRow(row2Items, 'rev')}
         </div>
       </div>
     </div>`;
@@ -934,7 +959,7 @@ let gdLightboxIndex   = 0;
 function gdLightboxContent() {
   const p = gdLightboxProject;
   const n = gdLightboxIndex + 1;
-  const total = p.pages;
+  const total = p.imgs || Math.min(p.pages, 3);
   const thumbs = Array.from({ length: total }, (_, i) => `
     <div onclick="event.stopPropagation();gdLightboxJump(${i})" style="
       flex:0 0 auto;width:52px;height:34px;border-radius:5px;overflow:hidden;cursor:pointer;
@@ -1017,7 +1042,8 @@ function gdOpenLightbox(projectId, pageIndex) {
 
 function gdLightboxNav(dir) {
   if (!gdLightboxProject) return;
-  const newIndex = Math.max(0, Math.min(gdLightboxProject.pages - 1, gdLightboxIndex + dir));
+  const _lbTotal = gdLightboxProject.imgs || Math.min(gdLightboxProject.pages, 3);
+  const newIndex = Math.max(0, Math.min(_lbTotal - 1, gdLightboxIndex + dir));
   if (newIndex === gdLightboxIndex) return;
   gdLightboxIndex = newIndex;
   const lb = document.getElementById('gd-lightbox');
@@ -1046,7 +1072,7 @@ function gdLightboxKeyHandler(e) {
 // ── Image Preview Gallery ─────────────────────────────────────────────────────
 
 function gdBuildImageGallery(project) {
-  const previewCount = Math.min(project.pages, 3);
+  const previewCount = project.imgs || Math.min(project.pages, 3);
   const imgs = Array.from({ length: previewCount }, (_, i) => i + 1).map(n => `
     <div onclick="gdOpenLightbox('${project.id}', ${n - 1})" style="
       flex:0 0 auto;width:200px;border-radius:14px;overflow:hidden;
@@ -1058,8 +1084,7 @@ function gdBuildImageGallery(project) {
        onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(3,7,18,0.5)'">
       <img src="./assets/images/graphic-designs/${project.folder}/${n}.png"
            alt="${project.title} — page ${n}"
-           style="width:100%;display:block;object-fit:cover;aspect-ratio:3/2;object-position:top center"
-           loading="lazy">
+           style="width:100%;display:block;object-fit:cover;aspect-ratio:3/2;object-position:top center">
       <div style="position:absolute;inset:0;background:rgba(7,17,38,0);transition:background .2s;
         display:flex;align-items:center;justify-content:center;pointer-events:none">
         <span style="color:#D9E6FF;font-size:.62rem;font-weight:600;letter-spacing:.1em;
@@ -1071,7 +1096,7 @@ function gdBuildImageGallery(project) {
         padding:2px 7px;border-radius:999px;border:1px solid rgba(111,168,255,0.16)">${n}</span>
     </div>`).join('');
 
-  const moreLabel = project.pages > 3
+  const moreLabel = project.pages > previewCount
     ? `<div onclick="window.open('${project.link}','_blank')" style="
         flex:0 0 auto;width:140px;border-radius:14px;
         background:rgba(111,168,255,0.05);border:1px dashed rgba(111,168,255,0.18);
@@ -1080,7 +1105,7 @@ function gdBuildImageGallery(project) {
       " onmouseover="this.style.background='rgba(111,168,255,0.1)'" onmouseout="this.style.background='rgba(111,168,255,0.05)'">
         <span style="font-size:1.5rem">${project.emoji}</span>
         <span style="font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:500;
-          color:#8FA8D6;text-align:center;line-height:1.4">+${project.pages - 3} more on Canva</span>
+          color:#8FA8D6;text-align:center;line-height:1.4">+${project.pages - previewCount} more on Canva</span>
       </div>`
     : '';
 
@@ -1359,14 +1384,14 @@ function gdBuildProjectDetail(project) {
           border:1px solid rgba(111,168,255,0.12)">
           <div onclick="gdOpenLightbox('${project.id}', 0)" style="height:220px;overflow:hidden;position:relative;cursor:zoom-in">
             <img src="./assets/images/graphic-designs/${project.folder}/1.png"
-              alt="${project.title} — cover preview" loading="lazy"
+              alt="${project.title} — cover preview"
               style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
                 transition:transform .45s ease"
               onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
             <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,17,38,0.08),rgba(7,17,38,0.58))"></div>
             <div style="position:absolute;bottom:16px;left:22px;
               font-family:'Outfit',sans-serif;color:rgba(217,230,255,0.55);font-size:.68rem;font-weight:500;letter-spacing:.08em">
-              Click to preview · ${project.pages} pages
+              Click to preview · ${project.imgs || Math.min(project.pages, 3)} preview pages · ${project.pages} pages total
             </div>
           </div>
           <div style="background:#071126;padding:24px 30px;display:flex;align-items:center;
