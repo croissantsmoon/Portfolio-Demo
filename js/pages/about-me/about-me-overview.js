@@ -787,32 +787,6 @@ function aboutOverviewInitPage() {
       </div>
      </div>
 
-     <!-- ═══ 11. TESTIMONIALS ═══ -->
-     <div style="padding:72px 24px;background:#F2ECE4">
-      <div class="max-w-6xl mx-auto">
-       <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Testimonials</span></div>
-       <h2 class="font-heading font-bold text-3xl mb-10" style="color:#1C1C1E">Recommendations</h2>
-       <div class="grid md:grid-cols-2 gap-6">
-        <div class="card p-8" style="background:#fff">
-         <div style="font-size:3.5rem;color:#C4A875;line-height:1;font-family:'Playfair Display',serif;margin-bottom:4px;opacity:.7">"</div>
-         <p class="text-base leading-relaxed mb-6" style="color:#1C1C1E;font-family:'Playfair Display',serif;font-style:italic">Zefanya consistently delivers with both strategic clarity and genuine care for every student and partner he works with. His ability to manage complex multi-stakeholder programs while maintaining quality is exceptional.</p>
-         <div class="flex items-center gap-3">
-          <div style="width:40px;height:40px;border-radius:50%;background:rgba(30,58,95,0.08);display:flex;align-items:center;justify-content:center"><i data-lucide="user" style="width:18px;height:18px;color:#1E3A5F"></i></div>
-          <div><p class="font-semibold text-sm" style="color:#1C1C1E">International Education Colleague</p><p class="text-xs" style="color:#767676">Airlangga Global Engagement</p></div>
-         </div>
-        </div>
-        <div class="card p-8" style="background:#fff">
-         <div style="font-size:3.5rem;color:#C4A875;line-height:1;font-family:'Playfair Display',serif;margin-bottom:4px;opacity:.7">"</div>
-         <p class="text-base leading-relaxed mb-6" style="color:#1C1C1E;font-family:'Playfair Display',serif;font-style:italic">What stands out about Zefanya is how he connects institutional priorities with creative thinking. He doesn't just execute — he brings perspective and design sensibility to every challenge.</p>
-         <div class="flex items-center gap-3">
-          <div style="width:40px;height:40px;border-radius:50%;background:rgba(139,115,85,0.08);display:flex;align-items:center;justify-content:center"><i data-lucide="user" style="width:18px;height:18px;color:#8B7355"></i></div>
-          <div><p class="font-semibold text-sm" style="color:#1C1C1E">Academic Partner</p><p class="text-xs" style="color:#767676">International University Collaborator</p></div>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-
      <!-- ═══ 12. INTERESTS & CREATIVE IDENTITY ═══ -->
      <div style="padding:72px 24px;background:#1C1C1E">
       <div class="max-w-6xl mx-auto">
