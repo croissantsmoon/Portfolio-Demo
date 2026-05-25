@@ -40,7 +40,7 @@ const CM_GRAPHIC_WORKS = [
   { title: 'NGU Presentation Template',              cat: 'Visual Identity',  folder: 'general-ppt-pcu',                       imgs: 3, link: '#', year: '2024–2025', inst: 'Northgate University'    },
   { title: 'ACI 2025 Batch 2 Guidebook',             cat: 'Event Materials',  folder: 'booklet-aci-2025-b2-unair',             imgs: 3, link: '#', year: '2025',      inst: 'Westbridge University'         },
   { title: 'ACI 2025 Batch 1 Guidebook',             cat: 'Event Materials',  folder: 'guidebook-aci-2025-b1-unair',           imgs: 3, link: '#', year: '2025',      inst: 'Westbridge University'         },
-  { title: 'Staffordshire Banyuwangi Booklet',       cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: '#', year: '2025',      inst: 'Staffordshire × Westbridge'     },
+  { title: 'Staffordshire × Coastal Program Booklet', cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: '#', year: '2025',      inst: 'Staffordshire × Westbridge'     },
   { title: 'AERO 2025 Presentation',                 cat: 'Event Materials',  folder: 'aero-2025-unair',                       imgs: 3, link: '#', year: '2025',      inst: 'Westbridge University'         },
   { title: 'Westbridge Accommodation Guide',          cat: 'Print & Digital',  folder: 'accommodation-guidebook-unair',         imgs: 3, link: '#', year: '2024–2025', inst: 'Westbridge University'         },
   { title: 'Westbridge International Students Guide', cat: 'Social Media Kits',folder: 'international-students-guidebook-unair',imgs: 3, link: '#', year: '2024–2025', inst: 'Westbridge University'         },
@@ -1345,7 +1345,7 @@ function cmBuildGDCard(g, i) {
       box-shadow:0 4px 28px rgba(3,7,18,0.4)
     ">
       <div style="position:relative;overflow:hidden;height:195px">
-        <img src="./assets/images/graphic-designs/${g.folder}/1.png" alt="${g.title}"
+        <img src="https://picsum.photos/seed/${g.folder}-1/800/600" alt="${g.title}"
           style="width:100%;height:100%;object-fit:cover;object-position:top;
             transition:transform .45s ease"
           loading="lazy">
@@ -1594,7 +1594,7 @@ function cmOpenGDPreview(idx) {
       border:2px solid ${i === 0 ? CM.nebulaGold : 'rgba(217,230,255,0.15)'};
       transition:border-color .2s,box-shadow .2s;
       ${i === 0 ? 'box-shadow:0 0 10px rgba(212,177,90,0.35)' : ''}">
-      <img src="./assets/images/graphic-designs/${g.folder}/${i + 1}.png"
+      <img src="https://picsum.photos/seed/${g.folder}-${i+1}/800/600"
         style="width:100%;height:100%;object-fit:cover" loading="lazy">
     </button>`).join('');
 
@@ -1623,7 +1623,7 @@ function cmOpenGDPreview(idx) {
     <div id="cm-gd-counter" style="position:absolute;top:22px;left:50%;transform:translateX(-50%);
       font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;
       color:rgba(217,230,255,0.38);letter-spacing:.08em;z-index:10">1 / ${g.imgs}</div>
-    <img id="cm-gd-img" src="./assets/images/graphic-designs/${g.folder}/1.png" alt="${g.title}"
+    <img id="cm-gd-img" src="https://picsum.photos/seed/${g.folder}-1/800/600" alt="${g.title}"
       style="max-width:min(860px,90vw);max-height:67vh;object-fit:contain;border-radius:12px;
         box-shadow:0 32px 100px rgba(0,0,0,0.65),0 0 0 1px rgba(111,168,255,0.1);
         display:block;transition:opacity .18s ease;position:relative;z-index:1"/>
@@ -1713,7 +1713,7 @@ function cmGDJumpTo(i) {
   const img = document.getElementById('cm-gd-img');
   if (img) {
     img.style.opacity = '0';
-    setTimeout(() => { img.src = `./assets/images/graphic-designs/${g.folder}/${i}.png`; img.style.opacity = '1'; }, 180);
+    setTimeout(() => { img.src = `https://picsum.photos/seed/${g.folder}-${i}/800/600`; img.style.opacity = '1'; }, 180);
   }
   const counter = document.getElementById('cm-gd-counter');
   if (counter) counter.textContent = `${i} / ${g.imgs}`;

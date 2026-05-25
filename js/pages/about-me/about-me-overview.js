@@ -131,7 +131,7 @@ function aboutOverviewInitPage() {
           <div style="position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(139,115,85,0.35);animation:about-pulse-ring 2.8s ease-out infinite;pointer-events:none"></div>
           <div style="position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);pointer-events:none"></div>
           <div style="width:120px;height:120px;border-radius:50%;border:3px solid rgba(255,255,255,0.15);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35),0 0 0 1px rgba(139,115,85,0.2)">
-           <img src="assets/images/self-portrait/profile-pic-2.png" alt="Alex Morgan Rivera" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+           <img src="https://picsum.photos/seed/alex-portrait/400/400" alt="Alex Morgan Rivera" style="width:100%;height:100%;object-fit:cover;object-position:center top">
           </div>
          </div>
          <div class="flex gap-2">
@@ -345,7 +345,7 @@ function aboutOverviewInitPage() {
               <ul class="space-y-2 mb-3">
                <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>End-to-end welfare support — accommodation, healthcare, insurance, banking, immigration</li>
                <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Coordinated across 10+ stakeholders including faculties, hospitals, banks, immigration</li>
-               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Managed KNB &amp; TIAS government scholarship processing and student welfare cases</li>
+               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Managed GPEX &amp; INTEX government scholarship processing and student welfare cases</li>
               </ul>
               <div class="flex flex-wrap gap-2"><span class="tag">Student Support</span><span class="tag">Welfare Coordination</span><span class="tag">Immigration</span><span class="tag">Stakeholder Management</span></div>
              </div>
@@ -538,7 +538,7 @@ function aboutOverviewInitPage() {
         <!-- AMERTA -->
         <button onclick="goToPage('amerta')" class="card text-left group overflow-hidden about-card-lift" style="background:#fff">
          <div class="h-40 relative overflow-hidden">
-          <img loading="lazy" src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="w-full h-full object-cover">
+          <img loading="lazy" src="https://picsum.photos/seed/amerta-card/800/400" alt="AMERTA" class="w-full h-full object-cover">
          </div>
          <div class="p-6">
           <div class="label-small mb-2" style="color:#4A6B8A">Exchange Program · Westbridge</div>
@@ -552,7 +552,7 @@ function aboutOverviewInitPage() {
         <!-- ACI -->
         <button onclick="goToPage('aci')" class="card text-left group overflow-hidden about-card-lift" style="background:#fff">
          <div class="h-40 relative overflow-hidden">
-          <img loading="lazy" src="assets/images/aci/aci-4.JPEG" alt="ACI Cultural Immersion" class="w-full h-full object-cover" style="object-position:center 30%">
+          <img loading="lazy" src="https://picsum.photos/seed/aci-card/800/400" alt="ACI Cultural Immersion" class="w-full h-full object-cover" style="object-position:center 30%">
          </div>
          <div class="p-6">
           <div class="label-small mb-2" style="color:#6B4F32">Cultural Immersion · Westbridge</div>
@@ -776,7 +776,7 @@ function aboutOverviewInitPage() {
         <div class="card p-6 about-card-lift" style="border-top:3px solid #4A6B8A">
          <div class="label-small mb-3" style="color:#4A6B8A">2024–2025 · Program Leadership</div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">5 Exchange Programs Led</h3>
-         <p class="text-xs" style="color:#5C5C5C">End-to-end delivery of AMERTA, ACI, AERO, and government scholarship programs (KNB &amp; TIAS).</p>
+         <p class="text-xs" style="color:#5C5C5C">End-to-end delivery of AMERTA, ACI, AERO, and government scholarship programs (GPEX &amp; INTEX).</p>
         </div>
         <div class="card p-6 about-card-lift" style="border-top:3px solid #1E3A5F">
          <div class="label-small mb-3" style="color:#1E3A5F">2026 · Platform Launch</div>
