@@ -1,6 +1,6 @@
 # Portfolio Website — Zefanya Kharisma Nugroho
 
-Personal portfolio website for Zefanya Kharisma Nugroho, International Partnership Specialist at PCU & Universitas Airlangga, Surabaya.
+Personal portfolio website for Zefanya Kharisma Nugroho, International Partnership Specialist at PCU & Universitas Airlangga, Surabaya. Live at [zefanyakharisma.com](https://zefanyakharisma.com).
 
 ## Overview
 
@@ -8,7 +8,7 @@ A single-page application with an editorial premium aesthetic, organized into fi
 
 - **About** — Overview, education, international exposure, professional values, expertise, experience, and skillset
 - **Projects** — AMERTA (Exchange Program), ACI (Cultural Immersion), AERO (Exhibition), PCU Global (Web Project)
-- **Intl. Education** — Student onboarding & support, student engagement (with detail view), partnership development (with detail view), and MoU/MoA coordination (with detail view)
+- **Intl. Ed** — Student onboarding & support, student engagement (with detail view), partnership development (with detail view), MoU/MoA coordination (with detail view), and international grants
 - **Creative** — CroissantsMoon (boutique studio identity), Writing, Web Development, Graphic Design
 - **Contact** — Contact information
 
@@ -32,7 +32,7 @@ The home page also hosts the Skill Discovery entry point, where visitors filter 
 - [Quill](https://quilljs.com/) v2.0.2 (CDN) — WYSIWYG editor for articles
 - [Supabase](https://supabase.com/) — auth, Postgres, storage, and Row Level Security
 - Vanilla JavaScript (no framework, no build step)
-- Google Fonts: Playfair Display, Inter
+- Google Fonts: Plus Jakarta Sans, DM Sans
 
 ## Project Structure
 
@@ -51,15 +51,18 @@ The home page also hosts the Skill Discovery entry point, where visitors filter 
 │   │   ├── calendar.js
 │   │   ├── event-modal.js
 │   │   ├── login-modal.js
-│   │   └── quill-editor.js   # Quill wrapper (textarea fallback)
+│   │   ├── quill-editor.js   # Quill wrapper (textarea fallback)
+│   │   └── tiptap-editor.js  # TipTap editor wrapper
 │   └── pages/
 │       ├── home/home.js
 │       ├── about-me/         # overview, education, international, values,
 │       │                     # expertise, experience, skillset
 │       ├── contact-me/contact-me.js
-│       ├── creative-services/  # croissantsmoon, graphic-designs, websites
+│       ├── creative-services/  # croissantsmoon, graphic-designs,
+│       │                       # web-projects, websites
 │       ├── global-partnership/ # partnership development & detail,
-│       │                       # MoU/MoA coordination & detail
+│       │                       # MoU/MoA coordination & detail,
+│       │                       # international grants
 │       ├── project-management/ # overview, amerta, aci, aero, pcu-global
 │       ├── skill-discovery/skill-discovery.js
 │       ├── student-services/   # onboarding, engagement, engagement-detail
