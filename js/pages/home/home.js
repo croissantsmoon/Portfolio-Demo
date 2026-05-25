@@ -33,7 +33,7 @@ function homeInitPage() {
          </div>
          <!-- Photo -->
          <div style="position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:0 16px 48px rgba(10,132,255,0.22)">
-          <img src="./assets/images/self-portrait/profile-14.JPEG" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center 15%">
+          <img src="./assets/images/self-portrait/profile-pic-1.png" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center top">
          </div>
          <!-- Online indicator -->
          <div style="position:absolute;bottom:4px;right:4px;width:14px;height:14px;border-radius:50%;background:#34C759;border:2.5px solid var(--color-bg,#F2F2F7);z-index:2"></div>

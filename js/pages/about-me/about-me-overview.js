@@ -130,8 +130,8 @@ function aboutOverviewInitPage() {
          <div style="position:relative;width:120px;height:120px;margin-bottom:16px">
           <div style="position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(139,115,85,0.35);animation:about-pulse-ring 2.8s ease-out infinite;pointer-events:none"></div>
           <div style="position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);pointer-events:none"></div>
-          <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#8B7355 0%,#4A6B8A 100%);border:3px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.35),0 0 0 1px rgba(139,115,85,0.2)">
-           <span style="font-family:'Playfair Display',serif;font-size:2.5rem;color:#fff;font-weight:700;font-style:italic">Z</span>
+          <div style="width:120px;height:120px;border-radius:50%;border:3px solid rgba(255,255,255,0.15);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35),0 0 0 1px rgba(139,115,85,0.2)">
+           <img src="assets/images/self-portrait/profile-pic-2.png" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center top">
           </div>
          </div>
          <div class="flex gap-2">
