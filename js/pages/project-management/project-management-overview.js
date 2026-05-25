@@ -262,6 +262,7 @@ function projectsOverviewInitPage() {
          <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(45,107,80,0.08);color:#2D6B50">Data Viz</span>
          <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">Live · 2025</span>
         </div>
+        <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">Dashboard Partnership</h3>
         <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Interactive dashboard for international partnership networks — geographic breakdown, agreement status tracking, and compound filters across 30+ partners.</p>
         <div class="flex flex-wrap gap-1.5"><span class="tag">JavaScript</span><span class="tag">Chart.js</span><span class="tag">Tailwind CSS</span></div>
        </div>
@@ -282,6 +283,7 @@ function projectsOverviewInitPage() {
          <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(92,58,138,0.08);color:#5C3A8A">Data Viz</span>
          <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">Live · 2025</span>
         </div>
+        <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">Dashboard International Grants</h3>
         <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Centralised grant tracking from application through to outcome — deadline timeline, stage-based pipeline view, and outcome analytics for leadership reporting.</p>
         <div class="flex flex-wrap gap-1.5"><span class="tag">JavaScript</span><span class="tag">Chart.js</span><span class="tag">Tailwind CSS</span></div>
        </div>

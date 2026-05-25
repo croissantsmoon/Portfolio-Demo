@@ -643,40 +643,53 @@ function wpBuildPage(projectId) {
                 <i data-lucide="external-link" style="width:12px;height:12px"></i>
               </a>
             </div>
-            <!-- iframe -->
+            <!-- Preview area -->
             <div style="position:relative;height:520px;background:#0B1E3A">
-              <iframe
-                id="wp-iframe-${projectId}"
-                src="${p.live}"
-                title="${p.title} — live preview"
-                loading="lazy"
-                style="width:100%;height:100%;border:none;display:block"
-                onload="document.getElementById('wp-iframe-fallback-${projectId}').style.display='none'"
-                onerror="document.getElementById('wp-iframe-fallback-${projectId}').style.display='flex'"
-              ></iframe>
-              <!-- Fallback shown if iframe fails (X-Frame-Options / CSP) -->
-              <div id="wp-iframe-fallback-${projectId}" style="
-                display:none;position:absolute;inset:0;
-                flex-direction:column;align-items:center;justify-content:center;
+              <!-- Placeholder shown by default; hidden when iframe loads -->
+              <div id="wp-preview-placeholder-${projectId}" style="
+                position:absolute;inset:0;z-index:2;
+                display:flex;flex-direction:column;align-items:center;justify-content:center;
                 gap:18px;background:#071126;
                 font-family:'Outfit',sans-serif;text-align:center;padding:32px
               ">
-                <i data-lucide="monitor-off" style="width:32px;height:32px;color:#8FA8D6;opacity:.5"></i>
-                <p style="font-size:.875rem;color:#8FA8D6;line-height:1.6;max-width:300px">
-                  This site cannot be embedded here.<br>Open it directly to see it in action.
+                <i data-lucide="monitor" style="width:32px;height:32px;color:#8FA8D6;opacity:.4"></i>
+                <p style="font-size:.875rem;color:#8FA8D6;line-height:1.6;max-width:300px;margin:0">
+                  Preview of <strong style="color:#D9E6FF">${p.title}</strong>
                 </p>
-                <a href="${p.live}" target="_blank" rel="noopener noreferrer" style="
-                  display:inline-flex;align-items:center;gap:8px;
-                  font-size:.85rem;font-weight:600;
-                  padding:11px 24px;border-radius:999px;
-                  background:#D4B15A;color:#071126;
-                  text-decoration:none;transition:opacity .18s
-                " onmouseover="this.style.opacity='.8'"
-                   onmouseout="this.style.opacity='1'">
-                  <i data-lucide="external-link" style="width:14px;height:14px"></i>
-                  Open Live Site
-                </a>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+                  <button onclick="wpLoadPreview('${projectId}')" style="
+                    display:inline-flex;align-items:center;gap:8px;
+                    font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;
+                    padding:11px 24px;border-radius:999px;
+                    background:#D4B15A;color:#071126;
+                    border:none;cursor:pointer;transition:opacity .18s
+                  " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+                    <i data-lucide="play" style="width:14px;height:14px"></i>
+                    Load Preview
+                  </button>
+                  <a href="${p.live}" target="_blank" rel="noopener noreferrer" style="
+                    display:inline-flex;align-items:center;gap:8px;
+                    font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;
+                    padding:10px 22px;border-radius:999px;
+                    background:transparent;color:#D9E6FF;
+                    text-decoration:none;
+                    border:1px solid rgba(217,230,255,0.2);
+                    transition:border-color .18s,background .18s
+                  " onmouseover="this.style.borderColor='rgba(217,230,255,0.4)';this.style.background='rgba(217,230,255,0.06)'"
+                     onmouseout="this.style.borderColor='rgba(217,230,255,0.2)';this.style.background='transparent'">
+                    <i data-lucide="external-link" style="width:14px;height:14px"></i>
+                    Open Live Site
+                  </a>
+                </div>
               </div>
+              <!-- iframe: src set by wpLoadPreview() to avoid auto-loading blocked sites -->
+              <iframe
+                id="wp-iframe-${projectId}"
+                data-src="${p.live}"
+                src=""
+                title="${p.title} — live preview"
+                style="width:100%;height:100%;border:none;display:block"
+              ></iframe>
             </div>
           </div>
         </section>
@@ -685,6 +698,15 @@ function wpBuildPage(projectId) {
     </div>
   `;
 }
+
+// ── Live preview loader ───────────────────────────────────────────────────────
+window.wpLoadPreview = function(projectId) {
+  var placeholder = document.getElementById('wp-preview-placeholder-' + projectId);
+  var iframe      = document.getElementById('wp-iframe-' + projectId);
+  if (!iframe || !placeholder) return;
+  iframe.src = iframe.dataset.src;
+  iframe.onload = function() { placeholder.style.display = 'none'; };
+};
 
 // ── Initialise each page ─────────────────────────────────────────────────────
 // Script is at the bottom of <body> — DOM elements are already parsed.
