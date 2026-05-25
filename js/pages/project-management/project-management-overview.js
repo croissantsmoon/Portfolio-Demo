@@ -33,12 +33,12 @@ function projectsOverviewInitPage() {
   el.innerHTML = `
    <!-- ═══ PROJECTS HERO ═══ -->
    <div class="hero-editorial px-6 md:px-16 lg:px-24" style="min-height:88vh;padding-top:clamp(4rem,10vh,7rem);padding-bottom:100px">
-    <div class="proj-hero-slide" style="background-image:url('./assets/images/aci/aci-12.JPEG')"></div>
-    <div class="proj-hero-slide" style="background-image:url('./assets/images/aero/aero-5.jpg')"></div>
-    <div class="proj-hero-slide" style="background-image:url('./assets/images/aci/aci-3.jpeg')"></div>
-    <div class="proj-hero-slide" style="background-image:url('./assets/images/aero/aero-10.jpg')"></div>
-    <div class="proj-hero-slide" style="background-image:url('./assets/images/student-services/tailor-made/ljmu-unair-2.JPEG')"></div>
-    <div class="proj-hero-slide" style="background-image:url('./assets/images/student-services/tailor-made/staffordshire-unair-2.JPEG')"></div>
+    <div class="proj-hero-slide" style="background-image:url('https://picsum.photos/seed/connect-thumb/600/400')"></div>
+    <div class="proj-hero-slide" style="background-image:url('https://picsum.photos/seed/horizon-thumb/600/400')"></div>
+    <div class="proj-hero-slide" style="background-image:url('https://picsum.photos/seed/nexus-thumb/600/400')"></div>
+    <div class="proj-hero-slide" style="background-image:url('https://picsum.photos/seed/ngu-web-thumb/600/400')"></div>
+    <div class="proj-hero-slide" style="background-image:url('https://picsum.photos/seed/connect-3/600/400')"></div>
+    <div class="proj-hero-slide" style="background-image:url('https://picsum.photos/seed/horizon-5/600/400')"></div>
     <div class="hero-slide-overlay"></div>
     <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 75% 25%,rgba(139,115,85,0.07),transparent 55%),radial-gradient(ellipse at 5% 90%,rgba(74,107,138,0.05),transparent 50%)"></div>
 
@@ -54,27 +54,27 @@ function projectsOverviewInitPage() {
      </div>
      <div style="width:48px;height:2px;background:#8B7355;border-radius:2px;margin:28px 0;animation:fadeUp .5s ease .12s both"></div>
      <p class="font-editorial" style="font-size:clamp(1rem,2vw,1.2rem);color:#1C1C1E;line-height:1.5;max-width:420px;margin-bottom:0;animation:fadeUp .5s ease .16s both" data-edit-key="projects_hero_tagline_1">Programs managed end-to-end, digital products built from scratch.</p>
-     <p style="font-size:.875rem;color:#4A4A4A;margin-top:8px;max-width:420px;animation:fadeUp .5s ease .2s both" data-edit-key="projects_hero_tagline_2">International education · Institutional design · Portland</p>
+     <p style="font-size:.875rem;color:#4A4A4A;margin-top:8px;max-width:420px;animation:fadeUp .5s ease .2s both" data-edit-key="projects_hero_tagline_2">International education · Institutional design · Portland, OR</p>
     </div>
 
     <div class="absolute bottom-0 left-0 right-0" style="background:rgba(250,250,248,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(28,28,30,0.07);z-index:10">
      <div class="max-w-6xl mx-auto px-6 md:px-16 lg:px-24">
       <div class="proj-stats-bar">
        <div class="proj-stats-item">
-        <div class="font-heading font-bold proj-stats-number">3</div>
+        <div class="font-heading font-bold proj-stats-number">4</div>
         <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Flagship Programs</div>
        </div>
        <div class="proj-stats-item">
-        <div class="font-heading font-bold proj-stats-number">200+</div>
+        <div class="font-heading font-bold proj-stats-number">400+</div>
         <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Students Supported</div>
        </div>
        <div class="proj-stats-item">
-        <div class="font-heading font-bold proj-stats-number">IDR 290M</div>
+        <div class="font-heading font-bold proj-stats-number">$45K</div>
         <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Budget Peak</div>
        </div>
        <div class="proj-stats-item">
-        <div class="font-heading font-bold proj-stats-number">50+</div>
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Stakeholders Engaged</div>
+        <div class="font-heading font-bold proj-stats-number">15+</div>
+        <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#767676;margin-top:4px">Countries Reached</div>
        </div>
       </div>
      </div>
@@ -87,19 +87,19 @@ function projectsOverviewInitPage() {
     <div class="flex items-center gap-4 mb-10">
      <span style="font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8B7355">Featured Programs</span>
      <div style="flex:1;height:1px;background:rgba(28,28,30,0.08)"></div>
-     <span style="font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C0B8AE">Westbridge Global Engagement</span>
+     <span style="font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C0B8AE">Northgate University International Programs</span>
     </div>
 
-    <!-- AMERTA -->
+    <!-- NEXUS -->
     <div class="cursor-pointer group" onclick="goToPage('amerta')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;margin-bottom:20px;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(28,28,30,0.1)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
      <div class="grid md:grid-cols-5" style="min-height:300px">
       <div class="md:col-span-2 relative overflow-hidden" style="min-height:220px">
-       <img loading="lazy" src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .6s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+       <img loading="lazy" src="https://picsum.photos/seed/nexus-thumb/600/400" alt="NEXUS" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .6s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
        <div class="absolute inset-0" style="background:linear-gradient(160deg,rgba(10,30,65,0.78) 0%,rgba(30,80,140,0.52) 100%)"></div>
        <div class="absolute top-5 left-5" style="font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:rgba(255,255,255,0.08);line-height:1;letter-spacing:-.04em;user-select:none">01</div>
        <div class="relative z-10 flex flex-col justify-end h-full px-8 pb-8" style="min-height:220px">
-        <div style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px">Semester Exchange · Since 2024</div>
-        <div class="font-heading font-bold" style="font-size:2.4rem;color:#fff;letter-spacing:-.025em;line-height:1">AMERTA</div>
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:8px">Semester Exchange · Since 2022</div>
+        <div class="font-heading font-bold" style="font-size:2.4rem;color:#fff;letter-spacing:-.025em;line-height:1">NEXUS</div>
        </div>
       </div>
       <div class="md:col-span-3 p-9 flex flex-col justify-between">
@@ -108,37 +108,37 @@ function projectsOverviewInitPage() {
          <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(74,107,138,0.1);color:#4A6B8A">Student Mobility</span>
          <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">Flagship program</span>
         </div>
-        <h3 class="font-heading font-bold" style="font-size:1.45rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:14px">Westbridge Mobility, Exchange, Research &amp; Transfer Academic</h3>
-        <p style="font-size:.875rem;color:#5C5C5C;line-height:1.7;margin-bottom:20px">Westbridge University's flagship semester exchange — I managed end-to-end coordination: promotion, pre-departure preparation, arrival logistics, and post-program completion for 120+ inbound students per cohort with a budget of IDR 50–100M.</p>
+        <h3 class="font-heading font-bold" style="font-size:1.45rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:14px">NEXUS Exchange Program — Northgate University</h3>
+        <p style="font-size:.875rem;color:#5C5C5C;line-height:1.7;margin-bottom:20px">Northgate University's flagship semester exchange — I managed end-to-end coordination: promotion, pre-departure preparation, arrival logistics, and post-program completion for 120+ inbound students per cohort across 15+ partner universities globally.</p>
         <div class="flex flex-wrap gap-1.5"><span class="tag">Student Mobility</span><span class="tag">Project Management</span><span class="tag">Leadership</span></div>
        </div>
        <div class="flex flex-wrap items-center gap-8 pt-6 mt-6" style="border-top:1px solid rgba(28,28,30,0.07)">
         <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">120+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Students / cohort</div></div>
-        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">IDR 50–100M</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Budget / program</div></div>
-        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">10+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Stakeholders</div></div>
+        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">$30K–$50K</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Budget / program</div></div>
+        <div><div class="font-heading font-bold" style="font-size:1.25rem;color:#1C1C1E;letter-spacing:-.015em">15+</div><div style="font-size:.7rem;color:#767676;margin-top:2px">Partner universities</div></div>
         <div class="ml-auto flex items-center gap-2 font-medium text-sm" style="color:#8B7355">View Details <i data-lucide="arrow-right" style="width:15px;height:15px"></i></div>
        </div>
       </div>
      </div>
     </div>
 
-    <!-- ACI + AERO -->
+    <!-- CONNECT + HORIZON -->
     <div class="grid md:grid-cols-2 gap-5 mb-20">
      <div class="cursor-pointer group" onclick="goToPage('aci')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:18px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 10px 36px rgba(28,28,30,0.09)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
       <div class="relative overflow-hidden" style="height:170px">
-       <img loading="lazy" src="assets/images/aci/aci-4.JPEG" alt="ACI" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+       <img loading="lazy" src="https://picsum.photos/seed/connect-thumb/600/400" alt="CONNECT" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(55,62,38,0.9) 0%,rgba(55,62,38,0.25) 65%,transparent 100%)"></div>
        <div class="absolute top-4 left-5" style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;letter-spacing:-.04em;user-select:none">02</div>
        <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
-        <div><div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Cultural Immersion</div><div class="font-heading font-bold text-3xl" style="color:#fff;letter-spacing:-.02em">ACI</div></div>
+        <div><div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Cultural Immersion</div><div class="font-heading font-bold text-3xl" style="color:#fff;letter-spacing:-.02em">CONNECT</div></div>
         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.12)">Student Support</span>
        </div>
       </div>
       <div class="p-6">
-       <p style="font-size:.875rem;color:#5C5C5C;line-height:1.68;margin-bottom:16px">Bringing together international and local students through collaborative activities, site visits, and structured engagement throughout the semester.</p>
+       <p style="font-size:.875rem;color:#5C5C5C;line-height:1.68;margin-bottom:16px">Building cross-cultural understanding through 14-day immersive experiences in Portland, Seattle, and Vancouver — 3 batches, 156 participants from 8 countries, 95% satisfaction rate.</p>
        <div class="flex flex-wrap gap-1.5 mb-5"><span class="tag">Cross-Cultural</span><span class="tag">Project Management</span></div>
        <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div><span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">100+</span><span style="font-size:.75rem;color:#767676;margin-left:4px">students / program</span></div>
+        <div><span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">52</span><span style="font-size:.75rem;color:#767676;margin-left:4px">students / program</span></div>
         <span class="flex items-center gap-1.5 text-sm font-medium" style="color:#8B7355">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
        </div>
       </div>
@@ -146,42 +146,42 @@ function projectsOverviewInitPage() {
 
      <div class="cursor-pointer group" onclick="goToPage('aero')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:18px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 10px 36px rgba(28,28,30,0.09)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
       <div class="relative overflow-hidden" style="height:170px">
-       <img loading="lazy" src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+       <img loading="lazy" src="https://picsum.photos/seed/horizon-thumb/600/400" alt="HORIZON" class="absolute inset-0 w-full h-full object-cover" style="transition:transform .5s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(20,20,22,0.9) 0%,rgba(20,20,22,0.25) 65%,transparent 100%)"></div>
        <div class="absolute top-4 left-5" style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;letter-spacing:-.04em;user-select:none">03</div>
        <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between">
-        <div><div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Annual Exhibition</div><div class="font-heading font-bold text-3xl" style="color:#fff;letter-spacing:-.02em">AERO</div></div>
+        <div><div style="font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px">Annual Exhibition</div><div class="font-heading font-bold text-3xl" style="color:#fff;letter-spacing:-.02em">HORIZON</div></div>
         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.12)">Int'l Partnership</span>
        </div>
       </div>
       <div class="p-6">
-       <p style="font-size:.875rem;color:#5C5C5C;line-height:1.68;margin-bottom:16px">Annual exhibition at Westbridge University showcasing global partnerships — coordinated logistics, vendor management, and event planning across 50+ stakeholders.</p>
-       <div class="flex flex-wrap gap-1.5 mb-5"><span class="tag">Branding</span><span class="tag">Creative Direction</span></div>
+       <p style="font-size:.875rem;color:#5C5C5C;line-height:1.68;margin-bottom:16px">Annual international student showcase at Northgate University — 3 editions (2022–2024), 80–120 exhibitors from 15+ countries, 600–900 visitors per edition, 3 internship placements secured.</p>
+       <div class="flex flex-wrap gap-1.5 mb-5"><span class="tag">Event Management</span><span class="tag">International Partnership</span></div>
        <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
-        <div><span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">50+</span><span style="font-size:.75rem;color:#767676;margin-left:4px">stakeholders coordinated</span></div>
+        <div><span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">800+</span><span style="font-size:.75rem;color:#767676;margin-left:4px">visitors per edition</span></div>
         <span class="flex items-center gap-1.5 text-sm font-medium" style="color:#8B7355">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
        </div>
       </div>
      </div>
     </div>
 
-    <!-- Graphic Design — compact horizontal card -->
+    <!-- NGU Global Website — compact horizontal card -->
     <div class="cursor-pointer" onclick="goToPage('designs')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:18px;overflow:hidden;margin-bottom:20px;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 10px 36px rgba(28,28,30,0.09)';this.style.borderColor='rgba(139,115,85,0.25)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
      <div class="grid md:grid-cols-5" style="min-height:160px">
       <div class="md:col-span-3 p-7 flex flex-col justify-center">
        <div class="flex items-center gap-3 mb-3">
         <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(139,115,85,0.08);color:#8B7355">Editorial Design</span>
-        <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">2024–2025</span>
+        <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">2022–2025</span>
        </div>
-       <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:8px">Guidebooks, Booklets &amp; Event Collateral</h3>
-       <p style="font-size:.84rem;color:#5C5C5C;line-height:1.6;margin-bottom:14px;max-width:480px">Print and digital design for institutional programs — student guidebooks, orientation booklets, exhibition collateral, and partnership materials.</p>
+       <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:8px">Program Guidebooks, Booklets &amp; Event Collateral</h3>
+       <p style="font-size:.84rem;color:#5C5C5C;line-height:1.6;margin-bottom:14px;max-width:480px">Print and digital design for Northgate University international programs — student guidebooks, orientation booklets, HORIZON exhibition collateral, and CONNECT welcome materials.</p>
        <div class="flex flex-wrap gap-1.5 mb-0"><span class="tag">Print Design</span><span class="tag">Branding</span><span class="tag">Editorial Layout</span></div>
       </div>
       <div class="md:col-span-2 relative overflow-hidden" style="min-height:160px;background:#1C1C1E">
        <div class="absolute inset-0 grid grid-cols-3" aria-hidden="true" style="gap:2px;opacity:0.84">
-        <img src="assets/images/graphic-designs/aero-2025-unair/1.png" alt="" loading="lazy" class="w-full h-full object-cover">
-        <img src="assets/images/graphic-designs/booklet-aci-2025-b2-unair/1.png" alt="" loading="lazy" class="w-full h-full object-cover">
-        <img src="assets/images/graphic-designs/partnership-booklet-pcu/1.png" alt="" loading="lazy" class="w-full h-full object-cover">
+        <img src="https://picsum.photos/seed/ngu-web-thumb/600/400" alt="" loading="lazy" class="w-full h-full object-cover">
+        <img src="https://picsum.photos/seed/horizon-thumb/600/400" alt="" loading="lazy" class="w-full h-full object-cover">
+        <img src="https://picsum.photos/seed/connect-thumb/600/400" alt="" loading="lazy" class="w-full h-full object-cover">
        </div>
        <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(255,255,255,0.03) 0%,transparent 40%)"></div>
        <div class="absolute bottom-4 right-5 flex items-center gap-2 font-medium text-sm" style="color:rgba(255,255,255,0.7)">Browse Design Work <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
@@ -217,7 +217,7 @@ function projectsOverviewInitPage() {
          <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">In Progress</span>
         </div>
         <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">NGU Global — International Office Website</h3>
-        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Rebuilding NGU's International Office website — news CMS, partnership directory, audience-first information architecture, and mobile-first design.</p>
+        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Rebuilding Northgate University's International Office website — news CMS, partnership directory, audience-first information architecture, and mobile-first design.</p>
         <div class="flex flex-wrap gap-1.5"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Flask</span><span class="tag">SQLite</span></div>
        </div>
        <div class="flex items-center justify-end pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">

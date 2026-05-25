@@ -13,8 +13,8 @@
 //   3. Replace the empty string below with your endpoint
 // ─────────────────────────────────────────────────────────────────────────────
 window.APP_CONFIG = {
-  SUPABASE_URL: '',
-  SUPABASE_ANON_KEY: '',
+  SUPABASE_URL: 'https://fukzddfmkmugenlhrktx.supabase.co',
+  SUPABASE_ANON_KEY: 'sb_publishable_vC_ZRr6ZfuTvJ4yphoti4Q_dOiccKPt',
   ADMIN_EMAIL: '',
   FORMSPREE_ENDPOINT: '',
 };
