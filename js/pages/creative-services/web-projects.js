@@ -428,6 +428,13 @@ function wpBuildPage(projectId) {
     ">
       <!-- Star field -->
       ${wpStars(90)}
+      ${cmBuildAstronauts([
+        { img: 3, right: '8%',  top: '12%',    size: 130, dur: 26, del: 0,   rot: 14,  x1: 12, y1: -20, x2: -10, y2: 16 },
+        { img: 5, left: '3%',   top: '25%',    size: 105, dur: 33, del: -10, rot: -10, x1: -12, y1: 14, x2: 10, y2: -10 },
+        { img: 4, left: '6%',   bottom: '12%', size: 88,  dur: 28, del: -18, rot: 8,   x1: 10, y1: -12, x2: -8, y2: 10  },
+        { img: 3, right: '5%',  bottom: '15%', size: 95,  dur: 38, del: -6,  rot: -16, x1: -10, y1: 16, x2: 8, y2: -12  },
+        { img: 5, right: '18%', top: '8%',     size: 72,  dur: 22, del: -14, rot: 5,   x1: 8, y1: -10,  x2: -6, y2: 8   },
+      ])}
 
       <!-- Nebula glow overlays -->
       <div style="

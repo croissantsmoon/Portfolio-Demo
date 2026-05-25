@@ -120,7 +120,6 @@ function cmInjectPageCSS() {
       0%{transform:translate(0,0) rotate(0deg)} 33%{transform:translate(6px,-4px) rotate(1deg)}
       66%{transform:translate(-4px,3px) rotate(-.5deg)} 100%{transform:translate(0,0) rotate(0deg)}
     }
-
     .cm-reveal { opacity:0; transform:translateY(20px); transition:opacity .65s ease-out, transform .65s ease-out; }
     .cm-visible { opacity:1 !important; transform:none !important; }
 
@@ -203,6 +202,48 @@ function cmBuildStarField(count = 60, container = 'relative') {
   }).join('');
 }
 
+// ── Floating Astronaut Graphics ───────────────────────────────────────────────
+
+function cmInjectAstronautCSS() {
+  if (document.getElementById('cm-astro-css')) return;
+  const s = document.createElement('style');
+  s.id = 'cm-astro-css';
+  s.textContent = `
+    @keyframes cmAstronautDrift {
+      0%  { transform:translate(0,0) rotate(var(--ar0,-8deg)); }
+      30% { transform:translate(var(--ax1,14px),var(--ay1,-18px)) rotate(var(--ar1,2deg)); }
+      70% { transform:translate(var(--ax2,-10px),var(--ay2,12px)) rotate(var(--ar2,6deg)); }
+      100%{ transform:translate(0,0) rotate(var(--ar0,-8deg)); }
+    }
+    .cm-astro {
+      position:absolute;pointer-events:none;user-select:none;z-index:0;opacity:.1;
+      animation:cmAstronautDrift var(--ad,26s) var(--adl,0s) ease-in-out infinite;
+    }
+  `;
+  document.head.appendChild(s);
+}
+
+function cmBuildAstronauts(configs) {
+  cmInjectAstronautCSS();
+  return configs.map(c => {
+    const src = c.img || 3;
+    const posStyles = [
+      c.left   != null ? `left:${c.left}`     : null,
+      c.right  != null ? `right:${c.right}`   : null,
+      c.top    != null ? `top:${c.top}`        : null,
+      c.bottom != null ? `bottom:${c.bottom}` : null,
+    ].filter(Boolean).join(';');
+    const r0 = c.rot ?? -8;
+    return `<img src="./assets/graphics/croissants-moon/${src}.png"
+      alt="" aria-hidden="true" class="cm-astro" loading="lazy"
+      style="${posStyles};width:${c.size||100}px;
+        --ad:${c.dur||26}s;--adl:${c.del||0}s;
+        --ar0:${r0}deg;--ar1:${r0+10}deg;--ar2:${r0-6}deg;
+        --ax1:${c.x1||14}px;--ay1:${c.y1||-18}px;
+        --ax2:${c.x2||-10}px;--ay2:${c.y2||12}px">`;
+  }).join('');
+}
+
 // ── Constellation SVG ─────────────────────────────────────────────────────────
 
 function cmConstellationSVG(w = 400, h = 200, seed = 1) {
@@ -248,6 +289,12 @@ function cmBuildHero() {
     ">
       <!-- Star field -->
       <div style="position:absolute;inset:0;pointer-events:none;z-index:0">${stars}</div>
+
+      <!-- Floating astronauts -->
+      ${cmBuildAstronauts([
+        { img: 3, right: '7%', top: '16%',    size: 115, dur: 24, del: 0,   rot: 15,  x1: 10,  y1: -20, x2: -8, y2: 14 },
+        { img: 4, left: '4%',  bottom: '22%', size: 90,  dur: 31, del: -11, rot: -12, x1: -14, y1: 10,  x2: 10, y2: -8 },
+      ])}
 
       <!-- Constellation overlay -->
       <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
@@ -418,6 +465,9 @@ function cmBuildServices() {
       <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.55">
         ${cmBuildStarField(40)}
       </div>
+      ${cmBuildAstronauts([
+        { img: 5, left: '2%', top: '22%', size: 90, dur: 28, del: -7, rot: 8 },
+      ])}
       <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div class="cm-reveal" style="text-align:center;margin-bottom:3.5rem">
           <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
@@ -716,6 +766,10 @@ function cmBuildWebProjects() {
       <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5">
         ${cmBuildStarField(35)}
       </div>
+      ${cmBuildAstronauts([
+        { img: 4, left: '2%',  top: '28%',  size: 100, dur: 26, del: -4,  rot: 18 },
+        { img: 5, right: '3%', top: '14%',  size: 85,  dur: 32, del: -14, rot: -8 },
+      ])}
 
       <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div class="cm-reveal" style="margin-bottom:2.75rem">
@@ -905,6 +959,9 @@ function cmBuildGraphicDesign() {
       <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.4">
         ${cmBuildStarField(30)}
       </div>
+      ${cmBuildAstronauts([
+        { img: 3, right: '3%', top: '38%', size: 95, dur: 30, del: -9, rot: 5 },
+      ])}
       <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div class="cm-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;
           flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem">
@@ -1001,6 +1058,9 @@ function cmBuildProcess() {
       <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.4">
         ${cmBuildStarField(28)}
       </div>
+      ${cmBuildAstronauts([
+        { img: 4, left: '3%', bottom: '18%', size: 85, dur: 27, del: -6, rot: -15 },
+      ])}
       <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div class="cm-reveal" style="text-align:center;margin-bottom:3.5rem">
           <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
@@ -1037,6 +1097,10 @@ function cmBuildContact() {
       <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
         ${cmBuildStarField(50)}
       </div>
+      ${cmBuildAstronauts([
+        { img: 5, left: '5%',  top: '18%',    size: 100, dur: 25, del: -13, rot: 10 },
+        { img: 3, right: '4%', bottom: '22%', size: 90,  dur: 35, del: -2,  rot: -7 },
+      ])}
       <!-- Aurora glow -->
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
         width:600px;height:300px;border-radius:50%;

@@ -214,6 +214,12 @@ function wdBuildHero() {
       ${constellation}
       ${crescent}
       ${aurora}
+      ${cmBuildAstronauts([
+        { img: 3, right: '12%', top: '14%',    size: 130, dur: 26, del: 0,   rot: 12,  x1: 12, y1: -22, x2: -10, y2: 16 },
+        { img: 4, left: '3%',   top: '30%',    size: 100, dur: 32, del: -10, rot: -14, x1: -12, y1: 14, x2: 10, y2: -10 },
+        { img: 5, left: '10%',  bottom: '14%', size: 85,  dur: 38, del: -18, rot: 6,   x1: 10, y1: -14, x2: -8, y2: 12  },
+        { img: 4, right: '4%',  bottom: '18%', size: 90,  dur: 24, del: -7,  rot: -8,  x1: -8, y1: 16,  x2: 10, y2: -12 },
+      ])}
       <div class="max-w-5xl mx-auto relative z-10 w-full">
         <button onclick="goToPage('croissantsmoon')" style="
           display:inline-flex;align-items:center;gap:8px;margin-bottom:3rem;
@@ -481,6 +487,11 @@ function wdBuildProjects() {
       position:relative;overflow:hidden
     ">
       ${stars}
+      ${cmBuildAstronauts([
+        { img: 5, left: '2%',  top: '18%',    size: 115, dur: 28, del: -5,  rot: 10  },
+        { img: 3, right: '2%', bottom: '12%', size: 95,  dur: 34, del: -16, rot: -8  },
+        { img: 4, right: '3%', top: '12%',    size: 80,  dur: 22, del: -3,  rot: 20  },
+      ])}
       <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
           <span style="display:inline-block;width:28px;height:2px;background:#D4B15A;border-radius:2px"></span>
@@ -664,6 +675,11 @@ function wdBuildPhilosophy() {
       background:linear-gradient(160deg,#071126 0%,#0B1E3A 100%);
       position:relative;overflow:hidden
     ">
+      ${cmBuildAstronauts([
+        { img: 4, left: '2%',  top: '25%',    size: 110, dur: 30, del: -8,  rot: -12 },
+        { img: 5, right: '3%', bottom: '15%', size: 90,  dur: 25, del: -20, rot: 14  },
+        { img: 3, right: '4%', top: '10%',    size: 75,  dur: 36, del: -4,  rot: 5   },
+      ])}
       <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:2.5rem">
           <span style="display:inline-block;width:28px;height:2px;background:#8FA8D6;border-radius:2px"></span>
@@ -920,6 +936,12 @@ function wdBuildCTA() {
     ">
       ${stars}
       ${bigCrescent}
+      ${cmBuildAstronauts([
+        { img: 5, left: '3%',  top: '20%',    size: 120, dur: 27, del: -11, rot: 8   },
+        { img: 3, right: '4%', top: '15%',    size: 100, dur: 33, del: -2,  rot: -10 },
+        { img: 4, left: '5%',  bottom: '18%', size: 80,  dur: 40, del: -22, rot: 18  },
+        { img: 5, right: '5%', bottom: '20%', size: 88,  dur: 24, del: -14, rot: -5  },
+      ])}
       <div class="max-w-4xl mx-auto text-center relative" style="z-index:1">
         <h2 style="
           font-family:'Cormorant Garamond',Georgia,serif;

@@ -788,6 +788,14 @@ function gdBuildContact() {
     <div style="padding:clamp(4rem,9vh,7rem) 24px;background:#1C1C1E;position:relative;overflow:hidden">
       <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:${GD.orange};opacity:.08;filter:blur(60px);pointer-events:none"></div>
       <div style="position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;border-radius:50%;background:${GD.blue};opacity:.07;filter:blur(60px);pointer-events:none"></div>
+      ${cmBuildAstronauts([
+        { img: 3, left: '3%',   top: '15%',    size: 120, dur: 28, del: 0,   rot: 10  },
+        { img: 4, right: '3%',  top: '20%',    size: 100, dur: 35, del: -12, rot: -8  },
+        { img: 5, left: '4%',   bottom: '15%', size: 90,  dur: 24, del: -6,  rot: 16  },
+        { img: 3, right: '4%',  bottom: '18%', size: 85,  dur: 32, del: -20, rot: -14 },
+        { img: 4, left: '15%',  top: '10%',    size: 70,  dur: 38, del: -9,  rot: 5   },
+        { img: 5, right: '15%', bottom: '10%', size: 75,  dur: 22, del: -16, rot: -3  },
+      ])}
       <div class="max-w-4xl mx-auto text-center" style="position:relative;z-index:1">
         <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1.5rem">
           <span style="display:inline-block;width:24px;height:2px;background:rgba(255,255,255,0.2);border-radius:2px"></span>
