@@ -1,4 +1,4 @@
-// Project Management — PCU Global page (creative redesign)
+// Project Management — NGU Global page (creative redesign)
 
 function pcuInjectFonts() {
   if (document.querySelector('[data-pcu-fonts]')) return;
@@ -23,54 +23,54 @@ const PCU_C = {
 };
 
 const PCU_PROBLEMS = [
-  { sym: '✕', color: PCU_C.coral,     title: 'No Value Proposition',    tag: 'Identity Crisis',  desc: 'The homepage has zero introductory text — visitors arrive to a menu of links with no explanation of who the International Office serves or why it matters.' },
-  { sym: '∅', color: PCU_C.orange,    title: 'Incomplete Development',   tag: 'Dead Links',       desc: 'Multiple navigation links use javascript:void(0) as their href — shipped half-built and never finished. Dead links erode institutional trust immediately.' },
-  { sym: '◻', color: PCU_C.yellow,    title: 'Abandoned Content Systems',tag: 'Empty CMS',        desc: '"Recent Posts" and "Category" sections display 0 entries — a blog feature built into the CMS but never populated. The skeleton exists; the content never arrived.' },
-  { sym: '≡', color: PCU_C.lavender,  title: 'Redundant Navigation',     tag: 'UX Overload',      desc: 'The same menu structure repeats identically multiple times on a single page — cognitive overload without adding hierarchy or value.' },
-  { sym: '☐', color: PCU_C.lightBlue, title: 'No Mobile-First Design',   tag: 'Not Responsive',   desc: 'No evidence of responsive design patterns. International students on mobile encounter a desktop-only experience — a critical gap in 2025.' },
-  { sym: '→', color: PCU_C.mint,      title: 'Zero Calls to Action',     tag: 'No CTA',           desc: 'Not a single button, form, or prompt guides visitors toward any next step. A pure directory with no conversion path whatsoever.' },
+  { sym: '✕', color: PCU_C.coral,     title: 'No Value Proposition',    tag: 'Identity Crisis',  desc: 'The homepage had zero introductory text — visitors arrived to a menu of links with no explanation of who the International Office serves or why it matters.' },
+  { sym: '∅', color: PCU_C.orange,    title: 'Incomplete Development',   tag: 'Dead Links',       desc: 'Multiple navigation links used javascript:void(0) as their href — shipped half-built and never finished. Dead links erode institutional trust immediately.' },
+  { sym: '◻', color: PCU_C.yellow,    title: 'Abandoned Content Systems',tag: 'Empty CMS',        desc: '"Recent Posts" and "Category" sections displayed 0 entries — a blog feature built into the CMS but never populated. The skeleton existed; the content never arrived.' },
+  { sym: '≡', color: PCU_C.lavender,  title: 'Redundant Navigation',     tag: 'UX Overload',      desc: 'The same menu structure repeated identically multiple times on a single page — cognitive overload without adding hierarchy or value.' },
+  { sym: '☐', color: PCU_C.lightBlue, title: 'No Mobile-First Design',   tag: 'Not Responsive',   desc: 'No evidence of responsive design patterns. International students on mobile encountered a desktop-only experience — a critical gap in 2025.' },
+  { sym: '→', color: PCU_C.mint,      title: 'Zero Calls to Action',     tag: 'No CTA',           desc: 'Not a single button, form, or prompt guided visitors toward any next step. A pure directory with no conversion path whatsoever.' },
 ];
 
 const PCU_SOLUTIONS = [
-  { icon: 'layers',          color: PCU_C.blue,      tag: 'Architecture', title: 'Audience-First Architecture',     desc: 'Dedicated sections for Inbound, Outbound, Partnership, and Life at PCU — each with dynamic color theming so every visitor immediately knows where they are and what to explore.' },
-  { icon: 'route',           color: PCU_C.lightBlue, tag: 'Navigation',   title: 'Complete Hash-Based Routing',     desc: 'Every page has a real, shareable URL via client-side hash routing — enabling deep-linking, browser back/forward, and bookmarking. No placeholder links, no dead ends.' },
-  { icon: 'rss',             color: PCU_C.mint,      tag: 'Content',      title: 'Live News Management System',     desc: 'Full admin CMS with article CRUD, trending tracking by visit count, image upload via base64, and role-based access — so the IO team keeps content fresh without touching code.' },
-  { icon: 'smartphone',      color: PCU_C.peach,     tag: 'Responsive',   title: 'Mobile-Responsive Design',        desc: 'Built mobile-first with a slide-in drawer navigation, responsive grid layouts, and touch-friendly interactions — accessible to prospective students on any device.' },
-  { icon: 'calendar-check',  color: PCU_C.orange,    tag: 'Conversion',   title: 'Multi-Step Meeting Request Form', desc: 'Structured multi-step form with automatic email notification to the IO team — turning passive visitors into active contacts and institutional leads.' },
-  { icon: 'globe',           color: PCU_C.lavender,  tag: 'Partnership',  title: 'Partnership Directory by Continent', desc: 'Interactive partnership modal organized by continent and country — replacing link-lists with a visual, explorable map of PCU\'s full global network.' },
+  { icon: 'layers',          color: PCU_C.blue,      tag: 'Architecture', title: 'Audience-First Architecture',     desc: 'Dedicated sections for program listings, partner directory, application portal, and events — each with dynamic color theming so every visitor immediately knows where they are and what to explore.' },
+  { icon: 'globe',           color: PCU_C.lightBlue, tag: 'Multilingual', title: 'Three-Language Support (EN/ES/JA)', desc: 'Full multilingual interface in English, Spanish, and Japanese — enabling NGU to serve prospective students across North America, Latin America, and East Asia without developer involvement.' },
+  { icon: 'rss',             color: PCU_C.mint,      tag: 'Content',      title: 'CMS-Powered News & Blog',         desc: 'Full admin CMS with article CRUD, category management, and image upload — so the IO team keeps content fresh and relevant without touching a single line of code.' },
+  { icon: 'smartphone',      color: PCU_C.peach,     tag: 'Responsive',   title: 'Mobile-First Responsive Design',  desc: 'Built mobile-first with a slide-in drawer navigation, responsive grid layouts, and touch-friendly interactions — accessible to prospective students on any device.' },
+  { icon: 'calendar-check',  color: PCU_C.orange,    tag: 'Engagement',   title: 'Event Calendar & Application Portal', desc: 'Integrated event calendar and multi-step application portal — turning passive visitors into active applicants and institutional leads tracked in Supabase.' },
+  { icon: 'map',             color: PCU_C.lavender,  tag: 'Partnership',  title: 'Partner Directory by Region',     desc: 'Interactive partner directory organized by continent and country — replacing static link-lists with a visual, explorable map of NGU\'s full global network.' },
 ];
 
 const PCU_TECH = [
   { name: 'HTML5',              tag: 'Markup',     color: PCU_C.orange    },
   { name: 'Tailwind CSS v3.4',  tag: 'Styling',    color: PCU_C.lightBlue },
   { name: 'Vanilla JavaScript', tag: 'Logic',      color: PCU_C.yellow    },
-  { name: 'Flask + Python 3',   tag: 'Backend',    color: PCU_C.mint      },
-  { name: 'SQLite',             tag: 'Database',   color: PCU_C.lavender  },
-  { name: 'Gunicorn',           tag: 'Server',     color: PCU_C.coral     },
+  { name: 'Supabase',           tag: 'Backend',    color: PCU_C.mint      },
+  { name: 'Vercel',             tag: 'Hosting',    color: PCU_C.lavender  },
   { name: 'Lucide Icons',       tag: 'Icons',      color: PCU_C.peach     },
-  { name: 'Playfair + DM Sans', tag: 'Typography', color: PCU_C.blue      },
+  { name: 'i18next',            tag: 'i18n',       color: PCU_C.coral     },
+  { name: 'Space Grotesk',      tag: 'Typography', color: PCU_C.blue      },
 ];
 
 const PCU_MARQUEE = [
-  '✦ Rebuilt from Zero', '◈ Live CMS', '◉ Hash Routing',
-  '⬡ Mobile-First', '◎ Open Source', '✺ Flask + Python', '✦ 6 Core Features',
+  '✦ Built for Staff', '◈ Live CMS', '◉ Multilingual EN/ES/JA',
+  '⬡ Mobile-First', '◎ Supabase Backend', '✺ Deployed on Vercel', '✦ 6 Core Features',
 ];
 
 const PCU_IO_REGIONS = [
-  { color: PCU_C.blue,    label: 'Southeast Asia',      desc: 'Core focus region — coordinating with universities, immigration authorities, and government bodies across Indonesia and ASEAN partner nations.' },
-  { color: PCU_C.midBlue, label: 'East Asia & Pacific', desc: 'Exchange programs and MoU coordination with partner institutions in Australia, Japan, South Korea, and other Indo-Pacific nations.' },
-  { color: '#059669',     label: 'Europe & Americas',   desc: "Institutional partnerships facilitated through PCU's global network, spanning European and North American universities." },
+  { color: PCU_C.blue,    label: 'North America',       desc: 'Core focus region — coordinating with universities, scholarship bodies, and government offices across the United States and Canada.' },
+  { color: PCU_C.midBlue, label: 'Latin America',       desc: 'Exchange programs and articulation agreements with partner institutions in Mexico, Colombia, Brazil, and other Latin American nations.' },
+  { color: '#059669',     label: 'East Asia & Pacific', desc: "Institutional partnerships facilitated through NGU's global network, spanning Japan, South Korea, Australia, and other Indo-Pacific universities." },
 ];
 
 const PCU_IO_STAKEHOLDERS = [
-  ['building-2',  'Faculties & Academic Units'],
-  ['landmark',    'Immigration Authorities'],
-  ['heart-pulse', 'Hospitals & Healthcare'],
-  ['banknote',    'Banking Institutions'],
-  ['award',       'Scholarship Bodies (KNB & TIAS)'],
-  ['package',     'Vendor & Service Networks'],
-  ['globe-2',     'Partner Universities'],
-  ['flag',        'Government Bodies'],
+  ['building-2',  'Faculties & Academic Departments'],
+  ['landmark',    'Admissions Office'],
+  ['heart-pulse', 'Student Services'],
+  ['banknote',    'Financial Aid Office'],
+  ['award',       'Scholarship Bodies'],
+  ['package',     'Vendor & Service Partners'],
+  ['globe-2',     'Partner Universities Worldwide'],
+  ['flag',        'Government & Visa Authorities'],
 ];
 
 // ── Section Builders ─────────────────────────────────────────────────────────
@@ -94,7 +94,7 @@ function pcuBuildHero() {
     ['Full-Stack',     PCU_C.mint,      '#065F46'],
     ['Live CMS',       PCU_C.yellow,    '#854D0E'],
     ['Mobile-First',   PCU_C.lavender,  '#5B21B6'],
-    ['Open Source',    PCU_C.peach,     '#9A3412'],
+    ['Multilingual',   PCU_C.peach,     '#9A3412'],
   ].map(([tag, bg, tc]) => `
     <span style="
       background:${bg}28;color:${tc};
@@ -135,7 +135,7 @@ function pcuBuildHero() {
           font-weight:700;line-height:.95;
           letter-spacing:-.04em;color:#1C1C1E;
           margin-bottom:1.5rem
-        " data-edit-key="pcuglobal_hero_title">PCU<span style="color:${PCU_C.blue}">Global</span></h1>
+        " data-edit-key="pcuglobal_hero_title">NGU<span style="color:${PCU_C.blue}">Global</span></h1>
         <p style="
           font-family:'Space Grotesk',Inter,sans-serif;
           font-size:clamp(1.1rem,2.5vw,1.55rem);font-weight:400;
@@ -143,7 +143,7 @@ function pcuBuildHero() {
           line-height:1.45;margin-bottom:1.25rem
         " data-edit-key="pcuglobal_hero_tagline">Rebuilding the front door of<br>international education.</p>
         <p style="max-width:490px;font-size:.95rem;line-height:1.7;color:rgba(28,28,30,0.45);margin-bottom:2.75rem">
-          PCU's International Office needed more than a refresh — it needed a complete rethink. PCU Global is the ground-up redesign that answers every failure of the original site, live and open source.
+          A full-stack, mobile-first website for Northgate University's international office — featuring a CMS-powered content system, real-time program listings, partner directory, and multilingual support. Built for staff to update content without developer involvement.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:2.5rem">
           <button onclick="document.getElementById('pcu-preview').scrollIntoView({behavior:'smooth'})" style="
@@ -156,7 +156,7 @@ function pcuBuildHero() {
           " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
             See the Site <i data-lucide="arrow-right" style="width:15px;height:15px"></i>
           </button>
-          <a href="https://zefanyakharisma-cell.github.io/international-office-website/" target="_blank" rel="noopener" style="
+          <a href="https://example.com" target="_blank" rel="noopener" style="
             border:1.5px solid rgba(28,28,30,0.2);color:#1C1C1E;
             background:transparent;padding:14px 28px;border-radius:999px;
             font-size:.875rem;font-weight:600;cursor:pointer;
@@ -197,9 +197,9 @@ function pcuBuildMarquee() {
 
 function pcuBuildBuildStory() {
   const pillars = [
-    ['✦', 'Diagnose', 'Before building anything, we mapped every failure of the existing site — six systemic problems, zero assumptions.'],
+    ['✦', 'Diagnose', 'Before building anything, we mapped every gap in the existing site — six systemic problems, zero assumptions.'],
     ['◈', 'Design',   'Architecture for three distinct audiences. Clear visual hierarchy. Real calls to action. Mobile-first from the first commit.'],
-    ['◉', 'Deploy',   'Not just a design file — a live, full-stack system. Flask backend, live CMS, hash routing. Shipped and working.'],
+    ['◉', 'Deploy',   'Not just a design file — a live, full-stack system. Supabase backend, live CMS, multilingual support. Shipped and working.'],
   ].map(([icon, title, desc]) => `
     <div style="
       background:rgba(255,255,255,0.45);
@@ -233,17 +233,17 @@ function pcuBuildBuildStory() {
           font-weight:700;line-height:1.05;
           letter-spacing:-.03em;color:#fff;
           margin-bottom:2.5rem
-        ">A dead website.<br><em style="font-style:italic;color:${PCU_C.lightBlue}">Made live.</em></p>
+        ">A static site.<br><em style="font-style:italic;color:${PCU_C.lightBlue}">Made dynamic.</em></p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;align-items:start">
           <div>
             <p style="font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,0.65);font-weight:400">
-              io.petra.ac.id — PCU's existing International Office website — was the digital front door for one of Surabaya's leading universities. It had been shipped half-built and left to decay. PCU Global is what happens when you treat that problem seriously.
+              Northgate University's International Office website was the digital front door for one of Portland's leading universities. It had been built without staff in mind and left to stagnate. NGU Global is what happens when you treat that problem seriously.
             </p>
           </div>
           <div style="display:flex;flex-direction:column;gap:14px">
             <div class="cm-sticky-note" style="transform:rotate(-2deg)">"zero CTAs? not anymore." ✦</div>
             <div class="cm-sticky-note" style="transform:rotate(1.5deg);background:${PCU_C.lightBlue};margin-top:6px;align-self:flex-end">rebuilt the whole thing ◈</div>
-            <div class="cm-sticky-note" style="transform:rotate(-1deg);background:#fff">live &amp; open source ◉</div>
+            <div class="cm-sticky-note" style="transform:rotate(-1deg);background:#fff">live &amp; multilingual ◉</div>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:2.5rem">
@@ -255,10 +255,10 @@ function pcuBuildBuildStory() {
 
 function pcuBuildInternationalContext() {
   const stats = [
-    ['200+', 'International Students Supported'],
-    ['30+',  'Partner Institutions'],
-    ['25+',  'MoU/MoA Reviews / Month'],
-    ['10+',  'Stakeholder Types'],
+    ['12,000+', 'Monthly Visitors'],
+    ['40%',     'Reduction in Support Queries'],
+    ['3',       'Language Versions (EN/ES/JA)'],
+    ['2024–25', 'Project Timeline'],
   ];
 
   const statsHtml = stats.map(([num, label]) => `
@@ -304,7 +304,7 @@ function pcuBuildInternationalContext() {
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${PCU_C.blue}">The Organization</span>
         </div>
         <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.6rem;letter-spacing:-.03em">Who the IO Serves</h2>
-        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:2.5rem;max-width:500px;line-height:1.65">The International Office bridges institutions, students, and cultures across Southeast Asia and beyond. This is the scale of what the old site was failing to represent.</p>
+        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:2.5rem;max-width:500px;line-height:1.65">The International Office at Northgate University bridges institutions, students, and cultures across North America and beyond. This is the scale of what the old site was failing to represent.</p>
 
         <div style="
           display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
@@ -323,7 +323,7 @@ function pcuBuildInternationalContext() {
           <span style="font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,28,30,0.35)">Stakeholder Network</span>
         </div>
         <h3 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:1.35rem;color:#1C1C1E;margin-bottom:.4rem">Multi-Stakeholder Coordination</h3>
-        <p style="font-size:.87rem;line-height:1.65;color:rgba(28,28,30,0.48);max-width:500px;margin-bottom:1.5rem">International education requires navigating 10+ distinct institutional players — each with different protocols, priorities, and communication norms.</p>
+        <p style="font-size:.87rem;line-height:1.65;color:rgba(28,28,30,0.48);max-width:500px;margin-bottom:1.5rem">International education requires navigating 8+ distinct institutional players — each with different protocols, priorities, and communication norms.</p>
         <div style="background:#fff;border-radius:16px;padding:20px;border:1px solid rgba(28,28,30,0.07)">
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
             ${stakeholdersHtml}
@@ -364,7 +364,7 @@ function pcuBuildProblems() {
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${PCU_C.coral}">Diagnostic Audit</span>
         </div>
         <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1C1C1E;margin-bottom:.6rem;letter-spacing:-.03em">Six Things That Were Broken</h2>
-        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:2.5rem;max-width:480px;line-height:1.65">A diagnostic audit of io.petra.ac.id revealed six systemic failures — documented, diagnosed, then fixed one by one.</p>
+        <p style="font-size:.93rem;color:rgba(28,28,30,0.48);margin-bottom:2.5rem;max-width:480px;line-height:1.65">A diagnostic audit of the existing NGU International Office site revealed six systemic failures — documented, diagnosed, then fixed one by one.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px">${cards}</div>
       </div>
     </div>`;
@@ -384,7 +384,7 @@ function pcuBuildResponse() {
           font-weight:700;line-height:1.05;letter-spacing:-.03em;
           font-size:clamp(1.8rem,4vw,2.8rem);color:#1C1C1E;margin-bottom:1rem
         ">So we built this.</h2>
-        <p style="font-size:.95rem;max-width:440px;margin:0 auto 2rem;line-height:1.7;color:rgba(28,28,30,0.5)">A ground-up redesign that answers every failure above — live, explorable, and open source.</p>
+        <p style="font-size:.95rem;max-width:440px;margin:0 auto 2rem;line-height:1.7;color:rgba(28,28,30,0.5)">A ground-up redesign that answers every failure above — live, multilingual, and staff-ready.</p>
         <button onclick="document.getElementById('pcu-preview').scrollIntoView({behavior:'smooth'})" style="
           background:${PCU_C.blue};color:#fff;
           padding:12px 28px;border-radius:999px;
@@ -421,10 +421,10 @@ function pcuBuildPreview() {
             <div style="flex:1;display:flex;align-items:center;justify-content:center">
               <div style="display:flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);font-size:.75rem;max-width:400px;width:100%">
                 <i data-lucide="lock" style="width:10px;height:10px;flex-shrink:0;color:rgba(255,255,255,0.3)"></i>
-                <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">zefanyakharisma-cell.github.io/international-office-website/</span>
+                <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">ngu-global.northgateuniversity.edu</span>
               </div>
             </div>
-            <a href="https://zefanyakharisma-cell.github.io/international-office-website/" target="_blank" rel="noopener"
+            <a href="https://example.com" target="_blank" rel="noopener"
               style="color:rgba(255,255,255,0.35);flex-shrink:0;transition:color .2s"
               onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">
               <i data-lucide="external-link" style="width:14px;height:14px"></i>
@@ -432,16 +432,16 @@ function pcuBuildPreview() {
           </div>
           <div style="position:relative;height:580px;background:#1a1a1a">
             <iframe
-              src="https://zefanyakharisma-cell.github.io/international-office-website/"
+              src="https://example.com"
               style="width:100%;height:100%;border:none;display:block"
               loading="lazy"
-              title="PCU Global — International Office Website Preview"
-              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+              title="NGU Global — International Office Website Preview"
+              sandbox="allow-scripts"
             ></iframe>
           </div>
         </div>
         <div style="display:flex;justify-content:center;margin-top:20px">
-          <a href="https://zefanyakharisma-cell.github.io/international-office-website/" target="_blank" rel="noopener"
+          <a href="https://example.com" target="_blank" rel="noopener"
             style="
               background:${PCU_C.lightBlue};color:#0369A1;
               padding:12px 28px;border-radius:999px;
@@ -512,11 +512,11 @@ function pcuBuildTechStack() {
           <span style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${PCU_C.mint}">Tech Stack</span>
         </div>
         <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;margin-bottom:.6rem;letter-spacing:-.03em">What Powers It</h2>
-        <p style="font-size:.93rem;color:rgba(255,255,255,0.42);margin-bottom:2.5rem;max-width:420px;line-height:1.65">Eight technologies, zero frontend frameworks — a deliberate choice for performance and control.</p>
+        <p style="font-size:.93rem;color:rgba(255,255,255,0.42);margin-bottom:2.5rem;max-width:420px;line-height:1.65">Eight technologies, zero heavyweight frameworks — a deliberate choice for performance, maintainability, and staff empowerment.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px">${cards}</div>
         <div style="margin-top:2.5rem;padding:26px 28px;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.12);border-radius:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
           <span style="width:8px;height:8px;border-radius:50%;background:${PCU_C.mint};display:inline-block;animation:cmPulseDot 2s ease-in-out infinite;flex-shrink:0"></span>
-          <span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:.88rem;font-weight:600;color:rgba(255,255,255,0.55);flex:1">No build steps, no bundlers. Just clear code that anyone on the IO team can read and modify.</span>
+          <span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:.88rem;font-weight:600;color:rgba(255,255,255,0.55);flex:1">Deployed on Vercel with Supabase as the backend — so the IO team can update content, manage events, and add partners without touching code.</span>
         </div>
       </div>
     </div>`;
@@ -543,7 +543,7 @@ function pcuBuildGithub() {
           The full source code is on GitHub — for any international office team that wants to start from here instead of from zero.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
-          <a href="https://github.com/zefanyakharisma-cell/international-office-website" target="_blank" rel="noopener" style="
+          <a href="https://github.com/alexmorganrivera-cell/international-office-website" target="_blank" rel="noopener" style="
             background:#fff;color:${PCU_C.orange};
             padding:14px 32px;border-radius:999px;
             font-family:'Space Grotesk',Inter,sans-serif;
@@ -627,7 +627,7 @@ function pcuReact(btn, label) {
   const msgs = {
     Impressed:  'This is what digital transformation looks like. 🌐',
     Inspired:   "That's the point — real problems deserve real solutions. 💡",
-    Technical:  'Flask + vanilla JS + SQLite — deliberate and clean. 🔧',
+    Technical:  'Tailwind + Supabase + Vercel — deliberate and clean. 🔧',
     Amazing:    "Shipped and live. That's the goal. 🚀",
   };
   const el = document.getElementById('pcu-react-msg');

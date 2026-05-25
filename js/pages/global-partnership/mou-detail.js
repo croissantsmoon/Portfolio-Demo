@@ -46,7 +46,7 @@ function mouDetailInitPage() {
        <div class="card rounded-2xl overflow-hidden" style="border:1px solid rgba(28,28,30,0.08)">
         <div class="flex gap-4 p-5 border-b" style="border-color:rgba(28,28,30,0.08)">
          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(30,58,95,0.08)"><i data-lucide="shield-check" style="width:18px;height:18px;color:#1E3A5F"></i></div>
-         <div><p class="font-semibold text-sm mb-0.5" style="color:#1C1C1E">Institutional Compliance</p><p class="text-sm" style="color:#5C5C5C">Verify each agreement aligns with PCU's accreditation standards, academic regulations, and partner-country legal requirements</p></div>
+         <div><p class="font-semibold text-sm mb-0.5" style="color:#1C1C1E">Institutional Compliance</p><p class="text-sm" style="color:#5C5C5C">Verify each agreement aligns with NGU's accreditation standards, academic regulations, and partner-country legal requirements</p></div>
         </div>
         <div class="flex gap-4 p-5 border-b" style="border-color:rgba(28,28,30,0.08)">
          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="calendar-check" style="width:18px;height:18px;color:#4A6B8A"></i></div>

@@ -48,7 +48,7 @@ function partnershipDetailInitPage() {
          <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(30,58,95,0.08)"><i data-lucide="search" style="width:20px;height:20px;color:#1E3A5F"></i></div>
          <div>
           <div class="flex items-center gap-2 mb-1.5"><span class="text-xs font-bold" style="color:#1E3A5F;letter-spacing:.06em">01</span><h3 class="font-heading font-bold text-base" style="color:#1C1C1E">Strategic Identification</h3></div>
-          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Identifying partner institutions aligned with PCU's mission through rigorous evaluation — assessing academic reputation, geographic priority, and potential for active collaboration</p>
+          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Identifying partner institutions aligned with NGU's mission through rigorous evaluation — assessing academic reputation, geographic priority, and potential for active collaboration</p>
          </div>
         </div>
         <div class="card rounded-2xl p-7 flex gap-5" style="border:1px solid rgba(28,28,30,0.08)">

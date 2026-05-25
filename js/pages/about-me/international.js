@@ -2,7 +2,7 @@ function internationalInitPage() {
   const el = document.getElementById('page-international');
   if (!el) return;
 
-  // Content merged into PCU Global project page — redirect on every activation.
+  // Content merged into NGU Global project page — redirect on every activation.
   const redirect = function() {
     if (el.classList.contains('active') && typeof goToPage === 'function') {
       goToPage('pcu-global');

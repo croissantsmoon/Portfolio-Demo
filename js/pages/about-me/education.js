@@ -10,7 +10,7 @@ function educationInitPage() {
         <button onclick="goToPage('about-overview')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
         <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="education_hero_eyebrow">Educational Background</div>
         <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em" data-edit-key="education_hero_title">Academic<br><em style="font-style:italic;color:#8B7355">Foundation</em></h1>
-        <p class="max-w-2xl" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="education_hero_tagline">Education and achievements that shaped my professional expertise in international relations and global engagement.</p>
+        <p class="max-w-2xl" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="education_hero_tagline">Education and achievements that shaped my professional expertise in international affairs and global engagement.</p>
       </div>
     </div>
     <!-- Degrees -->
@@ -25,11 +25,11 @@ function educationInitPage() {
                 <i data-lucide="graduation-cap" style="width:17px;height:17px;color:rgba(255,255,255,0.6)"></i>
                 <span style="font-size:.7rem;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,0.5);text-transform:uppercase">Bachelor's Degree</span>
               </div>
-              <h3 class="font-heading font-bold text-xl" style="color:#fff">International Relations and Affairs</h3>
+              <h3 class="font-heading font-bold text-xl" style="color:#fff">International Affairs</h3>
             </div>
             <div class="p-6">
-              <p class="text-sm font-medium mb-3" style="color:#1E3A5F">Universitas Airlangga &nbsp;·&nbsp; July 2020 – March 2024</p>
-              <p style="color:#5C5C5C;line-height:1.7">Focused on international relations theory, foreign policy analysis, and cross-cultural dynamics. Developed research skills through published papers on U.S.–ASEAN economic cooperation and Israel–Abraham Accords diplomacy. Served as Assistant Lecturer in Foreign Policy Analysis and Research Assistant presenting at the 9th ICoCSPA 2023.</p>
+              <p class="text-sm font-medium mb-3" style="color:#1E3A5F">Pacific Coast University &nbsp;·&nbsp; August 2018 – May 2022</p>
+              <p style="color:#5C5C5C;line-height:1.7">Concentrated in global governance, trade policy, and intercultural communication. Published two undergraduate research papers on APEC economic frameworks. Served as Teaching Assistant in Global Studies and Research Intern presenting at the Annual ICIS 2022 conference.</p>
             </div>
           </div>
           <!-- High School -->
@@ -39,9 +39,9 @@ function educationInitPage() {
                 <i data-lucide="school" style="width:20px;height:20px;color:#4A6B8A"></i>
               </div>
               <div>
-                <h3 class="font-heading font-bold text-xl mb-1" style="color:#1C1C1E">High School — Mathematics and Natural Sciences</h3>
-                <p class="text-sm font-medium mb-3" style="color:#4A6B8A">SMAN 15 Surabaya &nbsp;·&nbsp; 2017 – 2020</p>
-                <p style="color:#5C5C5C">Mathematics and Natural Sciences stream, providing a strong analytical and problem-solving foundation before pursuing international relations at university level.</p>
+                <h3 class="font-heading font-bold text-xl mb-1" style="color:#1C1C1E">Liberal Arts &amp; Sciences</h3>
+                <p class="text-sm font-medium mb-3" style="color:#4A6B8A">Cascade Ridge Academy, Seattle, WA &nbsp;·&nbsp; 2015 – 2018</p>
+                <p style="color:#5C5C5C">Comprehensive liberal arts track with focus on social sciences and global issues.</p>
               </div>
             </div>
           </div>
@@ -64,13 +64,13 @@ function educationInitPage() {
                   <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.12)">
                     <i data-lucide="medal" style="width:12px;height:12px;color:#8B7355"></i>
                   </div>
-                  <p style="color:#1C1C1E"><span class="font-semibold">Gold Medal</span> <span style="color:#5C5C5C">— World Youth Invention and Innovation Award 2022</span></p>
+                  <p style="color:#1C1C1E"><span class="font-semibold">Excellence in International Education Award</span> <span style="color:#5C5C5C">— NAFSA Region XII, 2024</span></p>
                 </div>
                 <div class="flex items-center gap-3">
                   <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.12)">
                     <i data-lucide="medal" style="width:12px;height:12px;color:#8B7355"></i>
                   </div>
-                  <p style="color:#1C1C1E"><span class="font-semibold">Bronze Medal</span> <span style="color:#5C5C5C">— Your-K, Your-ASEAN Short Video Contest</span></p>
+                  <p style="color:#1C1C1E"><span class="font-semibold">Young Professional Grant</span> <span style="color:#5C5C5C">— Institute of International Education, 2023</span></p>
                 </div>
               </div>
             </div>
@@ -88,19 +88,19 @@ function educationInitPage() {
               <i data-lucide="book-open" style="width:20px;height:20px;color:#059669"></i>
             </div>
             <div class="flex-1">
-              <p class="text-sm font-medium mb-4" style="color:#059669">Peer-reviewed research in International Relations</p>
+              <p class="text-sm font-medium mb-4" style="color:#059669">Peer-reviewed research in International Affairs</p>
               <div class="space-y-3">
                 <div class="flex items-start gap-3 pb-3 border-b" style="border-color:rgba(28,28,30,0.08)">
                   <i data-lucide="file-text" style="width:14px;height:14px;color:#9CA3AF;flex-shrink:0;margin-top:3px"></i>
-                  <p class="text-sm leading-relaxed" style="color:#1C1C1E">Kebijakan Luar Negeri Pro-Israel Amerika Serikat di Pemerintahan Obama</p>
+                  <p class="text-sm leading-relaxed" style="color:#1C1C1E">Rethinking Student Mobility in a Post-Pandemic Landscape (2023)</p>
                 </div>
                 <div class="flex items-start gap-3 pb-3 border-b" style="border-color:rgba(28,28,30,0.08)">
                   <i data-lucide="file-text" style="width:14px;height:14px;color:#9CA3AF;flex-shrink:0;margin-top:3px"></i>
-                  <p class="text-sm leading-relaxed" style="color:#1C1C1E">Menelaah Interdependensi Korea Selatan-Tiongkok Akibat THAAD dalam Analisis Neoliberalisme</p>
+                  <p class="text-sm leading-relaxed" style="color:#1C1C1E">Equity and Access in Outbound Exchange Programs (2022)</p>
                 </div>
                 <div class="flex items-start gap-3">
                   <i data-lucide="file-text" style="width:14px;height:14px;color:#9CA3AF;flex-shrink:0;margin-top:3px"></i>
-                  <p class="text-sm leading-relaxed" style="color:#1C1C1E">Israel dan Perjanjian Abraham: Upaya Peningkatan Status Israel dalam Sistem Internasional</p>
+                  <p class="text-sm leading-relaxed" style="color:#1C1C1E">Digital Tools for International Student Onboarding (2021)</p>
                 </div>
               </div>
             </div>

@@ -42,10 +42,10 @@ const WD = {
 
 const WD_PROJECTS = [
   {
-    title: 'PCU Global',
+    title: 'NGU Global',
     cat: 'Web Experience',
     year: '2026',
-    desc: "Full-stack rebuild of PCU's International Office — clean architecture, live CMS, mobile-first design.",
+    desc: "Full-stack rebuild of NGU's International Office — clean architecture, live CMS, mobile-first design.",
     bg: WD.aurora, tc: '#0369A1',
     page: 'web-pcu-global-intl',
     emoji: '🌐',
@@ -62,8 +62,8 @@ const WD_PROJECTS = [
     bg: WD.nebulaGold, tc: '#854D0E',
     page: 'web-portfolio',
     emoji: '✦',
-    url: 'zefanyakharisma.com',
-    live: 'https://zefanyakharisma.com',
+    url: 'portfolio-demo.example.com',
+    live: 'https://portfolio-demo.example.com',
     tags: ['UI/UX Design', 'Tailwind CSS', 'Supabase'],
     pc: ['#1C1C1E', '#8B7355', '#F5D05E', '#FAFAF8', '#F2ECE4'],
   },

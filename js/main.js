@@ -1,12 +1,12 @@
 // ── Skill Discovery Data ────────────────────────────────────
 const discoveryItems = [
-  { id: 'partnerships', title: 'International Partnership Management', category: 'Experience', description: 'Managing 30+ institutional partners, reviewing 25+ MoU/MoA agreements monthly at Petra Christian University.', skills: ['International Partnership', 'Leadership', 'Systems Thinking', 'Cross-Cultural Communication'], page: 'partnerships', accent: '#4A6B8A' },
+  { id: 'partnerships', title: 'International Partnership Management', category: 'Experience', description: 'Managing 30+ institutional partners, reviewing 25+ MoU/MoA agreements monthly at Northgate University.', skills: ['International Partnership', 'Leadership', 'Systems Thinking', 'Cross-Cultural Communication'], page: 'partnerships', accent: '#4A6B8A' },
   { id: 'mou', title: 'MoU / MoA Coordination', category: 'Experience', description: 'Formalizing academic partnerships through strategic agreements — ensuring compliance and institutional alignment.', skills: ['International Partnership', 'Leadership', 'Systems Thinking'], page: 'mou', accent: '#4A6B8A' },
-  { id: 'amerta', title: 'AMERTA Exchange Program', category: 'Project', description: "Universitas Airlangga's flagship semester exchange — 120+ students, IDR 50–100M budget per cohort.", skills: ['Student Mobility', 'Project Management', 'International Partnership', 'Leadership', 'Student Support'], page: 'amerta', accent: '#6B4F32' },
-  { id: 'aci', title: 'ACI — Airlangga Cultural Immersion', category: 'Project', description: 'Structured engagement program connecting international and local students through cultural experience.', skills: ['Student Mobility', 'Project Management', 'Student Support', 'Cross-Cultural Communication'], page: 'aci', accent: '#6B4F32' },
-  { id: 'aero', title: 'AERO Exhibition', category: 'Project', description: 'Annual exhibition at Universitas Airlangga showcasing global partnerships and international programs.', skills: ['Project Management', 'International Partnership', 'Branding', 'Creative Direction'], page: 'aero', accent: '#6B4F32' },
-  { id: 'pcu-global', title: 'PCU Global — International Office Website', category: 'Project', description: "Rebuilding PCU's International Office online presence with a full-stack web app, news CMS, partnership directory, and mobile-first design.", skills: ['Full-Stack Development', 'Front-End Development', 'UI/UX Design', 'International Partnership', 'Digital Strategy', 'Web Experience', 'Branding'], page: 'pcu-global', accent: '#003087' },
-  { id: 'intl-grants', title: 'International Grants System', category: 'Experience', description: 'Building a digital and physical system to inform, maintain, and execute international grants at Petra Christian University — featuring a self-built dashboard with realtime tracking, deadline calendar, and applicant pipeline.', skills: ['International Partnership', 'Systems Thinking', 'Digital Strategy', 'Student Support', 'Internationalization'], page: 'intl-grants', accent: '#064E3B' },
+  { id: 'amerta', title: 'AMERTA Exchange Program', category: 'Project', description: "Westbridge University's flagship semester exchange — 120+ students, IDR 50–100M budget per cohort.", skills: ['Student Mobility', 'Project Management', 'International Partnership', 'Leadership', 'Student Support'], page: 'amerta', accent: '#6B4F32' },
+  { id: 'aci', title: 'ACI — Westbridge Cultural Immersion', category: 'Project', description: 'Structured engagement program connecting international and local students through cultural experience.', skills: ['Student Mobility', 'Project Management', 'Student Support', 'Cross-Cultural Communication'], page: 'aci', accent: '#6B4F32' },
+  { id: 'aero', title: 'AERO Exhibition', category: 'Project', description: 'Annual exhibition at Westbridge University showcasing global partnerships and international programs.', skills: ['Project Management', 'International Partnership', 'Branding', 'Creative Direction'], page: 'aero', accent: '#6B4F32' },
+  { id: 'pcu-global', title: 'NGU Global — International Office Website', category: 'Project', description: "Rebuilding NGU's International Office online presence with a full-stack web app, news CMS, partnership directory, and mobile-first design.", skills: ['Full-Stack Development', 'Front-End Development', 'UI/UX Design', 'International Partnership', 'Digital Strategy', 'Web Experience', 'Branding'], page: 'pcu-global', accent: '#003087' },
+  { id: 'intl-grants', title: 'International Grants System', category: 'Experience', description: 'Building a digital and physical system to inform, maintain, and execute international grants at Northgate University — featuring a self-built dashboard with realtime tracking, deadline calendar, and applicant pipeline.', skills: ['International Partnership', 'Systems Thinking', 'Digital Strategy', 'Student Support', 'Internationalization'], page: 'intl-grants', accent: '#064E3B' },
   { id: 'onboarding', title: 'Student Onboarding & Orientation', category: 'Experience', description: 'End-to-end welfare support for 100+ international students per semester — housing, healthcare, immigration.', skills: ['Student Support', 'Student Mobility', 'Cross-Cultural Communication', 'Systems Thinking'], page: 'onboarding', accent: '#4A5235' },
   { id: 'engagement', title: 'Student Engagement Initiatives', category: 'Experience', description: 'Building meaningful connections and fostering personal growth for exchange students through curated programs.', skills: ['Student Support', 'Leadership', 'Cross-Cultural Communication'], page: 'engagement', accent: '#4A5235' },
   { id: 'websites', title: 'Web Development & Design', category: 'Creative', description: 'Responsive, user-centered websites for institutional communications and international engagement.', skills: ['Full-Stack Development', 'Front-End Development', 'UI/UX Design', 'Web Experience', 'Digital Strategy'], page: 'websites', accent: '#8B7355' },
@@ -19,7 +19,7 @@ const discoveryItems = [
 
 const searchIndex = (function() {
   const manual = [
-    { title: 'About Me', subtitle: 'Profile Overview', page: 'about-overview', accent: '#1E3A5F', keywords: 'about profile overview background zefanya specialist' },
+    { title: 'About Me', subtitle: 'Profile Overview', page: 'about-overview', accent: '#1E3A5F', keywords: 'about profile overview background alex specialist' },
     { title: 'Experience', subtitle: 'Career Timeline', page: 'experience', accent: '#1E3A5F', keywords: 'experience career work history timeline professional years' },
     { title: 'Expertise', subtitle: 'Core Competencies', page: 'expertise', accent: '#1E3A5F', keywords: 'expertise skills competencies areas specialization core' },
     { title: 'Education', subtitle: 'Academic Profile', page: 'education', accent: '#1E3A5F', keywords: 'education university degree airlangga international relations academic' },
@@ -309,7 +309,7 @@ document.addEventListener('click', function(e) {
         if (statusEl) statusEl.textContent = 'CV download starting…';
         var a = document.createElement('a');
         a.href = link.href;
-        a.download = 'Zefanya-Kharisma-Nugroho-CV.pdf';
+        a.download = 'Alex-Morgan-Rivera-CV.pdf';
         document.body.appendChild(a);
         a.click();
         a.remove();
@@ -334,11 +334,11 @@ function openArticle(id) {
 }
 
 const defaultConfig = {
-  hero_name: 'Zefanya Kharisma Nugroho',
+  hero_name: 'Alex Morgan Rivera',
   hero_title: 'International Partnership Specialist',
-  hero_tagline: 'Supporting 200+ international students and managing end-to-end global mobility programs across universities in Indonesia and beyond — based in Surabaya.',
-  about_text: 'Over the past 3+ years, I have supported 200+ international students and managed end-to-end global mobility programs across universities in Indonesia and beyond. From coordinating semester exchange programs and government scholarships (KNB & TIAS) to reviewing 25+ partnership agreements monthly, I bring both operational depth and strategic vision to international education. Currently at Petra Christian University, I focus on building and strengthening institutional partnerships — facilitating 15+ strategic meetings per month, expanding access to international grants, and growing PCU\'s global network.',
-  contact_email: 'zefanya.kharisma@gmail.com',
+  hero_tagline: 'Supporting 200+ international students and managing end-to-end global mobility programs across universities in United States and beyond — based in Portland.',
+  about_text: 'Over the past 3+ years, I have supported 200+ international students and managed end-to-end global mobility programs across universities in United States and beyond. From coordinating semester exchange programs and government scholarships (KNB & TIAS) to reviewing 25+ partnership agreements monthly, I bring both operational depth and strategic vision to international education. Currently at Northgate University, I focus on building and strengthening institutional partnerships — facilitating 15+ strategic meetings per month, expanding access to international grants, and growing NGU\'s global network.',
+  contact_email: 'alex.morgan@example.com',
   partnership_title: 'Partnership Development',
   mou_title: 'MoU / MoA Coordination',
   background_color: '#F8FAFC',
@@ -362,34 +362,34 @@ function _pageIdToPath(pageId) {
 
 // UX FIX: page metadata for dynamic titles and meta descriptions
 const pageMetadata = {
-  'home':               { title: 'Zefanya Kharisma Nugroho',                              description: 'International Education Professional & Creative Technologist based in Surabaya.' },
-  'about-overview':     { title: 'About — Zefanya Kharisma Nugroho',                      description: 'Profile overview: 3+ years in international higher education, global mobility, and creative digital work.' },
-  'expertise':          { title: 'Expertise — Zefanya Kharisma Nugroho',                  description: 'Core competencies in international partnerships, student mobility, project management, and digital creativity.' },
-  'experience':         { title: 'Experience — Zefanya Kharisma Nugroho',                 description: 'Career timeline across Universitas Airlangga and Petra Christian University.' },
-  'skillset':           { title: 'Skillset — Zefanya Kharisma Nugroho',                   description: 'Full map of technical, professional, and creative competencies.' },
-  'education':          { title: 'Education — Zefanya Kharisma Nugroho',                  description: 'Academic background in International Relations.' },
-  'projects-overview':  { title: 'Projects — Zefanya Kharisma Nugroho',                   description: 'Portfolio of flagship programs: AMERTA, ACI, AERO, PCU Global.' },
-  'amerta':             { title: 'AMERTA — Zefanya Kharisma Nugroho',                     description: "Universitas Airlangga's flagship semester exchange program — 120+ students, IDR 50–100M budget." },
-  'aci':                { title: 'ACI — Zefanya Kharisma Nugroho',                        description: 'Airlangga Cultural Immersion: structured engagement connecting international and local students.' },
-  'aero':               { title: 'AERO — Zefanya Kharisma Nugroho',                       description: 'Annual exhibition at Universitas Airlangga showcasing global partnerships.' },
-  'pcu-global':         { title: 'PCU Global — Zefanya Kharisma Nugroho',                 description: 'Rebuilding PCU International Office online presence with full-stack web app.' },
-  'engagement':         { title: 'Intl. Education — Zefanya Kharisma Nugroho',            description: 'Building meaningful connections for exchange students through curated programs.' },
-  'onboarding':         { title: 'Student Support — Zefanya Kharisma Nugroho',            description: 'End-to-end welfare support for 100+ international students per semester.' },
-  'engagement-detail':  { title: 'Student Engagement — Zefanya Kharisma Nugroho',         description: 'Student engagement initiatives for international education.' },
-  'partnerships':       { title: 'Partnerships — Zefanya Kharisma Nugroho',               description: 'Managing 30+ institutional partners and reviewing 25+ MoU/MoA agreements monthly.' },
-  'mou':                { title: 'MoU / MoA — Zefanya Kharisma Nugroho',                  description: 'Formalizing academic partnerships through strategic agreements.' },
-  'intl-grants':        { title: 'International Grants — Zefanya Kharisma Nugroho',        description: 'Building a digital and physical system to inform, maintain, and execute international grants at PCU.' },
-  'croissantsmoon':          { title: 'CroissantsMoon — Zefanya Kharisma Nugroho',             description: 'A future-facing boutique studio identity — editorial design, web experiences, brand systems.' },
+  'home':               { title: 'Alex Morgan Rivera',                              description: 'International Education Professional & Creative Technologist based in Portland.' },
+  'about-overview':     { title: 'About — Alex Morgan Rivera',                      description: 'Profile overview: 3+ years in international higher education, global mobility, and creative digital work.' },
+  'expertise':          { title: 'Expertise — Alex Morgan Rivera',                  description: 'Core competencies in international partnerships, student mobility, project management, and digital creativity.' },
+  'experience':         { title: 'Experience — Alex Morgan Rivera',                 description: 'Career timeline across Westbridge University and Northgate University.' },
+  'skillset':           { title: 'Skillset — Alex Morgan Rivera',                   description: 'Full map of technical, professional, and creative competencies.' },
+  'education':          { title: 'Education — Alex Morgan Rivera',                  description: 'Academic background in International Relations.' },
+  'projects-overview':  { title: 'Projects — Alex Morgan Rivera',                   description: 'Portfolio of flagship programs: AMERTA, ACI, AERO, NGU Global.' },
+  'amerta':             { title: 'AMERTA — Alex Morgan Rivera',                     description: "Westbridge University's flagship semester exchange program — 120+ students, IDR 50–100M budget." },
+  'aci':                { title: 'ACI — Alex Morgan Rivera',                        description: 'Westbridge Cultural Immersion: structured engagement connecting international and local students.' },
+  'aero':               { title: 'AERO — Alex Morgan Rivera',                       description: 'Annual exhibition at Westbridge University showcasing global partnerships.' },
+  'pcu-global':         { title: 'NGU Global — Alex Morgan Rivera',                 description: 'Rebuilding NGU International Office online presence with full-stack web app.' },
+  'engagement':         { title: 'Intl. Education — Alex Morgan Rivera',            description: 'Building meaningful connections for exchange students through curated programs.' },
+  'onboarding':         { title: 'Student Support — Alex Morgan Rivera',            description: 'End-to-end welfare support for 100+ international students per semester.' },
+  'engagement-detail':  { title: 'Student Engagement — Alex Morgan Rivera',         description: 'Student engagement initiatives for international education.' },
+  'partnerships':       { title: 'Partnerships — Alex Morgan Rivera',               description: 'Managing 30+ institutional partners and reviewing 25+ MoU/MoA agreements monthly.' },
+  'mou':                { title: 'MoU / MoA — Alex Morgan Rivera',                  description: 'Formalizing academic partnerships through strategic agreements.' },
+  'intl-grants':        { title: 'International Grants — Alex Morgan Rivera',        description: 'Building a digital and physical system to inform, maintain, and execute international grants at NGU.' },
+  'croissantsmoon':          { title: 'CroissantsMoon — Alex Morgan Rivera',             description: 'A future-facing boutique studio identity — editorial design, web experiences, brand systems.' },
   'web-portfolio':           { title: 'Website Portfolio — CroissantsMoon',                   description: 'A dual-identity SPA for international education and creative technology.' },
-  'web-pcu-global-intl':     { title: 'PCU Global International Office — CroissantsMoon',     description: 'Rebuilding an institutional web presence for a university\'s international office.' },
+  'web-pcu-global-intl':     { title: 'NGU Global International Office — CroissantsMoon',     description: 'Rebuilding an institutional web presence for a university\'s international office.' },
   'web-dashboard-partnership':{ title: 'Dashboard Partnership — CroissantsMoon',              description: 'A data dashboard for visualising and managing international partnership networks.' },
   'web-dashboard-grants':    { title: 'Dashboard International Grants — CroissantsMoon',      description: 'Centralising international grant tracking from application through to outcome.' },
-  'writing':            { title: 'Writing — Zefanya Kharisma Nugroho',                    description: 'Essays and insights on international education, leadership, and digital craft.' },
-  'websites':           { title: 'Web Development — Zefanya Kharisma Nugroho',            description: 'Responsive, user-centered websites for institutional communications.' },
-  'designs':            { title: 'Graphic Design — Zefanya Kharisma Nugroho',             description: 'Strategic visual design for institutional identity and event collateral.' },
-  'contact':            { title: 'Contact — Zefanya Kharisma Nugroho',                    description: 'Open to international partnerships, collaborations, and conversations about global education.' },
-  'skill-discovery':    { title: 'Skill Discovery — Zefanya Kharisma Nugroho',            description: 'Explore related projects and work by skill area.' },
-  'not-found':          { title: 'Page not found — Zefanya Kharisma Nugroho',             description: 'The page you are looking for could not be found.' },
+  'writing':            { title: 'Writing — Alex Morgan Rivera',                    description: 'Essays and insights on international education, leadership, and digital craft.' },
+  'websites':           { title: 'Web Development — Alex Morgan Rivera',            description: 'Responsive, user-centered websites for institutional communications.' },
+  'designs':            { title: 'Graphic Design — Alex Morgan Rivera',             description: 'Strategic visual design for institutional identity and event collateral.' },
+  'contact':            { title: 'Contact — Alex Morgan Rivera',                    description: 'Open to international partnerships, collaborations, and conversations about global education.' },
+  'skill-discovery':    { title: 'Skill Discovery — Alex Morgan Rivera',            description: 'Explore related projects and work by skill area.' },
+  'not-found':          { title: 'Page not found — Alex Morgan Rivera',             description: 'The page you are looking for could not be found.' },
 };
 
 let currentPage = 'home';
@@ -433,7 +433,7 @@ function _renderPage(pageId) {
   if (ogDesc) ogDesc.setAttribute('content', meta.description);
   const canonicalEl = document.querySelector('link[rel="canonical"]');
   if (canonicalEl) {
-    const base = 'https://zefanyakharisma.com';
+    const base = 'https://portfolio-demo.example.com';
     canonicalEl.setAttribute('href', base + _pageIdToPath(pageId));
   }
 
@@ -805,19 +805,19 @@ const heroConfigs = {
   'international':{ back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'International Exposure',  desc: 'Real-world experience bridging institutions, students, and cultures across Southeast Asia.',          gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
   'values':       { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Professional Values',     desc: 'Principles that guide my work and decisions in international education.',                          gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
   'expertise':    { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Areas of Expertise',      desc: 'Core competencies built through hands-on experience in international higher education.',             gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
-  'experience':   { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Professional Experience', desc: '3+ years building international partnerships and supporting student mobility across Surabaya.',      gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
+  'experience':   { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Professional Experience', desc: '3+ years building international partnerships and supporting student mobility across Portland.',      gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
   'skillset':     { back: 'about-overview', backLabel: 'Back', category: 'About Me', title: 'Skillset',                desc: 'Core competencies and professional capabilities.',                                               gradient: '#1E3A5F 0%, #2563EB 60%, #38BDF8 100%' },
   // Projects
-  'amerta':       { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AMERTA',     desc: "Universitas Airlangga's flagship semester exchange program — 120+ students, IDR 50–100M budget.", gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
-  'aci':          { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'ACI',         desc: 'Airlangga Cultural Immersion — structured engagement program connecting international and local students.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
-  'aero':         { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AERO',        desc: 'Annual exhibition at Universitas Airlangga showcasing global partnerships and international programs.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
-  'pcu-global':   { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'PCU Global', desc: "Rebuilding PCU's International Office online presence — full-stack web app, news CMS, and mobile-first design.", gradient: '#003087 0%, #0050A0 60%, #3B82F6 100%' },
+  'amerta':       { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AMERTA',     desc: "Westbridge University's flagship semester exchange program — 120+ students, IDR 50–100M budget.", gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
+  'aci':          { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'ACI',         desc: 'Westbridge Cultural Immersion — structured engagement program connecting international and local students.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
+  'aero':         { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'AERO',        desc: 'Annual exhibition at Westbridge University showcasing global partnerships and international programs.', gradient: '#3B0764 0%, #7C3AED 60%, #A78BFA 100%' },
+  'pcu-global':   { back: 'projects-overview', backLabel: 'Back', category: 'Project Management', title: 'NGU Global', desc: "Rebuilding NGU's International Office online presence — full-stack web app, news CMS, and mobile-first design.", gradient: '#003087 0%, #0050A0 60%, #3B82F6 100%' },
   // Intl. Education
   'onboarding':        { back: 'engagement', backLabel: 'Back', category: 'Student Services',    title: 'Student Onboarding & Orientation', desc: 'End-to-end welfare support for 100+ international students per semester — housing, healthcare, immigration.', gradient: '#1B3A2A 0%, #2D6A4F 60%, #52B788 100%', type: 'marquee', items: ['Student Pick-Up Services', 'Onboarding & Orientation', 'Best Buddies Support', 'Tax Reporting Assistance', 'Farewell Events', 'Monitoring & Evaluation', '480+ Students', '30+ Countries', '4 AMERTA Batches'] },
   'engagement-detail': { back: 'engagement', backLabel: 'Back', category: 'Student Services',    title: 'Student Engagement',              desc: 'Building meaningful connections and fostering personal growth through curated exchange programs.',              gradient: '#1B3A2A 0%, #2D6A4F 60%, #52B788 100%', type: 'marquee', items: ['City Tour', 'Rujak Uleg Festival', 'Tari Topeng Panji', 'Government Seminars', 'Volunteering Programs', 'Best Buddies', '120+ Students / Semester', '20+ Countries', '5 Community Partners'] },
   'partnerships':      { back: 'engagement', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development',         desc: 'Managing 30+ institutional partners and facilitating 15+ strategic meetings per month.',                        gradient: '#4A6B8A 0%, #2563EB 50%, #38BDF8 100%', type: 'marquee', items: ['Partnership Development', 'Institutional Partnerships', 'Research Collaboration', 'Faculty Exchange', 'Curriculum Development', 'Student Mobility', '30+ Partners', '15+ Meetings / Month'] },
   'mou':               { back: 'engagement', backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination',          desc: 'Formalizing academic partnerships through strategic agreements — ensuring compliance and institutional alignment.', gradient: '#4A6B8A 0%, #2563EB 50%, #38BDF8 100%', type: 'marquee', items: ['MoU Drafting', 'MoA Review', 'Compliance Monitoring', 'Agreement Renewals', 'Institutional Alignment', 'Partnership Agreements', '25+ Agreements / Month'] },
-  'intl-grants':       { back: 'engagement', backLabel: 'Back', category: 'International Education', title: 'International Grants',           desc: 'Building a system — digital and physical — to inform, maintain, and execute international grants at Petra Christian University.', gradient: '#064E3B 0%, #065F46 50%, #D97706 100%', type: 'marquee', items: ['Grant Discovery', 'Applicant Pipeline', 'Deadline Tracking', 'Physical Workflow', 'Realtime Updates', 'Outcome Analytics', 'PCU Grants', 'In Development'] },
+  'intl-grants':       { back: 'engagement', backLabel: 'Back', category: 'International Education', title: 'International Grants',           desc: 'Building a system — digital and physical — to inform, maintain, and execute international grants at Northgate University.', gradient: '#064E3B 0%, #065F46 50%, #D97706 100%', type: 'marquee', items: ['Grant Discovery', 'Applicant Pipeline', 'Deadline Tracking', 'Physical Workflow', 'Realtime Updates', 'Outcome Analytics', 'NGU Grants', 'In Development'] },
   'partnership-detail':{ back: 'partnerships', backLabel: 'Back', category: 'Global Partnerships', title: 'Partnership Development',       desc: 'Building and nurturing strategic academic partnerships that drive institutional excellence.',                     gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%', type: 'marquee', items: ['Strategic Alignment', 'Institutional Excellence', 'Global Collaboration', 'Research Exchange', 'Faculty Development', 'Student Mobility', 'Joint Programs'] },
   'mou-detail':        { back: 'mou',          backLabel: 'Back', category: 'Global Partnerships', title: 'MoU / MoA Coordination',        desc: 'Reviewing 25+ partnership agreements per month — ensuring compliance and institutional alignment.',              gradient: '#7C2D12 0%, #EA580C 60%, #FB923C 100%', type: 'marquee', items: ['Agreement Review', 'Compliance', 'Renewals', 'Institutional Alignment', 'MoU Drafting', 'MoA Coordination', 'Partnership Formalization'] },
   // Creative

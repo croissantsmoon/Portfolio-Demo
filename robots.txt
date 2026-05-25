@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zefanyakharisma-cell.github.io/Website-Portfolio/sitemap.xml
+Sitemap: https://portfolio-demo.example.com/sitemap.xml

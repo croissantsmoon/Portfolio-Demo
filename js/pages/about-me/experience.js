@@ -8,63 +8,54 @@ function experienceInitPage() {
      <div class="max-w-6xl mx-auto px-6">
       <button onclick="goToPage('about-overview')" class="flex items-center gap-2 mb-6" style="color:#1E3A5F"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
       <h1 class="font-heading font-bold text-4xl mb-2" style="color:#1C1C1E" data-edit-key="experience_hero_title">Professional Experience</h1>
-      <p class="text-lg mb-12" style="color:#5C5C5C" data-edit-key="experience_hero_tagline">3+ years building international partnerships and supporting student mobility across Surabaya</p>
+      <p class="text-lg mb-12" style="color:#5C5C5C" data-edit-key="experience_hero_tagline">4+ years building international programs and supporting student success across Portland</p>
       <div class="space-y-6">
        <div class="card p-6">
         <div class="flex flex-col md:flex-row md:items-start gap-4">
          <div class="flex-1">
-          <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">International Partnership</h3>
-          <p class="text-sm font-medium mb-2" style="color:#1E3A5F">Petra Christian University — March 2026–Present</p>
+          <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">Director of International Programs</h3>
+          <p class="text-sm font-medium mb-2" style="color:#1E3A5F">Northgate University — February 2025–Present</p>
           <ul class="text-sm space-y-1 list-none" style="color:#5C5C5C">
-           <li>• Manage communication with 30+ institutional partners monthly through formal correspondence</li>
-           <li>• Review 25 partnership agreements (MoU/MoA) per month for compliance and institutional alignment</li>
-           <li>• Facilitate 15+ strategic partnership meetings per month, delivering meeting minutes within 24 hours</li>
-           <li>• Initiate collaborations to strengthen PCU's global presence and expand international grant access</li>
+           <li>• Lead team of 8 managing partnerships with 38+ institutions across six continents</li>
+           <li>• Oversee 6 exchange programs and $180K annual budget with full accountability to the Provost</li>
+           <li>• Established 12 new Asia-Pacific partnerships in first year, expanding student mobility pipeline</li>
+           <li>• Drive quarterly strategy reviews with Provost to align international programs with university mission</li>
           </ul>
          </div><span class="tag flex-shrink-0">Current</span>
         </div>
        </div>
        <div class="card p-6">
-        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">International Mobility &amp; Global Reputation</h3>
-        <p class="text-sm font-medium mb-2" style="color:#4A6B8A">Airlangga Global Engagement — September 2025–March 2026 (7 months)</p>
+        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">International Programs Manager</h3>
+        <p class="text-sm font-medium mb-2" style="color:#4A6B8A">Pacific Bridge Institute — July 2023–February 2025 (1 yr 7 mo)</p>
         <ul class="text-sm space-y-1 list-none" style="color:#5C5C5C">
-         <li>• Managed 5 end-to-end international exchange programs — promotion, pre-departure, arrival, study period, and post-program completion</li>
-         <li>• Led program and budget management of IDR 50–100M per program across 50+ stakeholders</li>
-         <li>• Delivered high-quality exchange experiences for 120+ international students per semester</li>
+         <li>• Managed 4 exchange programs serving 150+ students annually across partner institutions</li>
+         <li>• Coordinated pre-departure orientations and maintained in-country support networks</li>
+         <li>• Handled $60K–$120K budgets per cohort, coordinating logistics across 30+ stakeholders</li>
         </ul>
        </div>
        <div class="card p-6">
-        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">International Student &amp; Mobility</h3>
-        <p class="text-sm font-medium mb-2" style="color:#4A6B8A">Airlangga Global Engagement — January 2024–September 2025 (1 year 9 months)</p>
+        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">Global Engagement Coordinator</h3>
+        <p class="text-sm font-medium mb-2" style="color:#4A6B8A">Westbridge University — August 2021–July 2023 (2 years)</p>
         <ul class="text-sm space-y-1 list-none" style="color:#5C5C5C">
-         <li>• Provided end-to-end welfare and non-academic support for 100+ international students per semester</li>
-         <li>• Covered accommodation, healthcare, insurance, banking, and immigration coordination</li>
-         <li>• Coordinated across 10+ stakeholders including faculties, hospitals, banks, and immigration authorities</li>
+         <li>• Supported 80+ international students per semester with accommodation, visa, and healthcare coordination</li>
+         <li>• Managed cultural integration initiatives and peer mentorship pairings each intake cycle</li>
+         <li>• Designed onboarding curriculum later adopted by 3 partner institutions as a regional best-practice model</li>
         </ul>
        </div>
        <div class="card p-6">
-        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">Assistant Lecturer — Foreign Policy Analysis</h3>
-        <p class="text-sm font-medium mb-2" style="color:#8B7355">Universitas Airlangga — September 2023–January 2024 (5 months)</p>
+        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">Teaching Assistant — Global Studies</h3>
+        <p class="text-sm font-medium mb-2" style="color:#8B7355">Pacific Coast University — January 2021–May 2022 (1 yr 4 mo)</p>
         <ul class="text-sm space-y-1 list-none" style="color:#5C5C5C">
-         <li>• Co-facilitated Foreign Policy Analysis discussions for undergraduate students, moderating debates</li>
-         <li>• Managed grading, scheduling, and administrative coordination for the lead lecturer</li>
+         <li>• Co-taught introductory Global Studies seminars and graded written submissions for 60+ students</li>
+         <li>• Organized visiting scholar lecture series, delivering 6 sessions per semester</li>
         </ul>
        </div>
        <div class="card p-6">
-        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">International Program and Inbound Coordinator</h3>
-        <p class="text-sm font-medium mb-2" style="color:#8B7355">Koordinasi Informasi dan Kehumasan FISIP Unair — June 2023–January 2024 (8 months)</p>
+        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">Research Intern</h3>
+        <p class="text-sm font-medium mb-2" style="color:#8B7355">Center for Pacific Affairs — June 2020–December 2020 (7 months)</p>
         <ul class="text-sm space-y-1 list-none" style="color:#5C5C5C">
-         <li>• Coordinated logistics and program delivery for foreign lecturers and visiting students</li>
-         <li>• Provided English–Indonesian interpretation at conferences, guest lectures, and company visits</li>
-         <li>• Served as primary point of contact for inbound guests across multiple events per semester</li>
-        </ul>
-       </div>
-       <div class="card p-6">
-        <h3 class="font-heading font-semibold text-lg mb-1" style="color:#1C1C1E">Research Assistant</h3>
-        <p class="text-sm font-medium mb-2" style="color:#8B7355">Universitas Airlangga — May 2023–January 2024 (9 months)</p>
-        <ul class="text-sm space-y-1 list-none" style="color:#5C5C5C">
-         <li>• Researched U.S.–ASEAN economic cooperation across Biden and Trump administrations; contributed to paper at 9th ICoCSPA 2023</li>
-         <li>• Synthesized academic sources on U.S.–China economic dynamics in Southeast Asia into structured research briefs</li>
+         <li>• Contributed to APEC trade dynamics policy report published in 2021 by senior research staff</li>
+         <li>• Supported senior researchers with data collection, literature review, and citation management</li>
         </ul>
        </div>
       </div>

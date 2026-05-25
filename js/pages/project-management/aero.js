@@ -1,189 +1,162 @@
-// Project Management — AERO page
+// Project Management — HORIZON page
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const AERO_BUDGET = {
   categories: [
     {
-      name: 'Event & EO', icon: 'package', color: '#1C1C1E',
+      name: 'Event & Venue', icon: 'package', color: '#1C1C1E',
       bg: 'linear-gradient(135deg,#F4F4F4,#EBEBEB)', border: 'rgba(28,28,30,0.15)',
-      total: 92812500,
+      total: 14200,
       items: [
-        { name: 'Outdoor Standard Stage 4×6m', qty: '1', total: 3000000 },
-        { name: 'Sound System 2000 watt', qty: '1', total: 3500000 },
-        { name: 'Misty Fan', qty: '10 units', total: 4500000 },
-        { name: 'AC Standing Unit (5 PK)', qty: '2 units', total: 1800000 },
-        { name: 'Stage Backdrop 4×6m', qty: '1', total: 3800000 },
-        { name: 'Frame Stage', qty: '1', total: 3500000 },
-        { name: 'TV Rental 80"', qty: '1', total: 2000000 },
-        { name: 'Stage Roof Tent 4×6m', qty: '1', total: 1250000 },
-        { name: 'Front Stage Tent 4×6m', qty: '1', total: 1250000 },
-        { name: 'Front Stage Chairs (with cover)', qty: '20 chairs', total: 500000 },
-        { name: 'Sarnavil Tent 3×3m (booth)', qty: '20 tents', total: 13000000 },
-        { name: 'Sarnavil Tent 5×5m (catering & committee)', qty: '2 tents', total: 3000000 },
-        { name: 'IBM Table 60×180 (booth)', qty: '40 tables', total: 6000000 },
-        { name: 'IBM Table 60×180 (catering)', qty: '2 tables', total: 300000 },
-        { name: 'Futura Chair + Cover (booth)', qty: '80 chairs', total: 2000000 },
-        { name: 'Futura Chair + Cover (committee & catering)', qty: '10 chairs', total: 250000 },
-        { name: 'Country / University Name Banner Print', qty: '20 banners', total: 2000000 },
-        { name: 'Power Extension Sockets', qty: '40 units', total: 3000000 },
-        { name: 'Photobooth Package (4 hours unlimited)', qty: '1', total: 4500000 },
-        { name: 'Event Gate (entrance)', qty: '1', total: 8500000 },
-        { name: 'Festival Flag Banners (around venue)', qty: '10 sheets', total: 4500000 },
-        { name: 'Festival Pennant Flags (decoration)', qty: '20 pcs', total: 1500000 },
-        { name: 'Old Town + Jeep Tour Tickets (city tour)', qty: '30 tickets', total: 2250000 },
-        { name: 'Tour Guide Fee — Old Town Surabaya', qty: '2 persons', total: 1000000 },
-        { name: 'City Tour Bus Parking', qty: '2', total: 100000 },
-        { name: 'Superindo Voucher (international students)', qty: '10 vouchers', total: 5000000 },
-        { name: 'TBMO Voucher', qty: '1 voucher', total: 500000 },
-        { name: 'Tax', qty: '—', total: 10312500 },
+        { name: 'Outdoor Exhibition Tent (main hall)', qty: '1', total: 1800 },
+        { name: 'Sound System & AV Equipment', qty: '1', total: 2200 },
+        { name: 'Stage & Backdrop Setup', qty: '1', total: 1400 },
+        { name: 'Exhibition Booth Frames (8x8ft)', qty: '25 units', total: 3750 },
+        { name: 'Exhibition Tables & Chairs', qty: '50 sets', total: 1250 },
+        { name: 'Entrance Gate & Wayfinding Signage', qty: '1', total: 950 },
+        { name: 'LED Display Screens (65")', qty: '4 units', total: 1200 },
+        { name: 'Festival Flags & Decorations', qty: 'assorted', total: 650 },
+        { name: 'Photobooth Station', qty: '1 package', total: 800 },
+        { name: 'Tax & Venue Fees', qty: '—', total: 200 },
       ]
     },
     {
       name: 'Accommodation', icon: 'building', color: '#4A6B8A',
       bg: 'linear-gradient(135deg,#EEF2F7,#D8E5EF)', border: 'rgba(74,107,138,0.2)',
-      total: 20000000,
+      total: 4800,
       items: [
-        { name: 'Room with Breakfast — Zoom Hotel Dharmahusada', qty: '20 rooms × 2 nights', total: 20000000 },
+        { name: 'Guest Hotel — The Nines Portland', qty: '12 rooms × 2 nights', total: 4800 },
       ]
     },
     {
       name: 'Meals & Catering', icon: 'utensils', color: '#8B7355',
       bg: 'linear-gradient(135deg,#F5F1EC,#EDE5D8)', border: 'rgba(139,115,85,0.2)',
-      total: 17250000,
+      total: 5200,
       items: [
-        { name: 'Lunch — May 9', qty: '100 persons', total: 3500000 },
-        { name: 'Afternoon Snack — May 9', qty: '100 persons', total: 1500000 },
-        { name: 'Dinner — May 9', qty: '100 persons', total: 7500000 },
-        { name: 'Lunch — May 10', qty: '50 persons', total: 1750000 },
-        { name: 'Snack — May 10', qty: '50 persons', total: 750000 },
-        { name: 'Vegetarian Meals', qty: '50 persons', total: 1250000 },
-        { name: 'Mineral Water', qty: '20 boxes', total: 1000000 },
+        { name: 'Day 1 Lunch — Exhibitors & Guests', qty: '120 persons', total: 1800 },
+        { name: 'Day 1 Afternoon Snack', qty: '120 persons', total: 720 },
+        { name: 'Networking Reception Dinner — Day 1', qty: '80 persons', total: 2000 },
+        { name: 'Day 2 Lunch', qty: '60 persons', total: 480 },
+        { name: 'Vegetarian & Dietary-Specific Meals', qty: '30 persons', total: 200 },
       ]
     },
     {
-      name: 'Honorarium', icon: 'users', color: '#4A5235',
+      name: 'Honorarium & Staffing', icon: 'users', color: '#4A5235',
       bg: 'linear-gradient(135deg,#F1F3EE,#E4E8DC)', border: 'rgba(74,82,53,0.2)',
-      total: 19600000,
+      total: 5800,
       items: [
-        { name: 'Driver & Assistant (3 days)', qty: '2 persons', total: 900000 },
-        { name: 'Cleaning Service (venue cleaning)', qty: '10 persons', total: 1000000 },
-        { name: 'AGE Committee & Logistics Staff', qty: '25 persons', total: 12500000 },
-        { name: 'Interns', qty: '15 persons', total: 3000000 },
-        { name: 'Alumni Sharing Session Fee', qty: '2 hours', total: 1800000 },
-        { name: 'Student MC', qty: '1 event', total: 400000 },
+        { name: 'Event Coordinator & Logistics Staff', qty: '8 persons', total: 2400 },
+        { name: 'Interns & Volunteers', qty: '12 persons', total: 1200 },
+        { name: 'Panel Discussion Moderator', qty: '1 person', total: 800 },
+        { name: 'Keynote Speaker Honorarium', qty: '2 speakers', total: 1000 },
+        { name: 'Student MC', qty: '1 event', total: 400 },
       ]
     },
   ],
-  grandTotal: 149662500
+  grandTotal: 30000
 };
 
 const AERO_PARTICIPANTS = {
   corners: [
-    { name: 'European Union Centre', note: 'Universitas Airlangga', booth: 1 },
-    { name: 'American Corner', note: 'Universitas Airlangga', booth: 2 },
-    { name: 'CYUT-UNAIR Taiwan Centre', note: 'Universitas Airlangga', booth: 3 },
-    { name: 'Aussie Banget Corner', note: 'Universitas Airlangga', booth: 4 },
+    { name: 'Global Futures Research Lab', note: 'Northgate University', booth: 1 },
+    { name: 'Pacific Rim Studies Center', note: 'Northgate University', booth: 2 },
+    { name: 'European Cultural Exchange Corner', note: 'Northgate University', booth: 3 },
+    { name: 'Americas & Latinx Studies Hub', note: 'Northgate University', booth: 4 },
   ],
   institutions: [
-    { country: 'Australia', flag: '🇦🇺', orgs: [
-      { name: 'The University of Western Australia', booth: 5 },
-      { name: 'University of New South Wales', booth: 6 },
-      { name: 'Western Sydney University', booth: null },
+    { country: 'Japan', flag: '🇯🇵', orgs: [
+      { name: 'Waseda University', booth: 5 },
+      { name: 'Keio University', booth: 6 },
+    ]},
+    { country: 'Germany', flag: '🇩🇪', orgs: [
+      { name: 'Humboldt-Universität zu Berlin', booth: 7 },
     ]},
     { country: 'France', flag: '🇫🇷', orgs: [
-      { name: 'IFI Campus France', booth: 7 },
+      { name: 'Sciences Po Paris', booth: 8 },
     ]},
-    { country: 'Japan', flag: '🇯🇵', orgs: [
-      { name: 'Kumamoto University', booth: 8 },
+    { country: 'Australia', flag: '🇦🇺', orgs: [
+      { name: 'University of Melbourne', booth: null },
+      { name: 'Australian National University', booth: 9 },
     ]},
-    { country: 'Singapore', flag: '🇸🇬', orgs: [
-      { name: 'Singapore Management University', booth: null },
+    { country: 'Canada', flag: '🇨🇦', orgs: [
+      { name: 'University of British Columbia', booth: 10 },
+      { name: 'McGill University', booth: null },
+      { name: 'Simon Fraser University', booth: 11 },
     ]},
-    { country: 'Malaysia', flag: '🇲🇾', orgs: [
-      { name: 'International Islamic University Malaysia (IIUM)', booth: 10 },
-      { name: 'INTI International University', booth: null },
-      { name: 'Universiti Sultan Zainal Abidin (UniSZA)', booth: null },
-      { name: 'Management and Science University (MSU)', booth: 11 },
-      { name: 'Tunku Abdul Rahman University of Management and Technology', booth: 12 },
-      { name: 'UiTM Cawangan Perlis', booth: null },
-      { name: 'Universiti Malaya (UM)', booth: 13 },
-    ]},
-    { country: 'Organizations', flag: '🌐', orgs: [
-      { name: 'AIESEC in Surabaya', booth: 14 },
+    { country: 'Partners', flag: '🌐', orgs: [
+      { name: 'Portland Art Museum', booth: 12 },
+      { name: 'Intel Education Initiative', booth: 13 },
     ]},
   ],
   studentDelegations: [
-    { country: 'Myanmar',      flag: '🇲🇲', booth: 15 },
-    { country: 'Cambodia',     flag: '🇰🇭', booth: 16 },
-    { country: 'Yemen',        flag: '🇾🇪', booth: 17 },
-    { country: 'Sudan',        flag: '🇸🇩', booth: 18 },
-    { country: 'Vietnam',      flag: '🇻🇳', booth: 19 },
-    { country: 'Mexico',       flag: '🇲🇽', booth: null },
-    { country: 'Palestine',    flag: '🇵🇸', booth: null },
-    { country: 'Sierra Leone', flag: '🇸🇱', booth: null },
-    { country: 'China',        flag: '🇨🇳', booth: null },
+    { country: 'South Korea',  flag: '🇰🇷', booth: 14 },
+    { country: 'Brazil',       flag: '🇧🇷', booth: 15 },
+    { country: 'Mexico',       flag: '🇲🇽', booth: 16 },
+    { country: 'India',        flag: '🇮🇳', booth: 17 },
+    { country: 'China',        flag: '🇨🇳', booth: 18 },
+    { country: 'Nigeria',      flag: '🇳🇬', booth: null },
+    { country: 'Kenya',        flag: '🇰🇪', booth: null },
+    { country: 'Colombia',     flag: '🇨🇴', booth: null },
+    { country: 'Vietnam',      flag: '🇻🇳', booth: null },
   ]
 };
 
 const AERO_RUNDOWN = [
   {
-    day: 'Pre-Arrival', date: 'Friday, 2 May 2025', label: 'Online Meeting', color: '#767676',
+    day: 'Pre-Event', date: 'Friday, 7 March 2025', label: 'Exhibitor Briefing', color: '#767676',
     items: [
-      { time: '15:00 – 16:00', activity: 'Technical Meeting', venue: 'Online (Zoom)' },
+      { time: '14:00 – 15:30', activity: 'Technical Briefing & Setup Orientation', venue: 'Online (Zoom)' },
     ]
   },
   {
-    day: 'Day 0', date: 'Thursday, 8 May 2025', label: 'Arrival Day', color: '#4A6B8A',
+    day: 'Day 0', date: 'Sunday, 9 March 2025', label: 'Arrival & Setup', color: '#4A6B8A',
     items: [
-      { time: 'TBC', activity: 'Participant Arrival & Hotel Check-in', venue: 'Zoom Hotel Dharmahusada, Jl. Dharmahusada No.188, Surabaya' },
+      { time: 'TBC', activity: 'International Guest Arrival & Hotel Check-in', venue: 'The Nines Hotel, Portland' },
+      { time: '16:00 – 19:00', activity: 'Exhibitor Load-In & Booth Setup', venue: 'Northgate University Exhibition Hall' },
     ]
   },
   {
-    day: 'Day 1', date: 'Friday, 9 May 2025', label: 'AERO Exhibition', color: '#1C1C1E',
+    day: 'Day 1', date: 'Monday, 10 March 2025', label: 'HORIZON Showcase', color: '#1C1C1E',
     items: [
-      { time: '07:00', activity: 'Transfer to Venue', venue: 'Meet at Hotel Lobby' },
-      { time: '07:00 – 08:00', activity: 'Exhibitor Registration & Badge Collection', venue: 'Boulevard Area, UNAIR Library Campus B' },
-      { time: '08:00 – 09:00', activity: 'Booth Preparation (Exhibitor Loading In)', venue: 'Exhibition Area' },
+      { time: '08:00 – 09:00', activity: 'Exhibitor Registration & Badge Collection', venue: 'Main Entrance, NGU Exhibition Hall' },
       { time: '09:00 – 09:05', activity: 'MC Start — Opening Ceremony', venue: 'Main Stage' },
-      { time: '09:05 – 09:15', activity: 'Welcoming Speech — Vice Dean of Academic, Students & Alumni Affairs', venue: 'Main Stage', note: 'Prof. Dr. Bambang Sektiari Lukiswanto, DEA, DVM' },
-      { time: '09:15 – 09:20', activity: 'Photo Session with All Participants', venue: 'Main Stage' },
-      { time: '09:20 – 09:30', activity: 'Interactive Session — Marking Start of Exhibition', venue: 'Exhibition Area' },
-      { time: '09:30 – 10:30', activity: 'Global Talks — Session 1', venue: 'Main Stage', note: 'IIUM · INTI International · Kumamoto University · MSU · Singapore Management University · Western Sydney University' },
-      { time: '10:30 – 11:00', activity: 'Interactive Session with Partner University Booths', venue: 'Exhibition Area' },
-      { time: '11:00 – 13:00', activity: 'Lunch Break (Friday Prayer)', venue: '—' },
-      { time: '13:00 – 14:00', activity: 'AERO Spotlight — Alumni & Student Success Stories', venue: 'Main Stage', note: 'Inbound: Nesrine Kawkeb Aggoun (France) · Outbound: Amrizal Ahmad (Kumamoto), Fiona Lim (NUS)' },
-      { time: '14:00 – 15:00', activity: 'Interactive Session with Partner University Booths', venue: 'Exhibition Area' },
-      { time: '15:00 – 15:50', activity: 'Global Talks — Session 2', venue: 'Main Stage', note: 'TAR UMT · UiTM Cawangan Perlis · Universiti Malaya · IFI Campus France · UniSZA' },
-      { time: '15:50 – 16:00', activity: 'Closing Event', venue: 'Main Stage' },
-      { time: '16:00 – 17:00', activity: 'Exhibitors Loading Out', venue: 'Exhibition Area' },
-      { time: '17:00 – 18:00', activity: 'Free Time', venue: '—' },
+      { time: '09:05 – 09:20', activity: 'Welcome Address — Director of International Programs', venue: 'Main Stage', note: 'Alex Morgan Rivera, Northgate University' },
+      { time: '09:20 – 09:30', activity: 'Photo Session with All Exhibitors & Guests', venue: 'Main Stage' },
+      { time: '09:30 – 09:45', activity: 'Interactive Opening — Marking Start of Exhibition', venue: 'Exhibition Floor' },
+      { time: '09:45 – 11:00', activity: 'Panel Discussion — Session 1: "Human Connection Across Borders"', venue: 'Main Stage', note: 'Waseda University · Sciences Po · UBC · Portland Art Museum · Intel Education' },
+      { time: '11:00 – 12:30', activity: 'Open Exhibition Floor — Research Posters & Creative Installations', venue: 'Exhibition Hall' },
+      { time: '12:30 – 13:30', activity: 'Lunch Break', venue: '—' },
+      { time: '13:30 – 14:30', activity: 'HORIZON Spotlight — Student Success Stories & Alumni Sharing', venue: 'Main Stage', note: 'Featured speakers: 3 NGU alumni now working internationally' },
+      { time: '14:30 – 15:30', activity: 'Cultural Performances & Interactive Demonstrations', venue: 'Exhibition Hall' },
+      { time: '15:30 – 16:15', activity: 'Panel Discussion — Session 2: Industry & Research Opportunities', venue: 'Main Stage', note: 'ANU · Humboldt University · McGill · Simon Fraser · Intel Education' },
+      { time: '16:15 – 16:30', activity: 'Closing Ceremony & Awards', venue: 'Main Stage' },
+      { time: '16:30 – 17:30', activity: 'Exhibitors Load-Out', venue: 'Exhibition Hall' },
     ]
   },
   {
-    day: 'Day 1', date: 'Friday, 9 May 2025', label: 'Networking Dinner', color: '#8B7355',
+    day: 'Day 1', date: 'Monday, 10 March 2025', label: 'Networking Reception', color: '#8B7355',
     items: [
-      { time: '18:00 – 18:05', activity: 'Opening — Networking Dinner', venue: 'Ruang Sriwijaya, Lt. 5, ASEEC Tower, Campus B' },
-      { time: '18:05 – 18:15', activity: 'Welcoming Speech — Director of Airlangga Global Engagement', venue: '', note: 'Prof. Iman Harymawan, Ph.D' },
-      { time: '18:15 – 18:20', activity: 'Photo Session with All Participants', venue: '' },
-      { time: '18:25 – 18:30', activity: 'Awarding Session — Best Booth Display', venue: '' },
-      { time: '18:30 – 18:35', activity: 'Awarding Session — Outstanding Booth', venue: '' },
-      { time: '18:35 – 19:55', activity: 'Dinner & Networking Session', venue: '' },
-      { time: '19:55 – 20:00', activity: 'Closing Event', venue: '' },
-      { time: '20:00', activity: 'Transfer Back to Hotel', venue: 'Bus at Lobby' },
+      { time: '18:30 – 18:35', activity: 'Opening — Networking Reception', venue: 'Faculty Commons, Northgate University' },
+      { time: '18:35 – 18:50', activity: 'Welcome Remarks — University President', venue: '', note: 'Dr. Patricia Osei-Bonsu, Northgate University' },
+      { time: '18:50 – 18:55', activity: 'Group Photo with All Participants & Guests', venue: '' },
+      { time: '18:55 – 19:05', activity: 'Awarding Session — Best Research Poster', venue: '' },
+      { time: '19:05 – 19:15', activity: 'Awarding Session — Outstanding Creative Installation', venue: '' },
+      { time: '19:15 – 20:30', activity: 'Dinner & Networking Session', venue: '' },
+      { time: '20:30 – 20:35', activity: 'Closing Remarks', venue: '' },
+      { time: '20:35', activity: 'Transfer Back to Hotel (shuttle provided)', venue: 'Main Entrance' },
     ]
   },
   {
-    day: 'Day 2', date: 'Saturday, 10 May 2025', label: 'Surabaya City Tour', color: '#4A5235',
+    day: 'Day 2', date: 'Tuesday, 11 March 2025', label: 'Portland Culture Tour', color: '#4A5235',
     items: [
-      { time: '06:00 – 07:30', activity: 'Breakfast', venue: 'Hotel' },
-      { time: '07:30 – 08:00', activity: 'Preparation for City Tour', venue: 'Meet at Hotel Lobby' },
-      { time: '08:00 – 08:30', activity: 'Transfer to Kota Tua Surabaya', venue: 'Bus from Hotel' },
-      { time: '08:30 – 09:00', activity: 'Explore Kota Tua Surabaya', venue: 'Kota Tua, Surabaya' },
-      { time: '09:00 – 10:00', activity: 'Tourwagen Trip', venue: 'Guide & LO assisting' },
-      { time: '10:00 – 10:30', activity: 'Photo Session at Kota Tua', venue: 'Kota Tua, Surabaya' },
-      { time: '10:30 – 11:00', activity: 'Transfer Back to Hotel', venue: '' },
-      { time: '11:00 – 12:00', activity: 'Hotel Check-Out (lunch box provided)', venue: 'Hotel' },
+      { time: '07:00 – 08:30', activity: 'Breakfast', venue: 'Hotel Restaurant' },
+      { time: '08:30 – 09:00', activity: 'Preparation for City Tour', venue: 'Meet at Hotel Lobby' },
+      { time: '09:00 – 09:30', activity: 'Transfer to Portland Art Museum', venue: 'Shuttle from Hotel' },
+      { time: '09:30 – 11:00', activity: 'Guided Tour — Portland Art Museum', venue: 'Portland Art Museum' },
+      { time: '11:00 – 12:00', activity: 'Powell\'s Books Visit & Cultural Exchange Activity', venue: 'Powell\'s Books, Burnside' },
+      { time: '12:00 – 13:00', activity: 'Farewell Lunch at Local Restaurant', venue: 'Portland Food Scene' },
+      { time: '13:00 – 14:00', activity: 'Hotel Check-Out & Departure', venue: 'Hotel' },
     ]
   },
 ];
@@ -192,30 +165,21 @@ const AERO_RUNDOWN = [
 // ── Gallery ──────────────────────────────────────────────────────────────────
 
 const AERO_GALLERY_IMGS = [
-  'assets/images/aero/aero-1.jpg',
-  'assets/images/aero/aero-2.jpg',
-  'assets/images/aero/aero-3.jpg',
-  'assets/images/aero/aero-4.jpg',
-  'assets/images/aero/aero-5.jpg',
-  'assets/images/aero/aero-6.jpg',
-  'assets/images/aero/aero-7.jpg',
-  'assets/images/aero/aero-8.jpg',
-  'assets/images/aero/aero-9.jpg',
-  'assets/images/aero/aero-10.jpg',
-  'assets/images/aero/aero-11.jpg',
-  'assets/images/aero/aero-12.jpg',
-  'assets/images/aero/aero-14.jpg',
-  'assets/images/aero/aero-15.jpg',
-  'assets/images/aero/aero-16.jpg',
-  'assets/images/aero/aero-20.JPEG',
-  'assets/images/aero/aero-21.JPEG',
-  'assets/images/aero/aero-22.JPEG',
-  'assets/images/aero/aero-23.JPEG',
-  'assets/images/aero/aero-24.JPEG',
-  'assets/images/aero/aero-25.JPEG',
-  'assets/images/aero/aero-promotional-1.png',
-  'assets/images/aero/aero-promotional-2.PNG',
-  'assets/images/aero/aero-promotional-3.JPG',
+  'https://picsum.photos/seed/horizon-1/800/600',
+  'https://picsum.photos/seed/horizon-2/800/600',
+  'https://picsum.photos/seed/horizon-3/800/600',
+  'https://picsum.photos/seed/horizon-4/800/600',
+  'https://picsum.photos/seed/horizon-5/800/600',
+  'https://picsum.photos/seed/horizon-6/800/600',
+  'https://picsum.photos/seed/horizon-7/800/600',
+  'https://picsum.photos/seed/horizon-8/800/600',
+  'https://picsum.photos/seed/horizon-9/800/600',
+  'https://picsum.photos/seed/horizon-10/800/600',
+  'https://picsum.photos/seed/horizon-11/800/600',
+  'https://picsum.photos/seed/horizon-12/800/600',
+  'https://picsum.photos/seed/horizon-13/800/600',
+  'https://picsum.photos/seed/horizon-14/800/600',
+  'https://picsum.photos/seed/horizon-15/800/600',
 ];
 
 let _aeroGalTimer = null;
@@ -293,17 +257,17 @@ function aeroEsc(s) {
 }
 
 function fmtRp(n) {
-  return 'Rp ' + Number(n).toLocaleString('id-ID');
+  return '$' + Number(n).toLocaleString('en-US');
 }
 
 // ── Section Builders ─────────────────────────────────────────────────────────
 
 function buildAeroWhatToExpect() {
   const features = [
-    { icon: 'building-2',  color: '#1C1C1E', bg: 'rgba(28,28,30,0.06)',   title: 'Partner University Booths',        desc: 'Meet representatives from international partner universities and learn about study programs, scholarships, and academic opportunities.' },
-    { icon: 'mic',         color: '#4A6B8A', bg: 'rgba(74,107,138,0.08)', title: 'Global Talks & Alumni Sharing',    desc: 'Gain firsthand insights from alumni who have studied abroad — covering academic experiences, career prospects, and opportunities encountered.' },
-    { icon: 'globe',       color: '#8B7355', bg: 'rgba(139,115,85,0.08)', title: 'Cultural Exchange & Performances', desc: 'Experience the richness of global cultures through artistic performances and interactive activities showcasing traditions from different countries.' },
-    { icon: 'users',       color: '#4A5235', bg: 'rgba(74,82,53,0.08)',   title: 'Networking & Interactive Sessions', desc: 'Connect with international experts, alumni, and students from diverse backgrounds in engaging and inspiring sessions.' },
+    { icon: 'building-2',  color: '#1C1C1E', bg: 'rgba(28,28,30,0.06)',   title: 'Research Posters & Creative Installations',  desc: 'Explore cutting-edge research and creative work by international students — covering topics from climate science and technology to cross-cultural art and design.' },
+    { icon: 'mic',         color: '#4A6B8A', bg: 'rgba(74,107,138,0.08)', title: 'Panel Discussions & Alumni Sharing',          desc: 'Gain firsthand insights from international alumni and academic leaders — covering global career paths, research opportunities, and cross-border collaboration.' },
+    { icon: 'globe',       color: '#8B7355', bg: 'rgba(139,115,85,0.08)', title: 'Cultural Performances & Demonstrations',     desc: 'Experience the richness of global cultures through artistic performances and interactive demonstrations showcasing traditions from 15+ countries.' },
+    { icon: 'users',       color: '#4A5235', bg: 'rgba(74,82,53,0.08)',   title: 'Networking & Industry Connections',          desc: 'Connect with international faculty, industry partners from Portland Art Museum and local tech companies, and students from 15+ countries in structured networking sessions.' },
   ];
   const cards = features.map(f => `
     <div class="rounded-xl p-6" style="background:#F8FAFC;border:1px solid rgba(28,28,30,0.07)">
@@ -318,10 +282,10 @@ function buildAeroWhatToExpect() {
 
 function buildAeroContributions() {
   const items = [
-    { n:'01', icon:'calendar-check', color:'#1C1C1E', bg:'rgba(28,28,30,0.06)',   title:'Event Planning & Logistics',             desc:'Planned and coordinated end-to-end event logistics across 50+ stakeholders, including venue setup, scheduling, and operational readiness.' },
-    { n:'02', icon:'receipt',        color:'#8B7355', bg:'rgba(139,115,85,0.08)', title:'Vendor Management & Budgeting',           desc:'Managed vendor relationships and procurement within an IDR 50–100M per-program budget, ensuring cost-efficient delivery across all event components.' },
-    { n:'03', icon:'building-2',     color:'#4A6B8A', bg:'rgba(74,107,138,0.08)', title:'Partner University & Guest Coordination', desc:'Coordinated partner university booth logistics and facilitated international guest attendance, ensuring smooth communication and on-site experience.' },
-    { n:'04', icon:'megaphone',      color:'#4A5235', bg:'rgba(74,82,53,0.08)',   title:'Promotion, Operations & Reporting',       desc:'Led pre-event promotion campaigns, managed on-site operations, and prepared comprehensive post-event completion reports for stakeholders.' },
+    { n:'01', icon:'calendar-check', color:'#1C1C1E', bg:'rgba(28,28,30,0.06)',   title:'Event Planning & Logistics',             desc:'Planned and coordinated end-to-end event logistics across 80+ exhibitors and guests, including venue setup, scheduling, partner communications, and day-of operations for a 2-day format.' },
+    { n:'02', icon:'receipt',        color:'#8B7355', bg:'rgba(139,115,85,0.08)', title:'Vendor Management & Budgeting',           desc:'Managed vendor relationships and procurement within an $18,000–$35,000 per-edition budget, ensuring cost-efficient delivery across all event components including AV, catering, and accommodation.' },
+    { n:'03', icon:'building-2',     color:'#4A6B8A', bg:'rgba(74,107,138,0.08)', title:'Partner & Exhibitor Coordination',        desc:'Coordinated logistics for 15+ partner institutions across 7 countries, managed consulate liaisons, and facilitated international guest attendance — ensuring smooth communication and on-site experience from 3 annual editions.' },
+    { n:'04', icon:'megaphone',      color:'#4A5235', bg:'rgba(74,82,53,0.08)',   title:'Promotion, Operations & Reporting',       desc:'Led pre-event promotion campaigns reaching 600–900 visitors per edition, managed on-site operations across panel sessions and cultural performances, and prepared comprehensive post-event reports for university leadership.' },
   ];
   return items.map(i => `
    <div class="flex gap-6 py-8" style="border-top:1px solid rgba(28,28,30,0.07)">
@@ -409,9 +373,9 @@ function buildAeroParticipants() {
   }).join('');
 
   return `
-    <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">UNAIR Internal Corners</h3>
+    <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">NGU Internal Showcases</h3>
     <div class="grid sm:grid-cols-2 gap-2 mb-8">${cornerCards}</div>
-    <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">Partner Universities & Institutions <span class="text-sm font-normal ml-1" style="color:#767676">— 5 countries</span></h3>
+    <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">Partner Universities & Institutions <span class="text-sm font-normal ml-1" style="color:#767676">— 7 countries</span></h3>
     <div class="grid md:grid-cols-2 gap-3 mb-8">${instBlocks}</div>
     <h3 class="font-heading font-semibold text-base mb-3" style="color:#1C1C1E">International Student Delegations <span class="text-sm font-normal ml-1" style="color:#767676">— representing their home countries</span></h3>
     <div class="grid sm:grid-cols-3 gap-2">${studentCards}</div>`;
@@ -445,31 +409,31 @@ function aeroInitPage() {
   if (!el) return;
   el.innerHTML = `
    <div class="page-hero-banner relative overflow-hidden" style="padding:64px 0 48px">
-    <div class="absolute inset-0"><img loading="lazy" src="assets/images/aero/aero-header-1.JPEG" alt="AERO" style="width:100%;height:100%;object-fit:cover;object-position:center"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,28,30,0.88) 0%,rgba(44,44,46,0.82) 60%,rgba(60,60,62,0.77) 100%)"></div></div>
+    <div class="absolute inset-0"><img loading="lazy" src="https://picsum.photos/seed/horizon-hero/1200/500" alt="HORIZON" style="width:100%;height:100%;object-fit:cover;object-position:center"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,28,30,0.88) 0%,rgba(44,44,46,0.82) 60%,rgba(60,60,62,0.77) 100%)"></div></div>
     <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.03)"></div>
     <div class="absolute right-24 bottom-8 w-48 h-48 rounded-full" style="border:2px solid rgba(255,255,255,0.05)"></div>
     <div class="absolute inset-0 flex items-center justify-end overflow-hidden pr-8 pointer-events-none select-none" aria-hidden="true">
-     <span class="font-heading font-bold" style="font-size:clamp(5rem,15vw,12rem);color:rgba(255,255,255,0.04);letter-spacing:-.04em;line-height:1">AERO</span>
+     <span class="font-heading font-bold" style="font-size:clamp(5rem,15vw,12rem);color:rgba(255,255,255,0.04);letter-spacing:-.04em;line-height:1">HORIZON</span>
     </div>
     <div class="relative z-10 max-w-6xl mx-auto px-6">
      <button onclick="goToPage('projects-overview')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.6)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back</button>
      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.1);color:#fff">Project Management</span>
-     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="aero_hero_title">AERO 2025</h1>
-     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.65)" data-edit-key="aero_hero_tagline">Airlangga Expanding Reach & Opportunities — annual internationalization exhibition connecting UNAIR students with global partners, alumni, and opportunities. 9–10 May 2025, Surabaya.</p>
+     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="aero_hero_title">HORIZON 2025</h1>
+     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.65)" data-edit-key="aero_hero_tagline">HORIZON International Showcase — annual international student exhibition at Northgate University, connecting research, culture, and global opportunity across 15+ countries. 10–11 March 2025, Portland.</p>
     </div>
    </div>
 
    <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-wrap gap-10 py-10" style="border-bottom:1px solid rgba(28,28,30,0.08)">
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">19</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Exhibition Booths</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">12</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Partner Universities</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">50+</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Stakeholders</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">Rp 149.7M</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Total Budget</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">100+</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Exhibitors</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">15+</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Countries Represented</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">800+</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Visitors per Edition</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">$35K</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Peak Budget</div></div>
     </div>
    </div>
 
    <div class="max-w-6xl mx-auto px-6 py-14">
-    <p class="text-lg max-w-3xl leading-relaxed mb-14" style="color:#5C5C5C">AERO is an internationalization event that opens doors for Universitas Airlangga students to explore global opportunities in education, careers, and cultural exchange — shaping students into future-ready individuals with global insight. Through AERO, students engage directly with international universities, alumni, and professionals.</p>
+    <p class="text-lg max-w-3xl leading-relaxed mb-14" style="color:#5C5C5C">HORIZON is Northgate University's annual international student showcase — a 2-day event where students from 15+ countries present research, creative installations, and cultural performances to an audience of 600–900 visitors including students, faculty, the public, and industry partners. I managed three consecutive editions (2022, 2023, 2024), building the event from its inaugural run into a flagship NGU international program.</p>
 
     <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#5C5C5C">What to Expect</span></div>
     <h2 class="font-heading font-bold text-3xl mb-8" style="color:#1C1C1E">Program Highlights</h2>
@@ -487,17 +451,17 @@ function aeroInitPage() {
       <span style="color:rgba(255,255,255,0.38);font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Photo Diary</span>
      </div>
      <h2 class="font-heading" style="font-weight:700;font-size:clamp(2rem,5vw,3rem);color:#fff;letter-spacing:-0.02em;margin:0 0 10px">Moments from the Event</h2>
-     <p style="color:rgba(255,255,255,0.32);font-size:0.875rem;margin:0">19 booths &middot; 12 partner universities &middot; 50+ stakeholders &middot; 9–10 May 2025</p>
+     <p style="color:rgba(255,255,255,0.32);font-size:0.875rem;margin:0">3 editions &middot; 15+ countries &middot; 800+ visitors &middot; 2022–2024</p>
     </div>
     <div id="aero-gallery" style="display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;height:75vh;gap:3px">
      <div class="aero-gs" style="grid-row:span 2;overflow:hidden;background:#111">
-      <img loading="lazy" class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aero-gs-img" src="" alt="HORIZON moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
      <div class="aero-gs" style="overflow:hidden;background:#111">
-      <img loading="lazy" class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aero-gs-img" src="" alt="HORIZON moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
      <div class="aero-gs" style="overflow:hidden;background:#111">
-      <img loading="lazy" class="aero-gs-img" src="" alt="AERO moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="aero-gs-img" src="" alt="HORIZON moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
     </div>
    </div>
@@ -507,17 +471,17 @@ function aeroInitPage() {
 
      <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#5C5C5C">Institutions</span></div>
      <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">Participating Institutions</h2>
-     <p class="text-sm mb-10" style="color:#5C5C5C">19 booths · 12 partner universities & institutions · 9 international student delegations</p>
+     <p class="text-sm mb-10" style="color:#5C5C5C">80–120 exhibitors · 15+ partner universities & institutions · 9 international student delegations</p>
      ${buildAeroParticipants()}
 
      <div class="flex items-center gap-3 mb-3 mt-16"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#5C5C5C">Schedule</span></div>
      <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">Event Rundown</h2>
-     <p class="text-sm mb-8" style="color:#5C5C5C">9–10 May 2025 · Universitas Airlangga, Surabaya</p>
+     <p class="text-sm mb-8" style="color:#5C5C5C">10–11 March 2025 · Northgate University, Portland</p>
      ${buildAeroRundown()}
 
      <div class="flex items-center gap-3 mb-3 mt-16"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#5C5C5C">Financials</span></div>
      <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">Budget Overview</h2>
-     <p class="text-sm mb-8" style="color:#5C5C5C">Budget breakdown across 4 categories — AERO 2025</p>
+     <p class="text-sm mb-8" style="color:#5C5C5C">Budget breakdown across 4 categories — HORIZON 2025 edition</p>
      ${buildAeroBudget()}
 
     </div>

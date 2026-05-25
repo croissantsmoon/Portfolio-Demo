@@ -252,21 +252,21 @@ function contactInitPage() {
             text-align:center;margin-bottom:1.25rem" data-edit-key="contact_direct_eyebrow">Or reach me directly through</p>
           <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
 
-            <a href="mailto:zefanya.kharisma@croissantsmoon.com" class="ct-link-card">
+            <a href="mailto:alex.morgan@example.com" class="ct-link-card">
               <div class="ct-link-icon">
                 <i data-lucide="mail" style="width:20px;height:20px;color:#6FA8FF"></i>
               </div>
               <span style="font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;color:#8FA8D6">Email</span>
             </a>
 
-            <a href="https://www.linkedin.com/in/zefanyakharisma" target="_blank" rel="noopener noreferrer" class="ct-link-card">
+            <a href="https://www.linkedin.com/in/alexmorganrivera" target="_blank" rel="noopener noreferrer" class="ct-link-card">
               <div class="ct-link-icon" style="background:rgba(212,177,90,0.08);border-color:rgba(212,177,90,0.2)">
                 <i data-lucide="linkedin" style="width:20px;height:20px;color:#D4B15A"></i>
               </div>
               <span style="font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;color:#8FA8D6">LinkedIn</span>
             </a>
 
-            <a href="https://wa.me/6282139619570" target="_blank" rel="noopener noreferrer" class="ct-link-card">
+            <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" class="ct-link-card">
               <div class="ct-link-icon" style="background:rgba(111,255,140,0.07);border-color:rgba(111,255,140,0.18)">
                 <i data-lucide="message-circle" style="width:20px;height:20px;color:#6FD88A"></i>
               </div>
@@ -277,7 +277,7 @@ function contactInitPage() {
               <div class="ct-link-icon" style="background:rgba(217,230,255,0.06);border-color:rgba(217,230,255,0.12)">
                 <i data-lucide="map-pin" style="width:20px;height:20px;color:#8FA8D6"></i>
               </div>
-              <span style="font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:500;color:#8FA8D6;text-align:center;line-height:1.4">Surabaya<br>East Java, ID</span>
+              <span style="font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:500;color:#8FA8D6;text-align:center;line-height:1.4">Portland<br>Oregon, US</span>
             </div>
 
           </div>
@@ -409,7 +409,7 @@ function contactInitPage() {
     var endpoint = _getFormspreeEndpoint();
 
     if (!endpoint || endpoint.indexOf('YOUR_FORM_ID') !== -1) {
-      var mailto = 'mailto:zefanya.kharisma@croissantsmoon.com'
+      var mailto = 'mailto:alex.morgan@example.com'
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent('From: ' + name + ' <' + email + '>\n\n' + message);
       window.open(mailto);
@@ -435,7 +435,7 @@ function contactInitPage() {
         }
       })
       .catch(function(err) {
-        setMsg('Couldn\'t send right now — please email zefanya.kharisma@croissantsmoon.com directly.', 'error');
+        setMsg('Couldn\'t send right now — please email alex.morgan@example.com directly.', 'error');
         console.error('Contact form error:', err);
       })
       .finally(function() {

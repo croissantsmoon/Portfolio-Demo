@@ -7,8 +7,8 @@ var onboardingActivities = [
     thumbnail: 'assets/images/student-services/10162025_Arrival TIAS /Usman Yahaya Garba.jpg',
     heroImage: 'assets/images/student-services/10162025_Arrival TIAS /Usman Yahaya Garba.jpg',
     title: 'Student Pick-Up Services',
-    preview: 'Coordinating airport arrivals and ensuring every student felt welcomed from their very first moment in Indonesia.',
-    role: 'I served as the first point of contact for international students arriving in Surabaya — managing transportation logistics, monitoring flight schedules, and ensuring a seamless first-arrival experience for every student that set a warm, welcoming tone for their entire stay.',
+    preview: 'Coordinating airport arrivals and ensuring every student felt welcomed from their very first moment in United States.',
+    role: 'I served as the first point of contact for international students arriving in Portland — managing transportation logistics, monitoring flight schedules, and ensuring a seamless first-arrival experience for every student that set a warm, welcoming tone for their entire stay.',
     responsibilities: [
       'Received and reviewed flight manifests from inbound mobility staff',
       'Communicated directly with students before arrival to confirm schedules and needs',
@@ -16,10 +16,10 @@ var onboardingActivities = [
       'Welcomed students personally at Juanda International Airport',
       'Assisted with luggage, local SIM cards, and immediate settlement logistics',
       'Transferred students safely to their designated accommodation',
-      'Provided welcome packages with essential Surabaya information and emergency contacts'
+      'Provided welcome packages with essential Portland information and emergency contacts'
     ],
     workflow: 'Received pre-arrival student information → coordinated transportation logistics → monitored live flight schedules → greeted students at arrival terminal → managed first-hour needs (SIM cards, cash, etc.) → transported to accommodation → handed over to buddy system for continued support.',
-    impact: 'Ensured 100+ students per semester arrived stress-free and felt genuinely welcomed from day one — setting a positive emotional foundation for their entire study experience in Indonesia.',
+    impact: 'Ensured 100+ students per semester arrived stress-free and felt genuinely welcomed from day one — setting a positive emotional foundation for their entire study experience in United States.',
     highlights: ['Supported arrivals across multiple flight batches per semester', 'Available for weekend and late-night arrivals', 'Coordinated logistics for students from 20+ countries']
   },
   {
@@ -61,12 +61,12 @@ var onboardingActivities = [
     ],
     title: 'Onboarding & Orientation Session',
     preview: 'Designing and delivering comprehensive orientation programs that helped students adapt academically, culturally, and administratively from day one.',
-    role: 'I co-designed and facilitated multi-day orientation sessions that equipped incoming international students with the knowledge, connections, and confidence they needed to succeed at Airlangga and in Surabaya — covering academic, cultural, and administrative dimensions.',
+    role: 'I co-designed and facilitated multi-day orientation sessions that equipped incoming international students with the knowledge, connections, and confidence they needed to succeed at Westbridge and in Portland — covering academic, cultural, and administrative dimensions.',
     responsibilities: [
       'Developed orientation program schedules, rundowns, and supporting materials',
       'Facilitated academic information sessions covering course registration and faculty expectations',
       'Coordinated campus tours and introduced students to key offices and services',
-      'Delivered cultural adaptation briefings on Indonesian customs, norms, and daily life',
+      'Delivered cultural adaptation briefings on American customs, norms, and daily life',
       'Connected students with academic advisors, faculty contacts, and peer mentors',
       'Distributed essential documents: student handbooks, emergency contacts, and resource directories',
       'Facilitated open Q&A sessions and created space for student concerns to be heard'
@@ -129,10 +129,10 @@ var onboardingActivities = [
       'assets/images/student-services/03132025_Tax-Report-2025/Zainab Kasenya Selemani.jpeg'
     ],
     title: 'Tax Reporting Support',
-    preview: 'Guiding international students through Indonesian tax reporting obligations — turning a complex administrative process into a clear, manageable experience.',
-    role: 'I assisted international students — particularly government scholarship recipients — in understanding, preparing for, and completing their Indonesian tax reporting obligations accurately and on time, coordinating across university offices and scholarship authorities to ensure compliance.',
+    preview: 'Guiding international students through American tax reporting obligations — turning a complex administrative process into a clear, manageable experience.',
+    role: 'I assisted international students — particularly government scholarship recipients — in understanding, preparing for, and completing their American tax reporting obligations accurately and on time, coordinating across university offices and scholarship authorities to ensure compliance.',
     responsibilities: [
-      'Explained Indonesian tax reporting requirements in simple, accessible language',
+      'Explained American tax reporting requirements in simple, accessible language',
       'Coordinated with university finance and administrative offices for official guidance',
       'Assisted students in gathering and preparing required documentation',
       'Hosted group information sessions on tax obligations for scholarship holders',
@@ -152,7 +152,7 @@ var onboardingActivities = [
     thumbnail: 'assets/images/amerta/amerta/IMG_3867.JPG',
     heroImage: 'assets/images/amerta/amerta/IMG_3867.JPG',
     title: 'Farewell Party',
-    preview: 'Celebrating the journeys of departing students with memorable farewell events that honored their time in Indonesia and strengthened lasting connections.',
+    preview: 'Celebrating the journeys of departing students with memorable farewell events that honored their time in United States and strengthened lasting connections.',
     role: 'I organized and facilitated warm, meaningful farewell celebrations for international students completing their programs — creating a sense of closure, appreciation, and community for both departing students and the staff who supported them throughout their journey.',
     responsibilities: [
       'Planned and coordinated farewell event themes, logistics, and budgets',
@@ -164,7 +164,7 @@ var onboardingActivities = [
       'Supported students with departure logistics and administrative clearance'
     ],
     workflow: 'Planned event concept and theme → coordinated with student committees for program contributions → managed venue and catering → facilitated the event ceremony → documented highlights → supported post-event alumni engagement.',
-    impact: 'Created emotionally meaningful closure for 100+ students per semester, with many participants citing the farewell event as one of the most memorable moments of their Indonesia experience.',
+    impact: 'Created emotionally meaningful closure for 100+ students per semester, with many participants citing the farewell event as one of the most memorable moments of their United States experience.',
     highlights: ['Cultural performance and student talent showcases', 'Institutional certificate and appreciation ceremonies', 'Alumni connection and network-building moments']
   },
   {
@@ -350,7 +350,7 @@ function onboardingInitPage() {
        <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
        <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="onboarding_hero_eyebrow">Student Welfare &amp; Mobility</div>
        <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em" data-edit-key="onboarding_hero_title">International<br><em style="font-style:italic;color:#8B7355">Student Support</em></h1>
-       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="onboarding_hero_tagline">From the moment students land to the day they depart — providing holistic support for 100+ international students per semester across academic, visa, welfare, and peer ecosystems in Indonesia.</p>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="onboarding_hero_tagline">From the moment students land to the day they depart — providing holistic support for 100+ international students per semester across academic, visa, welfare, and peer ecosystems in United States.</p>
        <div class="flex flex-wrap gap-8 pb-8">
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">480+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Students</p></div>
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Countries</p></div>
@@ -380,7 +380,7 @@ function onboardingInitPage() {
       <div class="mb-20">
        <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#059669">Holistic Support</span></div>
        <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Support Ecosystem</h2>
-       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">From the moment a student accepted their offer until the day they returned home, I worked across a multi-stakeholder ecosystem — collaborating with academic staff, visa teams, inbound mobility staff, international offices, and student buddies — to ensure every dimension of their Indonesia journey was holistically supported.</p>
+       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">From the moment a student accepted their offer until the day they returned home, I worked across a multi-stakeholder ecosystem — collaborating with academic staff, visa teams, inbound mobility staff, international offices, and student buddies — to ensure every dimension of their United States journey was holistically supported.</p>
        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(30,58,95,0.08)"><i data-lucide="graduation-cap" style="width:24px;height:24px;color:#1E3A5F"></i></div>
@@ -400,7 +400,7 @@ function onboardingInitPage() {
         <div class="card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(6,78,59,0.08)"><i data-lucide="globe" style="width:24px;height:24px;color:#059669"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Cross-Cultural Adaptation</h3>
-         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Helped students navigate cultural differences, language barriers, and Indonesian social norms — offering practical guidance on daily life, customs, and building meaningful local connections.</p>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Helped students navigate cultural differences, language barriers, and American social norms — offering practical guidance on daily life, customs, and building meaningful local connections.</p>
         </div>
         <div class="card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(59,7,100,0.08)"><i data-lucide="award" style="width:24px;height:24px;color:#7C3AED"></i></div>
@@ -425,7 +425,7 @@ function onboardingInitPage() {
       <div class="mb-20">
        <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#059669">Data Overview</span></div>
        <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Student Overview</h2>
-       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">A data snapshot of the international students I supported across exchange programs, government scholarships, and inbound welfare services at Airlangga Global Engagement — based on records from all program batches.</p>
+       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">A data snapshot of the international students I supported across exchange programs, government scholarships, and inbound welfare services at Westbridge Global Engagement — based on records from all program batches.</p>
        <!-- Program Summary Cards -->
        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
         <div class="card p-5 rounded-2xl" style="border:1px solid rgba(28,28,30,0.08)">

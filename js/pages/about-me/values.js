@@ -19,13 +19,13 @@ function valuesInitPage() {
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(74,107,138,0.08)"><i data-lucide="users" style="width:24px;height:24px;color:#4A6B8A"></i>
         </div>
         <h3 class="font-heading font-bold text-lg mb-3" style="color:#1C1C1E">Inclusivity &amp; Equity</h3>
-        <p style="color:#5C5C5C">Belief that international education should be accessible to all students, regardless of background. Advocate for equitable access and diverse representation.</p>
+        <p style="color:#5C5C5C">Belief that international education should be accessible to all students, regardless of background. Advocate for equitable access and diverse representation in every program.</p>
        </div>
        <div class="card p-8">
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(139,115,85,0.08)"><i data-lucide="lightbulb" style="width:24px;height:24px;color:#8B7355"></i>
         </div>
         <h3 class="font-heading font-bold text-lg mb-3" style="color:#1C1C1E">Innovation &amp; Adaptability</h3>
-        <p style="color:#5C5C5C">Embrace change and seek new approaches to education and partnership. Continuously learn, adapt to emerging trends, and pioneer solutions.</p>
+        <p style="color:#5C5C5C">Embrace change and seek new approaches to education and partnership. Continuously learn, adapt to emerging trends, and pioneer solutions that serve students better.</p>
        </div>
        <div class="card p-8">
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(139,115,85,0.08)"><i data-lucide="handshake" style="width:24px;height:24px;color:#8B7355"></i>
@@ -43,7 +43,7 @@ function valuesInitPage() {
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(139,115,85,0.08)"><i data-lucide="zap" style="width:24px;height:24px;color:#8B7355"></i>
         </div>
         <h3 class="font-heading font-bold text-lg mb-3" style="color:#1C1C1E">Student-Centered Approach</h3>
-        <p style="color:#5C5C5C">Every decision prioritizes student success, well-being, and personal growth. Listen to student voices and create supportive environments for learning.</p>
+        <p style="color:#5C5C5C">Every decision prioritizes student success, well-being, and personal growth. Listen to student voices and create supportive environments for learning and discovery.</p>
        </div>
       </div>
      </div>

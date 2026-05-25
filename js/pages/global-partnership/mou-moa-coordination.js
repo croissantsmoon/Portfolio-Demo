@@ -12,7 +12,7 @@ function mouInitPage() {
        <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
        <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="mou_hero_eyebrow">Agreement Management</div>
        <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em" data-edit-key="mou_hero_title">MoU / MoA<br><em style="font-style:italic;color:#8B7355">Coordination</em></h1>
-       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="mou_hero_tagline">Reviewing 25+ partnership agreements per month at PCU — ensuring compliance, institutional alignment, and timely processing across a diverse global network.</p>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="mou_hero_tagline">Reviewing 25+ partnership agreements per month at NGU — ensuring compliance, institutional alignment, and timely processing across a diverse global network.</p>
        <div class="flex flex-wrap gap-8 pb-8">
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">25+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Monthly Reviews</p></div>
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Partners</p></div>
@@ -72,7 +72,7 @@ function mouInitPage() {
        <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
          <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Managed Through the Partnership Dashboard</h2>
-         <p class="text-base mb-6" style="color:#5C5C5C;line-height:1.75">Every agreement — from first draft to final signature — is tracked and executed through an integrated, self-built Partnership Dashboard. Rather than managing documents across disconnected spreadsheets and email threads, the entire lifecycle is centralised in one system I designed and built specifically for PCU's international office workflow.</p>
+         <p class="text-base mb-6" style="color:#5C5C5C;line-height:1.75">Every agreement — from first draft to final signature — is tracked and executed through an integrated, self-built Partnership Dashboard. Rather than managing documents across disconnected spreadsheets and email threads, the entire lifecycle is centralised in one system I designed and built specifically for NGU's international office workflow.</p>
          <p class="text-base mb-8" style="color:#5C5C5C;line-height:1.75">The dashboard covers the full 8-stage agreement workflow: <strong style="color:#1C1C1E">Drafting → Internal Review → Legal Review → Partner Review → Waiting Signature → Signed → Completed → Archived</strong>. Each stage is tracked with progress indicators and status history, so nothing slips through the cracks — and every stakeholder knows exactly where an agreement stands at any moment.</p>
          <div class="flex flex-wrap gap-3 mb-8">
           <span class="tag">Drafting Tracking</span>

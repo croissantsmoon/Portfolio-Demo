@@ -1,17 +1,20 @@
-// Copy this file to js/config.js and fill in the values.
-// js/config.js is gitignored — never commit your real config.
+// ─── DEMO MODE ──────────────────────────────────────────────────────────────
+// This is a demo build. Backends are intentionally unconfigured.
+// See DEMO-SETUP.md for step-by-step configuration instructions.
 //
-// Get SUPABASE_URL and SUPABASE_ANON_KEY from your Supabase project at:
-//   Project Settings → API
-// The anon key is the publishable client key — safe to ship in the browser.
-// NEVER put the service_role key in this file.
+// To enable the CMS admin panel:
+//   1. Create a Supabase project at https://supabase.com
+//   2. Get your Project URL and anon key from Project Settings → API
+//   3. Replace the empty strings below with your real values
 //
-// ADMIN_EMAIL must match the email of the Supabase auth user you created
-// AND the email you hard-coded into the RLS policies in
-// supabase/migrations/001_initial_schema.sql.
+// To enable the contact form:
+//   1. Create a Formspree account at https://formspree.io
+//   2. Create a new form and copy the endpoint URL
+//   3. Replace the empty string below with your endpoint
+// ─────────────────────────────────────────────────────────────────────────────
 window.APP_CONFIG = {
-  SUPABASE_URL: 'https://ztquydpzekcmyqwsfkmg.supabase.co',
-  SUPABASE_ANON_KEY: 'sb_publishable_H7SZF5zhnTC9c6_uC46yzg_WqUCogV_',
-  ADMIN_EMAIL: 'zefanya.kharisma@croissantsmoon.com',
-  FORMSPREE_ENDPOINT: 'https://formspree.io/f/xaqkdvwd',
+  SUPABASE_URL: '',
+  SUPABASE_ANON_KEY: '',
+  ADMIN_EMAIL: '',
+  FORMSPREE_ENDPOINT: '',
 };

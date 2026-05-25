@@ -11,15 +11,15 @@ function intlGrantsInitPage() {
       <div class="max-w-6xl mx-auto relative z-10">
        <button onclick="goToPage('engagement')" class="flex items-center gap-2 mb-8" style="color:rgba(255,255,255,0.45);font-size:.8rem;font-weight:500"><i data-lucide="arrow-left" style="width:15px;height:15px"></i> Back</button>
        <div class="flex items-center gap-3 mb-3">
-        <div class="label-small" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">International Education · PCU</div>
+        <div class="label-small" style="color:rgba(255,255,255,0.35);letter-spacing:.12em">International Education · NGU</div>
         <span style="display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:rgba(217,119,6,0.25);color:#FCD34D;border:1px solid rgba(217,119,6,0.3)"><i data-lucide="construction" style="width:10px;height:10px"></i> In Development</span>
        </div>
        <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em">International Grants<br><em style="font-style:italic;color:#FCD34D">Management System</em></h1>
-       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">Currently building a comprehensive system — both digital and physical — to inform, maintain, and execute international grants at Petra Christian University. A single place for every grant opportunity, every applicant, and every deadline.</p>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7">Currently building a comprehensive system — both digital and physical — to inform, maintain, and execute international grants at Northgate University. A single place for every grant opportunity, every applicant, and every deadline.</p>
        <div class="flex flex-wrap gap-8 pb-8">
         <div><p class="font-heading font-bold text-2xl" style="color:#FCD34D">Digital</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Dashboard System</p></div>
         <div><p class="font-heading font-bold text-2xl" style="color:#FCD34D">Physical</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Operational Flow</p></div>
-        <div><p class="font-heading font-bold text-2xl" style="color:#FCD34D">PCU</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Petra Christian University</p></div>
+        <div><p class="font-heading font-bold text-2xl" style="color:#FCD34D">NGU</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Northgate University</p></div>
        </div>
        <!-- Tab Nav -->
        <div class="flex gap-0 border-t" style="border-color:rgba(255,255,255,0.08)">
@@ -39,9 +39,9 @@ function intlGrantsInitPage() {
        <div class="grid md:grid-cols-2 gap-12 items-start">
         <div>
          <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">A System for Every Stage of Every Grant</h2>
-         <p class="text-base mb-5" style="color:#5C5C5C;line-height:1.75">International grant programmes — from government scholarships to university-funded exchanges — require careful coordination across multiple stages: awareness, application, selection, placement, and completion. At PCU, this information has been fragmented across emails, shared drives, and spreadsheets. I'm building a system that centralises all of it.</p>
+         <p class="text-base mb-5" style="color:#5C5C5C;line-height:1.75">International grant programmes — from government scholarships to university-funded exchanges — require careful coordination across multiple stages: awareness, application, selection, placement, and completion. At NGU, this information has been fragmented across emails, shared drives, and spreadsheets. I'm building a system that centralises all of it.</p>
          <p class="text-base mb-5" style="color:#5C5C5C;line-height:1.75">The system has two interdependent layers: a <strong style="color:#064E3B">digital dashboard</strong> that tracks every active grant, applicant, and deadline in real time — and a <strong style="color:#064E3B">physical operational workflow</strong> that ensures students are properly informed and supported throughout the application and placement process.</p>
-         <p class="text-base mb-8" style="color:#5C5C5C;line-height:1.75">The goal is a single source of truth for PCU's international grants — one that faculty, staff, and students can consult without chasing status updates across email chains.</p>
+         <p class="text-base mb-8" style="color:#5C5C5C;line-height:1.75">The goal is a single source of truth for NGU's international grants — one that faculty, staff, and students can consult without chasing status updates across email chains.</p>
          <div class="flex flex-wrap gap-3">
           <span class="tag">Supabase Realtime</span>
           <span class="tag">Grant Tracking</span>
@@ -149,14 +149,14 @@ function intlGrantsInitPage() {
       <div class="max-w-6xl mx-auto">
        <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Physical System</span></div>
        <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Beyond the Dashboard — The Physical Workflow</h2>
-       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C;line-height:1.75">A dashboard alone does not move a student from interest to application. The physical layer of this system ensures students at PCU are actively informed, supported, and guided through each grant cycle — not just pointed to a website.</p>
+       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C;line-height:1.75">A dashboard alone does not move a student from interest to application. The physical layer of this system ensures students at NGU are actively informed, supported, and guided through each grant cycle — not just pointed to a website.</p>
        <div class="grid md:grid-cols-2 gap-6">
         <div class="card rounded-2xl overflow-hidden" style="border:1px solid rgba(28,28,30,0.08)">
          <div class="p-5 border-b" style="border-color:rgba(28,28,30,0.07);background:rgba(6,78,59,0.03)">
           <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(6,78,59,0.1)"><i data-lucide="megaphone" style="width:16px;height:16px;color:#064E3B"></i></div><h3 class="font-heading font-semibold" style="color:#1C1C1E">Informing Students</h3></div>
          </div>
          <div class="p-5">
-          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Grant briefing sessions, printed opportunity guides, and targeted outreach to eligible faculties — ensuring students at PCU know what is available before deadlines pass.</p>
+          <p class="text-sm leading-relaxed" style="color:#5C5C5C">Grant briefing sessions, printed opportunity guides, and targeted outreach to eligible faculties — ensuring students at NGU know what is available before deadlines pass.</p>
          </div>
         </div>
         <div class="card rounded-2xl overflow-hidden" style="border:1px solid rgba(28,28,30,0.08)">

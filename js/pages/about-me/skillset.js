@@ -13,25 +13,25 @@ function skillsetInitPage() {
        <div class="card p-6">
         <h3 class="font-heading font-semibold text-lg mb-4" style="color:#1C1C1E">Partnership &amp; Institutional Relations</h3>
         <div class="flex flex-wrap gap-2">
-         <span class="tag">Strategic Partnerships</span> <span class="tag">MoU/MoA Coordination</span> <span class="tag">Stakeholder Management</span> <span class="tag">Partnership Development</span>
+         <span class="tag">Strategic Partnerships</span> <span class="tag">MoU/MoA Coordination</span> <span class="tag">Stakeholder Management</span> <span class="tag">Institutional Diplomacy</span>
         </div>
        </div>
        <div class="card p-6">
         <h3 class="font-heading font-semibold text-lg mb-4" style="color:#1C1C1E">Mobility &amp; Program Management</h3>
         <div class="flex flex-wrap gap-2">
-         <span class="tag">Exchange Program Management</span> <span class="tag">KNB &amp; TIAS Scholarships</span> <span class="tag">Budget Management</span> <span class="tag">Vendor Coordination</span>
+         <span class="tag">Exchange Program Management</span> <span class="tag">Government Scholarship Programs</span> <span class="tag">Budget Management</span> <span class="tag">Vendor Coordination</span>
         </div>
        </div>
        <div class="card p-6">
         <h3 class="font-heading font-semibold text-lg mb-4" style="color:#1C1C1E">Student Support &amp; Welfare</h3>
         <div class="flex flex-wrap gap-2">
-         <span class="tag">International Student Services</span> <span class="tag">Immigration Coordination</span> <span class="tag">Onboarding</span> <span class="tag">Case Management</span>
+         <span class="tag">International Student Services</span> <span class="tag">Visa &amp; Immigration Support</span> <span class="tag">Onboarding Design</span> <span class="tag">Case Management</span>
         </div>
        </div>
        <div class="card p-6">
         <h3 class="font-heading font-semibold text-lg mb-4" style="color:#1C1C1E">Communication &amp; Research</h3>
         <div class="flex flex-wrap gap-2">
-         <span class="tag">Strategic Communications</span> <span class="tag">English–Indonesian Interpretation</span> <span class="tag">Academic Research</span> <span class="tag">Cross-Cultural Communication</span>
+         <span class="tag">Strategic Communications</span> <span class="tag">English–Spanish Interpretation</span> <span class="tag">Policy Research</span> <span class="tag">Cross-Cultural Communication</span>
         </div>
        </div>
       </div>

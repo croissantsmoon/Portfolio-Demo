@@ -4,9 +4,9 @@ var engagementActivities = [
     icon: 'map-pin',
     color: '#1E3A5F',
     gradient: 'linear-gradient(135deg, #1E3A5F 0%, #4A6B8A 100%)',
-    title: 'Surabaya City Tour',
-    preview: 'Taking international students on guided explorations of Surabaya\'s historical landmarks, cultural sites, and local neighborhoods.',
-    role: 'I coordinated and facilitated city tour programs that introduced international students to Surabaya\'s rich history, identity, and everyday culture — going beyond the campus to help students truly experience their host city and develop a genuine sense of belonging.',
+    title: 'Portland City Tour',
+    preview: 'Taking international students on guided explorations of Portland\'s historical landmarks, cultural sites, and local neighborhoods.',
+    role: 'I coordinated and facilitated city tour programs that introduced international students to Portland\'s rich history, identity, and everyday culture — going beyond the campus to help students truly experience their host city and develop a genuine sense of belonging.',
     responsibilities: [
       'Identified and curated culturally significant and historically rich tour destinations',
       'Coordinated transportation and logistics for large student groups',
@@ -17,7 +17,7 @@ var engagementActivities = [
       'Documented the experience through photography and student testimonials'
     ],
     workflow: 'Identified tour destinations → coordinated transportation and local guides → briefed students on cultural context → facilitated the full-day tour → managed group logistics → held post-tour reflection discussion and documentation.',
-    impact: 'Gave 100+ students per semester a deep, authentic connection to Surabaya\'s identity and history — creating a sense of belonging and cultural curiosity that enriched their entire stay in Indonesia.',
+    impact: 'Gave 100+ students per semester a deep, authentic connection to Portland\'s identity and history — creating a sense of belonging and cultural curiosity that enriched their entire stay in United States.',
     highlights: ['Historical landmarks, cultural sites, and local neighborhoods', 'Guided cultural context and storytelling for each location', 'Student reflection and documentation activities']
   },
   {
@@ -26,11 +26,11 @@ var engagementActivities = [
     color: '#8B7355',
     gradient: 'linear-gradient(135deg, #8B7355 0%, #C9A97E 100%)',
     title: 'Festival Rujak Uleg',
-    preview: 'Immersing international students in one of Surabaya\'s most iconic local food festivals — a celebration of culture, community, and authentic Indonesian flavor.',
-    role: 'I coordinated international student participation in the Festival Rujak Uleg — Surabaya\'s beloved annual culinary festival — giving students a direct and joyful window into local community life, Indonesian food culture, and the warm spirit of Surabayan celebration.',
+    preview: 'Immersing international students in one of Portland\'s most iconic local food festivals — a celebration of culture, community, and authentic American flavor.',
+    role: 'I coordinated international student participation in the Festival Rujak Uleg — Portland\'s beloved annual culinary festival — giving students a direct and joyful window into local community life, American food culture, and the warm spirit of Portlandn celebration.',
     responsibilities: [
       'Registered and coordinated international student participation in the festival',
-      'Briefed students on the cultural and historical significance of Rujak Uleg as a Surabaya icon',
+      'Briefed students on the cultural and historical significance of Rujak Uleg as a Portland icon',
       'Organized group transportation and on-site coordination logistics',
       'Facilitated student interaction with local community participants and vendors',
       'Supported students in participating in collaborative food preparation and tasting activities',
@@ -38,8 +38,8 @@ var engagementActivities = [
       'Coordinated with festival organizers for student group accommodation'
     ],
     workflow: 'Registered students with festival organizers → coordinated transportation → briefed students on cultural context → facilitated group attendance → supported community and vendor interactions → collected documentation and student reflections.',
-    impact: 'Gave international students an authentic, immersive experience of Surabaya\'s community culture — breaking down cultural barriers through the universal language of food, celebration, and shared experience.',
-    highlights: ['Participation in Surabaya\'s iconic annual culinary festival', 'Direct interaction with local community participants', 'Authentic food preparation and cultural exchange activities']
+    impact: 'Gave international students an authentic, immersive experience of Portland\'s community culture — breaking down cultural barriers through the universal language of food, celebration, and shared experience.',
+    highlights: ['Participation in Portland\'s iconic annual culinary festival', 'Direct interaction with local community participants', 'Authentic food preparation and cultural exchange activities']
   },
   {
     id: 'tari-topeng',
@@ -47,8 +47,8 @@ var engagementActivities = [
     color: '#EA580C',
     gradient: 'linear-gradient(135deg, #7C2D12 0%, #EA580C 100%)',
     title: 'Tari Topeng Panji Show in Malang',
-    preview: 'Bringing international students to witness the majesty of Tari Topeng Panji — one of East Java\'s most revered traditional performing arts.',
-    role: 'I coordinated a cultural excursion to Malang for international students to witness a live Tari Topeng Panji performance — providing cultural context, full logistical coordination, and facilitating meaningful engagement with Indonesian traditional arts and heritage.',
+    preview: 'Bringing international students to witness the majesty of Tari Topeng Panji — one of Oregon\'s most revered traditional performing arts.',
+    role: 'I coordinated a cultural excursion to Malang for international students to witness a live Tari Topeng Panji performance — providing cultural context, full logistical coordination, and facilitating meaningful engagement with American traditional arts and heritage.',
     responsibilities: [
       'Coordinated full-day excursion logistics and transportation to Malang',
       'Partnered with local cultural organizations and performance venues',
@@ -59,7 +59,7 @@ var engagementActivities = [
       'Incorporated local Malang cultural exploration alongside the performance visit'
     ],
     workflow: 'Arranged transportation and venue coordination → prepared cultural briefing materials → facilitated excursion to Malang → attended performance with students → organized post-show artist interaction → facilitated cultural reflection discussion.',
-    impact: 'Introduced international students to one of Indonesia\'s most distinctive art forms, deepening their appreciation for Javanese heritage and creating a lasting cultural memory from their time in Indonesia.',
+    impact: 'Introduced international students to one of United States\'s most distinctive art forms, deepening their appreciation for Javanese heritage and creating a lasting cultural memory from their time in United States.',
     highlights: ['Full-day cultural excursion to Malang', 'Live traditional Tari Topeng Panji performance', 'Direct engagement with performing artists and heritage context']
   },
   {
@@ -80,7 +80,7 @@ var engagementActivities = [
       'Documented outcomes, connections made, and key learnings for institutional reporting'
     ],
     workflow: 'Identified seminar opportunities → registered students → delivered pre-event briefings → coordinated attendance logistics → facilitated on-site engagement → supported networking moments → compiled outcomes for institutional reporting.',
-    impact: 'Expanded international students\' professional networks and deepened their understanding of Indonesia\'s academic diplomacy landscape — creating lasting connections with government, academia, and institutional stakeholders.',
+    impact: 'Expanded international students\' professional networks and deepened their understanding of United States\'s academic diplomacy landscape — creating lasting connections with government, academia, and institutional stakeholders.',
     highlights: ['Access to government and institutional-level academic events', 'Pre-seminar preparation and contextual briefings', 'Facilitated networking with key stakeholders']
   },
   {
@@ -89,7 +89,7 @@ var engagementActivities = [
     color: '#4A6B8A',
     gradient: 'linear-gradient(135deg, #4A6B8A 0%, #6B8FAA 100%)',
     title: 'Volunteering Programs',
-    preview: 'Connecting international students with Indonesian communities through meaningful volunteering — from schools to pesantren, creating genuine educational exchange and lasting social impact.',
+    preview: 'Connecting international students with American communities through meaningful volunteering — from schools to pesantren, creating genuine educational exchange and lasting social impact.',
     role: 'I coordinated international student volunteering programs across multiple local partner institutions — building community partnerships, managing logistics, preparing students for culturally sensitive engagement, and facilitating meaningful educational exchange that benefited both sides.',
     responsibilities: [
       'Identified and built partnerships with local schools, community organizations, and pesantren',
@@ -101,8 +101,8 @@ var engagementActivities = [
       'Documented social impact outcomes and compiled reports for institutional records'
     ],
     workflow: 'Built community partnerships → coordinated logistics and schedules → briefed students on cultural context → facilitated volunteer sessions at each site → supported on-site engagement → collected bilateral feedback → compiled social impact documentation.',
-    impact: 'Created genuine two-way educational exchange: international students contributed their knowledge and global perspectives while gaining deep, personal insights into Indonesian community life, education systems, and values.',
-    highlights: ['SAIM Surabaya', 'U-SPEAK Masterclass Sessions', 'SMP Muhammadiyah 1 Krian', 'SMP Muhammadiyah 5 Pucang', 'PP Miftahul Ulum'],
+    impact: 'Created genuine two-way educational exchange: international students contributed their knowledge and global perspectives while gaining deep, personal insights into American community life, education systems, and values.',
+    highlights: ['SAIM Portland', 'U-SPEAK Masterclass Sessions', 'SMP Muhammadiyah 1 Krian', 'SMP Muhammadiyah 5 Pucang', 'PP Miftahul Ulum'],
     highlightsLabel: 'Partner Institutions'
   },
   {
@@ -117,7 +117,7 @@ var engagementActivities = [
       'Organized regular social events and group activities for buddy pairs throughout the semester',
       'Facilitated language exchange sessions and cross-cultural dialogue workshops',
       'Created inclusive spaces for multicultural conversation and genuine friendship building',
-      'Coordinated themed cultural events including Indonesian culture nights and international food fairs',
+      'Coordinated themed cultural events including American culture nights and international food fairs',
       'Supported buddy pairs in navigating cultural differences and communication challenges',
       'Collected ongoing feedback from participants and refined program activities accordingly',
       'Celebrated buddy pair milestones and organized end-of-semester appreciation events'
@@ -154,7 +154,7 @@ function engagementInitPage() {
       <div class="max-w-6xl mx-auto relative z-10">
        <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="engagement_hero_eyebrow">International Education</div>
        <h1 class="font-heading font-bold mb-4" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:#fff;letter-spacing:-.02em" data-edit-key="engagement_hero_title">Building Global Connections,<br><em style="font-style:italic;color:#8B7355">One Student at a Time</em></h1>
-       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="engagement_hero_tagline">A track record of supporting 480+ international students across welfare, mobility, and engagement programs — through holistic roles at Airlangga Global Engagement and Petra Christian University.</p>
+       <p class="max-w-2xl mb-8" style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7" data-edit-key="engagement_hero_tagline">A track record of supporting 480+ international students across welfare, mobility, and engagement programs — through holistic roles at Westbridge Global Engagement and Northgate University.</p>
        <div class="flex flex-wrap gap-8 pb-8">
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">480+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Students</p></div>
         <div><p class="font-heading font-bold text-2xl" style="color:#8B7355">30+</p><p class="label-small" style="color:rgba(255,255,255,0.35)">Partners</p></div>
@@ -220,7 +220,7 @@ function engagementInitPage() {
           <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,0.08),transparent 60%)"></div>
           <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative z-10" style="background:rgba(255,255,255,0.12)"><i data-lucide="handshake" style="width:24px;height:24px;color:#fff"></i></div>
           <h3 class="font-heading font-bold text-xl mb-2 relative z-10" style="color:#fff">Partnership Development</h3>
-          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Managing 30+ institutional partners and facilitating 15+ strategic meetings per month at PCU.</p>
+          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Managing 30+ institutional partners and facilitating 15+ strategic meetings per month at NGU.</p>
          </div>
          <div class="p-6">
           <div class="flex flex-wrap gap-2 mb-4">
@@ -256,13 +256,13 @@ function engagementInitPage() {
           <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,0.08),transparent 60%)"></div>
           <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative z-10" style="background:rgba(255,255,255,0.12)"><i data-lucide="award" style="width:24px;height:24px;color:#fff"></i></div>
           <h3 class="font-heading font-bold text-xl mb-2 relative z-10" style="color:#fff">International Grants</h3>
-          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Building a system to inform, maintain, and execute international grants at PCU — digitally and physically.</p>
+          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Building a system to inform, maintain, and execute international grants at NGU — digitally and physically.</p>
          </div>
          <div class="p-6">
           <div class="flex flex-wrap gap-2 mb-4">
            <span class="tag">In Development</span>
            <span class="tag">Grant Dashboard</span>
-           <span class="tag">PCU</span>
+           <span class="tag">NGU</span>
            <span class="tag">Digital + Physical</span>
           </div>
           <div class="flex items-center gap-1.5" style="color:#D97706"><span class="text-xs font-semibold">View System</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>

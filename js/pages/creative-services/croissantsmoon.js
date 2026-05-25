@@ -35,15 +35,15 @@ const CM_REPO_DETAIL_PAGE = {
 };
 
 const CM_GRAPHIC_WORKS = [
-  { title: 'PCU Partnership Booklet',                cat: 'Brand Identity',   folder: 'partnership-booklet-pcu',               imgs: 3, link: 'https://canva.link/partnershipbookletpetra',             year: '2024–2025', inst: 'Petra Christian University'    },
-  { title: 'PCU International Students Guide',       cat: 'Print & Digital',  folder: 'international-students-guidebook-pcu',  imgs: 3, link: 'https://canva.link/internationalstudentsguidebookpetra', year: '2024–2025', inst: 'Petra Christian University'    },
-  { title: 'PCU Presentation Template',              cat: 'Visual Identity',  folder: 'general-ppt-pcu',                       imgs: 3, link: 'https://canva.link/jat6f7jcsawdmnu',                     year: '2024–2025', inst: 'Petra Christian University'    },
-  { title: 'ACI 2025 Batch 2 Guidebook',             cat: 'Event Materials',  folder: 'booklet-aci-2025-b2-unair',             imgs: 3, link: 'https://canva.link/motmeousw72spno',                     year: '2025',      inst: 'Universitas Airlangga'         },
-  { title: 'ACI 2025 Batch 1 Guidebook',             cat: 'Event Materials',  folder: 'guidebook-aci-2025-b1-unair',           imgs: 3, link: 'https://canva.link/6bysygp89hi879s',                     year: '2025',      inst: 'Universitas Airlangga'         },
-  { title: 'Staffordshire Banyuwangi Booklet',       cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: 'https://canva.link/i1i6dbnby7ho36z',                     year: '2025',      inst: 'Staffordshire × Airlangga'     },
-  { title: 'AERO 2025 Presentation',                 cat: 'Event Materials',  folder: 'aero-2025-unair',                       imgs: 3, link: 'https://canva.link/odx5kh4eara7iuh',                     year: '2025',      inst: 'Universitas Airlangga'         },
-  { title: 'Airlangga Accommodation Guide',          cat: 'Print & Digital',  folder: 'accommodation-guidebook-unair',         imgs: 3, link: 'https://canva.link/l8pkkjs0x8f24sy',                     year: '2024–2025', inst: 'Universitas Airlangga'         },
-  { title: 'Airlangga International Students Guide', cat: 'Social Media Kits',folder: 'international-students-guidebook-unair',imgs: 3, link: 'https://canva.link/xehf9jz9v781sn7',                     year: '2024–2025', inst: 'Universitas Airlangga'         },
+  { title: 'NGU Partnership Booklet',                cat: 'Brand Identity',   folder: 'partnership-booklet-pcu',               imgs: 3, link: 'https://canva.link/partnershipbookletpetra',             year: '2024–2025', inst: 'Northgate University'    },
+  { title: 'NGU International Students Guide',       cat: 'Print & Digital',  folder: 'international-students-guidebook-pcu',  imgs: 3, link: 'https://canva.link/internationalstudentsguidebookpetra', year: '2024–2025', inst: 'Northgate University'    },
+  { title: 'NGU Presentation Template',              cat: 'Visual Identity',  folder: 'general-ppt-pcu',                       imgs: 3, link: 'https://canva.link/jat6f7jcsawdmnu',                     year: '2024–2025', inst: 'Northgate University'    },
+  { title: 'ACI 2025 Batch 2 Guidebook',             cat: 'Event Materials',  folder: 'booklet-aci-2025-b2-unair',             imgs: 3, link: 'https://canva.link/motmeousw72spno',                     year: '2025',      inst: 'Westbridge University'         },
+  { title: 'ACI 2025 Batch 1 Guidebook',             cat: 'Event Materials',  folder: 'guidebook-aci-2025-b1-unair',           imgs: 3, link: 'https://canva.link/6bysygp89hi879s',                     year: '2025',      inst: 'Westbridge University'         },
+  { title: 'Staffordshire Banyuwangi Booklet',       cat: 'Brand Identity',   folder: 'guidebook-staffordshire-unair',         imgs: 3, link: 'https://canva.link/i1i6dbnby7ho36z',                     year: '2025',      inst: 'Staffordshire × Westbridge'     },
+  { title: 'AERO 2025 Presentation',                 cat: 'Event Materials',  folder: 'aero-2025-unair',                       imgs: 3, link: 'https://canva.link/odx5kh4eara7iuh',                     year: '2025',      inst: 'Westbridge University'         },
+  { title: 'Westbridge Accommodation Guide',          cat: 'Print & Digital',  folder: 'accommodation-guidebook-unair',         imgs: 3, link: 'https://canva.link/l8pkkjs0x8f24sy',                     year: '2024–2025', inst: 'Westbridge University'         },
+  { title: 'Westbridge International Students Guide', cat: 'Social Media Kits',folder: 'international-students-guidebook-unair',imgs: 3, link: 'https://canva.link/xehf9jz9v781sn7',                     year: '2024–2025', inst: 'Westbridge University'         },
 ];
 
 const CM_LANG_COLORS = {
@@ -399,7 +399,7 @@ function cmBuildServices() {
       desc: 'Premium digital identities for professionals who need more than a résumé. We build narrative-driven platforms that position you as a thought leader in your field.',
       targets: ['Researchers & Academics', 'Scholarship Awardees', 'Creative Professionals', 'Founders & Executives'],
       features: ['Personal Brand Systems', 'Cinematic Portfolio Design', 'Professional Storytelling', 'Mobile-First Experience', 'CMS Integration'],
-      pricingIDR: 'Rp5 juta',
+      pricingIDR: '$300',
       pricingUSD: '$300',
       pricingLabel: 'Starter Presence',
       ctaLabel: 'Build Your Platform',
@@ -415,7 +415,7 @@ function cmBuildServices() {
       desc: 'Sophisticated digital ecosystems for universities, NGOs, and international offices. Platforms that engage global audiences and communicate institutional excellence.',
       targets: ['Universities & Faculties', 'International Offices', 'NGOs & Nonprofits', 'Educational Organizations'],
       features: ['Global Engagement Systems', 'Partnership Directories', 'Student Onboarding Portals', 'Multilingual Architecture', 'Institutional Design Language'],
-      pricingIDR: 'Rp25 juta',
+      pricingIDR: '$1,500',
       pricingUSD: '$1,500',
       pricingLabel: 'Institutional Systems',
       ctaLabel: 'Start a Project',
@@ -431,7 +431,7 @@ function cmBuildServices() {
       desc: 'Modern dashboards and admin platforms that transform complex data into clear decisions. Built for teams who need both power and elegance in their internal tools.',
       targets: ['Operations Teams', 'Admin Departments', 'Data-Driven Organizations', 'Management Systems'],
       features: ['Real-Time Analytics', 'Workflow Management', 'Data Visualization', 'Admin Interfaces', 'Scalable Architecture'],
-      pricingIDR: 'Rp12 juta',
+      pricingIDR: '$750',
       pricingUSD: '$750',
       pricingLabel: 'Professional Identity Platform',
       ctaLabel: 'Discuss Your Vision',
@@ -711,7 +711,7 @@ const CM_CONCEPT_DETAILS = [
 ];
 
 function cmFormatRp(n) {
-  return 'Rp ' + n.toLocaleString('id-ID');
+  return '$' + n.toLocaleString('en-US');
 }
 
 function cmBuildConceptPlatforms() {
@@ -970,7 +970,7 @@ function cmBuildRepoCard(repo) {
         <div style="flex:1;background:rgba(7,17,38,0.5);border-radius:4px;padding:3px 9px;
           font-family:'Outfit',sans-serif;font-size:.55rem;color:${CM.stardust};opacity:.6;
           border:1px solid rgba(111,168,255,0.1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis
-        ">github.com/zefanyakharisma-cell/${repo.name}</div>
+        ">github.com/alexmorganrivera-cell/${repo.name}</div>
       </div>
       <div style="background:rgba(11,30,58,0.45);padding:14px 18px 16px;
         border-bottom:1px solid rgba(111,168,255,0.07);min-height:72px;position:relative;overflow:hidden">
@@ -1122,7 +1122,7 @@ function cmBuildFeaturedProject(project) {
 const CM_FEATURED_PROJECTS = [
   {
     page:        'web-portfolio',
-    live:        'https://zefanyakharisma.com',
+    live:        'https://portfolio-demo.example.com',
     title:       'Website Portfolio',
     label:       'SPA · Vanilla JS',
     watermark:   'Portfolio',
@@ -1137,9 +1137,9 @@ const CM_FEATURED_PROJECTS = [
     page:        'web-pcu-global-intl',
     live:        'https://international-office-website.vercel.app/',
     title:       'International Office',
-    label:       'Web App · PCU Global',
+    label:       'Web App · NGU Global',
     watermark:   'Intl. Office',
-    tagline:     'Full rebuild of PCU\'s International Office website — news CMS, partnership directory, mobile-first.',
+    tagline:     'Full rebuild of NGU\'s International Office website — news CMS, partnership directory, mobile-first.',
     tech:        ['HTML/CSS', 'JavaScript', 'Tailwind', 'Supabase'],
     bg:          'linear-gradient(145deg,#0B1E3A,#183B6B)',
     status:      'In Progress',
@@ -1249,7 +1249,7 @@ function cmBuildWebProjects() {
 
         <div class="cm-reveal" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem">
           <div style="display:flex;flex-wrap:wrap;gap:8px">${pills}</div>
-          <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
+          <a href="https://github.com/alexmorganrivera-cell" target="_blank" rel="noopener noreferrer" style="
             font-family:'Outfit',sans-serif;font-size:.77rem;font-weight:400;
             color:${CM.stardust};text-decoration:none;display:inline-flex;align-items:center;gap:6px;
             border:1px solid rgba(111,168,255,0.18);padding:8px 16px;border-radius:999px;
@@ -1257,7 +1257,7 @@ function cmBuildWebProjects() {
           " onmouseover="this.style.borderColor='rgba(111,168,255,0.4)';this.style.color='${CM.aurora}';this.style.boxShadow='0 0 12px rgba(111,168,255,0.12)'"
              onmouseout="this.style.borderColor='rgba(111,168,255,0.18)';this.style.color='${CM.stardust}';this.style.boxShadow='none'">
             <i data-lucide="github" style="width:14px;height:14px"></i>
-            @zefanyakharisma-cell
+            @alexmorganrivera-cell
           </a>
         </div>
 
@@ -1277,11 +1277,11 @@ function cmRenderRepos(repos) {
         <p style="font-family:'Outfit',sans-serif;font-size:.9rem;color:${CM.stardust};margin-bottom:14px">
           Couldn't load projects — view them directly on GitHub.
         </p>
-        <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
+        <a href="https://github.com/alexmorganrivera-cell" target="_blank" rel="noopener noreferrer" style="
           font-family:'Outfit',sans-serif;font-size:.84rem;font-weight:600;
           color:${CM.nebulaGold};text-decoration:none;
           border-bottom:1px solid ${CM.nebulaGold};padding-bottom:2px
-        ">@zefanyakharisma-cell ↗</a>
+        ">@alexmorganrivera-cell ↗</a>
       </div>`;
     return;
   }
@@ -1315,10 +1315,10 @@ async function cmFetchRepos() {
     try { cmRenderRepos(JSON.parse(cached)); return; } catch(e) {}
   }
   try {
-    const res = await fetch('https://api.github.com/users/zefanyakharisma-cell/repos?sort=updated&per_page=20');
+    const res = await fetch('https://api.github.com/users/alexmorganrivera-cell/repos?sort=updated&per_page=20');
     if (!res.ok) throw new Error('fetch failed');
     const all = await res.json();
-    const filtered = all.filter(r => !r.fork && r.description && r.name !== 'zefanyakharisma-cell');
+    const filtered = all.filter(r => !r.fork && r.description && r.name !== 'alexmorganrivera-cell');
     sessionStorage.setItem(KEY, JSON.stringify(filtered));
     cmRenderRepos(filtered);
   } catch(e) {
@@ -1566,7 +1566,7 @@ function cmBuildContact() {
         </button>
 
         <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(111,168,255,0.08)">
-          <a href="https://github.com/zefanyakharisma-cell" target="_blank" rel="noopener noreferrer" style="
+          <a href="https://github.com/alexmorganrivera-cell" target="_blank" rel="noopener noreferrer" style="
             font-family:'Outfit',sans-serif;font-size:.77rem;font-weight:400;
             color:rgba(143,168,214,0.35);text-decoration:none;
             display:inline-flex;align-items:center;gap:6px;transition:color .22s

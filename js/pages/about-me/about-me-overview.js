@@ -131,19 +131,19 @@ function aboutOverviewInitPage() {
           <div style="position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(139,115,85,0.35);animation:about-pulse-ring 2.8s ease-out infinite;pointer-events:none"></div>
           <div style="position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);pointer-events:none"></div>
           <div style="width:120px;height:120px;border-radius:50%;border:3px solid rgba(255,255,255,0.15);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.35),0 0 0 1px rgba(139,115,85,0.2)">
-           <img src="assets/images/self-portrait/profile-pic-2.png" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+           <img src="assets/images/self-portrait/profile-pic-2.png" alt="Alex Morgan Rivera" style="width:100%;height:100%;object-fit:cover;object-position:center top">
           </div>
          </div>
          <div class="flex gap-2">
-          <a href="mailto:zefanya.kharisma@gmail.com" class="flex items-center justify-center" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12)" title="Email"><i data-lucide="mail" style="width:15px;height:15px;color:rgba(255,255,255,0.7)"></i></a>
-          <a href="https://www.linkedin.com/in/zefanyakharisma" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12)" title="LinkedIn"><i data-lucide="linkedin" style="width:15px;height:15px;color:rgba(255,255,255,0.7)"></i></a>
+          <a href="mailto:alex.morgan@example.com" class="flex items-center justify-center" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12)" title="Email"><i data-lucide="mail" style="width:15px;height:15px;color:rgba(255,255,255,0.7)"></i></a>
+          <a href="https://www.linkedin.com/in/alexmorganrivera" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12)" title="LinkedIn"><i data-lucide="linkedin" style="width:15px;height:15px;color:rgba(255,255,255,0.7)"></i></a>
          </div>
         </div>
         <div class="flex-1">
          <div class="label-small mb-3" style="color:rgba(255,255,255,0.35);letter-spacing:.12em" data-edit-key="about_hero_eyebrow">International Education Professional</div>
-         <h1 class="font-heading font-bold mb-2" style="font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.0;color:#fff;letter-spacing:-.02em" data-edit-key="about_hero_title">Zefanya Kharisma<br><em style="font-style:italic;color:#8B7355">Nugroho</em></h1>
+         <h1 class="font-heading font-bold mb-2" style="font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.0;color:#fff;letter-spacing:-.02em" data-edit-key="about_hero_title">Alex Morgan<br><em style="font-style:italic;color:#8B7355">Rivera</em></h1>
          <p class="mb-1" style="color:rgba(255,255,255,0.6);font-size:.95rem;font-family:'Playfair Display',serif;font-style:italic" data-edit-key="about_hero_subtitle">International Education Professional &amp; Creative Technologist</p>
-         <p class="mb-6 flex items-center gap-2" style="color:rgba(255,255,255,0.4);font-size:.8rem"><i data-lucide="map-pin" style="width:13px;height:13px"></i> Surabaya, Indonesia</p>
+         <p class="mb-6 flex items-center gap-2" style="color:rgba(255,255,255,0.4);font-size:.8rem"><i data-lucide="map-pin" style="width:13px;height:13px"></i> Portland, United States</p>
          <div class="flex flex-wrap gap-8 mb-8 pt-5" style="border-top:1px solid rgba(255,255,255,0.08)">
           <div><p class="font-heading font-bold" style="font-size:2.2rem;line-height:1;letter-spacing:-.04em;color:#8B7355">3+</p><p class="label-small mt-1.5" style="color:rgba(255,255,255,0.35)">Years Experience</p></div>
           <div><p class="font-heading font-bold" style="font-size:2.2rem;line-height:1;letter-spacing:-.04em;color:#fff">200+</p><p class="label-small mt-1.5" style="color:rgba(255,255,255,0.35)">Students Supported</p></div>
@@ -170,7 +170,7 @@ function aboutOverviewInitPage() {
         <div class="lg:col-span-3">
          <blockquote class="font-heading leading-snug mb-8" style="color:#1C1C1E;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.02em" data-edit-key="about_summary_quote">"Bridging global engagement, student mobility, and digital creativity through intentional systems and thoughtful leadership."</blockquote>
          <div style="width:48px;height:2px;background:#8B7355;border-radius:2px;margin-bottom:24px"></div>
-         <p class="text-base leading-relaxed" style="color:#5C5C5C">Over 3+ years, I've built a practice at the intersection of international education, institutional leadership, and digital creativity. At <strong style="color:#1C1C1E">Petra Christian University</strong>, I manage relationships with 30+ global partners and facilitate 15+ strategic meetings monthly. Previously at <strong style="color:#1C1C1E">Airlangga Global Engagement</strong>, I led end-to-end management of 5 international exchange programs serving 120+ students per semester with IDR 50–100M per-program budgets.</p>
+         <p class="text-base leading-relaxed" style="color:#5C5C5C">Over 3+ years, I've built a practice at the intersection of international education, institutional leadership, and digital creativity. At <strong style="color:#1C1C1E">Northgate University</strong>, I manage relationships with 30+ global partners and facilitate 15+ strategic meetings monthly. Previously at <strong style="color:#1C1C1E">Westbridge Global Engagement</strong>, I led end-to-end management of 5 international exchange programs serving 120+ students per semester with $65K–$120K per-program budgets.</p>
         </div>
         <div class="lg:col-span-2 space-y-4">
          <div class="card p-6" style="border-left:3px solid #1E3A5F">
@@ -179,7 +179,7 @@ function aboutOverviewInitPage() {
            <p class="label-small" style="color:#1E3A5F">Currently</p>
           </div>
           <p class="font-semibold text-sm" style="color:#1C1C1E">International Partnership Specialist</p>
-          <p class="text-xs mt-1" style="color:#767676">Petra Christian University · Surabaya</p>
+          <p class="text-xs mt-1" style="color:#767676">Northgate University · Portland</p>
          </div>
          <div class="card p-6" style="border-left:3px solid #8B7355">
           <p class="label-small mb-2" style="color:#8B7355">Also Building</p>
@@ -210,7 +210,7 @@ function aboutOverviewInitPage() {
         <div class="card p-7 about-card-lift" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(30,58,95,0.08)"><i data-lucide="globe-2" style="width:20px;height:20px;color:#1E3A5F"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">International Education Leadership</h3>
-         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Deepening institutional partnership strategies and driving internationalization frameworks at Petra Christian University.</p>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Deepening institutional partnership strategies and driving internationalization frameworks at Northgate University.</p>
          <div class="mt-4 flex items-center gap-2" style="color:#1E3A5F"><span style="width:18px;height:2px;background:currentColor;border-radius:2px;display:inline-block"></span><span class="text-xs font-medium">Active</span></div>
         </div>
         <div class="card p-7 about-card-lift" style="background:#fff">
@@ -222,7 +222,7 @@ function aboutOverviewInitPage() {
         <div class="card p-7 about-card-lift" style="background:#fff">
          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(74,107,138,0.08)"><i data-lucide="code-2" style="width:20px;height:20px;color:#4A6B8A"></i></div>
          <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">Web Development</h3>
-         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Building purpose-driven websites for institutional communications, including the PCU Global International Office platform.</p>
+         <p class="text-sm leading-relaxed" style="color:#5C5C5C">Building purpose-driven websites for institutional communications, including the NGU Global International Office platform.</p>
          <div class="mt-4 flex items-center gap-2" style="color:#4A6B8A"><span style="width:18px;height:2px;background:currentColor;border-radius:2px;display:inline-block"></span><span class="text-xs font-medium">Active</span></div>
         </div>
         <div class="card p-7 about-card-lift" style="background:#fff">
@@ -254,7 +254,7 @@ function aboutOverviewInitPage() {
         <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Career Timeline</span></div>
         <h2 class="font-heading font-bold text-3xl" style="color:#1C1C1E">Professional Experience</h2>
        </div>
-       <p class="text-sm mb-12" style="color:#5C5C5C;max-width:520px">3+ years in international higher education — building partnerships, leading mobility programs, and supporting global students across Surabaya.</p>
+       <p class="text-sm mb-12" style="color:#5C5C5C;max-width:520px">3+ years in international higher education — building partnerships, leading mobility programs, and supporting global students across Portland.</p>
        <div class="relative">
         <div class="absolute left-5 top-2 bottom-2 w-px hidden md:block" style="background:linear-gradient(to bottom,#1E3A5F,#4A6B8A,#8B7355,rgba(28,28,30,0.06))"></div>
         <div class="space-y-4">
@@ -267,7 +267,7 @@ function aboutOverviewInitPage() {
              <div>
               <div class="flex items-center gap-2 mb-1.5"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold" style="background:rgba(30,58,95,0.1);color:#1E3A5F">Current</span></div>
               <h3 class="font-heading font-semibold text-lg" style="color:#1C1C1E">International Partnership</h3>
-              <p class="text-sm font-medium mt-0.5" style="color:#1E3A5F">Petra Christian University · Surabaya</p>
+              <p class="text-sm font-medium mt-0.5" style="color:#1E3A5F">Northgate University · Portland</p>
               <ul class="mt-2 space-y-1">
                <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#1E3A5F;flex-shrink:0;margin-top:1px"></i>Manage 30+ institutional partners & review 25+ MoU/MoA monthly</li>
                <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#1E3A5F;flex-shrink:0;margin-top:1px"></i>Facilitate 15+ strategic meetings per month</li>
@@ -282,7 +282,7 @@ function aboutOverviewInitPage() {
            </button>
            <div class="timeline-body" style="display:none;border-top:1px solid rgba(28,28,30,0.06)">
             <div class="p-6 pt-5">
-             <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Building and strengthening institutional partnerships to expand PCU's global presence and international grant access.</p>
+             <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Building and strengthening institutional partnerships to expand NGU's global presence and international grant access.</p>
              <ul class="space-y-2 mb-5">
               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#1E3A5F;flex-shrink:0;margin-top:2px"></i>Manage communication with 30+ institutional partners monthly</li>
               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#1E3A5F;flex-shrink:0;margin-top:2px"></i>Review 25+ partnership agreements (MoU/MoA) per month for compliance</li>
@@ -301,12 +301,12 @@ function aboutOverviewInitPage() {
            <button class="w-full text-left p-6" onclick="toggleAboutTimeline(this)">
             <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
              <div class="flex-1">
-              <p class="text-sm font-semibold mb-2" style="color:#4A6B8A">Airlangga Global Engagement · Surabaya</p>
+              <p class="text-sm font-semibold mb-2" style="color:#4A6B8A">Westbridge Global Engagement · Portland</p>
               <div class="mb-3">
                <h3 class="font-heading font-semibold text-base" style="color:#1C1C1E">International Mobility &amp; Global Reputation</h3>
                <p class="text-xs mb-1.5" style="color:#767676">Sep 2025 – Mar 2026</p>
                <ul class="space-y-1">
-                <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#4A6B8A;flex-shrink:0;margin-top:1px"></i>Managed 5 exchange programs end-to-end with IDR 50–100M budgets</li>
+                <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#4A6B8A;flex-shrink:0;margin-top:1px"></i>Managed 5 exchange programs end-to-end with $65K–$120K budgets</li>
                 <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#4A6B8A;flex-shrink:0;margin-top:1px"></i>Delivered quality experiences for 120+ international students per semester</li>
                </ul>
               </div>
@@ -333,7 +333,7 @@ function aboutOverviewInitPage() {
               <p class="text-xs mb-3" style="color:#767676">Sep 2025 – Mar 2026</p>
               <ul class="space-y-2 mb-3">
                <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Managed 5 end-to-end exchange programs — promotion, pre-departure, arrival, study period, post-program</li>
-               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Budget management of IDR 50–100M per program across 50+ stakeholders</li>
+               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>Budget management of $65K–$120K per program across 50+ stakeholders</li>
                <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#4A6B8A;flex-shrink:0;margin-top:2px"></i>High-quality exchange experiences for 120+ international students per semester</li>
               </ul>
               <div class="flex flex-wrap gap-2"><span class="tag">Exchange Programs</span><span class="tag">Budget Management</span><span class="tag">Project Management</span><span class="tag">Leadership</span></div>
@@ -361,7 +361,7 @@ function aboutOverviewInitPage() {
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
              <div>
               <h3 class="font-heading font-semibold text-lg" style="color:#1C1C1E">Assistant Lecturer — Foreign Policy Analysis</h3>
-              <p class="text-sm font-medium mt-0.5" style="color:#8B7355">Universitas Airlangga</p>
+              <p class="text-sm font-medium mt-0.5" style="color:#8B7355">Westbridge University</p>
               <ul class="mt-2 space-y-1">
                <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#8B7355;flex-shrink:0;margin-top:1px"></i>Co-facilitated Foreign Policy Analysis for undergraduate IR students</li>
                <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#8B7355;flex-shrink:0;margin-top:1px"></i>Moderated debates & managed grading, scheduling, and coordination</li>
@@ -393,10 +393,10 @@ function aboutOverviewInitPage() {
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
              <div>
               <h3 class="font-heading font-semibold text-lg" style="color:#1C1C1E">Intl. Program &amp; Inbound Coordinator</h3>
-              <p class="text-sm font-medium mt-0.5" style="color:#8B7355">Koordinasi Informasi dan Kehumasan FISIP Unair</p>
+              <p class="text-sm font-medium mt-0.5" style="color:#8B7355">Koordinasi Informasi dan Kehumasan Westbridge Faculty</p>
               <ul class="mt-2 space-y-1">
                <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#8B7355;flex-shrink:0;margin-top:1px"></i>Coordinated logistics for foreign lecturers and visiting students</li>
-               <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#8B7355;flex-shrink:0;margin-top:1px"></i>English–Indonesian interpretation at conferences and guest lectures</li>
+               <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#8B7355;flex-shrink:0;margin-top:1px"></i>English–Spanish interpretation at conferences and guest lectures</li>
               </ul>
              </div>
              <div class="flex items-center gap-3 flex-shrink-0">
@@ -409,7 +409,7 @@ function aboutOverviewInitPage() {
             <div class="p-6 pt-5">
              <ul class="space-y-2 mb-5">
               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#8B7355;flex-shrink:0;margin-top:2px"></i>Coordinated logistics and program delivery for foreign lecturers and visiting students</li>
-              <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#8B7355;flex-shrink:0;margin-top:2px"></i>English–Indonesian interpretation at conferences, guest lectures, and company visits</li>
+              <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#8B7355;flex-shrink:0;margin-top:2px"></i>English–Spanish interpretation at conferences, guest lectures, and company visits</li>
               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#8B7355;flex-shrink:0;margin-top:2px"></i>Primary point of contact for all inbound international guests</li>
              </ul>
              <div class="flex flex-wrap gap-2"><span class="tag">International Coordination</span><span class="tag">Interpretation</span><span class="tag">Event Management</span></div>
@@ -425,10 +425,10 @@ function aboutOverviewInitPage() {
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
              <div>
               <h3 class="font-heading font-semibold text-lg" style="color:#1C1C1E">Research Assistant</h3>
-              <p class="text-sm font-medium mt-0.5" style="color:#5C5C5C">Universitas Airlangga</p>
+              <p class="text-sm font-medium mt-0.5" style="color:#5C5C5C">Westbridge University</p>
               <ul class="mt-2 space-y-1">
                <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#5C5C5C;flex-shrink:0;margin-top:1px"></i>Researched U.S.–ASEAN economic cooperation across Biden &amp; Trump administrations</li>
-               <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#5C5C5C;flex-shrink:0;margin-top:1px"></i>Contributed to paper presented at the 9th ICoCSPA 2023</li>
+               <li class="flex gap-1.5 text-xs" style="color:#5C5C5C"><i data-lucide="check" style="width:11px;height:11px;color:#5C5C5C;flex-shrink:0;margin-top:1px"></i>Contributed to paper presented at the 9th ICIS 2023</li>
               </ul>
              </div>
              <div class="flex items-center gap-3 flex-shrink-0">
@@ -441,7 +441,7 @@ function aboutOverviewInitPage() {
             <div class="p-6 pt-5">
              <ul class="space-y-2 mb-5">
               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#5C5C5C;flex-shrink:0;margin-top:2px"></i>Researched U.S.–ASEAN economic cooperation across Biden &amp; Trump administrations</li>
-              <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#5C5C5C;flex-shrink:0;margin-top:2px"></i>Contributed to paper presented at the 9th ICoCSPA 2023</li>
+              <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#5C5C5C;flex-shrink:0;margin-top:2px"></i>Contributed to paper presented at the 9th ICIS 2023</li>
               <li class="flex gap-2 text-sm" style="color:#5C5C5C"><i data-lucide="check" style="width:14px;height:14px;color:#5C5C5C;flex-shrink:0;margin-top:2px"></i>Synthesized U.S.–China economic dynamics into structured research briefs</li>
              </ul>
              <div class="flex flex-wrap gap-2"><span class="tag">Academic Research</span><span class="tag">International Relations</span><span class="tag">Policy Analysis</span></div>
@@ -475,10 +475,10 @@ function aboutOverviewInitPage() {
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="heart" style="width:18px;height:18px;color:#4A6B8A"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Student Welfare &amp; Support</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">Comprehensive non-academic support for 100+ international students per semester</p></div></div>
         </div>
         <div class="card p-6 about-card-lift" style="background:#fff">
-         <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.08)"><i data-lucide="bar-chart-2" style="width:18px;height:18px;color:#8B7355"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Program &amp; Budget Management</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">IDR 50–100M per-program budgets, 50+ stakeholders, end-to-end delivery</p></div></div>
+         <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.08)"><i data-lucide="bar-chart-2" style="width:18px;height:18px;color:#8B7355"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Program &amp; Budget Management</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">$65K–$120K per-program budgets, 50+ stakeholders, end-to-end delivery</p></div></div>
         </div>
         <div class="card p-6 about-card-lift" style="background:#fff">
-         <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="languages" style="width:18px;height:18px;color:#4A6B8A"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Cross-Cultural Communication</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">English–Indonesian interpretation at international conferences &amp; company visits</p></div></div>
+         <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(74,107,138,0.08)"><i data-lucide="languages" style="width:18px;height:18px;color:#4A6B8A"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Cross-Cultural Communication</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">English–Spanish interpretation at international conferences &amp; company visits</p></div></div>
         </div>
         <div class="card p-6 about-card-lift" style="background:#fff">
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.08)"><i data-lucide="layout-dashboard" style="width:18px;height:18px;color:#8B7355"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">UI/UX Design</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">User-centered design for institutional platforms and international program portals</p></div></div>
@@ -504,9 +504,9 @@ function aboutOverviewInitPage() {
           <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(30,58,95,0.08)"><i data-lucide="graduation-cap" style="width:22px;height:22px;color:#1E3A5F"></i></div>
           <div>
            <h3 class="font-heading font-bold text-lg mb-1" style="color:#1C1C1E">Bachelor's in International Relations</h3>
-           <p class="text-sm font-medium mb-1" style="color:#1E3A5F">Universitas Airlangga</p>
+           <p class="text-sm font-medium mb-1" style="color:#1E3A5F">Westbridge University</p>
            <p class="label-small mb-3" style="color:#767676">July 2020 – March 2024</p>
-           <p class="text-sm leading-relaxed" style="color:#5C5C5C">International relations theory, foreign policy analysis, and cross-cultural dynamics. Published academic research on U.S.–ASEAN cooperation and Middle East diplomacy. Presented at 9th ICoCSPA 2023.</p>
+           <p class="text-sm leading-relaxed" style="color:#5C5C5C">International relations theory, foreign policy analysis, and cross-cultural dynamics. Published academic research on U.S.–ASEAN cooperation and Middle East diplomacy. Presented at 9th ICIS 2023.</p>
           </div>
          </div>
         </div>
@@ -541,9 +541,9 @@ function aboutOverviewInitPage() {
           <img loading="lazy" src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="w-full h-full object-cover">
          </div>
          <div class="p-6">
-          <div class="label-small mb-2" style="color:#4A6B8A">Exchange Program · Airlangga</div>
+          <div class="label-small mb-2" style="color:#4A6B8A">Exchange Program · Westbridge</div>
           <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">AMERTA</h3>
-          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">End-to-end semester exchange — 120+ students, IDR 50–100M budget, 5 program phases.</p>
+          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">End-to-end semester exchange — 120+ students, $65K–$120K budget, 5 program phases.</p>
           <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">Student Mobility</span><span class="tag">Project Management</span><span class="tag">Leadership</span></div>
           <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#1E3A5F">View case study <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
          </div>
@@ -555,7 +555,7 @@ function aboutOverviewInitPage() {
           <img loading="lazy" src="assets/images/aci/aci-4.JPEG" alt="ACI Cultural Immersion" class="w-full h-full object-cover" style="object-position:center 30%">
          </div>
          <div class="p-6">
-          <div class="label-small mb-2" style="color:#6B4F32">Cultural Immersion · Airlangga</div>
+          <div class="label-small mb-2" style="color:#6B4F32">Cultural Immersion · Westbridge</div>
           <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">ACI</h3>
           <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Structured engagement program connecting international and local students through cultural experience.</p>
           <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">Student Support</span><span class="tag">Project Management</span><span class="tag">Cross-Cultural</span></div>
@@ -566,13 +566,13 @@ function aboutOverviewInitPage() {
         <!-- International Office Website -->
         <button onclick="goToPage('web-pcu-global-intl')" class="card text-left group overflow-hidden about-card-lift" style="background:#fff">
          <div class="h-40 relative overflow-hidden" style="background:#f0f4f8">
-          <iframe src="https://international-office-website.vercel.app/" style="position:absolute;top:0;left:0;width:300%;height:420px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none" loading="lazy" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="PCU International Office Website preview"></iframe>
+          <iframe src="https://international-office-website.vercel.app/" style="position:absolute;top:0;left:0;width:300%;height:420px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none" loading="lazy" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="NGU International Office Website preview"></iframe>
           <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 55%,rgba(255,255,255,0.92))"></div>
          </div>
          <div class="p-6">
-          <div class="label-small mb-2" style="color:#003087">Web Platform · PCU</div>
+          <div class="label-small mb-2" style="color:#003087">Web Platform · NGU</div>
           <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">International Office Website</h3>
-          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Rebuilding PCU's International Office digital presence — for inbound students, outbound programs, and partners.</p>
+          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Rebuilding NGU's International Office digital presence — for inbound students, outbound programs, and partners.</p>
           <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">Web Development</span><span class="tag">UI/UX Design</span><span class="tag">Digital Strategy</span></div>
           <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#003087">View case study <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
          </div>
@@ -592,9 +592,9 @@ function aboutOverviewInitPage() {
           <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 60%,rgba(30,58,95,0.5))"></div>
          </div>
          <div class="p-6">
-          <div class="label-small mb-2" style="color:#1E3A5F">Dashboard · PCU</div>
+          <div class="label-small mb-2" style="color:#1E3A5F">Dashboard · NGU</div>
           <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">Partnership Dashboard</h3>
-          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">A data dashboard for visualising and managing PCU's international partnership network and grants pipeline.</p>
+          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">A data dashboard for visualising and managing NGU's international partnership network and grants pipeline.</p>
           <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">Data Visualization</span><span class="tag">UI/UX Design</span><span class="tag">Digital Strategy</span></div>
           <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#1E3A5F">View case study <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
          </div>
@@ -765,7 +765,7 @@ function aboutOverviewInitPage() {
         </div>
         <div class="card p-6 about-card-lift" style="border-top:3px solid #1E3A5F">
          <div class="label-small mb-3" style="color:#1E3A5F">2023 · Conference</div>
-         <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">9th ICoCSPA 2023 — Research Presenter</h3>
+         <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">9th ICIS 2023 — Research Presenter</h3>
          <p class="text-xs" style="color:#5C5C5C">Presented research on U.S.–ASEAN economic cooperation at international conference.</p>
         </div>
         <div class="card p-6 about-card-lift" style="border-top:3px solid #4A6B8A">
@@ -780,8 +780,8 @@ function aboutOverviewInitPage() {
         </div>
         <div class="card p-6 about-card-lift" style="border-top:3px solid #1E3A5F">
          <div class="label-small mb-3" style="color:#1E3A5F">2026 · Platform Launch</div>
-         <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">PCU Global Digital Platform</h3>
-         <p class="text-xs" style="color:#5C5C5C">Designed and built PCU International Office's flagship digital presence from ground up.</p>
+         <h3 class="font-heading font-semibold text-base mb-2" style="color:#1C1C1E">NGU Global Digital Platform</h3>
+         <p class="text-xs" style="color:#5C5C5C">Designed and built NGU International Office's flagship digital presence from ground up.</p>
         </div>
        </div>
       </div>
@@ -834,7 +834,7 @@ function aboutOverviewInitPage() {
         <a href="./assets/data/profile.pdf" download class="btn-outline font-medium text-sm px-8 py-3.5 rounded-full inline-flex items-center justify-center gap-2"><i data-lucide="download" style="width:15px;height:15px"></i> Download CV</a>
        </div>
        <div class="flex justify-center gap-4">
-        <a href="mailto:zefanya.kharisma@gmail.com" class="flex items-center gap-2 text-sm" style="color:#5C5C5C;text-decoration:none"><i data-lucide="mail" style="width:14px;height:14px"></i> zefanya.kharisma@gmail.com</a>
+        <a href="mailto:alex.morgan@example.com" class="flex items-center gap-2 text-sm" style="color:#5C5C5C;text-decoration:none"><i data-lucide="mail" style="width:14px;height:14px"></i> alex.morgan@example.com</a>
        </div>
       </div>
      </div>

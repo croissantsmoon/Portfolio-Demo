@@ -54,7 +54,7 @@ function projectsOverviewInitPage() {
      </div>
      <div style="width:48px;height:2px;background:#8B7355;border-radius:2px;margin:28px 0;animation:fadeUp .5s ease .12s both"></div>
      <p class="font-editorial" style="font-size:clamp(1rem,2vw,1.2rem);color:#1C1C1E;line-height:1.5;max-width:420px;margin-bottom:0;animation:fadeUp .5s ease .16s both" data-edit-key="projects_hero_tagline_1">Programs managed end-to-end, digital products built from scratch.</p>
-     <p style="font-size:.875rem;color:#4A4A4A;margin-top:8px;max-width:420px;animation:fadeUp .5s ease .2s both" data-edit-key="projects_hero_tagline_2">International education · Institutional design · Surabaya</p>
+     <p style="font-size:.875rem;color:#4A4A4A;margin-top:8px;max-width:420px;animation:fadeUp .5s ease .2s both" data-edit-key="projects_hero_tagline_2">International education · Institutional design · Portland</p>
     </div>
 
     <div class="absolute bottom-0 left-0 right-0" style="background:rgba(250,250,248,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(28,28,30,0.07);z-index:10">
@@ -87,7 +87,7 @@ function projectsOverviewInitPage() {
     <div class="flex items-center gap-4 mb-10">
      <span style="font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8B7355">Featured Programs</span>
      <div style="flex:1;height:1px;background:rgba(28,28,30,0.08)"></div>
-     <span style="font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C0B8AE">Airlangga Global Engagement</span>
+     <span style="font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C0B8AE">Westbridge Global Engagement</span>
     </div>
 
     <!-- AMERTA -->
@@ -108,8 +108,8 @@ function projectsOverviewInitPage() {
          <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(74,107,138,0.1);color:#4A6B8A">Student Mobility</span>
          <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">Flagship program</span>
         </div>
-        <h3 class="font-heading font-bold" style="font-size:1.45rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:14px">Airlangga Mobility, Exchange, Research &amp; Transfer Academic</h3>
-        <p style="font-size:.875rem;color:#5C5C5C;line-height:1.7;margin-bottom:20px">Universitas Airlangga's flagship semester exchange — I managed end-to-end coordination: promotion, pre-departure preparation, arrival logistics, and post-program completion for 120+ inbound students per cohort with a budget of IDR 50–100M.</p>
+        <h3 class="font-heading font-bold" style="font-size:1.45rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:14px">Westbridge Mobility, Exchange, Research &amp; Transfer Academic</h3>
+        <p style="font-size:.875rem;color:#5C5C5C;line-height:1.7;margin-bottom:20px">Westbridge University's flagship semester exchange — I managed end-to-end coordination: promotion, pre-departure preparation, arrival logistics, and post-program completion for 120+ inbound students per cohort with a budget of IDR 50–100M.</p>
         <div class="flex flex-wrap gap-1.5"><span class="tag">Student Mobility</span><span class="tag">Project Management</span><span class="tag">Leadership</span></div>
        </div>
        <div class="flex flex-wrap items-center gap-8 pt-6 mt-6" style="border-top:1px solid rgba(28,28,30,0.07)">
@@ -155,7 +155,7 @@ function projectsOverviewInitPage() {
        </div>
       </div>
       <div class="p-6">
-       <p style="font-size:.875rem;color:#5C5C5C;line-height:1.68;margin-bottom:16px">Annual exhibition at Universitas Airlangga showcasing global partnerships — coordinated logistics, vendor management, and event planning across 50+ stakeholders.</p>
+       <p style="font-size:.875rem;color:#5C5C5C;line-height:1.68;margin-bottom:16px">Annual exhibition at Westbridge University showcasing global partnerships — coordinated logistics, vendor management, and event planning across 50+ stakeholders.</p>
        <div class="flex flex-wrap gap-1.5 mb-5"><span class="tag">Branding</span><span class="tag">Creative Direction</span></div>
        <div class="flex items-center justify-between pt-4" style="border-top:1px solid rgba(28,28,30,0.07)">
         <div><span class="font-heading font-semibold" style="font-size:1rem;color:#1C1C1E">50+</span><span style="font-size:.75rem;color:#767676;margin-left:4px">stakeholders coordinated</span></div>
@@ -205,7 +205,7 @@ function projectsOverviewInitPage() {
 
     <div class="grid md:grid-cols-2 gap-5 mb-5">
 
-     <!-- PCU Global International Office — iframe preview -->
+     <!-- NGU Global International Office — iframe preview -->
      <div class="cursor-pointer group" onclick="goToPage('web-pcu-global-intl')" style="background:#fff;border:1px solid rgba(28,28,30,0.08);border-radius:20px;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(28,28,30,0.04)" onmouseover="this.style.boxShadow='0 12px 48px rgba(0,48,135,0.1)';this.style.borderColor='rgba(0,48,135,0.2)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(28,28,30,0.04)';this.style.borderColor='rgba(28,28,30,0.08)'">
       <div class="relative overflow-hidden" style="height:200px">
        ${_livePreviewPanel('https://international-office-website.vercel.app/', 200, 'international-office-website.vercel.app')}
@@ -216,8 +216,8 @@ function projectsOverviewInitPage() {
          <span style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(0,48,135,0.08);color:#003087">Full-Stack</span>
          <span style="font-size:.68rem;color:#C0B8AE;letter-spacing:.04em">In Progress</span>
         </div>
-        <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">PCU Global — International Office Website</h3>
-        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Rebuilding PCU's International Office website — news CMS, partnership directory, audience-first information architecture, and mobile-first design.</p>
+        <h3 class="font-heading font-bold" style="font-size:1.2rem;color:#1C1C1E;letter-spacing:-.015em;line-height:1.25;margin-bottom:10px">NGU Global — International Office Website</h3>
+        <p style="font-size:.84rem;color:#5C5C5C;line-height:1.65;margin-bottom:16px">Rebuilding NGU's International Office website — news CMS, partnership directory, audience-first information architecture, and mobile-first design.</p>
         <div class="flex flex-wrap gap-1.5"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Flask</span><span class="tag">SQLite</span></div>
        </div>
        <div class="flex items-center justify-end pt-5 mt-5" style="border-top:1px solid rgba(28,28,30,0.07)">

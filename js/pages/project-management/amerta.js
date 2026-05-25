@@ -1,343 +1,293 @@
-// ── AMERTA Participant Statistics ────────────────────────────────────────────
+// ── NEXUS Participant Statistics ──────────────────────────────────────────────
 
 const AMERTA_DATA = {
   all: {
-    label: 'All Batches', period: '2024 – 2027',
-    students: 207, countries: 14, uniCount: 24,
+    label: 'All Batches', period: '2022 – 2024',
+    students: 185, countries: 12, uniCount: 18,
     color: '#1E3A5F', bg: 'linear-gradient(135deg,#EEF2F7,#D8E5EF)', border: 'rgba(30,58,95,0.15)',
     nationalities: [
-      { country: 'Malaysia',    flag: '🇲🇾', count: 114 },
-      { country: 'Philippines', flag: '🇵🇭', count: 29  },
-      { country: 'France',      flag: '🇫🇷', count: 14  },
-      { country: 'Germany',     flag: '🇩🇪', count: 10  },
-      { country: 'Brunei',      flag: '🇧🇳', count: 10  },
-      { country: 'Australia',   flag: '🇦🇺', count: 6   },
-      { country: 'Poland',      flag: '🇵🇱', count: 6   },
-      { country: 'Pakistan',    flag: '🇵🇰', count: 4   },
-      { country: 'Netherlands', flag: '🇳🇱', count: 3   },
-      { country: 'Cambodia',    flag: '🇰🇭', count: 3   },
-      { country: 'Singapore',   flag: '🇸🇬', count: 2   },
-      { country: 'UK',          flag: '🇬🇧', count: 1   },
-      { country: 'Mexico',      flag: '🇲🇽', count: 1   },
-      { country: 'Belgium',     flag: '🇧🇪', count: 1   },
+      { country: 'Canada',      flag: '🇨🇦', count: 72 },
+      { country: 'Germany',     flag: '🇩🇪', count: 24 },
+      { country: 'Japan',       flag: '🇯🇵', count: 19 },
+      { country: 'Australia',   flag: '🇦🇺', count: 16 },
+      { country: 'France',      flag: '🇫🇷', count: 13 },
+      { country: 'UK',          flag: '🇬🇧', count: 11 },
+      { country: 'South Korea', flag: '🇰🇷', count: 9  },
+      { country: 'Netherlands', flag: '🇳🇱', count: 7  },
+      { country: 'Spain',       flag: '🇪🇸', count: 6  },
+      { country: 'Brazil',      flag: '🇧🇷', count: 5  },
+      { country: 'Singapore',   flag: '🇸🇬', count: 2  },
+      { country: 'Sweden',      flag: '🇸🇪', count: 1  },
     ],
     universities: [
-      { region: '🇲🇾 Malaysia', items: [
-        { name: 'Universiti Sultan Zainal Abidin (UniSZA)', count: 83 },
-        { name: 'Universiti Teknologi MARA (UiTM)',         count: 16 },
-        { name: 'Universiti Kebangsaan Malaysia (UKM)',     count: 15 },
-        { name: 'Management & Science University (MSU)',    count: 1  },
-      ]},
-      { region: '🇵🇭 Philippines', items: [
-        { name: 'Pangasinan State University', count: 18 },
-        { name: 'Batangas State University',   count: 11 },
-      ]},
-      { region: '🇫🇷 France', items: [
-        { name: "Université Le Havre Normandie", count: 9 },
-        { name: 'VetAgro Sup',                   count: 4 },
-        { name: "CESI École d'Ingénieurs",        count: 2 },
+      { region: '🇨🇦 Canada', items: [
+        { name: 'University of British Columbia', count: 48 },
+        { name: 'McGill University',              count: 24 },
       ]},
       { region: '🇩🇪 Germany', items: [
-        { name: 'DHBW Ravensburg',                          count: 3 },
-        { name: 'Universität Hamburg',                      count: 3 },
-        { name: 'Frankfurt University of Applied Sciences', count: 1 },
+        { name: 'Heidelberg University', count: 15 },
+        { name: 'TU Munich',             count: 9  },
       ]},
-      { region: '🇧🇳 Brunei', items: [
-        { name: 'Universiti Brunei Darussalam (UBD)', count: 10 },
-      ]},
-      { region: '🇵🇱 Poland', items: [
-        { name: 'University of Warsaw', count: 6 },
+      { region: '🇯🇵 Japan', items: [
+        { name: 'Waseda University', count: 12 },
+        { name: 'Keio University',   count: 7  },
       ]},
       { region: '🇦🇺 Australia', items: [
-        { name: 'Deakin University', count: 6 },
-      ]},
-      { region: '🇵🇰 Pakistan', items: [
-        { name: 'Lahore University of Management Sciences', count: 4 },
-      ]},
-      { region: '🇳🇱 Netherlands', items: [
-        { name: 'Fontys University of Applied Sciences', count: 2 },
-        { name: 'Maastricht University',                 count: 1 },
-      ]},
-      { region: '🇰🇭 Cambodia', items: [
-        { name: 'Royal University of Law & Economics', count: 3 },
-      ]},
-      { region: '🇸🇬 Singapore', items: [
-        { name: 'Temasek Polytechnic', count: 2 },
-      ]},
-      { region: '🇬🇧 United Kingdom', items: [
-        { name: 'Liverpool John Moores University', count: 1 },
-      ]},
-      { region: '🇧🇪 Belgium', items: [
-        { name: 'EPHEC Brussels', count: 1 },
-      ]},
-      { region: '🇲🇽 Mexico', items: [
-        { name: 'Universidad Panamericana', count: 1 },
-      ]},
-    ],
-    faculties: [
-      { name: 'Social & Political Science (FISIP)', count: 51 },
-      { name: 'Humanities (FIB)',                   count: 29 },
-      { name: 'Law (FH)',                           count: 25 },
-      { name: 'Psychology (FPsi)',                  count: 23 },
-      { name: 'Economy & Business (FEB)',           count: 17 },
-      { name: 'Vocational Studies (FV)',            count: 5  },
-      { name: 'Veterinary Medicine (FKH)',          count: 4  },
-      { name: 'Medicine, Nursing & others',         count: 5  },
-    ],
-    facultyNote: 'Based on course registrations for AMERTA XXI, XXIII & XXIV. Students may be enrolled in multiple faculties simultaneously.',
-    analysis: [
-      { icon: '🌍', text: 'Across 4 batches (2024–2027), AMERTA enrolled <strong>207 students from 14 countries</strong> at 24 partner universities.' },
-      { icon: '🇲🇾', text: '<strong>Malaysia is the dominant sending country</strong> across all batches, contributing 114 students — 55% of total enrollment.' },
-      { icon: '🌏', text: 'Southeast Asian students (Malaysia + Philippines + Brunei) collectively account for over <strong>74%</strong> of total enrollment.' },
-      { icon: '📚', text: '<strong>FISIP and FIB</strong> are the most popular study destinations, together hosting 39% of all course registrations across 3 batches.' },
-      { icon: '📈', text: 'Geographic diversity grew steadily: <strong>7 → 9 → 7 → 12 countries</strong> per batch, with XXIV being the most diverse to date.' },
-    ],
-  },
-
-  21: {
-    label: 'AMERTA XXI', period: '2024 – 2025 Sem. 1',
-    students: 68, countries: 7, uniCount: 10,
-    color: '#2563EB', bg: 'linear-gradient(135deg,#EFF6FF,#DBEAFE)', border: 'rgba(37,99,235,0.15)',
-    nationalities: [
-      { country: 'Malaysia',    flag: '🇲🇾', count: 58 },
-      { country: 'France',      flag: '🇫🇷', count: 3  },
-      { country: 'Germany',     flag: '🇩🇪', count: 2  },
-      { country: 'Brunei',      flag: '🇧🇳', count: 2  },
-      { country: 'Belgium',     flag: '🇧🇪', count: 1  },
-      { country: 'Netherlands', flag: '🇳🇱', count: 1  },
-      { country: 'Pakistan',    flag: '🇵🇰', count: 1  },
-    ],
-    universities: [
-      { region: '🇲🇾 Malaysia', items: [
-        { name: 'Universiti Sultan Zainal Abidin (UniSZA)' },
-        { name: 'Universiti Teknologi MARA (UiTM)'         },
-        { name: 'Universiti Kebangsaan Malaysia (UKM)'     },
-        { name: 'Management & Science University (MSU)'    },
+        { name: 'University of Melbourne', count: 10 },
+        { name: 'Monash University',       count: 6  },
       ]},
       { region: '🇫🇷 France', items: [
-        { name: "Université Le Havre Normandie" },
+        { name: 'Sciences Po Paris', count: 8 },
+        { name: 'University of Lyon', count: 5 },
       ]},
-      { region: '🇩🇪 Germany', items: [
-        { name: 'Universität Hamburg' },
+      { region: '🇬🇧 UK', items: [
+        { name: 'University of Edinburgh',  count: 7 },
+        { name: "King's College London",    count: 4 },
       ]},
-      { region: '🇧🇳 Brunei', items: [
-        { name: 'Universiti Brunei Darussalam (UBD)' },
-      ]},
-      { region: '🇧🇪 Belgium', items: [
-        { name: 'EPHEC Brussels' },
+      { region: '🇰🇷 South Korea', items: [
+        { name: 'Yonsei University', count: 9 },
       ]},
       { region: '🇳🇱 Netherlands', items: [
-        { name: 'Fontys University of Applied Sciences' },
+        { name: 'University of Amsterdam', count: 7 },
       ]},
-      { region: '🇵🇰 Pakistan', items: [
-        { name: 'Lahore University of Management Sciences' },
+      { region: '🇪🇸 Spain', items: [
+        { name: 'University of Barcelona', count: 6 },
+      ]},
+      { region: '🇧🇷 Brazil', items: [
+        { name: 'University of São Paulo', count: 5 },
+      ]},
+      { region: '🇸🇬 Singapore', items: [
+        { name: 'National University of Singapore', count: 2 },
+      ]},
+      { region: '🇸🇪 Sweden', items: [
+        { name: 'Stockholm University', count: 1 },
       ]},
     ],
     faculties: [
-      { name: 'Social & Political Science (FISIP)', count: 46 },
-      { name: 'Law (FH)',                           count: 14 },
-      { name: 'Psychology (FPsi)',                  count: 12 },
-      { name: 'Economy & Business (FEB)',           count: 3  },
-      { name: 'Humanities (FIB)',                   count: 2  },
-      { name: 'Vocational Studies (FV)',            count: 1  },
-      { name: 'Medicine (FK)',                      count: 1  },
+      { name: 'Business & Management',         count: 52 },
+      { name: 'Social Sciences',               count: 38 },
+      { name: 'Engineering & Technology',      count: 31 },
+      { name: 'Arts & Humanities',             count: 27 },
+      { name: 'Law & Political Science',       count: 19 },
+      { name: 'Natural Sciences',              count: 11 },
+      { name: 'Health Sciences',               count: 7  },
     ],
-    facultyNote: 'From Course-Students sheet. Students may be enrolled in multiple faculties simultaneously.',
+    facultyNote: 'Based on course registrations for Batch 22, 23, and 24. Students may be enrolled in multiple departments simultaneously.',
     analysis: [
-      { icon: '🏆', text: 'AMERTA XXI was the <strong>largest single-batch enrollment</strong> with 68 students — establishing the program\'s scale and operational blueprint.' },
-      { icon: '🇲🇾', text: '<strong>Malaysia dominated with 85%</strong> of participants (58 of 68), primarily from UniSZA, reflecting a strong bilateral partnership.' },
-      { icon: '🎓', text: '<strong>FISIP was the clear academic preference</strong> — 46 of 79 course registrations (58%) — the highest single-faculty concentration across all batches.' },
-      { icon: '🌍', text: 'Despite the strong Malaysian majority, 7 countries were represented, including niche academic perspectives from Belgium, the Netherlands, and Germany.' },
+      { icon: '🌍', text: 'Across 3 batches (2022–2024), NEXUS enrolled <strong>185 students from 12 countries</strong> at 18 partner universities.' },
+      { icon: '🇨🇦', text: '<strong>Canada is the dominant sending country</strong> across all batches, contributing 72 students — 39% of total enrollment.' },
+      { icon: '🌏', text: 'Asia-Pacific students (Japan, Australia, South Korea, Singapore) collectively account for over <strong>25%</strong> of total enrollment.' },
+      { icon: '📚', text: '<strong>Business & Management and Social Sciences</strong> are the most popular study destinations, together hosting 49% of all course registrations across 3 batches.' },
+      { icon: '📈', text: 'Geographic diversity grew steadily: <strong>8 → 10 → 12 countries</strong> per batch, with Batch 24 being the most diverse to date.' },
     ],
   },
 
   22: {
-    label: 'AMERTA XXII', period: '2024 – 2025 Sem. 2',
-    students: 22, countries: 9, uniCount: 9,
-    color: '#10B981', bg: 'linear-gradient(135deg,#F0FDF4,#DCFCE7)', border: 'rgba(16,185,129,0.15)',
+    label: 'Batch 22', period: '2022 – 2023',
+    students: 48, countries: 8, uniCount: 10,
+    color: '#1E3A5F', bg: 'linear-gradient(135deg,#EFF6FF,#DBEAFE)', border: 'rgba(30,58,95,0.15)',
     nationalities: [
-      { country: 'Philippines', flag: '🇵🇭', count: 8 },
-      { country: 'Poland',      flag: '🇵🇱', count: 3 },
-      { country: 'France',      flag: '🇫🇷', count: 2 },
-      { country: 'Cambodia',    flag: '🇰🇭', count: 2 },
-      { country: 'Brunei',      flag: '🇧🇳', count: 2 },
-      { country: 'Australia',   flag: '🇦🇺', count: 1 },
-      { country: 'Mexico',      flag: '🇲🇽', count: 1 },
-      { country: 'Pakistan',    flag: '🇵🇰', count: 1 },
-      { country: 'Germany',     flag: '🇩🇪', count: 1 },
+      { country: 'Canada',      flag: '🇨🇦', count: 20 },
+      { country: 'Germany',     flag: '🇩🇪', count: 8  },
+      { country: 'Japan',       flag: '🇯🇵', count: 6  },
+      { country: 'Australia',   flag: '🇦🇺', count: 5  },
+      { country: 'France',      flag: '🇫🇷', count: 4  },
+      { country: 'UK',          flag: '🇬🇧', count: 2  },
+      { country: 'South Korea', flag: '🇰🇷', count: 2  },
+      { country: 'Netherlands', flag: '🇳🇱', count: 1  },
     ],
     universities: [
-      { region: '🇵🇭 Philippines', items: [
-        { name: 'Pangasinan State University' },
-        { name: 'Batangas State University'   },
-      ]},
-      { region: '🇵🇱 Poland', items: [
-        { name: 'University of Warsaw' },
-      ]},
-      { region: '🇫🇷 France', items: [
-        { name: "Université Le Havre Normandie" },
-      ]},
-      { region: '🇰🇭 Cambodia', items: [
-        { name: 'Royal University of Law & Economics' },
-      ]},
-      { region: '🇧🇳 Brunei', items: [
-        { name: 'Universiti Brunei Darussalam (UBD)' },
-      ]},
-      { region: '🇦🇺 Australia', items: [
-        { name: 'Deakin University' },
-      ]},
-      { region: '🇲🇽 Mexico', items: [
-        { name: 'Universidad Panamericana' },
-      ]},
-      { region: '🇵🇰 Pakistan', items: [
-        { name: 'Lahore University of Management Sciences' },
+      { region: '🇨🇦 Canada', items: [
+        { name: 'University of British Columbia' },
+        { name: 'McGill University'              },
       ]},
       { region: '🇩🇪 Germany', items: [
-        { name: 'Frankfurt University of Applied Sciences' },
+        { name: 'Heidelberg University' },
+        { name: 'TU Munich'             },
+      ]},
+      { region: '🇯🇵 Japan', items: [
+        { name: 'Waseda University' },
+      ]},
+      { region: '🇦🇺 Australia', items: [
+        { name: 'University of Melbourne' },
+      ]},
+      { region: '🇫🇷 France', items: [
+        { name: 'Sciences Po Paris' },
+      ]},
+      { region: '🇬🇧 UK', items: [
+        { name: 'University of Edinburgh' },
+      ]},
+      { region: '🇰🇷 South Korea', items: [
+        { name: 'Yonsei University' },
+      ]},
+      { region: '🇳🇱 Netherlands', items: [
+        { name: 'University of Amsterdam' },
       ]},
     ],
-    faculties: null,
-    facultyNote: null,
+    faculties: [
+      { name: 'Business & Management',    count: 18 },
+      { name: 'Social Sciences',          count: 12 },
+      { name: 'Arts & Humanities',        count: 9  },
+      { name: 'Engineering & Technology', count: 5  },
+      { name: 'Law & Political Science',  count: 4  },
+    ],
+    facultyNote: 'Based on course registration records. Students may be enrolled in multiple departments simultaneously.',
     analysis: [
-      { icon: '🌍', text: 'AMERTA XXII was the <strong>smallest but most proportionally diverse</strong> batch: 9 nationalities for just 22 students — averaging 1 university per country.' },
-      { icon: '🇵🇭', text: 'The Philippines led with <strong>8 students (36%)</strong>. For the first time in program history, <strong>Malaysia was entirely absent</strong> from the batch.' },
-      { icon: '🆕', text: '<strong>First appearances</strong> of Mexico and Cambodia — significantly broadening AMERTA\'s global reach beyond Southeast Asia.' },
-      { icon: '📋', text: '<strong>Faculty enrollment data was not recorded</strong> for this batch — a documentation gap that was addressed in subsequent semesters.' },
+      { icon: '🏆', text: 'Batch 22 was the <strong>inaugural cohort of the NEXUS Exchange Program</strong>, establishing operational systems and institutional partnerships that all subsequent batches would build upon.' },
+      { icon: '🇨🇦', text: '<strong>Canada led with 42%</strong> of participants (20 of 48), primarily from UBC and McGill, reflecting a strong founding bilateral partnership.' },
+      { icon: '🎓', text: '<strong>Business & Management was the clear academic preference</strong> — 18 of 48 course registrations — the highest single-faculty concentration across all batches.' },
+      { icon: '🌍', text: 'Despite being the first cohort, 8 countries were represented, demonstrating strong initial demand for the program across Europe and the Asia-Pacific region.' },
     ],
   },
 
   23: {
-    label: 'AMERTA XXIII', period: '2025 – 2026',
-    students: 67, countries: 7, uniCount: 10,
-    color: '#F97316', bg: 'linear-gradient(135deg,#FFF7ED,#FFEDD5)', border: 'rgba(249,115,22,0.15)',
+    label: 'Batch 23', period: '2023 – 2024',
+    students: 67, countries: 10, uniCount: 14,
+    color: '#4A6B8A', bg: 'linear-gradient(135deg,#F0FDF4,#DCFCE7)', border: 'rgba(74,107,138,0.15)',
     nationalities: [
-      { country: 'Malaysia',    flag: '🇲🇾', count: 42 },
-      { country: 'Philippines', flag: '🇵🇭', count: 11 },
-      { country: 'Germany',     flag: '🇩🇪', count: 5  },
-      { country: 'Australia',   flag: '🇦🇺', count: 4  },
-      { country: 'Brunei',      flag: '🇧🇳', count: 3  },
-      { country: 'Netherlands', flag: '🇳🇱', count: 1  },
-      { country: 'UK',          flag: '🇬🇧', count: 1  },
+      { country: 'Canada',      flag: '🇨🇦', count: 26 },
+      { country: 'Germany',     flag: '🇩🇪', count: 9  },
+      { country: 'Japan',       flag: '🇯🇵', count: 7  },
+      { country: 'Australia',   flag: '🇦🇺', count: 6  },
+      { country: 'France',      flag: '🇫🇷', count: 5  },
+      { country: 'UK',          flag: '🇬🇧', count: 5  },
+      { country: 'South Korea', flag: '🇰🇷', count: 4  },
+      { country: 'Netherlands', flag: '🇳🇱', count: 3  },
+      { country: 'Spain',       flag: '🇪🇸', count: 1  },
+      { country: 'Brazil',      flag: '🇧🇷', count: 1  },
     ],
     universities: [
-      { region: '🇲🇾 Malaysia', items: [
-        { name: 'Universiti Sultan Zainal Abidin (UniSZA)' },
-        { name: 'Universiti Teknologi MARA (UiTM)'         },
-        { name: 'Universiti Kebangsaan Malaysia (UKM)'     },
-      ]},
-      { region: '🇵🇭 Philippines', items: [
-        { name: 'Pangasinan State University' },
-        { name: 'Batangas State University'   },
+      { region: '🇨🇦 Canada', items: [
+        { name: 'University of British Columbia' },
+        { name: 'McGill University'              },
       ]},
       { region: '🇩🇪 Germany', items: [
-        { name: 'DHBW Ravensburg'    },
-        { name: 'Universität Hamburg' },
+        { name: 'Heidelberg University' },
+        { name: 'TU Munich'             },
+      ]},
+      { region: '🇯🇵 Japan', items: [
+        { name: 'Waseda University' },
+        { name: 'Keio University'   },
       ]},
       { region: '🇦🇺 Australia', items: [
-        { name: 'Deakin University' },
+        { name: 'University of Melbourne' },
+        { name: 'Monash University'       },
       ]},
-      { region: '🇧🇳 Brunei', items: [
-        { name: 'Universiti Brunei Darussalam (UBD)' },
+      { region: '🇫🇷 France', items: [
+        { name: 'Sciences Po Paris' },
+        { name: 'University of Lyon' },
+      ]},
+      { region: '🇬🇧 UK', items: [
+        { name: 'University of Edinburgh' },
+        { name: "King's College London"   },
+      ]},
+      { region: '🇰🇷 South Korea', items: [
+        { name: 'Yonsei University' },
       ]},
       { region: '🇳🇱 Netherlands', items: [
-        { name: 'Fontys / Maastricht University' },
+        { name: 'University of Amsterdam' },
       ]},
-      { region: '🇬🇧 United Kingdom', items: [
-        { name: 'Liverpool John Moores University' },
+      { region: '🇪🇸 Spain', items: [
+        { name: 'University of Barcelona' },
+      ]},
+      { region: '🇧🇷 Brazil', items: [
+        { name: 'University of São Paulo' },
       ]},
     ],
     faculties: [
-      { name: 'Humanities (FIB)',           count: 17 },
-      { name: 'Law (FH)',                   count: 10 },
-      { name: 'Economy & Business (FEB)',   count: 6  },
-      { name: 'Psychology (FPsi)',          count: 5  },
-      { name: 'Nursing (FKep)',             count: 1  },
-      { name: 'Vocational Studies (FV)',    count: 1  },
-      { name: 'Science & Technology (FST)', count: 1  },
+      { name: 'Business & Management',         count: 19 },
+      { name: 'Social Sciences',               count: 14 },
+      { name: 'Engineering & Technology',      count: 12 },
+      { name: 'Arts & Humanities',             count: 10 },
+      { name: 'Law & Political Science',       count: 7  },
+      { name: 'Natural Sciences',              count: 5  },
     ],
-    facultyNote: 'From KRS Baru course registration sheet. Students may be enrolled in multiple faculties simultaneously.',
+    facultyNote: 'Based on course registration records. Students may be enrolled in multiple departments simultaneously.',
     analysis: [
-      { icon: '📈', text: 'AMERTA XXIII <strong>returned to scale with 67 students</strong> after the smaller XXII batch, maintaining the program\'s momentum.' },
-      { icon: '🇲🇾', text: 'Malaysia remained the majority at 63%, but <strong>Philippines grew to 16%</strong> and Germany showed a notable 5-student cohort.' },
-      { icon: '📚', text: '<strong>Humanities (FIB) overtook FISIP</strong> as the top faculty for the first time — 17 registrations reflect growing interest in Indonesian language and culture.' },
-      { icon: '🇬🇧', text: 'The <strong>first British student</strong> joined from Liverpool John Moores University, adding a new European partner to the program network.' },
+      { icon: '📈', text: 'Batch 23 <strong>grew 40% over Batch 22</strong>, reaching 67 participants — reflecting growing institutional confidence and expanded recruitment efforts.' },
+      { icon: '🇨🇦', text: 'Canada remained the majority at 39%, but <strong>Germany and Japan each grew their cohorts</strong> and Spain and Brazil joined as first-time sending countries.' },
+      { icon: '📚', text: '<strong>Engineering & Technology registrations tripled</strong> compared to Batch 22, signaling growing interest in Pacific Coast University\'s STEM offerings.' },
+      { icon: '🇬🇧', text: '<strong>King\'s College London joined as a new partner</strong>, and UK representation grew from 2 to 5 students — a significant expansion of the European network.' },
     ],
   },
 
   24: {
-    label: 'AMERTA XXIV', period: '2026 – 2027',
-    students: 50, countries: 12, uniCount: 13,
-    color: '#A855F7', bg: 'linear-gradient(135deg,#FDF4FF,#FAE8FF)', border: 'rgba(168,85,247,0.15)',
+    label: 'Batch 24', period: '2024 – 2025',
+    students: 70, countries: 12, uniCount: 18,
+    color: '#2C6B45', bg: 'linear-gradient(135deg,#F0FDF4,#DCFCE7)', border: 'rgba(44,107,69,0.15)',
     nationalities: [
-      { country: 'Malaysia',    flag: '🇲🇾', count: 14 },
-      { country: 'Philippines', flag: '🇵🇭', count: 10 },
-      { country: 'France',      flag: '🇫🇷', count: 9  },
-      { country: 'Poland',      flag: '🇵🇱', count: 3  },
-      { country: 'Brunei',      flag: '🇧🇳', count: 3  },
-      { country: 'Germany',     flag: '🇩🇪', count: 2  },
+      { country: 'Canada',      flag: '🇨🇦', count: 26 },
+      { country: 'Germany',     flag: '🇩🇪', count: 7  },
+      { country: 'Japan',       flag: '🇯🇵', count: 6  },
+      { country: 'Australia',   flag: '🇦🇺', count: 5  },
+      { country: 'France',      flag: '🇫🇷', count: 4  },
+      { country: 'UK',          flag: '🇬🇧', count: 4  },
+      { country: 'South Korea', flag: '🇰🇷', count: 3  },
+      { country: 'Netherlands', flag: '🇳🇱', count: 3  },
+      { country: 'Spain',       flag: '🇪🇸', count: 5  },
+      { country: 'Brazil',      flag: '🇧🇷', count: 4  },
       { country: 'Singapore',   flag: '🇸🇬', count: 2  },
-      { country: 'Pakistan',    flag: '🇵🇰', count: 2  },
-      { country: 'Netherlands', flag: '🇳🇱', count: 1  },
-      { country: 'Australia',   flag: '🇦🇺', count: 1  },
-      { country: 'Cambodia',    flag: '🇰🇭', count: 1  },
+      { country: 'Sweden',      flag: '🇸🇪', count: 1  },
     ],
     universities: [
-      { region: '🇲🇾 Malaysia', items: [
-        { name: 'Universiti Sultan Zainal Abidin (UniSZA)' },
-        { name: 'Universiti Teknologi MARA (UiTM)'         },
-        { name: 'Universiti Kebangsaan Malaysia (UKM)'     },
-      ]},
-      { region: '🇵🇭 Philippines', items: [
-        { name: 'Pangasinan State University' },
-        { name: 'Batangas State University'   },
-      ]},
-      { region: '🇫🇷 France', items: [
-        { name: "Université Le Havre Normandie" },
-        { name: 'VetAgro Sup'                   },
-        { name: "CESI École d'Ingénieurs"       },
-      ]},
-      { region: '🇵🇱 Poland', items: [
-        { name: 'University of Warsaw' },
-      ]},
-      { region: '🇧🇳 Brunei', items: [
-        { name: 'Universiti Brunei Darussalam (UBD)' },
+      { region: '🇨🇦 Canada', items: [
+        { name: 'University of British Columbia' },
+        { name: 'McGill University'              },
       ]},
       { region: '🇩🇪 Germany', items: [
-        { name: 'Frankfurt University of Applied Sciences' },
+        { name: 'Heidelberg University' },
+        { name: 'TU Munich'             },
       ]},
-      { region: '🇸🇬 Singapore', items: [
-        { name: 'Temasek Polytechnic' },
-      ]},
-      { region: '🇵🇰 Pakistan', items: [
-        { name: 'Lahore University of Management Sciences' },
-      ]},
-      { region: '🇳🇱 Netherlands', items: [
-        { name: 'Fontys University of Applied Sciences' },
+      { region: '🇯🇵 Japan', items: [
+        { name: 'Waseda University' },
+        { name: 'Keio University'   },
       ]},
       { region: '🇦🇺 Australia', items: [
-        { name: 'Deakin University' },
+        { name: 'University of Melbourne' },
+        { name: 'Monash University'       },
       ]},
-      { region: '🇰🇭 Cambodia', items: [
-        { name: 'Royal University of Law & Economics' },
+      { region: '🇫🇷 France', items: [
+        { name: 'Sciences Po Paris' },
+        { name: 'University of Lyon' },
+      ]},
+      { region: '🇬🇧 UK', items: [
+        { name: 'University of Edinburgh' },
+        { name: "King's College London"   },
+      ]},
+      { region: '🇰🇷 South Korea', items: [
+        { name: 'Yonsei University' },
+      ]},
+      { region: '🇳🇱 Netherlands', items: [
+        { name: 'University of Amsterdam' },
+      ]},
+      { region: '🇪🇸 Spain', items: [
+        { name: 'University of Barcelona' },
+      ]},
+      { region: '🇧🇷 Brazil', items: [
+        { name: 'University of São Paulo' },
+      ]},
+      { region: '🇸🇬 Singapore', items: [
+        { name: 'National University of Singapore' },
+      ]},
+      { region: '🇸🇪 Sweden', items: [
+        { name: 'Stockholm University' },
       ]},
     ],
     faculties: [
-      { name: 'Humanities (FIB)',                         count: 10 },
-      { name: 'Economy & Business (FEB)',                 count: 8  },
-      { name: 'Psychology (FPsi)',                        count: 6  },
-      { name: 'Social & Political Science (FISIP)',       count: 5  },
-      { name: 'Veterinary Medicine (FKH)',                count: 4  },
-      { name: 'Vocational Studies (FV)',                  count: 3  },
-      { name: 'Law (FH)',                                 count: 1  },
-      { name: 'Medicine (FK)',                            count: 1  },
-      { name: 'Advanced Technology (FTMM)',               count: 1  },
+      { name: 'Business & Management',         count: 15 },
+      { name: 'Social Sciences',               count: 12 },
+      { name: 'Engineering & Technology',      count: 14 },
+      { name: 'Arts & Humanities',             count: 8  },
+      { name: 'Law & Political Science',       count: 8  },
+      { name: 'Natural Sciences',              count: 6  },
+      { name: 'Health Sciences',               count: 7  },
     ],
-    facultyNote: 'From Matkul per Mahasiswa sheet. Data reflects applicants — final enrollment may vary. Students may enroll across multiple faculties.',
+    facultyNote: 'Based on course registration records. Data reflects confirmed enrollments. Students may enroll across multiple departments.',
     analysis: [
-      { icon: '🌍', text: 'AMERTA XXIV is the <strong>most geographically diverse batch</strong> with 12 countries — more than any previous iteration of the program.' },
-      { icon: '🇫🇷', text: '<strong>France emerged as the 3rd-largest sender</strong> (18%, 9 students) from 3 partner institutions — reflecting a maturing European partnership network.' },
-      { icon: '🆕', text: '<strong>Singapore appeared for the first time</strong>, and Veterinary Medicine (FKH) and Advanced Technology (FTMM) debuted as Airlangga study destinations.' },
-      { icon: '📊', text: 'Malaysia\'s share dropped from 85% (XXI) to 28% (XXIV), demonstrating strong <strong>diversification of the sending-country portfolio</strong> over program iterations.' },
+      { icon: '🌍', text: 'Batch 24 is the <strong>most geographically diverse cohort</strong> with 12 countries — more than any previous batch — and the largest at 70 participants.' },
+      { icon: '🇸🇬', text: '<strong>Singapore appeared for the first time</strong> via the National University of Singapore, and Sweden joined through Stockholm University, broadening the program\'s global footprint.' },
+      { icon: '🆕', text: '<strong>Health Sciences debuted as a popular destination</strong> for incoming students, reflecting new curriculum offerings at Pacific Coast University for the 2024–2025 academic year.' },
+      { icon: '📊', text: 'Canada\'s share dropped from 42% (Batch 22) to 37% (Batch 24), demonstrating consistent <strong>diversification of the sending-country portfolio</strong> over program iterations.' },
     ],
   },
 };
@@ -345,34 +295,34 @@ const AMERTA_DATA = {
 // ── Gallery Rotation ─────────────────────────────────────────────────────────
 
 const AMERTA_GALLERY_IMGS = [
-  'assets/images/amerta/amerta/IMG_0570.JPG',
-  'assets/images/amerta/amerta/IMG_0576.JPG',
-  'assets/images/amerta/amerta/IMG_0578.JPG',
-  'assets/images/amerta/amerta/IMG_0589.JPG',
-  'assets/images/amerta/amerta/IMG_0590.JPG',
-  'assets/images/amerta/amerta/IMG_0594.JPG',
-  'assets/images/amerta/amerta/IMG_0629.JPG',
-  'assets/images/amerta/amerta/IMG_0637.JPG',
-  'assets/images/amerta/amerta/IMG_0641.JPG',
-  'assets/images/amerta/amerta/IMG_0642.JPG',
-  'assets/images/amerta/amerta/IMG_0980.JPG',
-  'assets/images/amerta/amerta/IMG_0993.JPG',
-  'assets/images/amerta/amerta/IMG_1003.JPG',
-  'assets/images/amerta/amerta/IMG_1006.JPG',
-  'assets/images/amerta/amerta/IMG_1007.JPG',
-  'assets/images/amerta/amerta/IMG_1008.JPG',
-  'assets/images/amerta/amerta/IMG_1807.JPG',
-  'assets/images/amerta/amerta/IMG_1813.JPG',
-  'assets/images/amerta/amerta/IMG_3529.JPG',
-  'assets/images/amerta/amerta/IMG_3534.JPG',
-  'assets/images/amerta/amerta/IMG_3535.JPG',
-  'assets/images/amerta/amerta/IMG_3720.JPG',
-  'assets/images/amerta/amerta/IMG_3723.JPG',
-  'assets/images/amerta/amerta/IMG_3867.JPG',
-  'assets/images/amerta/amerta/IMG_3868.JPG',
-  'assets/images/amerta/amerta/IMG_3869.JPG',
-  'assets/images/amerta/amerta/FullSizeRender.JPG',
-  'assets/images/amerta/amerta/FullSizeRender 2.JPG',
+  'https://picsum.photos/seed/nexus-1/800/600',
+  'https://picsum.photos/seed/nexus-2/800/600',
+  'https://picsum.photos/seed/nexus-3/800/600',
+  'https://picsum.photos/seed/nexus-4/800/600',
+  'https://picsum.photos/seed/nexus-5/800/600',
+  'https://picsum.photos/seed/nexus-6/800/600',
+  'https://picsum.photos/seed/nexus-7/800/600',
+  'https://picsum.photos/seed/nexus-8/800/600',
+  'https://picsum.photos/seed/nexus-9/800/600',
+  'https://picsum.photos/seed/nexus-10/800/600',
+  'https://picsum.photos/seed/nexus-11/800/600',
+  'https://picsum.photos/seed/nexus-12/800/600',
+  'https://picsum.photos/seed/nexus-13/800/600',
+  'https://picsum.photos/seed/nexus-14/800/600',
+  'https://picsum.photos/seed/nexus-15/800/600',
+  'https://picsum.photos/seed/nexus-16/800/600',
+  'https://picsum.photos/seed/nexus-17/800/600',
+  'https://picsum.photos/seed/nexus-18/800/600',
+  'https://picsum.photos/seed/nexus-19/800/600',
+  'https://picsum.photos/seed/nexus-20/800/600',
+  'https://picsum.photos/seed/nexus-21/800/600',
+  'https://picsum.photos/seed/nexus-22/800/600',
+  'https://picsum.photos/seed/nexus-23/800/600',
+  'https://picsum.photos/seed/nexus-24/800/600',
+  'https://picsum.photos/seed/nexus-25/800/600',
+  'https://picsum.photos/seed/nexus-26/800/600',
+  'https://picsum.photos/seed/nexus-27/800/600',
+  'https://picsum.photos/seed/nexus-28/800/600',
 ];
 
 let _amertaGalTimer = null;
@@ -452,7 +402,7 @@ function esc(s) {
 function buildOverview(key) {
   const d = AMERTA_DATA[key];
   if (key === 'all') {
-    const cards = ['21', '22', '23', '24'].map(k => {
+    const cards = ['22', '23', '24'].map(k => {
       const b = AMERTA_DATA[k];
       return `<div onclick="amertaSelectBatch('${k}')" class="rounded-xl p-5 text-center cursor-pointer hover:shadow-md transition-all duration-200" style="background:${b.bg};border:1px solid ${b.border}">
         <p class="font-heading font-bold text-2xl mb-1" style="color:${b.color}">${b.students}</p>
@@ -532,9 +482,9 @@ function buildUniversities(d) {
 
 function buildFaculties(d) {
   if (!d.faculties) {
-    return `<h3 class="font-heading font-semibold text-lg mb-2" style="color:#0F172A">Faculty Enrollment at Airlangga</h3>
+    return `<h3 class="font-heading font-semibold text-lg mb-2" style="color:#0F172A">Department Enrollment at Pacific Coast University</h3>
     <div class="rounded-lg p-6 mb-10 text-center" style="background:#F8FAFC;border:1px dashed rgba(100,116,139,0.3)">
-      <p class="text-sm" style="color:#94A3B8">📋 Faculty enrollment data was not recorded for this batch.</p>
+      <p class="text-sm" style="color:#94A3B8">📋 Department enrollment data was not recorded for this batch.</p>
     </div>`;
   }
   const max  = d.faculties[0].count;
@@ -548,7 +498,7 @@ function buildFaculties(d) {
       <span class="text-sm font-semibold w-8 text-right" style="color:#1E3A5F">${f.count}</span>
     </div>`;
   }).join('');
-  return `<h3 class="font-heading font-semibold text-lg mb-2" style="color:#0F172A">Faculty Enrollment at Airlangga</h3>
+  return `<h3 class="font-heading font-semibold text-lg mb-2" style="color:#0F172A">Department Enrollment at Pacific Coast University</h3>
   <p class="text-xs mb-5" style="color:#94A3B8">${esc(d.facultyNote)}</p>
   <div class="space-y-3 mb-10">${rows}</div>`;
 }
@@ -574,13 +524,13 @@ function amertaInitPage() {
 
   const steps = [
     { n:'01', icon:'mail',            title:'Institutional Outreach & Student Recruitment',   desc:'Coordinated with international partner universities regarding program promotion, student nominations, application processes, and recruitment timelines. Managed communication with both institutional representatives and prospective exchange students.' },
-    { n:'02', icon:'presentation',    title:'Pre-Departure Orientation',                      desc:'Organized pre-departure orientation sessions covering academic systems, Indonesian culture, immigration procedures, accommodation guidance, and student preparedness before arrival in Indonesia.' },
-    { n:'03', icon:'book-open-check', title:'Academic Coordination & Credit Transfer',        desc:'Managed course mapping and credit transfer processes between Universitas Airlangga and international partner institutions. Bridged communication between faculties, academic coordinators, and students to ensure smooth academic recognition.' },
-    { n:'04', icon:'plane-landing',   title:'Arrival, Visa, Immigration & Accommodation',     desc:'Managed airport pick-up services, accommodation arrangements, visa documentation, immigration coordination, and arrival logistics to ensure students experienced a smooth transition into Indonesia.' },
-    { n:'05', icon:'users',           title:'Arrival Orientation & Student Integration',       desc:'Conducted orientation sessions introducing students to campus life, academic systems, Indonesian culture, safety information, and student support services to help them adapt quickly.' },
-    { n:'06', icon:'clipboard-check', title:'Semester Monitoring & Student Support',           desc:'Monitored academic progress and student well-being throughout the semester by coordinating continuously with faculties, lecturers, and students. Ensured issues were addressed efficiently and student experiences remained positive.' },
-    { n:'07', icon:'mountain',        title:'Cultural Trips & Cultural Experiences',           desc:'Planned and managed cultural immersion activities, local trips, and intercultural experiences to help international students better understand Indonesian culture and strengthen cross-cultural engagement.' },
-    { n:'08', icon:'party-popper',    title:'Farewell Session & Program Closure',             desc:'Organized farewell sessions and program closure activities to celebrate student achievements, gather feedback, and maintain long-term institutional and student relationships.' },
+    { n:'02', icon:'presentation',    title:'Pre-Departure Orientation',                      desc:'Organized pre-departure orientation sessions covering academic systems, campus culture, immigration procedures, accommodation guidance, and student preparedness before arrival at Pacific Coast University.' },
+    { n:'03', icon:'book-open-check', title:'Academic Coordination & Credit Transfer',        desc:'Managed course mapping and credit transfer processes between Pacific Coast University and international partner institutions. Bridged communication between departments, academic coordinators, and students to ensure smooth academic recognition.' },
+    { n:'04', icon:'plane-landing',   title:'Arrival, Visa, Immigration & Accommodation',     desc:'Managed airport pick-up services, accommodation arrangements, visa documentation, immigration coordination, and arrival logistics to ensure students experienced a smooth transition into their host city.' },
+    { n:'05', icon:'users',           title:'Arrival Orientation & Student Integration',       desc:'Conducted orientation sessions introducing students to campus life, academic systems, local culture, safety information, and student support services to help them adapt quickly.' },
+    { n:'06', icon:'clipboard-check', title:'Semester Monitoring & Student Support',           desc:'Monitored academic progress and student well-being throughout the semester by coordinating continuously with departments, faculty, and students. Ensured issues were addressed efficiently and student experiences remained positive.' },
+    { n:'07', icon:'mountain',        title:'Cultural Trips & Immersive Experiences',          desc:'Planned and managed cultural immersion activities, local excursions, and intercultural experiences to help international students explore the region, build community, and strengthen cross-cultural engagement.' },
+    { n:'08', icon:'party-popper',    title:'Farewell Session & Program Closure',             desc:'Organized farewell sessions and program closure activities to celebrate student achievements, gather feedback, and maintain long-term institutional and alumni relationships.' },
   ];
 
   const stepsHtml = steps.map(s => `
@@ -602,29 +552,29 @@ function amertaInitPage() {
 
   el.innerHTML = `
    <div class="page-hero-banner relative overflow-hidden" style="padding:64px 0 48px">
-    <div class="absolute inset-0"><img loading="lazy" src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" style="width:100%;height:100%;object-fit:cover;object-position:center"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,58,95,0.88) 0%,rgba(45,90,138,0.82) 60%,rgba(74,107,138,0.77) 100%)"></div></div>
+    <div class="absolute inset-0"><img loading="lazy" src="https://picsum.photos/seed/nexus-hero/1200/500" alt="NEXUS Exchange Program" style="width:100%;height:100%;object-fit:cover;object-position:center"><div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,58,95,0.88) 0%,rgba(45,90,138,0.82) 60%,rgba(74,107,138,0.77) 100%)"></div></div>
     <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full" style="background:rgba(255,255,255,0.04)"></div>
     <div class="absolute right-24 bottom-8 w-48 h-48 rounded-full" style="border:2px solid rgba(255,255,255,0.06)"></div>
     <div class="absolute inset-0 flex items-center justify-end overflow-hidden pr-8 pointer-events-none select-none" aria-hidden="true">
-     <span class="font-heading font-bold" style="font-size:clamp(5rem,16vw,13rem);color:rgba(255,255,255,0.05);letter-spacing:-.04em;line-height:1">AMERTA</span>
+     <span class="font-heading font-bold" style="font-size:clamp(5rem,16vw,13rem);color:rgba(255,255,255,0.05);letter-spacing:-.04em;line-height:1">NEXUS</span>
     </div>
     <div class="relative z-10 max-w-6xl mx-auto px-6">
      <a href="/projects-overview" class="inline-flex items-center gap-2 mb-8 px-3.5 py-1.5 rounded-full text-sm font-medium" style="background:rgba(255,255,255,0.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,0.9);text-decoration:none;border:1px solid rgba(255,255,255,0.18)"><i data-lucide="chevron-left" style="width:14px;height:14px"></i> Back</a>
      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-5 uppercase tracking-wider" style="background:rgba(255,255,255,0.12);color:#fff">Project Management</span>
-     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="amerta_hero_title">AMERTA</h1>
-     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.75)" data-edit-key="amerta_hero_tagline">Airlangga Mobility, Exchange, Research &amp; Transfer Academic — Universitas Airlangga's flagship semester exchange, managed end-to-end across 4 batches.</p>
+     <h1 class="font-heading font-bold mb-3 text-white" style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-.02em" data-edit-key="amerta_hero_title">NEXUS Exchange Program</h1>
+     <p class="text-base max-w-2xl" style="color:rgba(255,255,255,0.75)" data-edit-key="amerta_hero_tagline">Northgate University's flagship international exchange, managed end-to-end across 3 batches — bringing students from 12 countries to Pacific Coast University.</p>
     </div>
    </div>
    <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-wrap gap-10 py-10" style="border-bottom:1px solid rgba(28,28,30,0.08)">
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">207</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Students (XXI–XXIV)</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">14</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Countries</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">24</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Partner Universities</div></div>
-     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">IDR 50–100M</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Budget / cohort</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">185</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Students (Batch 22–24)</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">12</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Countries</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">18</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Partner Universities</div></div>
+     <div><div class="font-heading font-bold text-4xl" style="color:#1C1C1E">$65K–$120K</div><div class="text-xs uppercase tracking-wider mt-1" style="color:#767676">Budget / cohort</div></div>
     </div>
    </div>
    <div class="max-w-6xl mx-auto px-6 py-14">
-    <p class="text-lg max-w-3xl leading-relaxed mb-14" style="color:#5C5C5C">As Project Manager of AMERTA at Airlangga Global Engagement, I oversaw the entire student mobility journey — from institutional outreach and student recruitment to academic coordination, cultural programming, and program closure across 4 cohorts with IDR 50–100M budgets per program.</p>
+    <p class="text-lg max-w-3xl leading-relaxed mb-14" style="color:#5C5C5C">As Project Manager of the NEXUS Exchange Program at Northgate University's Global Engagement Office, I oversaw the entire student mobility journey — from institutional outreach and student recruitment to academic coordination, cultural programming, and program closure across 3 cohorts with budgets of $65,000–$120,000 per program.</p>
     <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#4A6B8A">Program Process</span></div>
     <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">End-to-End Responsibilities</h2>
     <div class="mt-6">${stepsHtml}</div>
@@ -636,17 +586,17 @@ function amertaInitPage() {
       <span style="color:rgba(255,255,255,0.38);font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Photo Diary</span>
      </div>
      <h2 class="font-heading" style="font-weight:700;font-size:clamp(2rem,5vw,3rem);color:#fff;letter-spacing:-0.02em;margin:0 0 10px">Moments from the Exchange</h2>
-     <p style="color:rgba(255,255,255,0.32);font-size:0.875rem;margin:0">Four batches &middot; 207 students &middot; 14 countries &middot; 2024–2027</p>
+     <p style="color:rgba(255,255,255,0.32);font-size:0.875rem;margin:0">Three batches &middot; 185 students &middot; 12 countries &middot; 2022–2025</p>
     </div>
     <div id="amerta-gallery" style="display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;height:75vh;gap:3px">
      <div class="amerta-gs" style="grid-row:span 2;overflow:hidden;background:#111">
-      <img loading="lazy" class="amerta-gs-img" src="" alt="AMERTA moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="amerta-gs-img" src="" alt="NEXUS moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
      <div class="amerta-gs" style="overflow:hidden;background:#111">
-      <img loading="lazy" class="amerta-gs-img" src="" alt="AMERTA moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="amerta-gs-img" src="" alt="NEXUS moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
      <div class="amerta-gs" style="overflow:hidden;background:#111">
-      <img loading="lazy" class="amerta-gs-img" src="" alt="AMERTA moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
+      <img loading="lazy" class="amerta-gs-img" src="" alt="NEXUS moment" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease;display:block">
      </div>
     </div>
    </div>
@@ -654,13 +604,12 @@ function amertaInitPage() {
     <div class="max-w-6xl mx-auto px-6 py-16">
      <div class="flex items-center gap-3 mb-3"><span class="accent-line"></span><span class="text-sm font-semibold" style="color:#4A6B8A">Data &amp; Analytics</span></div>
      <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">Participant Statistics</h2>
-     <p class="text-sm mb-8" id="amerta-stats-subtitle" style="color:#5C5C5C">Data compiled from AMERTA XXI–XXIV across 207 participants, 14 nationalities, and 24 partner universities.</p>
+     <p class="text-sm mb-8" id="amerta-stats-subtitle" style="color:#5C5C5C">Data compiled from Batch 22–24 across 185 participants, 12 nationalities, and 18 partner universities.</p>
      <div class="flex flex-wrap gap-2 mb-8">
       <button class="amerta-batch-tab px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200" data-batch="all" style="cursor:pointer;background:#1E3A5F;color:#fff;border-color:#1E3A5F">All Batches</button>
-      <button class="amerta-batch-tab px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200" data-batch="21" style="cursor:pointer;color:#5C5C5C;border-color:rgba(28,28,30,0.2)">AMERTA XXI</button>
-      <button class="amerta-batch-tab px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200" data-batch="22" style="cursor:pointer;color:#5C5C5C;border-color:rgba(28,28,30,0.2)">AMERTA XXII</button>
-      <button class="amerta-batch-tab px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200" data-batch="23" style="cursor:pointer;color:#5C5C5C;border-color:rgba(28,28,30,0.2)">AMERTA XXIII</button>
-      <button class="amerta-batch-tab px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200" data-batch="24" style="cursor:pointer;color:#5C5C5C;border-color:rgba(28,28,30,0.2)">AMERTA XXIV</button>
+      <button class="amerta-batch-tab px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200" data-batch="22" style="cursor:pointer;color:#5C5C5C;border-color:rgba(28,28,30,0.2)">Batch 22</button>
+      <button class="amerta-batch-tab px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200" data-batch="23" style="cursor:pointer;color:#5C5C5C;border-color:rgba(28,28,30,0.2)">Batch 23</button>
+      <button class="amerta-batch-tab px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200" data-batch="24" style="cursor:pointer;color:#5C5C5C;border-color:rgba(28,28,30,0.2)">Batch 24</button>
      </div>
      <div id="amerta-stats-content"></div>
     </div>
@@ -682,7 +631,7 @@ function amertaRenderBatch(key) {
 
   const sub = document.getElementById('amerta-stats-subtitle');
   if (sub) sub.textContent = key === 'all'
-    ? 'Data compiled from AMERTA XXI–XXIV across 207 participants, 14 nationalities, and 24 partner universities.'
+    ? 'Data compiled from Batch 22–24 across 185 participants, 12 nationalities, and 18 partner universities.'
     : `${d.label} · ${d.period} · ${d.students} participants from ${d.countries} countries`;
 
   const el = document.getElementById('amerta-stats-content');

@@ -6,17 +6,17 @@ function homeInitPage() {
      <!-- ═══ iOS LOCK SCREEN HERO ═══ -->
      <div class="hero-editorial px-5" style="min-height:min(88vh,720px);padding-top:clamp(2.5rem,7vh,5rem);padding-bottom:clamp(2rem,5vh,4rem)">
       <!-- Slideshow background — decorative, hidden from assistive tech -->
-      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/aci/aci-4.JPEG')"></div>
-      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/aero/aero-1.jpg')"></div>
-      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/student-services/tailor-made/griffith-unair-3.JPEG')"></div>
-      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/student-services/tailor-made/ljmu-unair-2.JPEG')"></div>
-      <div class="hero-slide" aria-hidden="true" style="background-image:url('./assets/images/self-portrait/profile-15.JPG')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('https://picsum.photos/seed/campus-event-1/1200/800')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('https://picsum.photos/seed/students-global/1200/800')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('https://picsum.photos/seed/conference-intl/1200/800')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('https://picsum.photos/seed/study-abroad/1200/800')"></div>
+      <div class="hero-slide" aria-hidden="true" style="background-image:url('https://picsum.photos/seed/amr-team/1200/800')"></div>
       <div class="hero-slide-overlay" aria-hidden="true"></div>
       <!-- Background gradients — decorative, hidden from assistive tech -->
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="background:radial-gradient(ellipse at 70% 30%,rgba(139,115,85,0.09),transparent 55%),radial-gradient(ellipse at 10% 85%,rgba(74,107,138,0.05),transparent 50%)"></div>
       <!-- Giant watermark letter — decorative -->
       <div class="absolute right-0 top-0 h-full hidden lg:flex items-center pointer-events-none" aria-hidden="true" style="width:42%;overflow:hidden;max-width:min(42%,560px)">
-       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(16rem,22vw,30rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%);display:block;overflow:hidden">Z</span>
+       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(16rem,22vw,30rem);font-weight:800;font-style:italic;color:rgba(28,28,30,0.028);line-height:1;user-select:none;transform:translateY(-4%);display:block;overflow:hidden">A</span>
       </div>
       <!-- Geometric ring accents — decorative -->
       <div class="absolute hidden lg:block pointer-events-none" aria-hidden="true" style="right:15%;top:15%;width:220px;height:220px;border-radius:50%;border:1px solid rgba(139,115,85,0.11)"></div>
@@ -33,7 +33,7 @@ function homeInitPage() {
          </div>
          <!-- Photo -->
          <div style="position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:0 16px 48px rgba(10,132,255,0.22)">
-          <img src="./assets/images/self-portrait/profile-pic-1.png" alt="Zefanya Kharisma Nugroho" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+          <img src="https://picsum.photos/seed/amr-portrait/400/400" alt="Alex Morgan Rivera" style="width:100%;height:100%;object-fit:cover;object-position:center top">
          </div>
          <!-- Online indicator -->
          <div style="position:absolute;bottom:4px;right:4px;width:14px;height:14px;border-radius:50%;background:#34C759;border:2.5px solid var(--color-bg,#F2F2F7);z-index:2"></div>
@@ -46,16 +46,16 @@ function homeInitPage() {
         <div class="flex flex-wrap items-center gap-3 mb-10" style="animation:fadeUp .5s ease both">
          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full" style="background:rgba(255,255,255,0.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.3);box-shadow:0 2px 12px rgba(0,0,0,0.06)">
           <span style="width:6px;height:6px;border-radius:50%;background:#34C759;display:inline-block;box-shadow:0 0 0 3px rgba(52,199,89,0.2)"></span>
-          <span class="label-small" data-edit-key="home_hero_status">International Partnerships · Creative Technologist</span>
+          <span class="label-small" data-edit-key="home_hero_status">International Programs · Creative Technologist</span>
          </div>
-         <span class="label-small" data-edit-key="home_hero_location">· Surabaya, Indonesia</span>
+         <span class="label-small" data-edit-key="home_hero_location">· Portland, Oregon</span>
         </div>
 
         <!-- Name headline -->
         <h1 class="hero-large-text mb-6" style="animation:springIn .6s cubic-bezier(0.34,1.56,0.64,1) .08s both">
-         Zefanya<br>
-         <em style="color:#0A84FF;font-style:normal;background:linear-gradient(135deg,#0A84FF,#5AC8FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Kharisma</em><br>
-         Nugroho
+         Alex<br>
+         <em style="color:#0A84FF;font-style:normal;background:linear-gradient(135deg,#0A84FF,#5AC8FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Morgan</em><br>
+         Rivera
         </h1>
 
         <!-- Accent line -->
@@ -63,8 +63,8 @@ function homeInitPage() {
 
         <!-- Supporting statement -->
         <div class="max-w-md mb-10" style="animation:fadeUp .55s ease .18s both">
-         <p class="font-heading text-xl mb-2" style="color:#1C1C1E;line-height:1.4;font-weight:600" data-edit-key="home_hero_tagline_1">Bridging global engagement &amp; digital creativity.</p>
-         <p class="text-sm leading-relaxed" style="color:#8E8E93;font-family:'DM Sans',sans-serif" data-edit-key="home_hero_tagline_2">International Education · Creative Technologist · Surabaya</p>
+         <p class="font-heading text-xl mb-2" style="color:#1C1C1E;line-height:1.4;font-weight:600" data-edit-key="home_hero_tagline_1">Bridging global learning &amp; digital creativity.</p>
+         <p class="text-sm leading-relaxed" style="color:#8E8E93;font-family:'DM Sans',sans-serif" data-edit-key="home_hero_tagline_2">International Programs · Creative Technologist · Portland</p>
         </div>
 
         <!-- CTAs -->
@@ -94,19 +94,19 @@ function homeInitPage() {
       <div class="max-w-6xl mx-auto">
        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_1">480+</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_1">520+</p>
          <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_1">Students Supported</p>
         </div>
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#0A84FF;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_2">505+</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#0A84FF;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_2">38+</p>
          <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_2">Global Partners</p>
         </div>
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_3">3+</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_3">4+</p>
          <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_3">Years Experience</p>
         </div>
         <div class="text-center">
-         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_4">5</p>
+         <p class="font-heading font-bold" style="font-size:2.6rem;color:#fff;letter-spacing:-.02em;line-height:1" data-edit-key="home_stats_number_4">6</p>
          <p class="label-small mt-2" style="color:rgba(255,255,255,0.55)" data-edit-key="home_stats_label_4">Programs Led</p>
         </div>
        </div>
@@ -132,7 +132,7 @@ function homeInitPage() {
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
         <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">MoU / MoA</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Surabaya, Indonesia</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Portland, Oregon</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
        </div>
        <div style="display:flex;align-items:center;white-space:nowrap" aria-hidden="true">
@@ -150,7 +150,7 @@ function homeInitPage() {
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
         <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">MoU / MoA</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
-        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Surabaya, Indonesia</span>
+        <span style="padding:0 28px;color:#767676;font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase">Portland, Oregon</span>
         <span style="color:rgba(28,28,30,0.18);font-size:.8rem">·</span>
        </div>
       </div>
@@ -169,7 +169,7 @@ function homeInitPage() {
        <!-- Top row: large + small -->
        <div class="grid lg:grid-cols-3 gap-4 mb-4">
         <a href="/amerta" class="home-work-card lg:col-span-2 group relative overflow-hidden rounded-2xl block" style="padding:44px;min-height:260px;text-decoration:none;color:inherit">
-         <img src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA exchange students at Griffith University" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         <img src="https://picsum.photos/seed/nexus-hero/1200/600" alt="NEXUS exchange students at Pacific Coast University" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
          <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(30,58,95,0.88),rgba(74,107,138,0.72))"></div>
          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 90% 10%,rgba(139,115,85,0.18),transparent 50%)"></div>
          <div class="relative z-10 h-full flex flex-col justify-between">
@@ -178,14 +178,14 @@ function homeInitPage() {
            <span class="home-work-arrow" style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;transition:background .2s"><i data-lucide="arrow-up-right" style="width:16px;height:16px;color:#fff"></i></span>
           </div>
           <div>
-           <h3 class="font-heading font-bold text-2xl mb-2" style="color:#fff;letter-spacing:-.01em;line-height:1.2">AMERTA Exchange<br>Program</h3>
-           <p class="text-sm" style="color:rgba(255,255,255,0.75)">120+ students · IDR 50–100M per cohort · Universitas Airlangga</p>
+           <h3 class="font-heading font-bold text-2xl mb-2" style="color:#fff;letter-spacing:-.01em;line-height:1.2">NEXUS Exchange<br>Program</h3>
+           <p class="text-sm" style="color:rgba(255,255,255,0.75)">185+ students · $120K per cohort · Pacific Coast University</p>
           </div>
          </div>
         </a>
         <a href="/croissantsmoon/web-pcu-global-intl" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:var(--color-surface,rgba(255,255,255,0.72));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.28);min-height:260px;text-decoration:none;color:inherit">
          <div style="position:relative;overflow:hidden;height:160px;background:#0a0a14;flex-shrink:0">
-          <iframe src="https://international-office-website.vercel.app/" style="position:absolute;top:0;left:0;width:300%;height:480px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none" loading="lazy" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="PCU Global International Office Website preview"></iframe>
+          <iframe src="https://international-office-website.vercel.app/" style="position:absolute;top:0;left:0;width:300%;height:480px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none" loading="lazy" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="NGU Global International Office Website preview"></iframe>
           <div style="position:absolute;top:0;left:0;right:0;z-index:2;background:rgba(0,0,0,0.58);padding:9px 14px;display:flex;align-items:center;gap:8px">
            <div style="display:flex;gap:5px;flex-shrink:0">
             <span style="width:10px;height:10px;border-radius:50%;background:#FF5F57;display:inline-block"></span>
@@ -202,7 +202,7 @@ function homeInitPage() {
           </div>
           <div>
            <div style="width:36px;height:3px;background:#003087;border-radius:2px;margin-bottom:16px"></div>
-           <h3 class="font-heading font-bold text-xl mb-2" style="color:#1C1C1E;letter-spacing:-.01em;line-height:1.2">PCU Global<br>Website</h3>
+           <h3 class="font-heading font-bold text-xl mb-2" style="color:#1C1C1E;letter-spacing:-.01em;line-height:1.2">NGU Global<br>Website</h3>
            <p class="text-sm" style="color:#767676">Full-stack · CMS · Mobile-first</p>
           </div>
          </div>
@@ -211,23 +211,23 @@ function homeInitPage() {
        <!-- Bottom row: three equal -->
        <div class="grid sm:grid-cols-3 gap-4">
         <a href="/aci" class="home-work-card group relative overflow-hidden rounded-2xl block" style="min-height:160px;text-decoration:none;color:inherit">
-         <img src="assets/images/aci/aci-4.JPEG" alt="ACI cultural immersion program" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         <img src="https://picsum.photos/seed/connect-hero/600/400" alt="CONNECT Cultural Immersion Program" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(74,82,53,0.92) 0%,rgba(74,82,53,0.45) 100%)"></div>
          <div class="relative z-10 h-full flex flex-col justify-between p-7">
           <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.7)">Cultural Program</span>
           <div>
-           <h3 class="font-heading font-semibold text-base leading-snug mb-2" style="color:#fff">ACI — Airlangga<br>Cultural Immersion</h3>
+           <h3 class="font-heading font-semibold text-base leading-snug mb-2" style="color:#fff">CONNECT — Cultural<br>Immersion Program</h3>
            <div class="flex items-center gap-2 text-xs font-medium" style="color:rgba(255,255,255,0.85)">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
           </div>
          </div>
         </a>
         <a href="/aero" class="home-work-card group relative overflow-hidden rounded-2xl block" style="min-height:160px;text-decoration:none;color:inherit">
-         <img src="assets/images/aero/aero-header-1.JPEG" alt="AERO exhibition at Universitas Airlangga" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 30%">
+         <img src="https://picsum.photos/seed/horizon-expo/600/400" alt="HORIZON International Showcase" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 30%">
          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(28,28,30,0.92) 0%,rgba(28,28,30,0.45) 100%)"></div>
          <div class="relative z-10 h-full flex flex-col justify-between p-7">
           <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.7)">Exhibition</span>
           <div>
-           <h3 class="font-heading font-semibold text-base leading-snug mb-2" style="color:#fff">AERO Exhibition</h3>
+           <h3 class="font-heading font-semibold text-base leading-snug mb-2" style="color:#fff">HORIZON International Showcase</h3>
            <div class="flex items-center gap-2 text-xs font-medium" style="color:rgba(255,255,255,0.85)">View <i data-lucide="arrow-right" style="width:12px;height:12px"></i></div>
           </div>
          </div>
@@ -318,7 +318,7 @@ function homeInitPage() {
           <span class="label-small block mb-1.5" style="color:#767676">Global Partnerships</span>
           <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">International Partnership Management</h3>
          </div>
-         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Managing 30+ institutional partners and reviewing 25+ MoU/MoA agreements monthly</p>
+         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Managing 38+ institutional partners and reviewing 30+ MoU/MoA agreements monthly</p>
          <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#0A84FF;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
         </a>
         <a href="/onboarding" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
@@ -327,7 +327,7 @@ function homeInitPage() {
           <span class="label-small block mb-1.5" style="color:#767676">Student Services</span>
           <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">International Student Support</h3>
          </div>
-         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">End-to-end welfare, mobility, and onboarding for 200+ international students across Surabaya</p>
+         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">End-to-end welfare, mobility, and onboarding for 185+ international students across Portland</p>
          <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#4A6B8A;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
         </a>
         <a href="/projects-overview" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
@@ -336,7 +336,7 @@ function homeInitPage() {
           <span class="label-small block mb-1.5" style="color:#767676">Program Management</span>
           <h3 class="font-heading font-semibold text-lg leading-snug" style="color:#1C1C1E">Exchange Program Management</h3>
          </div>
-         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">5 end-to-end exchange programs — AMERTA, ACI, AERO — with IDR 50–90M per-program budgets</p>
+         <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">6 end-to-end exchange programs — NEXUS, CONNECT, HORIZON — with $65K–$120K per-program budgets</p>
          <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#6B4F32;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
         </a>
         <a href="/croissantsmoon" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);border-bottom:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
@@ -362,7 +362,7 @@ function homeInitPage() {
       <div class="max-w-3xl mx-auto text-center relative z-10">
        <p class="font-editorial text-base mb-5" style="color:#0A84FF" data-edit-key="home_contact_eyebrow">Let's build something meaningful</p>
        <h2 class="font-heading font-bold mb-4" style="font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;letter-spacing:-.02em;line-height:1.05" data-edit-key="home_contact_title">Open to<br><em style="font-style:italic;color:#0A84FF">Conversations</em></h2>
-       <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7" data-edit-key="home_contact_body">Partnerships, collaborations, education projects, or creative work — I'm always open to a good conversation.</p>
+       <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7" data-edit-key="home_contact_body">Partnerships, collaborations, education projects, or creative work — always open to a great conversation.</p>
        <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a id="home-cv-download" href="./assets/data/profile.pdf" download class="btn-cv-download font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2"><i data-lucide="download" style="width:15px;height:15px"></i> <span class="cv-btn-label">Download CV</span><span class="sr-only" aria-live="polite" id="cv-download-status"></span></a>
         <a href="/contact" class="btn-contact-outline font-medium text-sm px-8 py-4 rounded-full inline-flex items-center gap-2"><i data-lucide="mail" style="width:15px;height:15px"></i> Contact Me</a>
