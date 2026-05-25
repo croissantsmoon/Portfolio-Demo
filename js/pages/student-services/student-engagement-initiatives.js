@@ -167,6 +167,7 @@ function engagementInitPage() {
         <button onclick="goToPage('engagement-detail')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Student Engagement</button>
         <button onclick="goToPage('partnerships')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Partnerships</button>
         <button onclick="goToPage('mou')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">MoU / MoA</button>
+        <button onclick="goToPage('intl-grants')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:12px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent'">Intl. Grants</button>
        </div>
       </div>
      </div>
@@ -174,8 +175,8 @@ function engagementInitPage() {
      <div style="padding:72px 24px;background:#FAFAF8">
       <div class="max-w-6xl mx-auto">
        <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">Areas of Work</span></div>
-       <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Four Pillars of International Education</h2>
-       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">From welcoming students at the airport to formalizing global partnerships — each area represents a critical dimension of international education management.</p>
+       <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Five Pillars of International Education</h2>
+       <p class="text-base max-w-3xl mb-10" style="color:#5C5C5C">From welcoming students at the airport to formalizing global partnerships and building grant systems — each area represents a critical dimension of international education management.</p>
        <div class="grid md:grid-cols-2 gap-6">
         <!-- ISS Card -->
         <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="goToPage('onboarding')" style="border:1px solid rgba(28,28,30,0.08)">
@@ -247,6 +248,24 @@ function engagementInitPage() {
            <span class="tag">Monitoring</span>
           </div>
           <div class="flex items-center gap-1.5" style="color:#7C3AED"><span class="text-xs font-semibold">View Portfolio</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
+         </div>
+        </div>
+        <!-- International Grants Card -->
+        <div class="card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer" onclick="goToPage('intl-grants')" style="border:1px solid rgba(28,28,30,0.08)">
+         <div class="p-6 relative overflow-hidden" style="background:linear-gradient(135deg,#064E3B,#D97706)">
+          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,0.08),transparent 60%)"></div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative z-10" style="background:rgba(255,255,255,0.12)"><i data-lucide="award" style="width:24px;height:24px;color:#fff"></i></div>
+          <h3 class="font-heading font-bold text-xl mb-2 relative z-10" style="color:#fff">International Grants</h3>
+          <p class="text-sm relative z-10" style="color:rgba(255,255,255,0.7)">Building a system to inform, maintain, and execute international grants at PCU — digitally and physically.</p>
+         </div>
+         <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-4">
+           <span class="tag">In Development</span>
+           <span class="tag">Grant Dashboard</span>
+           <span class="tag">PCU</span>
+           <span class="tag">Digital + Physical</span>
+          </div>
+          <div class="flex items-center gap-1.5" style="color:#D97706"><span class="text-xs font-semibold">View System</span><i data-lucide="arrow-right" style="width:13px;height:13px"></i></div>
          </div>
         </div>
        </div>

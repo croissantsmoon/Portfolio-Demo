@@ -65,6 +65,69 @@ function mouInitPage() {
        </div>
       </div>
      </div>
+     <!-- Partnership Dashboard Integration -->
+     <div style="padding:64px 24px;background:#fff;border-top:1px solid rgba(28,28,30,0.07)">
+      <div class="max-w-6xl mx-auto">
+       <div class="flex items-center gap-3 mb-10"><span class="accent-line"></span><span class="label-small">System Integration</span></div>
+       <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+         <h2 class="font-heading font-bold text-3xl mb-4" style="color:#1C1C1E">Managed Through the Partnership Dashboard</h2>
+         <p class="text-base mb-6" style="color:#5C5C5C;line-height:1.75">Every agreement — from first draft to final signature — is tracked and executed through an integrated, self-built Partnership Dashboard. Rather than managing documents across disconnected spreadsheets and email threads, the entire lifecycle is centralised in one system I designed and built specifically for PCU's international office workflow.</p>
+         <p class="text-base mb-8" style="color:#5C5C5C;line-height:1.75">The dashboard covers the full 8-stage agreement workflow: <strong style="color:#1C1C1E">Drafting → Internal Review → Legal Review → Partner Review → Waiting Signature → Signed → Completed → Archived</strong>. Each stage is tracked with progress indicators and status history, so nothing slips through the cracks — and every stakeholder knows exactly where an agreement stands at any moment.</p>
+         <div class="flex flex-wrap gap-3 mb-8">
+          <span class="tag">Drafting Tracking</span>
+          <span class="tag">8-Stage Workflow</span>
+          <span class="tag">Expiry Alerts</span>
+          <span class="tag">Public Archive</span>
+          <span class="tag">Role-Based Access</span>
+          <span class="tag">Executive Analytics</span>
+         </div>
+         <button onclick="goToPage('web-dashboard-partnership')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all" style="background:#1E3A5F;color:#fff;border:none;cursor:pointer" onmouseover="this.style.background='#2C4A72'" onmouseout="this.style.background='#1E3A5F'">
+          <i data-lucide="layout-dashboard" style="width:15px;height:15px"></i>
+          View Partnership Dashboard
+         </button>
+        </div>
+        <div class="grid gap-4">
+         <div class="card p-5 rounded-2xl" style="border:1px solid rgba(28,28,30,0.08)">
+          <div class="flex items-start gap-4">
+           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(30,58,95,0.08)"><i data-lucide="workflow" style="width:18px;height:18px;color:#1E3A5F"></i></div>
+           <div>
+            <h4 class="font-heading font-semibold mb-1" style="color:#1C1C1E">End-to-End Document Pipeline</h4>
+            <p class="text-sm leading-relaxed" style="color:#5C5C5C">From first draft to archived signed copy — every document stage is logged, timestamped, and visible to authorised staff across all four admin roles.</p>
+           </div>
+          </div>
+         </div>
+         <div class="card p-5 rounded-2xl" style="border:1px solid rgba(28,28,30,0.08)">
+          <div class="flex items-start gap-4">
+           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(5,150,105,0.08)"><i data-lucide="archive" style="width:18px;height:18px;color:#059669"></i></div>
+           <div>
+            <h4 class="font-heading font-semibold mb-1" style="color:#1C1C1E">Public Agreement Archive</h4>
+            <p class="text-sm leading-relaxed" style="color:#5C5C5C">Signed and active agreements are auto-archived into a searchable public library — with advanced filter and CSV export, no sign-in required for read access.</p>
+           </div>
+          </div>
+         </div>
+         <div class="card p-5 rounded-2xl" style="border:1px solid rgba(28,28,30,0.08)">
+          <div class="flex items-start gap-4">
+           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,115,85,0.08)"><i data-lucide="bell" style="width:18px;height:18px;color:#8B7355"></i></div>
+           <div>
+            <h4 class="font-heading font-semibold mb-1" style="color:#1C1C1E">Expiry &amp; Renewal Tracking</h4>
+            <p class="text-sm leading-relaxed" style="color:#5C5C5C">Colour-coded status badges surface agreements nearing expiry before they lapse — ensuring renewals are initiated on time, every time.</p>
+           </div>
+          </div>
+         </div>
+         <div class="card p-5 rounded-2xl" style="border:1px solid rgba(28,28,30,0.08)">
+          <div class="flex items-start gap-4">
+           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(124,58,237,0.08)"><i data-lucide="pie-chart" style="width:18px;height:18px;color:#7C3AED"></i></div>
+           <div>
+            <h4 class="font-heading font-semibold mb-1" style="color:#1C1C1E">Executive Analytics</h4>
+            <p class="text-sm leading-relaxed" style="color:#5C5C5C">Status distribution, agreements by department, monthly activity trends, and expiration timelines — all rendered live and filterable for leadership reporting.</p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
     `;
   if (window.lucide) lucide.createIcons();
 
