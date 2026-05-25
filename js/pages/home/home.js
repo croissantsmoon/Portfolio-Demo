@@ -183,7 +183,7 @@ function homeInitPage() {
           </div>
          </div>
         </a>
-        <a href="/web-pcu-global-intl" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:var(--color-surface,rgba(255,255,255,0.72));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.28);min-height:260px;text-decoration:none;color:inherit">
+        <a href="/croissantsmoon/web-pcu-global-intl" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:var(--color-surface,rgba(255,255,255,0.72));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.28);min-height:260px;text-decoration:none;color:inherit">
          <div style="position:relative;overflow:hidden;height:160px;background:#0a0a14;flex-shrink:0">
           <iframe src="https://international-office-website.vercel.app/" style="position:absolute;top:0;left:0;width:300%;height:480px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none" loading="lazy" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="PCU Global International Office Website preview"></iframe>
           <div style="position:absolute;top:0;left:0;right:0;z-index:2;background:rgba(0,0,0,0.58);padding:9px 14px;display:flex;align-items:center;gap:8px">

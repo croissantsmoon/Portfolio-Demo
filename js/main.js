@@ -112,7 +112,7 @@ function renderDiscoveryResults(skills, textQuery) {
   // UX FIX: result cards converted to <a> links for proper routing and right-click support
   grid.innerHTML = matches.map(function(item) {
     var matchedSkills = item.skills.filter(function(s) { return skills.includes(s); });
-    return '<a href="' + BASE_PATH + '/' + item.page + '" class="result-card p-7 text-left w-full" style="border-left:3px solid ' + item.accent + ';display:block;text-decoration:none">' +
+    return '<a href="' + BASE_PATH + _pageIdToPath(item.page) + '" class="result-card p-7 text-left w-full" style="border-left:3px solid ' + item.accent + ';display:block;text-decoration:none">' +
       '<div style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:' + item.accent + ';margin-bottom:10px">' + item.category + '</div>' +
       '<h3 class="font-heading font-semibold text-base mb-3 leading-snug" style="color:#1C1C1E">' + item.title + '</h3>' +
       '<p class="text-xs leading-relaxed mb-4" style="color:#5C5C5C">' + item.description + '</p>' +
@@ -221,7 +221,7 @@ function onEcosystemSearchInput(value) {
   if (!results.length) { dropdown.style.display = 'none'; return; }
 
   dropdown.innerHTML = results.map(function(r) {
-    return '<a href="' + BASE_PATH + '/' + r.page + '" class="search-dropdown-item">' +
+    return '<a href="' + BASE_PATH + _pageIdToPath(r.page) + '" class="search-dropdown-item">' +
       '<span class="search-dropdown-dot" style="background:' + r.accent + '"></span>' +
       '<div style="flex:1">' +
       '<div class="search-dropdown-title">' + r.title + '</div>' +
@@ -352,6 +352,14 @@ const defaultConfig = {
 
 const BASE_PATH = '';
 
+const CM_PAGES = new Set(['websites', 'designs', 'writing', 'web-portfolio', 'web-pcu-global-intl', 'web-dashboard-partnership', 'web-dashboard-grants']);
+
+function _pageIdToPath(pageId) {
+  if (pageId === 'home') return '/';
+  if (CM_PAGES.has(pageId)) return '/croissantsmoon/' + pageId;
+  return '/' + pageId;
+}
+
 // UX FIX: page metadata for dynamic titles and meta descriptions
 const pageMetadata = {
   'home':               { title: 'Zefanya Kharisma Nugroho',                              description: 'International Education Professional & Creative Technologist based in Surabaya.' },
@@ -426,17 +434,17 @@ function _renderPage(pageId) {
   const canonicalEl = document.querySelector('link[rel="canonical"]');
   if (canonicalEl) {
     const base = 'https://zefanyakharisma.com';
-    canonicalEl.setAttribute('href', pageId === 'home' ? base + '/' : base + '/' + pageId);
+    canonicalEl.setAttribute('href', base + _pageIdToPath(pageId));
   }
 
   _updateNavActiveState(pageId);
   return pageId;
 }
 
-// Path-based routing — updates URL to /pageId for Google indexing
+// Path-based routing — updates URL to /pageId (or /croissantsmoon/pageId) for Google indexing
 function goToPage(pageId) {
   const resolved = _renderPage(pageId);
-  const newPath = BASE_PATH + (resolved === 'home' ? '/' : '/' + resolved);
+  const newPath = BASE_PATH + _pageIdToPath(resolved);
   if (location.pathname !== newPath) {
     history.pushState({ page: resolved }, '', newPath);
   }
@@ -512,22 +520,31 @@ function _updateNavActiveState(pageId) {
   }
 }
 
+function _resolvePathToPageId(rawPath) {
+  if (!rawPath || rawPath === '') return 'home';
+  if (rawPath.startsWith('croissantsmoon/')) {
+    return rawPath.slice('croissantsmoon/'.length) || 'croissantsmoon';
+  }
+  return rawPath;
+}
+
 // Path-based navigation — reads clean URL path and handles ?p= redirect from 404.html
 function _navigateFromPath() {
   // Handle ?p= redirect injected by 404.html for GitHub Pages SPA routing
   const params = new URLSearchParams(location.search);
   const p = params.get('p');
   if (p) {
-    const pageId = decodeURIComponent(p).replace(/^\//, '') || 'home';
+    const rawPath = decodeURIComponent(p).replace(/^\//, '');
+    const pageId = _resolvePathToPageId(rawPath);
     params.delete('p');
     const qs = params.toString();
-    history.replaceState(null, null, BASE_PATH + '/' + (pageId === 'home' ? '' : pageId) + (qs ? '?' + qs : ''));
+    history.replaceState(null, null, BASE_PATH + _pageIdToPath(pageId) + (qs ? '?' + qs : ''));
     _renderPage(pageId);
     return;
   }
   // Read page from clean pathname
   const raw = location.pathname.slice(BASE_PATH.length).replace(/^\//, '');
-  const pageId = raw || 'home';
+  const pageId = _resolvePathToPageId(raw);
   // Backward compat: legacy bookmarked hash URLs like /#/about-overview
   if (pageId === 'home' && location.hash.startsWith('#/')) {
     const hashPage = location.hash.slice(2) || 'home';
@@ -936,7 +953,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!href) return;
     if (href === BASE_PATH || href === BASE_PATH + '/' || href.startsWith(BASE_PATH + '/')) {
       e.preventDefault();
-      const pageId = href.slice(BASE_PATH.length).replace(/^\//, '') || 'home';
+      const rawId = href.slice(BASE_PATH.length).replace(/^\//, '') || 'home';
+      const pageId = _resolvePathToPageId(rawId);
       goToPage(pageId);
     }
   }, true);
