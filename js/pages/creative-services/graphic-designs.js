@@ -1,24 +1,26 @@
-// ── Graphic Designs — Editorial Visual Portfolio ──────────────────────────────
+// ── Graphic Designs — Celestial Visual Portfolio ──────────────────────────────
+// Shares the CroissantsMoon celestial design language (CM constants are loaded
+// after this file but available at runtime via DOMContentLoaded).
 
 function gdInjectFonts() {
   if (document.querySelector('[data-gd-fonts]')) return;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap';
+  link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap';
   link.setAttribute('data-gd-fonts', '1');
   document.head.appendChild(link);
 }
 
-const GD = {
-  yellow:   '#F5D05E',
-  blue:     '#7BC8F6',
-  orange:   '#F4874B',
-  coral:    '#FF6B6B',
+// ── Project-specific accent colors (used as subtle tints) ─────────────────────
+const GD_ACCENTS = {
   lavender: '#C4B5FD',
-  cream:    '#FFFBF5',
+  yellow:   '#F5D05E',
+  pink:     '#FDA4AF',
+  blue:     '#7BC8F6',
   mint:     '#6EE7B7',
   peach:    '#FDBA8C',
-  pink:     '#FDA4AF',
+  coral:    '#FF6B6B',
+  orange:   '#F4874B',
   purple:   '#A78BFA',
 };
 
@@ -27,7 +29,6 @@ let gdCurrentView    = 'gallery';
 let gdCurrentProject = null;
 
 const GD_PROJECTS = [
-  // ── PCU Projects first ──────────────────────────────────────────────────────
   {
     id: 'pcu-partnership-booklet',
     title: 'PCU Partnership Booklet',
@@ -36,8 +37,8 @@ const GD_PROJECTS = [
     year: '2024–2025',
     categories: ['institutional', 'partnership'],
     emoji: '◈',
-    bg: GD.lavender,
-    textColor: '#5B21B6',
+    accent: GD_ACCENTS.lavender,
+    textAccent: '#C4B5FD',
     folder: 'partnership-booklet-pcu',
     pages: 35,
     skills: ['Graphic Design', 'Branding', 'Editorial Layout', 'International Education'],
@@ -62,8 +63,8 @@ const GD_PROJECTS = [
     year: '2024–2025',
     categories: ['guidebook', 'student'],
     emoji: '🌐',
-    bg: GD.yellow,
-    textColor: '#854D0E',
+    accent: GD_ACCENTS.yellow,
+    textAccent: '#F5D05E',
     folder: 'international-students-guidebook-pcu',
     pages: 30,
     skills: ['Graphic Design', 'Information Architecture', 'Communication Design', 'International Education'],
@@ -88,8 +89,8 @@ const GD_PROJECTS = [
     year: '2024–2025',
     categories: ['presentation', 'partnership'],
     emoji: '◉',
-    bg: GD.pink,
-    textColor: '#9F1239',
+    accent: GD_ACCENTS.pink,
+    textAccent: '#FDA4AF',
     folder: 'general-ppt-pcu',
     pages: 35,
     skills: ['Presentation Design', 'Branding', 'Typography', 'Communication Design'],
@@ -106,7 +107,6 @@ const GD_PROJECTS = [
     ],
     link: 'https://canva.link/jat6f7jcsawdmnu',
   },
-  // ── Universitas Airlangga Projects ──────────────────────────────────────────
   {
     id: 'aci-b2-2025',
     title: 'ACI 2025 Batch 2 Guidebook',
@@ -115,8 +115,8 @@ const GD_PROJECTS = [
     year: '2025',
     categories: ['guidebook', 'student'],
     emoji: '📖',
-    bg: GD.blue,
-    textColor: '#0369A1',
+    accent: GD_ACCENTS.blue,
+    textAccent: '#7BC8F6',
     folder: 'booklet-aci-2025-b2-unair',
     pages: 7,
     skills: ['Graphic Design', 'Editorial Layout', 'Information Architecture', 'Communication Design'],
@@ -141,8 +141,8 @@ const GD_PROJECTS = [
     year: '2025',
     categories: ['guidebook', 'student'],
     emoji: '🌿',
-    bg: GD.mint,
-    textColor: '#065F46',
+    accent: GD_ACCENTS.mint,
+    textAccent: '#6EE7B7',
     folder: 'guidebook-aci-2025-b1-unair',
     pages: 15,
     skills: ['Graphic Design', 'Editorial Layout', 'Information Architecture', 'Communication Design'],
@@ -167,8 +167,8 @@ const GD_PROJECTS = [
     year: '2025',
     categories: ['institutional', 'partnership'],
     emoji: '✦',
-    bg: GD.peach,
-    textColor: '#9A3412',
+    accent: GD_ACCENTS.peach,
+    textAccent: '#FDBA8C',
     folder: 'guidebook-staffordshire-unair',
     pages: 15,
     skills: ['Graphic Design', 'Editorial Layout', 'Branding', 'International Education'],
@@ -193,8 +193,8 @@ const GD_PROJECTS = [
     year: '2025',
     categories: ['presentation', 'partnership'],
     emoji: '✈',
-    bg: GD.coral,
-    textColor: '#9F1239',
+    accent: GD_ACCENTS.coral,
+    textAccent: '#FF6B6B',
     folder: 'aero-2025-unair',
     pages: 13,
     skills: ['Presentation Design', 'Branding', 'Communication Design', 'Typography'],
@@ -219,8 +219,8 @@ const GD_PROJECTS = [
     year: '2024–2025',
     categories: ['guidebook', 'student'],
     emoji: '🏠',
-    bg: GD.orange,
-    textColor: '#7C2D12',
+    accent: GD_ACCENTS.orange,
+    textAccent: '#F4874B',
     folder: 'accommodation-guidebook-unair',
     pages: 28,
     skills: ['Graphic Design', 'Information Architecture', 'Communication Design', 'International Education'],
@@ -245,8 +245,8 @@ const GD_PROJECTS = [
     year: '2024–2025',
     categories: ['guidebook', 'student'],
     emoji: '⬡',
-    bg: GD.purple,
-    textColor: '#4C1D95',
+    accent: GD_ACCENTS.purple,
+    textAccent: '#A78BFA',
     folder: 'international-students-guidebook-unair',
     pages: 32,
     skills: ['Graphic Design', 'Editorial Layout', 'Information Architecture', 'Communication Design'],
@@ -266,258 +266,294 @@ const GD_PROJECTS = [
 ];
 
 const GD_FILTER_CATEGORIES = [
-  { id: 'all',           label: 'All Work',              color: '#1C1C1E'    },
-  { id: 'guidebook',     label: 'Guidebooks',             color: GD.blue      },
-  { id: 'presentation',  label: 'Presentations',          color: GD.coral     },
-  { id: 'partnership',   label: 'Partnership Materials',  color: GD.lavender  },
-  { id: 'student',       label: 'Student Communication',  color: GD.mint      },
-  { id: 'institutional', label: 'Institutional Branding', color: GD.peach     },
-];
-
-const GD_STICKERS = [
-  { text: '✦ visual',    bg: GD.yellow,   rotate: '-8deg',  x: '6%',  y: '10%' },
-  { text: 'design',      bg: GD.pink,     rotate: '5deg',   x: '56%', y: '8%'  },
-  { text: '◎ layout',   bg: GD.mint,     rotate: '-3deg',  x: '26%', y: '56%' },
-  { text: 'editorial',   bg: GD.blue,     rotate: '10deg',  x: '70%', y: '42%' },
-  { text: '✺ color',    bg: GD.lavender, rotate: '-6deg',  x: '4%',  y: '66%' },
-  { text: 'type',        bg: GD.peach,    rotate: '4deg',   x: '46%', y: '70%' },
-  { text: '⬡ branding', bg: GD.coral,    rotate: '-12deg', x: '76%', y: '16%' },
-  { text: 'story',       bg: GD.purple,   rotate: '7deg',   x: '16%', y: '26%' },
+  { id: 'all',           label: 'All Work'              },
+  { id: 'guidebook',     label: 'Guidebooks'            },
+  { id: 'presentation',  label: 'Presentations'         },
+  { id: 'partnership',   label: 'Partnership Materials' },
+  { id: 'student',       label: 'Student Communication' },
+  { id: 'institutional', label: 'Institutional Branding'},
 ];
 
 const GD_INSPO = [
-  { text: 'Swiss typography',       color: GD.yellow   },
-  { text: 'Editorial grids',        color: GD.blue     },
-  { text: 'Color theory',           color: GD.pink     },
-  { text: 'Indonesian culture',     color: GD.lavender },
-  { text: 'Travel design',          color: GD.mint     },
-  { text: 'Institutional print',    color: GD.peach    },
-  { text: 'Infographic systems',    color: GD.coral    },
-  { text: 'Human-centered design',  color: GD.purple   },
-  { text: 'Educational publishing', color: GD.blue     },
-  { text: 'Wayfinding design',      color: GD.yellow   },
-  { text: 'Museum publications',    color: GD.pink     },
-  { text: 'Global visual culture',  color: GD.mint     },
+  'Swiss typography', 'Editorial grids', 'Color theory',
+  'Indonesian culture', 'Travel design', 'Institutional print',
+  'Infographic systems', 'Human-centered design',
+  'Educational publishing', 'Wayfinding design',
+  'Museum publications', 'Global visual culture',
 ];
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+// ── CSS ───────────────────────────────────────────────────────────────────────
 
-function gdIsLight(color) {
-  return [GD.yellow, GD.mint, GD.peach, GD.blue].includes(color);
+function gdInjectCSS() {
+  if (document.getElementById('gd-page-css')) return;
+  const s = document.createElement('style');
+  s.id = 'gd-page-css';
+  s.textContent = `
+    .gd-card-hover {
+      transition: transform .32s cubic-bezier(0.34,1.56,0.64,1), box-shadow .32s ease;
+    }
+    .gd-card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(7,17,38,0.55), 0 0 0 1px rgba(111,168,255,0.22) !important;
+    }
+    .gd-img-hover { transition: transform .45s ease; }
+    .gd-img-hover:hover { transform: scale(1.05); }
+    .gd-overlay-card:hover .gd-cover-overlay { opacity: 1 !important; }
+    .gd-overlay-card:hover .gd-cover-img { transform: scale(1.06) !important; }
+
+    .gd-filter-tab {
+      font-family: 'Outfit', sans-serif; font-size: .76rem; font-weight: 500;
+      padding: 7px 18px; border-radius: 999px; cursor: pointer; letter-spacing: .02em;
+      transition: background .2s, color .2s, border-color .2s, box-shadow .2s;
+      border: 1px solid rgba(111,168,255,0.2); background: transparent; color: #8FA8D6;
+      white-space: nowrap;
+    }
+    .gd-filter-tab.gd-active {
+      background: #D4B15A; color: #071126; border-color: #D4B15A;
+      box-shadow: 0 0 14px rgba(212,177,90,0.3);
+    }
+
+    .gd-reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease-out, transform .65s ease-out; }
+    .gd-visible { opacity: 1 !important; transform: none !important; }
+  `;
+  document.head.appendChild(s);
 }
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 function gdCatCount(catId) {
   if (catId === 'all') return GD_PROJECTS.length;
   return GD_PROJECTS.filter(p => p.categories.includes(catId)).length;
 }
 
-function gdCatBadge(catId, small) {
-  const cat = GD_FILTER_CATEGORIES.find(f => f.id === catId);
-  if (!cat) return '';
-  const tc = gdIsLight(cat.color) ? '#1C1C1E' : cat.color;
-  const pad = small ? '2px 9px' : '3px 11px';
-  const fs  = small ? '.58rem' : '.63rem';
-  return `<span style="background:${cat.color}22;color:${tc};padding:${pad};border-radius:999px;font-size:${fs};font-weight:700;letter-spacing:.06em;text-transform:uppercase">${cat.label}</span>`;
+function gdCatLabel(catId) {
+  const c = GD_FILTER_CATEGORIES.find(f => f.id === catId);
+  return c ? c.label : catId;
 }
 
-// ── Regular project card (grid) ───────────────────────────────────────────────
-
-function gdBuildProjectCard(p) {
-  const badges = p.categories.map(c => gdCatBadge(c, true)).join('');
-  return `
-    <button onclick="gdShowProject('${p.id}')" style="
-      background:#fff;border-radius:18px;overflow:hidden;
-      border:1px solid rgba(28,28,30,0.07);
-      cursor:pointer;text-align:left;display:block;width:100%;
-      box-shadow:0 2px 16px rgba(0,0,0,0.05);
-      transition:transform .28s cubic-bezier(0.34,1.56,0.64,1),box-shadow .28s
-    " onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'"
-       onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.05)'">
-      <div style="height:180px;overflow:hidden;position:relative;background:${p.bg}">
-        <img src="./assets/images/graphic-designs/${p.folder}/1.png" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block" loading="lazy">
-        <span style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.35);backdrop-filter:blur(4px);color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:999px">${p.year}</span>
-        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(0,0,0,0.08));pointer-events:none"></div>
-      </div>
-      <div style="padding:16px 18px 20px">
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">${badges}</div>
-        <h4 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:.93rem;color:#1C1C1E;margin-bottom:4px;line-height:1.25">${p.title}</h4>
-        <p style="font-size:.72rem;color:rgba(28,28,30,0.42);font-weight:500;margin-bottom:12px">${p.institution}</p>
-        <div style="display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:600;color:#1C1C1E">
-          View Case Study <i data-lucide="arrow-right" style="width:11px;height:11px"></i>
-        </div>
-      </div>
-    </button>`;
+function gdCatBadge(catId) {
+  const label = gdCatLabel(catId);
+  return `<span style="
+    background:rgba(111,168,255,0.08);color:#8FA8D6;
+    padding:3px 11px;border-radius:999px;font-size:.62rem;font-weight:500;
+    font-family:'Outfit',sans-serif;letter-spacing:.05em;text-transform:uppercase;
+    border:1px solid rgba(111,168,255,0.16)
+  ">${label}</span>`;
 }
 
-// ── SECTION 1: Hero — split layout with stacked card deck ─────────────────────
+// ── SECTION 1: Hero ───────────────────────────────────────────────────────────
 
 function gdBuildHero() {
-  const deck = GD_PROJECTS.slice(0, 3);
-
-  const quickFilters = GD_FILTER_CATEGORIES.slice(1).map(cat => {
-    const tc = gdIsLight(cat.color) ? '#1C1C1E' : cat.color;
-    return `<button onclick="document.getElementById('gd-projects').scrollIntoView({behavior:'smooth'});setTimeout(()=>gdSetFilter('${cat.id}'),350)" style="
-      background:${cat.color}22;color:${tc};
-      padding:5px 14px;border-radius:999px;
-      font-size:.7rem;font-weight:600;letter-spacing:.04em;
-      border:1px solid ${cat.color}44;cursor:pointer;white-space:nowrap;
-      transition:background .18s
-    " onmouseover="this.style.background='${cat.color}40'" onmouseout="this.style.background='${cat.color}22'">${cat.label}</button>`;
-  }).join('');
+  const stars = cmBuildStarField(70);
 
   const statItems = [
     { n: '09', label: 'Projects' },
     { n: '02', label: 'Universities' },
     { n: '05', label: 'Skill Areas' },
-  ].map(s => `
-    <div style="text-align:center;padding:0 20px">
-      <div style="font-family:'Space Grotesk',Inter,sans-serif;font-size:1.6rem;font-weight:700;color:#1C1C1E;letter-spacing:-.04em;line-height:1">${s.n}</div>
-      <div style="font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(28,28,30,0.38);margin-top:4px">${s.label}</div>
-    </div>`).join(`<div style="width:1px;height:32px;background:rgba(28,28,30,0.1);align-self:center"></div>`);
+  ].map((s, i) => `
+    <div style="text-align:center;padding:0 clamp(12px,3vw,24px)${i > 0 ? ';border-left:1px solid rgba(111,168,255,0.12)' : ''}">
+      <div style="
+        font-family:'Cormorant Garamond',Georgia,serif;
+        font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;font-style:italic;
+        color:#D9E6FF;letter-spacing:-.02em;line-height:1
+      ">${s.n}</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:500;
+        letter-spacing:.14em;text-transform:uppercase;color:#8FA8D6;margin-top:4px;opacity:.7">${s.label}</div>
+    </div>`).join('');
 
   return `
-    <div id="gd-hero" style="background:#FAFAF8;padding:clamp(4rem,10vh,7rem) 24px clamp(3rem,6vh,4rem);position:relative;overflow:hidden">
+    <div id="gd-hero" style="
+      position:relative;overflow:hidden;
+      background:linear-gradient(160deg,#030712 0%,#071126 45%,#0B1E3A 100%);
+      padding:clamp(5rem,12vh,9rem) 24px clamp(4rem,8vh,7rem);
+    ">
+      <!-- Star field -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">${stars}</div>
 
-      <!-- Subtle ambient blobs (lower opacity than CroissantsMoon) -->
-      <div style="position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:${GD.yellow};opacity:.12;filter:blur(80px);pointer-events:none"></div>
-      <div style="position:absolute;left:-40px;bottom:-40px;width:220px;height:220px;border-radius:50%;background:${GD.blue};opacity:.1;filter:blur(80px);pointer-events:none"></div>
+      <!-- Constellation -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.7">
+        ${cmConstellationSVG(1200, 600, 5)}
+      </div>
 
-      <!-- Floating symbols (small, restrained) -->
-      <div class="cm-float" style="position:absolute;right:50%;top:12%;font-size:1.2rem;opacity:.16;pointer-events:none;color:${GD.orange}">✦</div>
-      <div class="cm-float-2" style="position:absolute;left:52%;bottom:18%;font-size:.9rem;opacity:.14;pointer-events:none;color:${GD.purple}">◈</div>
+      <!-- Floating astronauts -->
+      ${cmBuildAstronauts([
+        { img: 3, right: '6%',  top: '18%',    size: 110, dur: 26, del: 0,   rot: 12  },
+        { img: 4, left: '3%',   bottom: '20%', size: 85,  dur: 32, del: -11, rot: -10 },
+      ])}
 
-      <div class="max-w-5xl mx-auto">
+      <!-- Nebula blobs -->
+      <div style="position:absolute;left:-160px;top:-80px;width:600px;height:600px;border-radius:50%;
+        background:radial-gradient(circle,rgba(111,168,255,0.05) 0%,transparent 65%);pointer-events:none;z-index:0"></div>
+      <div style="position:absolute;right:-100px;bottom:-60px;width:450px;height:450px;border-radius:50%;
+        background:radial-gradient(circle,rgba(212,177,90,0.05) 0%,transparent 65%);pointer-events:none;z-index:0"></div>
 
-        <!-- Top bar -->
+      <!-- CM watermark -->
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+        pointer-events:none;z-index:0;overflow:hidden">
+        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22vw;
+          font-weight:300;color:#D4B15A;opacity:.02;line-height:1;user-select:none;white-space:nowrap">GD</span>
+      </div>
+
+      <!-- Content -->
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
+
+        <!-- Back + badge row -->
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:12px">
           <button onclick="goToPage('projects-overview')" style="
             display:inline-flex;align-items:center;gap:7px;
-            font-size:.82rem;color:rgba(28,28,30,0.38);
-            background:none;border:none;cursor:pointer;padding:0;transition:color .18s
-          " onmouseover="this.style.color='rgba(28,28,30,0.75)'" onmouseout="this.style.color='rgba(28,28,30,0.38)'">
-            <i data-lucide="arrow-left" style="width:15px;height:15px"></i> Projects
+            font-family:'Outfit',sans-serif;font-size:.82rem;color:#8FA8D6;
+            background:rgba(111,168,255,0.06);border:1px solid rgba(111,168,255,0.14);
+            cursor:pointer;padding:8px 18px;border-radius:999px;
+            transition:color .18s,background .18s,border-color .18s
+          " onmouseover="this.style.color='#D9E6FF';this.style.background='rgba(111,168,255,0.12)';this.style.borderColor='rgba(111,168,255,0.3)'"
+             onmouseout="this.style.color='#8FA8D6';this.style.background='rgba(111,168,255,0.06)';this.style.borderColor='rgba(111,168,255,0.14)'">
+            <i data-lucide="arrow-left" style="width:14px;height:14px"></i> Projects
           </button>
-          <span style="background:${GD.orange}18;color:${GD.orange};padding:4px 13px;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.08em">Visual Portfolio · 2024–2025</span>
+          <span style="
+            font-family:'Outfit',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.14em;
+            background:rgba(212,177,90,0.1);color:#D4B15A;padding:4px 14px;border-radius:999px;
+            border:1px solid rgba(212,177,90,0.22)
+          ">Visual Portfolio · 2024–2025</span>
         </div>
 
-        <!-- Split grid: left text / right card deck -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center;margin-bottom:3rem">
+        <!-- Overline -->
+        <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+          letter-spacing:.2em;text-transform:uppercase;color:#D4B15A;margin-bottom:1rem">Graphic Design</p>
 
-          <!-- LEFT: text stack -->
-          <div>
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem">
-              <span style="display:inline-block;width:24px;height:3px;background:${GD.orange};border-radius:2px"></span>
-              <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${GD.orange}">Graphic Design</span>
-            </div>
-            <h1 style="
-              font-family:'Space Grotesk',Inter,sans-serif;
-              font-size:clamp(2.6rem,5.5vw,5rem);
-              font-weight:700;line-height:.95;
-              letter-spacing:-.04em;color:#1C1C1E;margin-bottom:1.5rem
-            " data-edit-key="designs_hero_title">Visual<br>Communication<br><span style="color:${GD.orange}">Work.</span></h1>
-            <p style="font-size:clamp(.88rem,1.5vw,1rem);color:rgba(28,28,30,0.52);line-height:1.7;max-width:380px;margin-bottom:2rem" data-edit-key="designs_hero_tagline">
-              Guidebooks, presentations, and institutional materials — communication design for international education and global engagement.
-            </p>
+        <!-- Headline -->
+        <h1 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(3rem,9vw,6.5rem);font-weight:400;font-style:italic;
+          letter-spacing:-.01em;line-height:.92;color:#D9E6FF;margin-bottom:2rem;
+          text-shadow:0 0 80px rgba(111,168,255,0.14)
+        ">Visual<br>Communication<br><span style="color:#D4B15A">Work.</span></h1>
 
-            <!-- Stats row -->
-            <div style="display:flex;align-items:center;gap:0;margin-bottom:2rem;background:#fff;border-radius:14px;padding:16px 20px;border:1px solid rgba(28,28,30,0.07);box-shadow:0 2px 12px rgba(0,0,0,0.04);width:fit-content">
-              ${statItems}
-            </div>
+        <!-- Body -->
+        <p style="
+          font-family:'Outfit',sans-serif;font-size:clamp(.88rem,1.5vw,1rem);
+          color:#8FA8D6;line-height:1.78;max-width:460px;margin-bottom:2.5rem
+        ">Guidebooks, presentations, and institutional materials — communication design for international education and global engagement.</p>
 
-            <!-- CTAs -->
-            <div style="display:flex;flex-wrap:wrap;gap:10px">
-              <button onclick="document.getElementById('gd-projects').scrollIntoView({behavior:'smooth'})" style="
-                background:#1C1C1E;color:#fff;
-                padding:12px 24px;border-radius:999px;
-                font-size:.85rem;font-weight:600;
-                border:none;cursor:pointer;
-                display:inline-flex;align-items:center;gap:7px;transition:opacity .2s
-              " onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
-                Browse Projects <i data-lucide="arrow-down" style="width:13px;height:13px"></i>
-              </button>
-              <button onclick="goToPage('contact')" style="
-                border:1.5px solid rgba(28,28,30,0.18);color:#1C1C1E;
-                background:transparent;padding:12px 20px;border-radius:999px;
-                font-size:.85rem;font-weight:600;cursor:pointer;transition:background .2s
-              " onmouseover="this.style.background='rgba(28,28,30,0.05)'" onmouseout="this.style.background='transparent'">
-                Collaborate
-              </button>
-            </div>
-          </div>
+        <!-- Stats strip -->
+        <div style="
+          display:inline-flex;align-items:center;gap:0;
+          background:rgba(11,30,58,0.55);border-radius:16px;padding:18px 24px;
+          border:1px solid rgba(111,168,255,0.14);
+          backdrop-filter:blur(14px);margin-bottom:2.5rem
+        ">${statItems}</div>
 
-          <!-- RIGHT: stacked card deck -->
-          <div style="position:relative;padding:20px 20px 20px 0">
-            <!-- Back card 2 (deepest) -->
-            <div style="position:absolute;top:28px;right:-18px;left:18px;bottom:-18px;background:${deck[2].bg}55;border-radius:20px;z-index:1"></div>
-            <!-- Back card 1 -->
-            <div style="position:absolute;top:14px;right:-9px;left:9px;bottom:-9px;background:${deck[1].bg}88;border-radius:20px;z-index:2"></div>
-            <!-- Front card (interactive) -->
-            <button onclick="gdShowProject('${deck[0].id}')" style="
-              position:relative;z-index:3;width:100%;
-              background:#fff;border-radius:20px;overflow:hidden;
-              border:1px solid rgba(28,28,30,0.07);
-              box-shadow:0 8px 40px rgba(0,0,0,0.10);
-              cursor:pointer;text-align:left;display:block;
-              transition:transform .3s cubic-bezier(0.34,1.56,0.64,1),box-shadow .3s
-            " onmouseover="this.style.transform='translateY(-6px) rotate(-0.5deg)';this.style.boxShadow='0 24px 64px rgba(0,0,0,0.14)'"
-               onmouseout="this.style.transform='';this.style.boxShadow='0 8px 40px rgba(0,0,0,0.10)'">
-              <div style="height:200px;overflow:hidden;position:relative;background:${deck[0].bg}">
-                <img loading="lazy" src="./assets/images/graphic-designs/${deck[0].folder}/1.png" alt="${deck[0].title}" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
-                <span style="position:absolute;top:14px;right:14px;background:rgba(0,0,0,0.32);backdrop-filter:blur(4px);color:#fff;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:999px">${deck[0].year}</span>
-                <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(0,0,0,0.1));pointer-events:none"></div>
-              </div>
-              <div style="padding:20px 22px 22px">
-                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px">
-                  ${deck[0].categories.map(c => gdCatBadge(c, true)).join('')}
-                </div>
-                <h3 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:1rem;color:#1C1C1E;margin-bottom:4px;line-height:1.25">${deck[0].title}</h3>
-                <p style="font-size:.74rem;color:rgba(28,28,30,0.42);font-weight:500;margin-bottom:12px">${deck[0].institution}</p>
-                <div style="display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;color:${deck[0].textColor}">
-                  Open Case Study <i data-lucide="arrow-right" style="width:12px;height:12px"></i>
-                </div>
-              </div>
-            </button>
-          </div>
+        <!-- CTAs -->
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <button onclick="document.getElementById('gd-projects').scrollIntoView({behavior:'smooth'})" style="
+            font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;
+            background:#D4B15A;color:#071126;padding:14px 30px;border-radius:999px;
+            border:none;cursor:pointer;
+            display:inline-flex;align-items:center;gap:8px;letter-spacing:.03em;
+            box-shadow:0 0 22px rgba(212,177,90,0.32),0 4px 16px rgba(212,177,90,0.2);
+            transition:opacity .2s,transform .2s
+          " onmouseover="this.style.opacity='.88';this.style.transform='translateY(-2px)'"
+             onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+            Browse Projects <i data-lucide="arrow-down" style="width:13px;height:13px"></i>
+          </button>
+          <button onclick="goToPage('contact')" style="
+            font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:400;
+            border:1px solid rgba(212,177,90,0.38);color:#D4B15A;
+            padding:14px 24px;border-radius:999px;
+            background:rgba(212,177,90,0.06);cursor:pointer;
+            display:inline-flex;align-items:center;gap:7px;
+            transition:background .22s,border-color .22s,box-shadow .22s
+          " onmouseover="this.style.background='rgba(212,177,90,0.14)';this.style.borderColor='rgba(212,177,90,0.6)';this.style.boxShadow='0 0 18px rgba(212,177,90,0.2)'"
+             onmouseout="this.style.background='rgba(212,177,90,0.06)';this.style.borderColor='rgba(212,177,90,0.38)';this.style.boxShadow='none'">
+            Collaborate
+          </button>
         </div>
 
         <!-- Quick filter chips -->
-        <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:1.5rem;border-top:1px solid rgba(28,28,30,0.07)">
-          <span style="font-size:.72rem;font-weight:600;color:rgba(28,28,30,0.32);align-self:center;margin-right:4px">Browse by:</span>
-          ${quickFilters}
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:2.5rem;padding-top:1.75rem;border-top:1px solid rgba(111,168,255,0.08)">
+          <span style="font-family:'Outfit',sans-serif;font-size:.66rem;font-weight:500;
+            color:rgba(143,168,214,0.4);align-self:center;margin-right:4px;letter-spacing:.06em;text-transform:uppercase">Browse by:</span>
+          ${GD_FILTER_CATEGORIES.slice(1).map(cat => `
+            <button onclick="document.getElementById('gd-projects').scrollIntoView({behavior:'smooth'});setTimeout(()=>gdSetFilter('${cat.id}'),350)"
+              class="gd-filter-tab" style="">
+              ${cat.label}
+            </button>`).join('')}
         </div>
       </div>
     </div>`;
 }
 
-// ── SECTION 2: Project Showcase — tab filter + featured row + card grid ────────
+// ── SECTION 2: Project Showcase ───────────────────────────────────────────────
+
+function gdBuildProjectCard(p) {
+  const badges = p.categories.map(c => gdCatBadge(c)).join('');
+  return `
+    <button onclick="gdShowProject('${p.id}')" class="gd-card-hover gd-overlay-card" style="
+      background:#0B1E3A;border-radius:18px;overflow:hidden;
+      border:1px solid rgba(111,168,255,0.12);cursor:pointer;text-align:left;
+      display:block;width:100%;box-shadow:0 4px 28px rgba(3,7,18,0.4)
+    ">
+      <div style="position:relative;overflow:hidden;height:185px;background:#071126">
+        <img src="./assets/images/graphic-designs/${p.folder}/1.png" alt="${p.title}"
+          class="gd-cover-img"
+          style="width:100%;height:100%;object-fit:cover;object-position:top;
+            transition:transform .45s ease;display:block"
+          loading="lazy">
+        <!-- gradient overlay -->
+        <div style="position:absolute;inset:0;
+          background:linear-gradient(to bottom,transparent 40%,rgba(7,17,38,0.75));
+          pointer-events:none"></div>
+        <!-- hover overlay -->
+        <div class="gd-cover-overlay" style="position:absolute;inset:0;opacity:0;
+          background:rgba(7,17,38,0.32);transition:opacity .28s;
+          display:flex;align-items:center;justify-content:center;pointer-events:none">
+          <span style="font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;
+            color:#D9E6FF;background:rgba(7,17,38,0.65);padding:7px 20px;
+            border-radius:999px;backdrop-filter:blur(8px);
+            border:1px solid rgba(217,230,255,0.2);
+            box-shadow:0 0 18px rgba(111,168,255,0.2)">Preview</span>
+        </div>
+        <!-- year badge -->
+        <span style="position:absolute;top:10px;right:10px;
+          font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:500;
+          background:rgba(7,17,38,0.6);backdrop-filter:blur(6px);
+          color:#8FA8D6;padding:3px 10px;border-radius:999px;
+          border:1px solid rgba(111,168,255,0.18)">${p.year}</span>
+        <!-- accent bar -->
+        <div style="position:absolute;bottom:0;left:0;right:0;height:2px;
+          background:linear-gradient(to right,${p.accent},transparent);opacity:.5"></div>
+      </div>
+      <div style="padding:16px 18px 20px">
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px">${badges}</div>
+        <h4 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:1.08rem;font-weight:500;color:#D9E6FF;
+          line-height:1.28;margin-bottom:4px
+        ">${p.title}</h4>
+        <p style="font-family:'Outfit',sans-serif;font-size:.71rem;
+          color:#8FA8D6;opacity:.7">${p.institution}</p>
+      </div>
+    </button>`;
+}
 
 function gdBuildProjectShowcase() {
   const filtered = gdCurrentFilter === 'all'
     ? GD_PROJECTS
     : GD_PROJECTS.filter(p => p.categories.includes(gdCurrentFilter));
 
-  const activeCat = GD_FILTER_CATEGORIES.find(c => c.id === gdCurrentFilter);
-
   // Filter tabs
   const tabs = GD_FILTER_CATEGORIES.map(cat => {
     const isActive = gdCurrentFilter === cat.id;
     const count    = gdCatCount(cat.id);
-    const isAll    = cat.id === 'all';
     return `
-      <button onclick="gdSetFilter('${cat.id}')" style="
-        padding:12px 16px;border:none;background:none;cursor:pointer;
-        white-space:nowrap;font-size:.82rem;
-        font-weight:${isActive ? '700' : '500'};
-        color:${isActive ? '#1C1C1E' : 'rgba(28,28,30,0.42)'};
-        border-bottom:2.5px solid ${isActive ? (isAll ? '#1C1C1E' : cat.color) : 'transparent'};
-        margin-bottom:-1px;transition:all .2s;display:inline-flex;align-items:center;gap:6px;
-      " onmouseover="this.style.color='${isActive ? '#1C1C1E' : 'rgba(28,28,30,0.7)'}';"
-         onmouseout="this.style.color='${isActive ? '#1C1C1E' : 'rgba(28,28,30,0.42)'}';">
+      <button onclick="gdSetFilter('${cat.id}')"
+        class="gd-filter-tab ${isActive ? 'gd-active' : ''}"
+        style="${isActive ? 'background:#D4B15A;color:#071126;border-color:#D4B15A;box-shadow:0 0 14px rgba(212,177,90,0.3)' : ''}">
         ${cat.label}
         <span style="
-          background:${isActive ? (isAll ? 'rgba(28,28,30,0.1)' : cat.color + '25') : 'rgba(28,28,30,0.06)'};
-          color:${isActive ? (isAll ? '#1C1C1E' : cat.color) : 'rgba(28,28,30,0.4)'};
-          padding:1px 7px;border-radius:999px;font-size:.65rem;font-weight:700;
+          margin-left:5px;
+          background:${isActive ? 'rgba(7,17,38,0.2)' : 'rgba(111,168,255,0.1)'};
+          color:${isActive ? '#071126' : '#8FA8D6'};
+          padding:1px 7px;border-radius:999px;font-size:.62rem;font-weight:600;
         ">${count}</span>
       </button>`;
   }).join('');
@@ -525,52 +561,66 @@ function gdBuildProjectShowcase() {
   // Build cards
   let contentHTML = '';
   if (filtered.length === 0) {
-    contentHTML = `<div style="padding:60px;text-align:center;color:rgba(28,28,30,0.38);font-size:.9rem">No projects in this category yet.</div>`;
+    contentHTML = `<div style="padding:60px;text-align:center;font-family:'Outfit',sans-serif;font-size:.9rem;color:#8FA8D6">No projects in this category yet.</div>`;
   } else {
     const [featured, ...rest] = filtered;
-
-    // Featured landscape card (first in filtered list)
-    const featBadges = featured.categories.map(c => gdCatBadge(c, false)).join('');
+    const featBadges = featured.categories.map(c => gdCatBadge(c)).join('');
     const featSkills = featured.skills.slice(0, 3).map(s =>
-      `<span style="background:rgba(28,28,30,0.06);color:rgba(28,28,30,0.55);padding:4px 10px;border-radius:6px;font-size:.65rem;font-weight:600">${s}</span>`
+      `<span style="background:rgba(111,168,255,0.07);color:#8FA8D6;padding:4px 11px;
+        border-radius:6px;font-size:.65rem;font-weight:500;font-family:'Outfit',sans-serif;
+        border:1px solid rgba(111,168,255,0.14)">${s}</span>`
     ).join('');
 
     contentHTML = `
-      <button onclick="gdShowProject('${featured.id}')" style="
+      <button onclick="gdShowProject('${featured.id}')" class="gd-card-hover" style="
         display:grid;grid-template-columns:280px 1fr;
-        width:100%;background:#fff;border-radius:20px;overflow:hidden;
-        border:1px solid rgba(28,28,30,0.07);
-        box-shadow:0 4px 24px rgba(0,0,0,0.06);
-        cursor:pointer;text-align:left;
-        margin-bottom:20px;
-        transition:transform .25s cubic-bezier(0.34,1.56,0.64,1),box-shadow .25s
-      " onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 56px rgba(0,0,0,0.10)'"
-         onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(0,0,0,0.06)'">
+        width:100%;border-radius:20px;overflow:hidden;
+        background:#0B1E3A;
+        border:1px solid rgba(111,168,255,0.14);
+        box-shadow:0 4px 28px rgba(3,7,18,0.4);
+        cursor:pointer;text-align:left;margin-bottom:20px
+      ">
         <!-- Thumbnail left -->
-        <div style="position:relative;overflow:hidden;min-height:240px;background:${featured.bg}">
-          <img loading="lazy" src="./assets/images/graphic-designs/${featured.folder}/1.png" alt="${featured.title}" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:absolute;inset:0">
-          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.12) 0%,transparent 40%,rgba(0,0,0,0.08) 100%);pointer-events:none"></div>
-          <span style="position:absolute;top:14px;left:14px;background:rgba(0,0,0,0.38);backdrop-filter:blur(4px);color:#fff;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:999px">Featured</span>
-          <span style="position:absolute;bottom:14px;left:14px;background:rgba(0,0,0,0.32);backdrop-filter:blur(4px);color:#fff;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:999px">${featured.year}</span>
+        <div style="position:relative;overflow:hidden;min-height:240px;background:#071126">
+          <img loading="lazy" src="./assets/images/graphic-designs/${featured.folder}/1.png"
+            alt="${featured.title}"
+            style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:absolute;inset:0">
+          <div style="position:absolute;inset:0;
+            background:linear-gradient(to bottom,rgba(7,17,38,0.15) 0%,transparent 40%,rgba(7,17,38,0.1) 100%);
+            pointer-events:none"></div>
+          <span style="position:absolute;top:14px;left:14px;
+            background:rgba(212,177,90,0.2);backdrop-filter:blur(4px);
+            color:#D4B15A;font-family:'Outfit',sans-serif;font-size:.62rem;font-weight:600;
+            padding:4px 10px;border-radius:999px;border:1px solid rgba(212,177,90,0.3)">Featured</span>
+          <span style="position:absolute;bottom:14px;left:14px;
+            background:rgba(7,17,38,0.5);backdrop-filter:blur(4px);
+            color:#8FA8D6;font-family:'Outfit',sans-serif;font-size:.62rem;font-weight:500;
+            padding:4px 10px;border-radius:999px;border:1px solid rgba(111,168,255,0.18)">${featured.year}</span>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;
+            background:linear-gradient(to right,${featured.accent},transparent);opacity:.6"></div>
         </div>
         <!-- Content right -->
         <div style="padding:28px 32px;display:flex;flex-direction:column;justify-content:space-between;gap:14px">
           <div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">${featBadges}</div>
-            <h3 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:1.25rem;color:#1C1C1E;margin-bottom:6px;line-height:1.2">${featured.fullTitle}</h3>
-            <p style="font-size:.76rem;color:rgba(28,28,30,0.42);font-weight:600;margin-bottom:12px">${featured.institution} · ${featured.year}</p>
-            <p style="font-size:.86rem;line-height:1.68;color:rgba(28,28,30,0.58)">${featured.summary}</p>
+            <h3 style="
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:500;font-style:italic;
+              color:#D9E6FF;margin-bottom:6px;line-height:1.2
+            ">${featured.fullTitle}</h3>
+            <p style="font-family:'Outfit',sans-serif;font-size:.76rem;color:#8FA8D6;font-weight:500;margin-bottom:12px;opacity:.7">${featured.institution} · ${featured.year}</p>
+            <p style="font-family:'Outfit',sans-serif;font-size:.86rem;line-height:1.72;color:#8FA8D6">${featured.summary}</p>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
             <div style="display:flex;flex-wrap:wrap;gap:5px">${featSkills}</div>
-            <div style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:#1C1C1E">
-              View Case Study <i data-lucide="arrow-right" style="width:14px;height:14px"></i>
+            <div style="display:inline-flex;align-items:center;gap:6px;
+              font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:600;color:#D4B15A">
+              View Case Study <i data-lucide="arrow-right" style="width:13px;height:13px"></i>
             </div>
           </div>
         </div>
       </button>`;
 
-    // Remaining cards in a 3-col grid
     if (rest.length > 0) {
       contentHTML += `<div id="gd-project-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
         ${rest.map(gdBuildProjectCard).join('')}
@@ -578,30 +628,47 @@ function gdBuildProjectShowcase() {
     }
   }
 
-  const sectionTitle = gdCurrentFilter === 'all'
-    ? 'All Design Work'
-    : (activeCat?.label || 'Projects');
+  const sectionTitle = gdCurrentFilter === 'all' ? 'All Design Work' : (gdCatLabel(gdCurrentFilter) || 'Projects');
 
   return `
-    <div id="gd-projects" style="padding:clamp(3.5rem,7vh,5.5rem) 24px;background:#FAFAF8">
-      <div class="max-w-5xl mx-auto">
+    <div id="gd-projects" style="
+      background:linear-gradient(180deg,#071126 0%,#0B1E3A 100%);
+      padding:clamp(4rem,8vh,6rem) 24px;position:relative;overflow:hidden">
+      <!-- Stars -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5">
+        ${cmBuildStarField(35)}
+      </div>
+      <!-- Constellation -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+        ${cmConstellationSVG(1200, 700, 9)}
+      </div>
+      ${cmBuildAstronauts([
+        { img: 5, right: '2%', top: '15%', size: 80, dur: 30, del: -8, rot: -5 },
+      ])}
+
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
 
         <!-- Section header -->
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:12px">
+        <div class="gd-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;
+          margin-bottom:2rem;flex-wrap:wrap;gap:12px">
           <div>
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:.5rem">
-              <span style="display:inline-block;width:24px;height:3px;background:${GD.coral};border-radius:2px"></span>
-              <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${GD.coral}">Design Archive</span>
-            </div>
-            <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:#1C1C1E;letter-spacing:-.03em;line-height:1">
-              ${sectionTitle}
-              <span style="font-size:.48em;font-weight:400;color:rgba(28,28,30,0.32);margin-left:10px;letter-spacing:0">${filtered.length} project${filtered.length !== 1 ? 's' : ''}</span>
+            <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+              letter-spacing:.2em;text-transform:uppercase;color:#D4B15A;margin-bottom:.9rem">Design Archive</p>
+            <h2 style="
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-size:clamp(2rem,4.5vw,3.2rem);font-weight:400;font-style:italic;
+              color:#D9E6FF;line-height:1.05
+            ">${sectionTitle}
+              <span style="font-family:'Outfit',sans-serif;font-size:.38em;font-weight:400;
+                color:rgba(143,168,214,0.4);margin-left:10px;letter-spacing:0;font-style:normal">
+                ${filtered.length} project${filtered.length !== 1 ? 's' : ''}
+              </span>
             </h2>
           </div>
         </div>
 
-        <!-- Tab filter -->
-        <div style="border-bottom:1px solid rgba(28,28,30,0.09);display:flex;gap:0;margin-bottom:2.5rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+        <!-- Filter tabs -->
+        <div class="gd-reveal" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2.5rem">
           ${tabs}
         </div>
 
@@ -611,239 +678,247 @@ function gdBuildProjectShowcase() {
     </div>`;
 }
 
-// ── SECTION 3: Creative Directions — 4 visual approach cards ─────────────────
+// ── SECTION 3: Creative Directions ───────────────────────────────────────────
 
 function gdBuildCreativeDirections() {
   const directions = [
     {
-      color: GD.blue,     emoji: '📖', cat: 'Guidebook Design',
+      accent: '#7BC8F6', icon: 'book-open', cat: 'Guidebook Design',
       headline: 'Making information feel like a welcome.',
       body: 'Dense itineraries, cultural context, practical logistics — redesigned as visual journeys that participants want to read.',
     },
     {
-      color: GD.coral,    emoji: '✈', cat: 'Presentation Design',
+      accent: '#FF6B6B', icon: 'presentation', cat: 'Presentation Design',
       headline: 'Data with emotional resonance.',
       body: 'Partnership statistics and program highlights told through bold type, clean visuals, and strategic narrative flow.',
     },
     {
-      color: GD.lavender, emoji: '◈', cat: 'Partnership Materials',
+      accent: '#C4B5FD', icon: 'handshake', cat: 'Partnership Materials',
       headline: 'Design as institutional trust.',
       body: 'Booklets and branding materials that make both sides of a partnership feel equally proud to put their name on.',
     },
     {
-      color: GD.mint,     emoji: '🌐', cat: 'Student Communication',
+      accent: '#6EE7B7', icon: 'globe', cat: 'Student Communication',
       headline: 'Home away from home.',
       body: 'Guides and handbooks designed from empathy first — helping students navigate the unfamiliar with confidence.',
     },
-  ].map(d => {
-    const tc = gdIsLight(d.color) ? '#1C1C1E' : d.color;
-    return `
-      <div style="background:#fff;border-radius:20px;overflow:hidden;border:1px solid rgba(28,28,30,0.07);box-shadow:0 4px 20px rgba(0,0,0,0.05)">
-        <div style="height:6px;background:${d.color}"></div>
-        <div style="padding:26px 24px">
-          <span style="font-size:1.7rem;display:block;margin-bottom:12px">${d.emoji}</span>
-          <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${tc};margin-bottom:9px">${d.cat}</div>
-          <h4 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:1rem;color:#1C1C1E;margin-bottom:10px;line-height:1.3">${d.headline}</h4>
-          <p style="font-size:.82rem;line-height:1.65;color:rgba(28,28,30,0.55)">${d.body}</p>
+  ].map(d => `
+    <div class="gd-card-hover" style="
+      background:rgba(24,59,107,0.3);border-radius:22px;overflow:hidden;
+      border:1px solid rgba(111,168,255,0.14);
+      box-shadow:0 4px 24px rgba(3,7,18,0.4);
+      backdrop-filter:blur(12px)
+    ">
+      <div style="height:4px;background:linear-gradient(to right,${d.accent},transparent);opacity:.6"></div>
+      <div style="padding:26px 24px">
+        <div style="width:46px;height:46px;border-radius:14px;
+          background:rgba(111,168,255,0.07);border:1px solid rgba(111,168,255,0.16);
+          display:flex;align-items:center;justify-content:center;
+          margin-bottom:14px;box-shadow:0 0 14px rgba(111,168,255,0.1)">
+          <i data-lucide="${d.icon}" style="width:20px;height:20px;color:${d.accent}"></i>
         </div>
-      </div>`;
+        <div style="font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:600;
+          letter-spacing:.14em;text-transform:uppercase;color:${d.accent};margin-bottom:9px;opacity:.85">${d.cat}</div>
+        <h4 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:1.1rem;font-weight:500;font-style:italic;
+          color:#D9E6FF;margin-bottom:10px;line-height:1.28
+        ">${d.headline}</h4>
+        <p style="font-family:'Outfit',sans-serif;font-size:.82rem;line-height:1.7;color:#8FA8D6">${d.body}</p>
+      </div>
+    </div>`).join('');
+
+  return `
+    <div style="
+      background:linear-gradient(180deg,#0B1E3A 0%,#071126 100%);
+      padding:clamp(4rem,8vh,6rem) 24px;position:relative;overflow:hidden">
+      <!-- Stars -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.45">
+        ${cmBuildStarField(30)}
+      </div>
+      ${cmBuildAstronauts([
+        { img: 4, left: '3%', top: '30%', size: 80, dur: 28, del: -5, rot: 6 },
+      ])}
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
+        <div class="gd-reveal" style="margin-bottom:2.5rem">
+          <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+            letter-spacing:.2em;text-transform:uppercase;color:#D4B15A;margin-bottom:.9rem">Creative Directions</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;flex-wrap:wrap">
+            <h2 style="
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-size:clamp(2rem,4.5vw,3.2rem);font-weight:400;font-style:italic;
+              color:#D9E6FF;line-height:1.05
+            ">How I design<br>for <span style="color:#D4B15A">communication.</span></h2>
+            <p style="font-family:'Outfit',sans-serif;font-size:.9rem;line-height:1.76;color:#8FA8D6">
+              Every project starts with a real person who needs to understand something. The design serves them — not the institution.
+            </p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+          ${directions}
+        </div>
+      </div>
+    </div>`;
+}
+
+// ── SECTION 4: Inspirations ───────────────────────────────────────────────────
+
+function gdBuildInspirations() {
+  const rotations = ['-2deg','1.2deg','-1.5deg','2deg','0deg','-0.8deg','1deg','-1.2deg','0.5deg','-1.5deg','1.8deg','-0.5deg'];
+  const accents = ['#D4B15A','#6FA8FF','#8FA8D6','#D9E6FF','#D4B15A','#6FA8FF'];
+
+  const tags = GD_INSPO.map((text, i) => {
+    const accent = accents[i % accents.length];
+    const rot = rotations[i % rotations.length];
+    const sizes = ['.76rem', '.88rem', '1rem'];
+    const pads  = ['5px 14px', '6px 17px', '8px 20px'];
+    const sz = i % 3;
+    return `
+      <span style="
+        display:inline-block;
+        background:rgba(111,168,255,0.06);color:${accent};
+        padding:${pads[sz]};border-radius:999px;font-size:${sizes[sz]};
+        font-family:'Outfit',sans-serif;font-weight:500;
+        border:1px solid rgba(111,168,255,0.14);transform:rotate(${rot});
+        transition:transform .22s cubic-bezier(0.34,1.56,0.64,1),box-shadow .22s,border-color .22s;
+        cursor:default;margin:5px
+      " onmouseover="this.style.transform='scale(1.08) rotate(0deg)';this.style.boxShadow='0 6px 20px rgba(7,17,38,0.4)';this.style.borderColor='rgba(111,168,255,0.3)'"
+         onmouseout="this.style.transform='rotate(${rot})';this.style.boxShadow='none';this.style.borderColor='rgba(111,168,255,0.14)'">${text}</span>`;
   }).join('');
 
   return `
-    <div style="padding:clamp(4rem,8vh,6rem) 24px;background:${GD.cream}">
-      <div class="max-w-5xl mx-auto">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:.75rem">
-          <span style="display:inline-block;width:24px;height:3px;background:${GD.purple};border-radius:2px"></span>
-          <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${GD.purple}">Creative Directions</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:2.5rem;flex-wrap:wrap">
-          <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:#1C1C1E;letter-spacing:-.03em;line-height:1.05">
-            How I design<br>for <em style="font-style:italic;color:${GD.orange}">communication.</em>
-          </h2>
-          <p style="font-size:.92rem;line-height:1.7;color:rgba(28,28,30,0.52)">
-            Every project starts with a real person who needs to understand something. The design serves them — not the institution.
+    <div style="
+      background:linear-gradient(180deg,#071126 0%,#030712 100%);
+      padding:clamp(4rem,8vh,6rem) 24px;position:relative;overflow:hidden">
+      <!-- Stars -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5">
+        ${cmBuildStarField(28)}
+      </div>
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+        ${cmConstellationSVG(1200, 500, 13)}
+      </div>
+
+      <div class="max-w-5xl mx-auto" style="position:relative;z-index:1">
+        <div class="gd-reveal" style="display:flex;align-items:center;justify-content:space-between;
+          margin-bottom:2rem;flex-wrap:wrap;gap:12px">
+          <div>
+            <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+              letter-spacing:.2em;text-transform:uppercase;color:#D4B15A;margin-bottom:.9rem">Influences &amp; Inspirations</p>
+            <h2 style="
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;font-style:italic;
+              color:#D9E6FF;line-height:1.05
+            ">What shapes my visual thinking.</h2>
+          </div>
+          <p style="font-family:'Outfit',sans-serif;font-size:.82rem;color:#8FA8D6;
+            max-width:260px;line-height:1.64;opacity:.75">
+            Design traditions and ideas that shape how I see and communicate visually.
           </p>
         </div>
 
-        <!-- 4 direction cards -->
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:2rem">
-          ${directions}
-        </div>
-
-        <!-- Sticky note accent row -->
-        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end">
-          <div class="cm-sticky-note" style="transform:rotate(-1.5deg)">"clarity is care" ✦</div>
-          <div class="cm-sticky-note" style="transform:rotate(1.2deg);background:${GD.blue}">"design w/ empathy" ◈</div>
-          <div class="cm-sticky-note" style="transform:rotate(-0.8deg);background:${GD.mint}">"make it feel human" ◉</div>
-        </div>
-      </div>
-    </div>`;
-}
-
-// ── SECTION 4: Moodboard (condensed) ─────────────────────────────────────────
-
-function gdBuildMoodboard() {
-  const rotations = ['-2deg','1.2deg','-1.5deg','2deg','0deg','-0.8deg','1deg','-1.2deg','0.5deg','-1.5deg','1.8deg','-0.5deg'];
-  const sizes = ['.77rem','.9rem','1.05rem'];
-  const pads  = ['5px 12px','6px 16px','8px 20px'];
-
-  const tags = GD_INSPO.map((item, i) => {
-    const sz  = i % 3;
-    const rot = rotations[i % rotations.length];
-    const tc  = gdIsLight(item.color) ? '#1C1C1E' : '#2A1A4A';
-    return `
-      <span style="
-        display:inline-block;background:${item.color}28;color:${tc};
-        padding:${pads[sz]};border-radius:999px;font-size:${sizes[sz]};font-weight:600;
-        border:1.5px solid ${item.color}55;transform:rotate(${rot});
-        transition:transform .22s cubic-bezier(0.34,1.56,0.64,1),box-shadow .22s;
-        cursor:default;margin:5px
-      " onmouseover="this.style.transform='scale(1.08) rotate(0deg)';this.style.boxShadow='0 6px 20px rgba(0,0,0,0.09)'"
-         onmouseout="this.style.transform='rotate(${rot})';this.style.boxShadow='none'">${item.text}</span>`;
-  }).join('');
-
-  return `
-    <div style="padding:clamp(3.5rem,7vh,5.5rem) 24px;background:#FAFAF8">
-      <div class="max-w-5xl mx-auto">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:12px">
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:inline-block;width:24px;height:3px;background:${GD.orange};border-radius:2px"></span>
-            <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${GD.orange}">Influences & Inspirations</span>
-          </div>
-          <p style="font-size:.8rem;color:rgba(28,28,30,0.38);max-width:300px;line-height:1.5">Design traditions and ideas that shape how I see and communicate visually.</p>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;padding:24px;background:#fff;border-radius:20px;border:1px solid rgba(28,28,30,0.07);box-shadow:0 4px 20px rgba(0,0,0,0.04)">
-          ${tags}
-        </div>
-      </div>
-    </div>`;
-}
-
-// ── SECTION 5: Sticker playground ─────────────────────────────────────────────
-
-function gdBuildFunSection() {
-  const stickers = GD_STICKERS.map(s => {
-    const tc = gdIsLight(s.bg) ? '#1C1C1E' : (s.bg === GD.purple ? '#fff' : '#1C1C1E');
-    return `
-      <div class="cm-sticker" style="
-        left:${s.x};top:${s.y};background:${s.bg};color:${tc};
-        padding:10px 18px;border-radius:8px;
-        font-family:'Caveat',cursive;font-size:1.15rem;font-weight:600;
-        transform:rotate(${s.rotate});
-        box-shadow:2px 4px 14px rgba(0,0,0,0.12),0 1px 0 rgba(255,255,255,0.28) inset;
-        z-index:10;white-space:nowrap;position:absolute
-      ">${s.text}</div>`;
-  }).join('');
-
-  const reactions = [['🎨','Inspired'],['✨','Creative'],['💛','Warm'],['🌈','Colorful']]
-    .map(([emoji, label]) => `
-      <button onclick="gdReact(this,'${label}')" style="
-        background:#fff;border:1.5px solid rgba(28,28,30,0.1);
-        padding:7px 14px;border-radius:999px;font-size:.82rem;cursor:pointer;
-        display:inline-flex;align-items:center;gap:5px;transition:background .18s
-      " onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='#fff'">
-        ${emoji} <span style="font-size:.72rem;font-weight:500;color:rgba(28,28,30,0.55)">${label}</span>
-      </button>`).join('');
-
-  return `
-    <div style="padding:clamp(3.5rem,7vh,5.5rem) 24px;background:linear-gradient(135deg,${GD.yellow}1E,${GD.peach}18)">
-      <div class="max-w-5xl mx-auto">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:12px">
-          <div>
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:.4rem">
-              <span style="display:inline-block;width:24px;height:3px;background:${GD.orange};border-radius:2px"></span>
-              <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${GD.orange}">Design Playground</span>
-            </div>
-            <h2 style="font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#1C1C1E;letter-spacing:-.03em">Drag the Stickers ✦</h2>
-          </div>
-          <p style="font-size:.82rem;color:rgba(28,28,30,0.45);max-width:260px;line-height:1.55">A creative space needs a corkboard. This one is interactive.</p>
-        </div>
-        <div id="gd-sticker-board" style="
-          position:relative;height:380px;
-          background:rgba(255,255,255,0.55);
-          border:1.5px dashed rgba(28,28,30,0.11);
-          border-radius:20px;overflow:hidden;backdrop-filter:blur(8px)
+        <!-- Constellation-style tag cloud -->
+        <div class="gd-reveal" style="
+          display:flex;flex-wrap:wrap;align-items:center;
+          padding:28px 24px;
+          background:rgba(11,30,58,0.45);border-radius:22px;
+          border:1px solid rgba(111,168,255,0.12);
+          backdrop-filter:blur(14px);
+          box-shadow:0 4px 28px rgba(3,7,18,0.35);
+          position:relative;overflow:hidden
         ">
-          <div style="
-            position:absolute;inset:0;pointer-events:none;
-            background-image:radial-gradient(circle,rgba(28,28,30,0.05) 1px,transparent 1px);
-            background-size:26px 26px
-          "></div>
-          ${stickers}
-          <div style="position:absolute;bottom:16px;right:18px;font-family:'Caveat',cursive;font-size:.9rem;color:rgba(28,28,30,0.2);pointer-events:none">← drag to rearrange</div>
-        </div>
-        <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;align-items:center">
-          <span style="font-size:.78rem;font-weight:600;color:rgba(28,28,30,0.36)">How does this work make you feel?</span>
-          ${reactions}
-          <span id="gd-react-msg" style="font-family:'Caveat',cursive;font-size:1.1rem;color:${GD.orange};display:none"></span>
+          <div style="position:absolute;inset:0;pointer-events:none;opacity:.3">
+            ${cmConstellationSVG(900, 300, 17)}
+          </div>
+          <div style="position:relative;z-index:1">${tags}</div>
         </div>
       </div>
     </div>`;
 }
 
-// ── SECTION 6: Contact CTA ────────────────────────────────────────────────────
+// ── SECTION 5: Contact CTA ────────────────────────────────────────────────────
 
 function gdBuildContact() {
   return `
-    <div style="padding:clamp(4rem,9vh,7rem) 24px;background:#1C1C1E;position:relative;overflow:hidden">
-      <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:${GD.orange};opacity:.08;filter:blur(60px);pointer-events:none"></div>
-      <div style="position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;border-radius:50%;background:${GD.blue};opacity:.07;filter:blur(60px);pointer-events:none"></div>
+    <div style="
+      background:linear-gradient(160deg,#030712 0%,#071126 60%,#0a1530 100%);
+      padding:clamp(5rem,11vh,9rem) 24px;position:relative;overflow:hidden">
+
+      <!-- Glowing crescent -->
+      <div style="position:absolute;right:-5%;top:50%;transform:translateY(-50%);
+        pointer-events:none;z-index:0;filter:blur(2px) drop-shadow(0 0 60px rgba(212,177,90,0.3));opacity:.12">
+        <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+          <path d="M340 250C340 318.5 284.5 375 216 375C147.5 375 92 318.5 92 250C92 181.5 147.5 125 216 125C202.5 142.5 196 163 196 186C196 249.5 238.5 302 296.5 318.8C322 299.5 340 276.2 340 250Z" fill="#D4B15A"/>
+        </svg>
+      </div>
+
+      <!-- Stars -->
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+        ${cmBuildStarField(50)}
+      </div>
+
       ${cmBuildAstronauts([
-        { img: 3, left: '3%',   top: '15%',    size: 120, dur: 28, del: 0,   rot: 10  },
-        { img: 4, right: '3%',  top: '20%',    size: 100, dur: 35, del: -12, rot: -8  },
-        { img: 5, left: '4%',   bottom: '15%', size: 90,  dur: 24, del: -6,  rot: 16  },
-        { img: 3, right: '4%',  bottom: '18%', size: 85,  dur: 32, del: -20, rot: -14 },
-        { img: 4, left: '15%',  top: '10%',    size: 70,  dur: 38, del: -9,  rot: 5   },
-        { img: 5, right: '15%', bottom: '10%', size: 75,  dur: 22, del: -16, rot: -3  },
+        { img: 5, left: '5%',   top: '18%',    size: 100, dur: 25, del: -13, rot: 10  },
+        { img: 3, right: '4%',  bottom: '22%', size: 90,  dur: 35, del: -2,  rot: -7  },
+        { img: 4, left: '15%',  top: '12%',    size: 70,  dur: 38, del: -9,  rot: 5   },
+        { img: 5, right: '15%', bottom: '12%', size: 65,  dur: 22, del: -16, rot: -3  },
       ])}
-      <div class="max-w-4xl mx-auto text-center" style="position:relative;z-index:1">
-        <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:1.5rem">
-          <span style="display:inline-block;width:24px;height:2px;background:rgba(255,255,255,0.2);border-radius:2px"></span>
-          <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.35)">Let's Work Together</span>
-          <span style="display:inline-block;width:24px;height:2px;background:rgba(255,255,255,0.2);border-radius:2px"></span>
-        </div>
+
+      <!-- Aurora glow -->
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+        width:600px;height:300px;border-radius:50%;
+        background:radial-gradient(ellipse,rgba(111,168,255,0.06) 0%,transparent 70%);
+        pointer-events:none;z-index:0"></div>
+
+      <div class="max-w-3xl mx-auto text-center gd-reveal" style="position:relative;z-index:1">
+        <p style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+          letter-spacing:.22em;text-transform:uppercase;color:#D4B15A;opacity:.8;margin-bottom:1.5rem">Let's Work Together</p>
         <h2 style="
-          font-family:'Space Grotesk',Inter,sans-serif;
-          font-size:clamp(2rem,4.5vw,3.5rem);
-          font-weight:700;color:#fff;
-          margin-bottom:1rem;letter-spacing:-.04em;line-height:1.05
-        ">Need visual communication<br><span style="color:${GD.orange}">that actually connects?</span></h2>
-        <p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,0.45);max-width:400px;margin:0 auto 2.5rem">
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:clamp(2.6rem,7.5vw,5.5rem);font-weight:400;font-style:italic;
+          color:#D9E6FF;line-height:.96;margin-bottom:1.5rem;letter-spacing:-.01em;
+          text-shadow:0 0 60px rgba(111,168,255,0.18)
+        ">Need visual communication<br><span style="color:#D4B15A">that actually connects?</span></h2>
+        <p style="font-family:'Outfit',sans-serif;font-size:.94rem;line-height:1.8;
+          color:#8FA8D6;max-width:420px;margin:0 auto 3rem">
           Guidebooks, presentations, or institutional branding — let's design communication experiences that feel human.
         </p>
+
         <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center">
           <button onclick="goToPage('contact')" style="
-            background:${GD.orange};color:#fff;
-            padding:15px 32px;border-radius:999px;
-            font-family:'Space Grotesk',Inter,sans-serif;
-            font-size:.9rem;font-weight:700;
-            border:none;cursor:pointer;
-            display:inline-flex;align-items:center;gap:9px;
-            transition:opacity .2s;box-shadow:0 4px 24px rgba(244,135,75,0.4)
-          " onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+            font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:600;
+            background:#D4B15A;color:#071126;padding:16px 38px;border-radius:999px;
+            border:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;
+            letter-spacing:.03em;
+            box-shadow:0 0 24px rgba(212,177,90,0.32),0 4px 18px rgba(212,177,90,0.2);
+            transition:opacity .2s,transform .2s,box-shadow .2s
+          " onmouseover="this.style.opacity='.88';this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 36px rgba(212,177,90,0.5),0 6px 24px rgba(212,177,90,0.3)'"
+             onmouseout="this.style.opacity='1';this.style.transform='translateY(0)';this.style.boxShadow='0 0 24px rgba(212,177,90,0.32),0 4px 18px rgba(212,177,90,0.2)'">
             Start a Conversation <i data-lucide="arrow-right" style="width:15px;height:15px"></i>
           </button>
           <a href="mailto:zefanya.kharisma@gmail.com" style="
-            border:1.5px solid rgba(255,255,255,0.18);
-            color:rgba(255,255,255,0.7);background:transparent;
-            padding:15px 24px;border-radius:999px;
-            font-size:.85rem;font-weight:600;
-            cursor:pointer;text-decoration:none;
+            font-family:'Outfit',sans-serif;
+            border:1px solid rgba(212,177,90,0.38);color:#D4B15A;
+            padding:16px 24px;border-radius:999px;
+            background:rgba(212,177,90,0.06);cursor:pointer;text-decoration:none;
+            font-size:.85rem;font-weight:500;
             display:inline-flex;align-items:center;gap:7px;
-            transition:border-color .2s,color .2s
-          " onmouseover="this.style.borderColor='rgba(255,255,255,0.4)';this.style.color='#fff'"
-             onmouseout="this.style.borderColor='rgba(255,255,255,0.18)';this.style.color='rgba(255,255,255,0.7)'">
+            transition:background .22s,border-color .22s,box-shadow .22s
+          " onmouseover="this.style.background='rgba(212,177,90,0.14)';this.style.borderColor='rgba(212,177,90,0.6)';this.style.boxShadow='0 0 18px rgba(212,177,90,0.2)'"
+             onmouseout="this.style.background='rgba(212,177,90,0.06)';this.style.borderColor='rgba(212,177,90,0.38)';this.style.boxShadow='none'">
             <i data-lucide="mail" style="width:14px;height:14px"></i>
             zefanya.kharisma@gmail.com
           </a>
         </div>
-        <div style="margin-top:40px">
+
+        <div style="margin-top:2.5rem">
           <button onclick="goToPage('projects-overview')" style="
             display:inline-flex;align-items:center;gap:6px;
             background:none;border:none;cursor:pointer;
-            font-size:.78rem;color:rgba(255,255,255,0.25);
-            padding:8px 12px;border-radius:8px;transition:color .18s
-          " onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">
+            font-family:'Outfit',sans-serif;font-size:.78rem;
+            color:rgba(143,168,214,0.32);padding:8px 12px;
+            border-radius:8px;transition:color .18s
+          " onmouseover="this.style.color='rgba(143,168,214,0.65)'" onmouseout="this.style.color='rgba(143,168,214,0.32)'">
             <i data-lucide="arrow-left" style="width:13px;height:13px"></i> Back to Projects
           </button>
         </div>
@@ -863,9 +938,9 @@ function gdLightboxContent() {
   const thumbs = Array.from({ length: total }, (_, i) => `
     <div onclick="event.stopPropagation();gdLightboxJump(${i})" style="
       flex:0 0 auto;width:52px;height:34px;border-radius:5px;overflow:hidden;cursor:pointer;
-      border:2px solid ${i === gdLightboxIndex ? '#fff' : 'transparent'};
-      opacity:${i === gdLightboxIndex ? '1' : '0.45'};transition:all .15s
-    " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='${i === gdLightboxIndex ? '1' : '0.45'}'">
+      border:2px solid ${i === gdLightboxIndex ? '#D4B15A' : 'transparent'};
+      opacity:${i === gdLightboxIndex ? '1' : '0.4'};transition:all .15s
+    " onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='${i === gdLightboxIndex ? '1' : '0.4'}'">
       <img src="./assets/images/graphic-designs/${p.folder}/${i + 1}.png" style="width:100%;height:100%;object-fit:cover;object-position:top" loading="lazy">
     </div>`).join('');
 
@@ -873,19 +948,20 @@ function gdLightboxContent() {
     <div onclick="gdCloseLightbox()" style="position:absolute;inset:0;cursor:zoom-out"></div>
 
     <!-- Top bar -->
-    <div style="position:absolute;top:0;left:0;right:0;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;z-index:3;background:linear-gradient(to bottom,rgba(0,0,0,0.65),transparent);pointer-events:none">
+    <div style="position:absolute;top:0;left:0;right:0;padding:14px 20px;display:flex;align-items:center;
+      justify-content:space-between;z-index:3;background:linear-gradient(to bottom,rgba(3,7,18,0.75),transparent);pointer-events:none">
       <div style="pointer-events:auto">
-        <div style="color:rgba(255,255,255,0.85);font-size:.82rem;font-weight:600;font-family:'Space Grotesk',Inter,sans-serif">${p.title}</div>
-        <div style="color:rgba(255,255,255,0.4);font-size:.68rem;margin-top:2px">${p.institution}</div>
+        <div style="color:#D9E6FF;font-size:.82rem;font-weight:500;font-family:'Outfit',sans-serif">${p.title}</div>
+        <div style="color:#8FA8D6;font-size:.66rem;margin-top:2px;font-family:'Outfit',sans-serif">${p.institution}</div>
       </div>
       <div style="display:flex;align-items:center;gap:14px;pointer-events:auto">
-        <span style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:600">Page ${n} of ${total}</span>
+        <span style="color:rgba(143,168,214,0.55);font-size:.73rem;font-weight:500;font-family:'Outfit',sans-serif">Page ${n} of ${total}</span>
         <button onclick="gdCloseLightbox()" style="
-          background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);
-          cursor:pointer;color:#fff;width:34px;height:34px;border-radius:50%;
+          background:rgba(111,168,255,0.1);border:1px solid rgba(111,168,255,0.2);
+          cursor:pointer;color:#D9E6FF;width:34px;height:34px;border-radius:50%;
           display:flex;align-items:center;justify-content:center;
           font-size:1.1rem;line-height:1;transition:background .15s
-        " onmouseover="this.style.background='rgba(255,255,255,0.24)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">×</button>
+        " onmouseover="this.style.background='rgba(111,168,255,0.22)'" onmouseout="this.style.background='rgba(111,168,255,0.1)'">×</button>
       </div>
     </div>
 
@@ -893,34 +969,34 @@ function gdLightboxContent() {
     <div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:100%;padding:56px 80px 80px">
       <img loading="lazy" id="gd-lb-img" src="./assets/images/graphic-designs/${p.folder}/${n}.png"
            alt="${p.title} — page ${n}"
-           style="max-width:100%;max-height:75vh;object-fit:contain;border-radius:10px;box-shadow:0 32px 100px rgba(0,0,0,0.6);display:block">
+           style="max-width:100%;max-height:75vh;object-fit:contain;border-radius:10px;
+             box-shadow:0 32px 100px rgba(0,0,0,0.65);display:block;
+             border:1px solid rgba(111,168,255,0.12)">
     </div>
 
-    <!-- Prev arrow -->
     ${gdLightboxIndex > 0 ? `
     <button onclick="event.stopPropagation();gdLightboxNav(-1)" style="
       position:absolute;left:16px;top:50%;transform:translateY(-50%);z-index:3;
-      background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);
-      cursor:pointer;color:#fff;width:46px;height:46px;border-radius:50%;
+      background:rgba(111,168,255,0.1);border:1px solid rgba(111,168,255,0.2);
+      cursor:pointer;color:#D9E6FF;width:46px;height:46px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;font-size:1.4rem;
       transition:background .15s;line-height:1
-    " onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">‹</button>` : ''}
+    " onmouseover="this.style.background='rgba(111,168,255,0.22)'" onmouseout="this.style.background='rgba(111,168,255,0.1)'">‹</button>` : ''}
 
-    <!-- Next arrow -->
     ${gdLightboxIndex < total - 1 ? `
     <button onclick="event.stopPropagation();gdLightboxNav(1)" style="
       position:absolute;right:16px;top:50%;transform:translateY(-50%);z-index:3;
-      background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);
-      cursor:pointer;color:#fff;width:46px;height:46px;border-radius:50%;
+      background:rgba(111,168,255,0.1);border:1px solid rgba(111,168,255,0.2);
+      cursor:pointer;color:#D9E6FF;width:46px;height:46px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;font-size:1.4rem;
       transition:background .15s;line-height:1
-    " onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">›</button>` : ''}
+    " onmouseover="this.style.background='rgba(111,168,255,0.22)'" onmouseout="this.style.background='rgba(111,168,255,0.1)'">›</button>` : ''}
 
     <!-- Thumbnail strip -->
     <div onclick="event.stopPropagation()" style="
       position:absolute;bottom:0;left:0;right:0;z-index:3;
       padding:14px 20px;
-      background:linear-gradient(to top,rgba(0,0,0,0.72),transparent);
+      background:linear-gradient(to top,rgba(3,7,18,0.8),transparent);
       display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;
       -webkit-overflow-scrolling:touch;align-items:center;justify-content:center
     ">${thumbs}</div>`;
@@ -933,7 +1009,7 @@ function gdOpenLightbox(projectId, pageIndex) {
   if (existing) existing.remove();
   const lb = document.createElement('div');
   lb.id = 'gd-lightbox';
-  lb.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.94);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px)';
+  lb.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(3,7,18,0.95);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(12px)';
   lb.innerHTML = gdLightboxContent();
   document.body.appendChild(lb);
   document.addEventListener('keydown', gdLightboxKeyHandler);
@@ -967,50 +1043,61 @@ function gdLightboxKeyHandler(e) {
   if (e.key === 'Escape')     gdCloseLightbox();
 }
 
-// ── Image Preview Gallery (clickable → lightbox) ──────────────────────────────
+// ── Image Preview Gallery ─────────────────────────────────────────────────────
 
 function gdBuildImageGallery(project) {
   const previewCount = Math.min(project.pages, 3);
   const imgs = Array.from({ length: previewCount }, (_, i) => i + 1).map(n => `
     <div onclick="gdOpenLightbox('${project.id}', ${n - 1})" style="
-      flex:0 0 auto;width:200px;border-radius:12px;overflow:hidden;
-      box-shadow:0 4px 20px rgba(0,0,0,0.10);background:${project.bg};
+      flex:0 0 auto;width:200px;border-radius:14px;overflow:hidden;
+      box-shadow:0 4px 24px rgba(3,7,18,0.5);background:#071126;
+      border:1px solid rgba(111,168,255,0.12);
       cursor:zoom-in;position:relative;
       transition:transform .22s cubic-bezier(0.34,1.56,0.64,1),box-shadow .22s
-    " onmouseover="this.style.transform='translateY(-5px) scale(1.02)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.18)'"
-       onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.10)'">
+    " onmouseover="this.style.transform='translateY(-5px) scale(1.02)';this.style.boxShadow='0 16px 40px rgba(3,7,18,0.65)'"
+       onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(3,7,18,0.5)'">
       <img src="./assets/images/graphic-designs/${project.folder}/${n}.png"
            alt="${project.title} — page ${n}"
            style="width:100%;display:block;object-fit:cover;aspect-ratio:3/2;object-position:top center"
            loading="lazy">
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .2s;display:flex;align-items:center;justify-content:center;pointer-events:none" class="gd-img-overlay">
-        <span style="color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.1em;opacity:0;transition:opacity .2s">Click to expand</span>
+      <div style="position:absolute;inset:0;background:rgba(7,17,38,0);transition:background .2s;
+        display:flex;align-items:center;justify-content:center;pointer-events:none">
+        <span style="color:#D9E6FF;font-size:.62rem;font-weight:600;letter-spacing:.1em;
+          font-family:'Outfit',sans-serif;opacity:0;transition:opacity .2s">Click to expand</span>
       </div>
-      <span style="position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,0.4);color:rgba(255,255,255,0.7);font-size:.58rem;font-weight:600;padding:2px 7px;border-radius:999px">${n}</span>
+      <span style="position:absolute;bottom:8px;right:10px;
+        background:rgba(7,17,38,0.55);color:#8FA8D6;
+        font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:500;
+        padding:2px 7px;border-radius:999px;border:1px solid rgba(111,168,255,0.16)">${n}</span>
     </div>`).join('');
 
   const moreLabel = project.pages > 3
     ? `<div onclick="window.open('${project.link}','_blank')" style="
-        flex:0 0 auto;width:140px;border-radius:12px;
-        background:${project.bg}22;border:2px dashed ${project.bg}55;
+        flex:0 0 auto;width:140px;border-radius:14px;
+        background:rgba(111,168,255,0.05);border:1px dashed rgba(111,168,255,0.18);
         display:flex;flex-direction:column;align-items:center;justify-content:center;
-        aspect-ratio:3/2;gap:8px;cursor:zoom-in;transition:background .18s
-      " onmouseover="this.style.background='${project.bg}38'" onmouseout="this.style.background='${project.bg}22'">
-        <span style="font-size:1.4rem">${project.emoji}</span>
-        <span style="font-size:.7rem;font-weight:700;color:${project.textColor};text-align:center;line-height:1.4">+${project.pages - 3} more on Canva</span>
+        aspect-ratio:3/2;gap:10px;cursor:zoom-in;transition:background .18s
+      " onmouseover="this.style.background='rgba(111,168,255,0.1)'" onmouseout="this.style.background='rgba(111,168,255,0.05)'">
+        <span style="font-size:1.5rem">${project.emoji}</span>
+        <span style="font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:500;
+          color:#8FA8D6;text-align:center;line-height:1.4">+${project.pages - 3} more on Canva</span>
       </div>`
     : '';
 
   return `
-    <div style="margin-bottom:3rem">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:8px">
+    <div style="margin-bottom:3.5rem">
+      <div style="display:flex;align-items:center;justify-content:space-between;
+        margin-bottom:1.25rem;flex-wrap:wrap;gap:8px">
         <div style="display:flex;align-items:center;gap:10px">
-          <span style="display:inline-block;width:22px;height:3px;background:${project.bg};border-radius:2px"></span>
-          <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${project.textColor}">Design Preview</span>
+          <div style="width:22px;height:2px;background:${project.accent};border-radius:2px;opacity:.7"></div>
+          <span style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+            letter-spacing:.18em;text-transform:uppercase;color:${project.textAccent}">Design Preview</span>
         </div>
-        <span style="font-size:.72rem;color:rgba(28,28,30,0.38);font-weight:500">${project.pages} pages · click to expand</span>
+        <span style="font-family:'Outfit',sans-serif;font-size:.72rem;color:#8FA8D6;font-weight:400;opacity:.65">${project.pages} pages · click to expand</span>
       </div>
-      <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:${project.bg} transparent;-webkit-overflow-scrolling:touch">
+      <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:14px;
+        scrollbar-width:thin;scrollbar-color:rgba(111,168,255,0.2) transparent;
+        -webkit-overflow-scrolling:touch">
         ${imgs}${moreLabel}
       </div>
     </div>`;
@@ -1025,177 +1112,226 @@ function gdBuildProjectDetail(project) {
 
   const skillTags = project.skills.map(s => `
     <span style="
-      background:rgba(255,255,255,0.28);color:#1C1C1E;
-      padding:5px 13px;border-radius:999px;
-      font-size:.72rem;font-weight:600;
+      background:rgba(111,168,255,0.08);color:#8FA8D6;
+      padding:5px 14px;border-radius:999px;
+      font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:400;
+      border:1px solid rgba(111,168,255,0.18)
     ">${s}</span>`).join('');
 
-  const catLabel = project.categories.map(c => {
-    const f = GD_FILTER_CATEGORIES.find(x => x.id === c);
-    return f ? f.label : c;
-  }).join(' · ');
+  const catLabel = project.categories.map(c => gdCatLabel(c)).join(' · ');
 
   const storySteps = [
-    { num: '01', label: 'The Brief', color: project.bg, heading: 'Why this project existed', text: project.challenge },
-    { num: '02', label: 'The Making', color: project.bg, heading: 'How the design came together', text: project.approach },
-    { num: '03', label: 'The Outcome', color: project.bg, heading: 'What it ultimately achieved', text: project.impact },
+    { num: '01', label: 'The Brief',   heading: 'Why this project existed',        text: project.challenge },
+    { num: '02', label: 'The Making',  heading: 'How the design came together',    text: project.approach  },
+    { num: '03', label: 'The Outcome', heading: 'What it ultimately achieved',     text: project.impact    },
   ].map((s, i) => `
-    <div style="display:flex;gap:20px;align-items:flex-start;${i < 2 ? 'margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(28,28,30,0.07)' : ''}">
-      <div style="flex-shrink:0;width:52px;height:52px;border-radius:14px;background:${s.color}28;border:1.5px solid ${s.color}44;display:flex;align-items:center;justify-content:center">
-        <span style="font-family:'Space Grotesk',Inter,sans-serif;font-size:.7rem;font-weight:800;color:${project.textColor};letter-spacing:.08em">${s.num}</span>
+    <div style="display:flex;gap:20px;align-items:flex-start;${i < 2 ? 'margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(111,168,255,0.08)' : ''}">
+      <div style="flex-shrink:0;width:52px;height:52px;border-radius:14px;
+        background:rgba(111,168,255,0.06);border:1px solid rgba(111,168,255,0.16);
+        display:flex;align-items:center;justify-content:center;
+        box-shadow:0 0 14px rgba(111,168,255,0.08)">
+        <span style="font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:700;
+          color:${project.textAccent};letter-spacing:.08em">${s.num}</span>
       </div>
       <div style="flex:1">
-        <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${project.textColor};margin-bottom:5px;opacity:.7">${s.label}</div>
-        <h4 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:1rem;color:#1C1C1E;margin-bottom:8px;line-height:1.3">${s.heading}</h4>
-        <p style="font-size:.88rem;line-height:1.72;color:rgba(28,28,30,0.58)">${s.text}</p>
+        <div style="font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:600;
+          letter-spacing:.16em;text-transform:uppercase;color:${project.textAccent};margin-bottom:5px;opacity:.7">${s.label}</div>
+        <h4 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:1.1rem;font-weight:500;font-style:italic;
+          color:#D9E6FF;margin-bottom:8px;line-height:1.3
+        ">${s.heading}</h4>
+        <p style="font-family:'Outfit',sans-serif;font-size:.88rem;line-height:1.76;color:#8FA8D6">${s.text}</p>
       </div>
     </div>`).join('');
 
   const dnaCards = (project.designDecisions || []).map(d => `
-    <div style="background:#fff;border-radius:16px;padding:22px 20px;border:1px solid rgba(28,28,30,0.07);box-shadow:0 2px 16px rgba(0,0,0,0.04)">
-      <div style="width:36px;height:36px;border-radius:10px;background:${project.bg}30;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:1rem;color:${project.textColor}">${d.icon}</div>
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:${project.textColor};margin-bottom:6px;opacity:.75">${d.label}</div>
-      <p style="font-size:.84rem;line-height:1.68;color:rgba(28,28,30,0.58)">${d.text}</p>
+    <div class="gd-card-hover" style="
+      background:rgba(24,59,107,0.3);border-radius:18px;padding:22px 20px;
+      border:1px solid rgba(111,168,255,0.14);backdrop-filter:blur(12px)">
+      <div style="width:36px;height:36px;border-radius:10px;
+        background:rgba(111,168,255,0.06);border:1px solid rgba(111,168,255,0.16);
+        display:flex;align-items:center;justify-content:center;
+        margin-bottom:14px;font-size:1rem;color:${project.textAccent}">${d.icon}</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:600;
+        letter-spacing:.14em;text-transform:uppercase;color:${project.textAccent};margin-bottom:6px;opacity:.75">${d.label}</div>
+      <p style="font-family:'Outfit',sans-serif;font-size:.84rem;line-height:1.72;color:#8FA8D6">${d.text}</p>
     </div>`).join('');
 
   const deliverablePills = (project.deliverables || []).map(d => `
     <span style="
       display:inline-flex;align-items:center;gap:6px;
-      background:#fff;border:1px solid rgba(28,28,30,0.09);
+      background:rgba(11,30,58,0.55);border:1px solid rgba(111,168,255,0.14);
       padding:7px 14px;border-radius:999px;
-      font-size:.75rem;font-weight:600;color:#1C1C1E;
-      box-shadow:0 1px 6px rgba(0,0,0,0.04)
-    "><span style="width:6px;height:6px;border-radius:50%;background:${project.bg};display:inline-block;flex-shrink:0"></span>${d}</span>`).join('');
+      font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:400;color:#D9E6FF;
+    "><span style="width:6px;height:6px;border-radius:50%;background:${project.accent};
+      display:inline-block;flex-shrink:0;opacity:.7"></span>${d}</span>`).join('');
 
   const relatedCards = related.map(p => `
-    <button onclick="gdShowProject('${p.id}')" style="
-      background:#fff;border-radius:16px;overflow:hidden;
-      border:1px solid rgba(28,28,30,0.07);cursor:pointer;text-align:left;
-      box-shadow:0 2px 16px rgba(0,0,0,0.05);
-      transition:transform .28s cubic-bezier(0.34,1.56,0.64,1),box-shadow .28s;
+    <button onclick="gdShowProject('${p.id}')" class="gd-card-hover" style="
+      background:#0B1E3A;border-radius:16px;overflow:hidden;
+      border:1px solid rgba(111,168,255,0.12);cursor:pointer;text-align:left;
+      box-shadow:0 2px 18px rgba(3,7,18,0.4);
       display:block;width:100%
-    " onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 44px rgba(0,0,0,0.1)'"
-       onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.05)'">
-      <div style="height:80px;background:${p.bg};display:flex;align-items:center;justify-content:center;font-size:1.8rem">${p.emoji}</div>
+    ">
+      <div style="height:80px;background:#071126;display:flex;align-items:center;justify-content:center;
+        font-size:1.8rem;position:relative;overflow:hidden">
+        ${cmBuildStarField(8)}
+        <span style="position:relative;z-index:1">${p.emoji}</span>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:2px;
+          background:linear-gradient(to right,${p.accent},transparent);opacity:.5"></div>
+      </div>
       <div style="padding:13px 15px 15px">
-        <div style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(28,28,30,0.35);margin-bottom:4px">${p.institution}</div>
-        <h4 style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:.86rem;color:#1C1C1E;line-height:1.3">${p.title}</h4>
+        <div style="font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:500;
+          letter-spacing:.1em;text-transform:uppercase;color:rgba(143,168,214,0.45);margin-bottom:4px">${p.institution}</div>
+        <h4 style="
+          font-family:'Cormorant Garamond',Georgia,serif;
+          font-size:.95rem;font-weight:500;font-style:italic;
+          color:#D9E6FF;line-height:1.3
+        ">${p.title}</h4>
       </div>
     </button>`).join('');
 
-  return `
-    <div style="background:#FAFAF8;min-height:100vh">
+  const stars = cmBuildStarField(40);
 
-      <!-- ① Hero header ────────────────────────────────────────────────────── -->
-      <div style="background:${project.bg};position:relative;overflow:hidden">
-        <div style="position:absolute;top:-80px;right:-80px;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,0.13);pointer-events:none"></div>
-        <div style="position:absolute;bottom:-60px;left:-40px;width:260px;height:260px;border-radius:50%;background:rgba(0,0,0,0.05);pointer-events:none"></div>
+  return `
+    <div style="background:#071126;min-height:100vh">
+
+      <!-- Hero header -->
+      <div style="
+        background:linear-gradient(160deg,#030712 0%,#071126 50%,#0B1E3A 100%);
+        position:relative;overflow:hidden">
+        <!-- Stars -->
+        <div style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.7">${stars}</div>
+        <!-- Constellation -->
+        <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+          ${cmConstellationSVG(900, 500, project.id.length)}
+        </div>
+        <!-- Accent glow top-right -->
+        <div style="position:absolute;right:-80px;top:-80px;width:380px;height:380px;border-radius:50%;
+          background:radial-gradient(circle,${project.accent}18 0%,transparent 65%);pointer-events:none;z-index:0"></div>
 
         <div class="max-w-5xl mx-auto" style="position:relative;z-index:1;padding:clamp(3.5rem,8vh,6rem) 24px 0">
           <!-- back -->
           <button onclick="gdShowGallery()" style="
             display:inline-flex;align-items:center;gap:8px;margin-bottom:2.5rem;
-            font-size:.82rem;color:#1C1C1E;opacity:.55;
-            background:rgba(255,255,255,0.3);border:none;cursor:pointer;
-            padding:8px 18px;border-radius:999px;transition:opacity .2s
-          " onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.55'">
+            font-family:'Outfit',sans-serif;font-size:.82rem;color:#8FA8D6;
+            background:rgba(111,168,255,0.06);border:1px solid rgba(111,168,255,0.14);
+            cursor:pointer;padding:8px 18px;border-radius:999px;transition:all .2s
+          " onmouseover="this.style.color='#D9E6FF';this.style.background='rgba(111,168,255,0.12)'"
+             onmouseout="this.style.color='#8FA8D6';this.style.background='rgba(111,168,255,0.06)'">
             <i data-lucide="arrow-left" style="width:14px;height:14px"></i> Back to Gallery
           </button>
 
           <!-- institution + category -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:1.1rem">
-            <span style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(28,28,30,0.5)">${project.institution}</span>
-            <span style="width:3px;height:3px;border-radius:50%;background:rgba(28,28,30,0.3);display:inline-block"></span>
-            <span style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(28,28,30,0.38)">${catLabel}</span>
+            <span style="font-family:'Outfit',sans-serif;font-size:.62rem;font-weight:500;
+              letter-spacing:.16em;text-transform:uppercase;color:#8FA8D6;opacity:.6">${project.institution}</span>
+            <span style="width:3px;height:3px;border-radius:50%;background:rgba(143,168,214,0.3);display:inline-block"></span>
+            <span style="font-family:'Outfit',sans-serif;font-size:.62rem;font-weight:500;
+              letter-spacing:.12em;text-transform:uppercase;color:#8FA8D6;opacity:.45">${catLabel}</span>
           </div>
 
           <!-- title -->
           <h1 style="
-            font-family:'Space Grotesk',Inter,sans-serif;
-            font-size:clamp(2rem,4.5vw,3.8rem);
-            font-weight:700;line-height:1.0;
-            letter-spacing:-.04em;color:#1C1C1E;margin-bottom:1.5rem;max-width:680px
+            font-family:'Cormorant Garamond',Georgia,serif;
+            font-size:clamp(2rem,5vw,4rem);
+            font-weight:400;font-style:italic;line-height:1.0;
+            letter-spacing:-.01em;color:#D9E6FF;margin-bottom:1.5rem;max-width:680px;
+            text-shadow:0 0 60px rgba(111,168,255,0.12)
           ">${project.fullTitle}</h1>
 
           <!-- skill tags + year -->
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.75rem">
-            <span style="background:rgba(0,0,0,0.12);color:#1C1C1E;padding:5px 13px;border-radius:999px;font-size:.7rem;font-weight:700">${project.year}</span>
+            <span style="
+              background:rgba(212,177,90,0.12);color:#D4B15A;
+              padding:5px 13px;border-radius:999px;
+              font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;
+              border:1px solid rgba(212,177,90,0.22)
+            ">${project.year}</span>
             ${skillTags}
           </div>
 
           <!-- summary -->
-          <p style="font-size:1.02rem;line-height:1.72;color:rgba(28,28,30,0.65);max-width:580px;font-weight:500;margin-bottom:3rem">${project.summary}</p>
+          <p style="font-family:'Outfit',sans-serif;font-size:1rem;line-height:1.78;
+            color:#8FA8D6;max-width:580px;margin-bottom:3rem">${project.summary}</p>
         </div>
       </div>
 
-      <!-- ② Stats bar ─────────────────────────────────────────────────────── -->
-      <div style="background:#fff;border-bottom:1px solid rgba(28,28,30,0.07);position:sticky;top:0;z-index:10">
+      <!-- Stats bar -->
+      <div style="
+        background:rgba(11,30,58,0.85);backdrop-filter:blur(14px);
+        border-bottom:1px solid rgba(111,168,255,0.1);position:sticky;top:0;z-index:10">
         <div class="max-w-5xl mx-auto" style="padding:0 24px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none">
           ${[
-            { label: 'Type',      value: catLabel.split(' · ')[0] },
-            { label: 'Pages',     value: project.pages + ' pages' },
-            { label: 'Year',      value: project.year             },
-            { label: 'Tool',      value: 'Canva'                  },
-            { label: 'Client',    value: project.institution.split(' × ')[0] },
+            { label: 'Type',   value: catLabel.split(' · ')[0] },
+            { label: 'Pages',  value: project.pages + ' pages' },
+            { label: 'Year',   value: project.year             },
+            { label: 'Tool',   value: 'Canva'                  },
+            { label: 'Client', value: project.institution.split(' × ')[0] },
           ].map((s, i) => `
-            <div style="flex:0 0 auto;padding:14px 22px;border-right:1px solid rgba(28,28,30,0.07);${i === 0 ? 'padding-left:0' : ''}">
-              <div style="font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(28,28,30,0.35);margin-bottom:3px">${s.label}</div>
-              <div style="font-size:.82rem;font-weight:700;color:#1C1C1E;white-space:nowrap">${s.value}</div>
+            <div style="flex:0 0 auto;padding:14px 22px;border-right:1px solid rgba(111,168,255,0.08);${i === 0 ? 'padding-left:0' : ''}">
+              <div style="font-family:'Outfit',sans-serif;font-size:.56rem;font-weight:600;
+                letter-spacing:.14em;text-transform:uppercase;color:rgba(143,168,214,0.4);margin-bottom:3px">${s.label}</div>
+              <div style="font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:500;
+                color:#D9E6FF;white-space:nowrap">${s.value}</div>
             </div>`).join('')}
           <div style="flex:1;min-width:0"></div>
           <div style="padding:14px 0 14px 22px;display:flex;align-items:center">
             <a href="${project.link}" target="_blank" rel="noopener noreferrer" style="
               display:inline-flex;align-items:center;gap:6px;
-              background:${project.bg};color:${project.textColor};
+              background:#D4B15A;color:#071126;
               padding:7px 16px;border-radius:999px;
-              font-size:.72rem;font-weight:700;text-decoration:none;
-              white-space:nowrap;transition:opacity .2s
-            " onmouseover="this.style.opacity='.78'" onmouseout="this.style.opacity='1'">
+              font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;
+              text-decoration:none;white-space:nowrap;
+              box-shadow:0 0 14px rgba(212,177,90,0.25);transition:opacity .2s
+            " onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
               Open on Canva <i data-lucide="external-link" style="width:11px;height:11px"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- ③ Content body ───────────────────────────────────────────────────── -->
+      <!-- Content body -->
       <div class="max-w-5xl mx-auto" style="padding:clamp(3rem,6vh,5rem) 24px">
 
-        <!-- THE STORY — 3-act narrative -->
+        <!-- THE STORY -->
         <div style="margin-bottom:3.5rem">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:2rem">
-            <span style="display:inline-block;width:24px;height:3px;background:${project.bg};border-radius:2px"></span>
-            <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${project.textColor}">The Story</span>
+            <div style="width:22px;height:2px;background:${project.accent};border-radius:2px;opacity:.7"></div>
+            <span style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+              letter-spacing:.18em;text-transform:uppercase;color:${project.textAccent}">The Story</span>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start">
-            <!-- left: big label -->
             <div style="position:sticky;top:80px">
               <h2 style="
-                font-family:'Space Grotesk',Inter,sans-serif;
+                font-family:'Cormorant Garamond',Georgia,serif;
                 font-size:clamp(2rem,4vw,3rem);
-                font-weight:700;letter-spacing:-.04em;line-height:1.05;
-                color:#1C1C1E;margin-bottom:1rem
-              ">Behind<br>the <em style="font-style:italic;color:${project.textColor}">design.</em></h2>
-              <p style="font-size:.86rem;line-height:1.7;color:rgba(28,28,30,0.48);max-width:260px">
+                font-weight:400;font-style:italic;letter-spacing:-.01em;line-height:1.05;
+                color:#D9E6FF;margin-bottom:1rem
+              ">Behind<br>the <span style="color:${project.textAccent}">design.</span></h2>
+              <p style="font-family:'Outfit',sans-serif;font-size:.86rem;line-height:1.7;color:#8FA8D6;max-width:260px;opacity:.75">
                 Every page was a deliberate decision — here's the thinking that shaped it.
               </p>
             </div>
-            <!-- right: 3 steps -->
             <div>
               ${storySteps}
             </div>
           </div>
         </div>
 
-        <!-- DESIGN PREVIEW — clickable lightbox -->
+        <!-- DESIGN PREVIEW -->
         ${gdBuildImageGallery(project)}
 
-        <!-- DESIGN DNA — 3 visual decisions -->
+        <!-- DESIGN DNA -->
         <div style="margin-bottom:3.5rem">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:.75rem">
-            <span style="display:inline-block;width:24px;height:3px;background:${project.bg};border-radius:2px"></span>
-            <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${project.textColor}">Design DNA</span>
+            <div style="width:22px;height:2px;background:${project.accent};border-radius:2px;opacity:.7"></div>
+            <span style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+              letter-spacing:.18em;text-transform:uppercase;color:${project.textAccent}">Design DNA</span>
           </div>
-          <p style="font-size:.86rem;color:rgba(28,28,30,0.44);margin-bottom:1.5rem;max-width:420px;line-height:1.6">
+          <p style="font-family:'Outfit',sans-serif;font-size:.86rem;color:#8FA8D6;
+            margin-bottom:1.5rem;max-width:420px;line-height:1.64;opacity:.7">
             Three intentional visual decisions that make this project what it is.
           </p>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
@@ -1204,10 +1340,14 @@ function gdBuildProjectDetail(project) {
         </div>
 
         <!-- DELIVERABLES -->
-        <div style="background:#fff;border-radius:20px;padding:28px 30px;border:1px solid rgba(28,28,30,0.07);box-shadow:0 2px 16px rgba(0,0,0,0.04);margin-bottom:3.5rem">
+        <div style="
+          background:rgba(11,30,58,0.5);border-radius:20px;padding:28px 30px;
+          border:1px solid rgba(111,168,255,0.12);backdrop-filter:blur(12px);
+          margin-bottom:3.5rem">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem">
-            <span style="display:inline-block;width:20px;height:3px;background:${project.bg};border-radius:2px"></span>
-            <span style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${project.textColor}">What Was Made</span>
+            <div style="width:18px;height:2px;background:${project.accent};border-radius:2px;opacity:.7"></div>
+            <span style="font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:600;
+              letter-spacing:.18em;text-transform:uppercase;color:${project.textAccent}">What Was Made</span>
           </div>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
             ${deliverablePills}
@@ -1215,53 +1355,70 @@ function gdBuildProjectDetail(project) {
         </div>
 
         <!-- VIEW ON CANVA -->
-        <div style="border-radius:24px;overflow:hidden;margin-bottom:3.5rem">
-          <!-- cover image strip — clickable lightbox -->
+        <div style="border-radius:24px;overflow:hidden;margin-bottom:3.5rem;
+          border:1px solid rgba(111,168,255,0.12)">
           <div onclick="gdOpenLightbox('${project.id}', 0)" style="height:220px;overflow:hidden;position:relative;cursor:zoom-in">
-            <img src="./assets/images/graphic-designs/${project.folder}/1.png" alt="${project.title} — cover preview" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
-            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.06),rgba(0,0,0,0.52))"></div>
-            <div style="position:absolute;bottom:16px;left:22px;color:rgba(255,255,255,0.6);font-size:.68rem;font-weight:600;letter-spacing:.08em">
+            <img src="./assets/images/graphic-designs/${project.folder}/1.png"
+              alt="${project.title} — cover preview" loading="lazy"
+              style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+                transition:transform .45s ease"
+              onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,17,38,0.08),rgba(7,17,38,0.58))"></div>
+            <div style="position:absolute;bottom:16px;left:22px;
+              font-family:'Outfit',sans-serif;color:rgba(217,230,255,0.55);font-size:.68rem;font-weight:500;letter-spacing:.08em">
               Click to preview · ${project.pages} pages
             </div>
           </div>
-          <!-- CTA bar -->
-          <div style="background:#1C1C1E;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+          <div style="background:#071126;padding:24px 30px;display:flex;align-items:center;
+            justify-content:space-between;flex-wrap:wrap;gap:16px;
+            border-top:1px solid rgba(111,168,255,0.1)">
             <div>
-              <div style="color:rgba(255,255,255,0.38);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px">Full design on Canva</div>
-              <div style="color:#fff;font-size:.95rem;font-weight:600;font-family:'Space Grotesk',Inter,sans-serif">Explore every spread, layout &amp; visual system.</div>
+              <div style="font-family:'Outfit',sans-serif;color:#8FA8D6;font-size:.6rem;font-weight:600;
+                letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px;opacity:.55">Full design on Canva</div>
+              <div style="font-family:'Cormorant Garamond',Georgia,serif;color:#D9E6FF;font-size:1.1rem;
+                font-weight:500;font-style:italic">Explore every spread, layout &amp; visual system.</div>
             </div>
             <a href="${project.link}" target="_blank" rel="noopener noreferrer" style="
               display:inline-flex;align-items:center;gap:9px;
-              background:${project.bg};color:${project.textColor};
+              background:#D4B15A;color:#071126;
               padding:13px 26px;border-radius:999px;
-              font-family:'Space Grotesk',Inter,sans-serif;
-              font-size:.87rem;font-weight:700;text-decoration:none;
-              flex-shrink:0;transition:opacity .2s;box-shadow:0 4px 24px rgba(0,0,0,0.25)
-            " onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
+              font-family:'Outfit',sans-serif;font-size:.87rem;font-weight:600;
+              text-decoration:none;flex-shrink:0;
+              box-shadow:0 0 22px rgba(212,177,90,0.3);transition:opacity .2s,transform .2s
+            " onmouseover="this.style.opacity='.85';this.style.transform='translateY(-2px)'"
+               onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
               Open on Canva <i data-lucide="external-link" style="width:14px;height:14px"></i>
             </a>
           </div>
         </div>
 
-        <!-- REFLECTION pullquote -->
+        <!-- REFLECTION -->
         <div style="
-          background:${project.bg};border-radius:24px;
-          padding:clamp(2.5rem,5vh,4.5rem) clamp(2rem,5vw,4rem);
-          margin-bottom:3.5rem;position:relative;overflow:hidden
+          background:linear-gradient(135deg,rgba(24,59,107,0.4),rgba(11,30,58,0.6));
+          border-radius:24px;padding:clamp(2.5rem,5vh,4.5rem) clamp(2rem,5vw,4rem);
+          margin-bottom:3.5rem;position:relative;overflow:hidden;
+          border:1px solid rgba(111,168,255,0.14)
         ">
-          <div style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.13);pointer-events:none"></div>
-          <div style="position:absolute;left:-30px;bottom:-50px;width:160px;height:160px;border-radius:50%;background:rgba(0,0,0,0.05);pointer-events:none"></div>
+          <!-- Constellation overlay -->
+          <div style="position:absolute;inset:0;pointer-events:none;opacity:.3">
+            ${cmConstellationSVG(700, 300, project.pages)}
+          </div>
+          <!-- Accent glow -->
+          <div style="position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;
+            background:radial-gradient(circle,${project.accent}12 0%,transparent 65%);pointer-events:none"></div>
+
           <div style="position:relative;z-index:1">
-            <div style="font-family:'Caveat',cursive;font-size:5rem;line-height:.8;color:${project.textColor};opacity:.18;margin-bottom:-1rem;user-select:none">"</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:.8;
+              color:${project.accent};opacity:.15;margin-bottom:-1rem;user-select:none">"</div>
             <p style="
-              font-family:'Caveat',cursive;
-              font-size:clamp(1.35rem,2.6vw,1.9rem);
-              line-height:1.48;color:#1C1C1E;font-weight:500;
-              position:relative;z-index:1;max-width:620px
+              font-family:'Cormorant Garamond',Georgia,serif;
+              font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:400;font-style:italic;
+              line-height:1.52;color:#D9E6FF;position:relative;z-index:1;max-width:620px
             ">${project.reflection}</p>
             <div style="display:flex;align-items:center;gap:10px;margin-top:1.5rem">
-              <span style="display:inline-block;width:18px;height:2px;background:rgba(28,28,30,0.25);border-radius:2px"></span>
-              <span style="font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(28,28,30,0.4)">Reflection</span>
+              <div style="width:18px;height:1px;background:rgba(143,168,214,0.3);border-radius:2px"></div>
+              <span style="font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:600;
+                letter-spacing:.16em;text-transform:uppercase;color:rgba(143,168,214,0.45)">Reflection</span>
             </div>
           </div>
         </div>
@@ -1270,26 +1427,38 @@ function gdBuildProjectDetail(project) {
         ${related.length > 0 ? `
         <div style="margin-bottom:3rem">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.5rem">
-            <span style="display:inline-block;width:22px;height:3px;background:${GD.coral};border-radius:2px"></span>
-            <span style="font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${GD.coral}">You Might Also Like</span>
+            <div style="width:20px;height:2px;background:#D4B15A;border-radius:2px;opacity:.6"></div>
+            <span style="font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:600;
+              letter-spacing:.18em;text-transform:uppercase;color:#D4B15A">You Might Also Like</span>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px">${relatedCards}</div>
         </div>` : ''}
 
         <!-- back button -->
-        <div style="display:flex;justify-content:center;padding-top:1rem;padding-bottom:1rem">
+        <div style="display:flex;justify-content:center;padding:1rem 0 2rem">
           <button onclick="gdShowGallery()" style="
             display:inline-flex;align-items:center;gap:7px;
-            border:1.5px solid rgba(28,28,30,0.12);background:none;cursor:pointer;
-            font-size:.82rem;font-weight:600;color:rgba(28,28,30,0.4);
+            border:1px solid rgba(111,168,255,0.18);background:none;cursor:pointer;
+            font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:400;color:#8FA8D6;
             padding:11px 22px;border-radius:999px;transition:all .2s
-          " onmouseover="this.style.background='rgba(28,28,30,0.05)';this.style.color='rgba(28,28,30,0.75)';this.style.borderColor='rgba(28,28,30,0.22)'"
-             onmouseout="this.style.background='';this.style.color='rgba(28,28,30,0.4)';this.style.borderColor='rgba(28,28,30,0.12)'">
+          " onmouseover="this.style.background='rgba(111,168,255,0.08)';this.style.color='#D9E6FF';this.style.borderColor='rgba(111,168,255,0.3)'"
+             onmouseout="this.style.background='';this.style.color='#8FA8D6';this.style.borderColor='rgba(111,168,255,0.18)'">
             <i data-lucide="grid-2x2" style="width:13px;height:13px"></i> Back to All Projects
           </button>
         </div>
       </div>
     </div>`;
+}
+
+// ── Scroll reveal ─────────────────────────────────────────────────────────────
+
+function gdInitReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('gd-visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.gd-reveal').forEach(el => obs.observe(el));
 }
 
 // ── State Management ──────────────────────────────────────────────────────────
@@ -1302,6 +1471,7 @@ function gdSetFilter(filterId) {
     tmp.innerHTML = gdBuildProjectShowcase();
     section.replaceWith(tmp.firstElementChild);
     if (window.lucide) lucide.createIcons();
+    gdInitReveal();
   }
 }
 
@@ -1333,82 +1503,22 @@ function gdRenderGallery(el) {
     gdBuildHero(),
     gdBuildProjectShowcase(),
     gdBuildCreativeDirections(),
-    gdBuildMoodboard(),
-    gdBuildFunSection(),
+    gdBuildInspirations(),
     gdBuildContact(),
   ].join('');
 
   if (window.lucide) lucide.createIcons();
-
-  setTimeout(() => {
-    gdInitDraggableStickers();
-  }, 80);
-}
-
-function gdReact(btn, label) {
-  const msgs = {
-    Inspired: 'That\'s what design is for! 🎨',
-    Creative: 'Let\'s make something together. ✨',
-    Warm:     'Communication through warmth. 💛',
-    Colorful: 'Color is information, too. 🌈',
-  };
-  const el = document.getElementById('gd-react-msg');
-  if (!el) return;
-  el.textContent = msgs[label] || '✦';
-  el.style.display = 'inline';
-  setTimeout(() => { el.style.display = 'none'; }, 3200);
-}
-
-window.gdSetFilter     = gdSetFilter;
-window.gdShowProject   = gdShowProject;
-window.gdShowGallery   = gdShowGallery;
-window.gdReact         = gdReact;
-window.gdOpenLightbox  = gdOpenLightbox;
-window.gdLightboxNav   = gdLightboxNav;
-window.gdLightboxJump  = gdLightboxJump;
-window.gdCloseLightbox = gdCloseLightbox;
-
-// ── Interactive JS ────────────────────────────────────────────────────────────
-
-function gdInitDraggableStickers() {
-  const board = document.getElementById('gd-sticker-board');
-  if (!board) return;
-  board.querySelectorAll('.cm-sticker').forEach(sticker => {
-    let dragging = false, sx, sy, sl, st;
-    const onStart = (cx, cy) => {
-      dragging = true; sx = cx; sy = cy;
-      const cs = window.getComputedStyle(sticker);
-      sl = parseFloat(cs.left) || 0;
-      st = parseFloat(cs.top)  || 0;
-      sticker.style.zIndex = '100';
-      sticker.style.transition = 'none';
-    };
-    const onMove = (cx, cy) => {
-      if (!dragging) return;
-      sticker.style.left = (sl + cx - sx) + 'px';
-      sticker.style.top  = (st + cy - sy) + 'px';
-    };
-    const onEnd = () => {
-      dragging = false;
-      sticker.style.zIndex = '10';
-      sticker.style.transition = '';
-    };
-    sticker.addEventListener('mousedown',  e => { onStart(e.clientX, e.clientY); e.preventDefault(); });
-    document.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
-    document.addEventListener('mouseup',   onEnd);
-    sticker.addEventListener('touchstart', e => { const t = e.touches[0]; onStart(t.clientX, t.clientY); e.preventDefault(); }, { passive: false });
-    document.addEventListener('touchmove', e => { const t = e.touches[0]; onMove(t.clientX, t.clientY); });
-    document.addEventListener('touchend',  onEnd);
-  });
+  setTimeout(gdInitReveal, 60);
 }
 
 // ── Page Init ─────────────────────────────────────────────────────────────────
 
 function gdInitPage() {
   gdInjectFonts();
+  gdInjectCSS();
   const el = document.getElementById('page-designs');
   if (!el) return;
-  el.style.background = '#FAFAF8';
+  el.style.background = '#071126';
   gdRenderGallery(el);
 
   const orig = window.goToPage;
@@ -1427,5 +1537,13 @@ function gdInitPage() {
     };
   }
 }
+
+window.gdSetFilter     = gdSetFilter;
+window.gdShowProject   = gdShowProject;
+window.gdShowGallery   = gdShowGallery;
+window.gdOpenLightbox  = gdOpenLightbox;
+window.gdLightboxNav   = gdLightboxNav;
+window.gdLightboxJump  = gdLightboxJump;
+window.gdCloseLightbox = gdCloseLightbox;
 
 document.addEventListener('DOMContentLoaded', gdInitPage);
