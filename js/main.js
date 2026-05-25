@@ -348,7 +348,7 @@ const defaultConfig = {
   font_size: 16
 };
 
-const BASE_PATH = '/Website-Portfolio';
+const BASE_PATH = '';
 
 // UX FIX: page metadata for dynamic titles and meta descriptions
 const pageMetadata = {
@@ -422,7 +422,7 @@ function _renderPage(pageId) {
   if (ogDesc) ogDesc.setAttribute('content', meta.description);
   const canonicalEl = document.querySelector('link[rel="canonical"]');
   if (canonicalEl) {
-    const base = 'https://zefanyakharisma-cell.github.io/Website-Portfolio';
+    const base = 'https://zefanyakharisma.com';
     canonicalEl.setAttribute('href', pageId === 'home' ? base + '/' : base + '/' + pageId);
   }
 
@@ -430,7 +430,7 @@ function _renderPage(pageId) {
   return pageId;
 }
 
-// Path-based routing — updates URL to /Website-Portfolio/pageId for Google indexing
+// Path-based routing — updates URL to /pageId for Google indexing
 function goToPage(pageId) {
   const resolved = _renderPage(pageId);
   const newPath = BASE_PATH + (resolved === 'home' ? '/' : '/' + resolved);
@@ -847,13 +847,13 @@ function injectHeroBanners() {
     page.insertBefore(hero, page.firstChild);
     const contentWrapper = Array.from(page.children).find(el =>
       el !== hero && el.tagName === 'DIV' && el.querySelector &&
-      (el.querySelector('button[onclick*="goToPage"]') || el.querySelector('a[href^="/Website-Portfolio/"]'))
+      (el.querySelector('button[onclick*="goToPage"]') || el.querySelector('a[href^="/"][data-back]'))
     );
     if (contentWrapper) {
       contentWrapper.style.paddingTop = contentWrapper.style.paddingTop || '64px';
       contentWrapper.style.paddingBottom = contentWrapper.style.paddingBottom || '64px';
       const oldBack = contentWrapper.querySelector('button[onclick*="goToPage"]') ||
-                      contentWrapper.querySelector('a[href^="/Website-Portfolio/"][data-back]');
+                      contentWrapper.querySelector('a[href^="/"][data-back]');
       if (oldBack && oldBack.querySelector('i[data-lucide="arrow-left"]')) oldBack.remove();
     }
   });

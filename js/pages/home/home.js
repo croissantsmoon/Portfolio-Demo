@@ -70,12 +70,12 @@ function homeInitPage() {
         <!-- CTAs -->
         <div style="animation:springIn .6s cubic-bezier(0.34,1.56,0.64,1) .22s both">
          <div class="flex flex-wrap items-center gap-3">
-          <a href="/Website-Portfolio/projects-overview" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">View Projects <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
-          <a href="/Website-Portfolio/about-overview" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">About Me</a>
+          <a href="/projects-overview" class="btn-primary font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">View Projects <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
+          <a href="/about-overview" class="btn-outline font-medium text-sm px-7 py-3.5 rounded-full inline-flex items-center gap-2" style="text-decoration:none">About Me</a>
          </div>
          <div class="mt-4 flex items-center gap-2">
           <span class="label-small">Also:</span>
-          <a href="/Website-Portfolio/croissantsmoon" class="inline-flex items-center gap-1.5 text-xs font-medium" style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;color:#0A84FF;text-decoration:none">CroissantsMoon <i data-lucide="moon" style="width:12px;height:12px"></i></a>
+          <a href="/croissantsmoon" class="inline-flex items-center gap-1.5 text-xs font-medium" style="font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;color:#0A84FF;text-decoration:none">CroissantsMoon <i data-lucide="moon" style="width:12px;height:12px"></i></a>
          </div>
         </div>
        </div>
@@ -168,7 +168,7 @@ function homeInitPage() {
        </div>
        <!-- Top row: large + small -->
        <div class="grid lg:grid-cols-3 gap-4 mb-4">
-        <a href="/Website-Portfolio/amerta" class="home-work-card lg:col-span-2 group relative overflow-hidden rounded-2xl block" style="padding:44px;min-height:260px;text-decoration:none;color:inherit">
+        <a href="/amerta" class="home-work-card lg:col-span-2 group relative overflow-hidden rounded-2xl block" style="padding:44px;min-height:260px;text-decoration:none;color:inherit">
          <img src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA exchange students at Griffith University" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
          <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(30,58,95,0.88),rgba(74,107,138,0.72))"></div>
          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 90% 10%,rgba(139,115,85,0.18),transparent 50%)"></div>
@@ -183,7 +183,7 @@ function homeInitPage() {
           </div>
          </div>
         </a>
-        <a href="/Website-Portfolio/web-pcu-global-intl" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:var(--color-surface,rgba(255,255,255,0.72));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.28);min-height:260px;text-decoration:none;color:inherit">
+        <a href="/web-pcu-global-intl" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:var(--color-surface,rgba(255,255,255,0.72));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.28);min-height:260px;text-decoration:none;color:inherit">
          <div style="position:relative;overflow:hidden;height:160px;background:#0a0a14;flex-shrink:0">
           <iframe src="https://international-office-website.vercel.app/" style="position:absolute;top:0;left:0;width:300%;height:480px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none" loading="lazy" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="PCU Global International Office Website preview"></iframe>
           <div style="position:absolute;top:0;left:0;right:0;z-index:2;background:rgba(0,0,0,0.58);padding:9px 14px;display:flex;align-items:center;gap:8px">
@@ -210,7 +210,7 @@ function homeInitPage() {
        </div>
        <!-- Bottom row: three equal -->
        <div class="grid sm:grid-cols-3 gap-4">
-        <a href="/Website-Portfolio/aci" class="home-work-card group relative overflow-hidden rounded-2xl block" style="min-height:160px;text-decoration:none;color:inherit">
+        <a href="/aci" class="home-work-card group relative overflow-hidden rounded-2xl block" style="min-height:160px;text-decoration:none;color:inherit">
          <img src="assets/images/aci/aci-4.JPEG" alt="ACI cultural immersion program" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(74,82,53,0.92) 0%,rgba(74,82,53,0.45) 100%)"></div>
          <div class="relative z-10 h-full flex flex-col justify-between p-7">
@@ -221,7 +221,7 @@ function homeInitPage() {
           </div>
          </div>
         </a>
-        <a href="/Website-Portfolio/aero" class="home-work-card group relative overflow-hidden rounded-2xl block" style="min-height:160px;text-decoration:none;color:inherit">
+        <a href="/aero" class="home-work-card group relative overflow-hidden rounded-2xl block" style="min-height:160px;text-decoration:none;color:inherit">
          <img src="assets/images/aero/aero-header-1.JPEG" alt="AERO exhibition at Universitas Airlangga" loading="lazy" class="absolute inset-0 w-full h-full object-cover" style="object-position:center 30%">
          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(28,28,30,0.92) 0%,rgba(28,28,30,0.45) 100%)"></div>
          <div class="relative z-10 h-full flex flex-col justify-between p-7">
@@ -232,7 +232,7 @@ function homeInitPage() {
           </div>
          </div>
         </a>
-        <a href="/Website-Portfolio/croissantsmoon" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:linear-gradient(135deg,#1C1C1E 0%,#2C2C2E 100%);padding:28px;text-decoration:none;color:inherit;min-height:160px">
+        <a href="/croissantsmoon" class="home-work-card group relative overflow-hidden rounded-2xl block" style="background:linear-gradient(135deg,#1C1C1E 0%,#2C2C2E 100%);padding:28px;text-decoration:none;color:inherit;min-height:160px">
          <div style="width:28px;height:3px;background:#FF6B47;border-radius:2px;margin-bottom:18px"></div>
          <span style="font-size:.67rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,0.55);display:block;margin-bottom:10px">Creative Studio</span>
          <h3 class="font-heading font-semibold text-base leading-snug" style="color:#fff;font-style:italic">CroissantsMoon</h3>
@@ -312,7 +312,7 @@ function homeInitPage() {
       <div class="max-w-6xl mx-auto">
        <div class="flex items-center gap-3 mb-12"><span class="accent-line"></span><span class="label-small">Core Competencies</span></div>
        <div>
-        <a href="/Website-Portfolio/partnerships" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
+        <a href="/partnerships" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#0A84FF;min-width:32px;margin-top:3px">01</span>
          <div class="flex-1 min-w-0">
           <span class="label-small block mb-1.5" style="color:#767676">Global Partnerships</span>
@@ -321,7 +321,7 @@ function homeInitPage() {
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">Managing 30+ institutional partners and reviewing 25+ MoU/MoA agreements monthly</p>
          <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#0A84FF;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
         </a>
-        <a href="/Website-Portfolio/onboarding" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
+        <a href="/onboarding" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#4A6B8A;min-width:32px;margin-top:3px">02</span>
          <div class="flex-1 min-w-0">
           <span class="label-small block mb-1.5" style="color:#767676">Student Services</span>
@@ -330,7 +330,7 @@ function homeInitPage() {
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">End-to-end welfare, mobility, and onboarding for 200+ international students across Surabaya</p>
          <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#4A6B8A;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
         </a>
-        <a href="/Website-Portfolio/projects-overview" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
+        <a href="/projects-overview" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#6B4F32;min-width:32px;margin-top:3px">03</span>
          <div class="flex-1 min-w-0">
           <span class="label-small block mb-1.5" style="color:#767676">Program Management</span>
@@ -339,7 +339,7 @@ function homeInitPage() {
          <p class="hidden md:block text-sm leading-relaxed flex-1" style="color:#5C5C5C;max-width:340px;margin-top:20px">5 end-to-end exchange programs — AMERTA, ACI, AERO — with IDR 50–90M per-program budgets</p>
          <span class="competency-cta flex items-center gap-2 text-sm font-medium flex-shrink-0" style="color:#6B4F32;margin-top:22px">View <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
         </a>
-        <a href="/Website-Portfolio/croissantsmoon" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);border-bottom:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
+        <a href="/croissantsmoon" class="competency-row w-full flex items-start gap-6 py-7" style="border-top:1px solid rgba(28,28,30,0.1);border-bottom:1px solid rgba(28,28,30,0.1);text-decoration:none;color:inherit">
          <span class="font-heading font-bold flex-shrink-0" style="font-size:.9rem;color:#1C1C1E;min-width:32px;margin-top:3px;font-style:italic">CM</span>
          <div class="flex-1 min-w-0">
           <span class="label-small block mb-1.5" style="color:#767676">Creative Identity</span>
@@ -365,7 +365,7 @@ function homeInitPage() {
        <p class="text-sm mb-11" style="color:rgba(255,255,255,0.38);max-width:380px;margin-left:auto;margin-right:auto;line-height:1.7" data-edit-key="home_contact_body">Partnerships, collaborations, education projects, or creative work — I'm always open to a good conversation.</p>
        <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a id="home-cv-download" href="./assets/data/profile.pdf" download class="btn-cv-download font-medium text-sm px-8 py-4 rounded-full inline-flex items-center justify-center gap-2"><i data-lucide="download" style="width:15px;height:15px"></i> <span class="cv-btn-label">Download CV</span><span class="sr-only" aria-live="polite" id="cv-download-status"></span></a>
-        <a href="/Website-Portfolio/contact" class="btn-contact-outline font-medium text-sm px-8 py-4 rounded-full inline-flex items-center gap-2"><i data-lucide="mail" style="width:15px;height:15px"></i> Contact Me</a>
+        <a href="/contact" class="btn-contact-outline font-medium text-sm px-8 py-4 rounded-full inline-flex items-center gap-2"><i data-lucide="mail" style="width:15px;height:15px"></i> Contact Me</a>
        </div>
       </div>
      </div>

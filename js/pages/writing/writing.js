@@ -118,7 +118,7 @@
     root.innerHTML =
       '<div style="padding:64px 24px 48px;border-bottom:1px solid rgba(28,28,30,0.07)">' +
         '<div class="max-w-5xl mx-auto">' +
-          '<a href="/Website-Portfolio/" class="inline-flex items-center gap-2 mb-10 text-sm" style="color:#767676;text-decoration:none">' +
+          '<a href="/" class="inline-flex items-center gap-2 mb-10 text-sm" style="color:#767676;text-decoration:none">' +
             '<i data-lucide="arrow-left" style="width:16px;height:16px"></i> Back' +
           '</a>' +
           '<div class="flex items-center gap-3 mb-6"><span class="accent-line"></span><span class="label-small">Writing</span></div>' +

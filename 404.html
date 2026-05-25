@@ -7,12 +7,11 @@
     // GitHub Pages SPA fallback: encode the requested path as ?p= and redirect to index.html.
     // index.html reads ?p=, restores the clean URL via history.replaceState, and renders the page.
     (function () {
-      var base = '/Website-Portfolio';
-      var path = window.location.pathname.slice(base.length) || '/';
+      var path = window.location.pathname || '/';
       var qs = window.location.search ? '&' + window.location.search.slice(1) : '';
       window.location.replace(
         window.location.protocol + '//' + window.location.host +
-        base + '/?p=' + encodeURIComponent(path) + qs
+        '/?p=' + encodeURIComponent(path) + qs
       );
     })();
   </script>
