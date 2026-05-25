@@ -7,6 +7,104 @@ function toggleAboutTimeline(btn) {
   if (!isOpen) lucide.createIcons();
 }
 
+// ── About Skill Map ──────────────────────────────────────────────────────────
+let _aboutSelectedSkills = [];
+
+function aboutToggleSkill(btn) {
+  const skill = btn.dataset.skill;
+  if (_aboutSelectedSkills.includes(skill)) {
+    _aboutSelectedSkills = _aboutSelectedSkills.filter(s => s !== skill);
+    btn.classList.remove('selected');
+    const chip = document.querySelector('[data-about-chip="' + skill + '"]');
+    if (chip) chip.remove();
+  } else {
+    _aboutSelectedSkills.push(skill);
+    btn.classList.add('selected');
+    const searchBox = document.getElementById('about-search-box');
+    const input = document.getElementById('about-search-input');
+    if (searchBox && input) {
+      const chip = document.createElement('span');
+      chip.setAttribute('data-about-chip', skill);
+      chip.style.cssText = 'display:inline-flex;align-items:center;gap:4px;background:rgba(30,58,95,0.1);color:#1E3A5F;padding:3px 8px 3px 10px;border-radius:999px;font-size:.72rem;font-weight:500;white-space:nowrap;cursor:default;flex-shrink:0';
+      chip.innerHTML = skill + '<button onclick="aboutRemoveChip(this)" data-skill-name="' + skill.replace(/"/g, '&quot;') + '" style="background:none;border:none;cursor:pointer;padding:0 0 0 3px;display:flex;align-items:center;color:inherit;opacity:.6" aria-label="Remove ' + skill + '"><i data-lucide="x" style="width:10px;height:10px"></i></button>';
+      searchBox.insertBefore(chip, input);
+      if (window.lucide) lucide.createIcons();
+    }
+  }
+  _aboutUpdateClearBtn();
+  aboutRunSearch();
+}
+
+function aboutRemoveChip(removeBtn) {
+  const skill = removeBtn.dataset.skillName;
+  _aboutSelectedSkills = _aboutSelectedSkills.filter(s => s !== skill);
+  const chip = removeBtn.closest('[data-about-chip]');
+  if (chip) chip.remove();
+  const tag = document.querySelector('#about-skill-tags [data-skill="' + skill + '"]');
+  if (tag) tag.classList.remove('selected');
+  _aboutUpdateClearBtn();
+  aboutRunSearch();
+}
+
+function _aboutUpdateClearBtn() {
+  const btn = document.getElementById('about-clear-btn');
+  if (!btn) return;
+  const hasInput = (document.getElementById('about-search-input')?.value || '').trim().length > 0;
+  btn.style.display = (_aboutSelectedSkills.length > 0 || hasInput) ? 'inline-block' : 'none';
+}
+
+function aboutClearSearch() {
+  _aboutSelectedSkills = [];
+  document.querySelectorAll('#about-skill-tags .skill-tag').forEach(t => t.classList.remove('selected'));
+  document.querySelectorAll('[data-about-chip]').forEach(c => c.remove());
+  const input = document.getElementById('about-search-input');
+  if (input) input.value = '';
+  const results = document.getElementById('about-skill-results');
+  if (results) results.style.display = 'none';
+  const clearBtn = document.getElementById('about-clear-btn');
+  if (clearBtn) clearBtn.style.display = 'none';
+}
+
+function aboutRunSearch() {
+  const q = (document.getElementById('about-search-input')?.value || '').trim().toLowerCase();
+  const skills = _aboutSelectedSkills;
+  _aboutUpdateClearBtn();
+  const results = document.getElementById('about-skill-results');
+  if (!skills.length && !q) {
+    if (results) results.style.display = 'none';
+    return;
+  }
+  const items = (typeof discoveryItems !== 'undefined') ? discoveryItems : [];
+  const matches = items.filter(function(item) {
+    const skillMatch = !skills.length || item.skills.some(function(s) { return skills.includes(s); });
+    const textMatch = !q || item.title.toLowerCase().includes(q) || item.description.toLowerCase().includes(q) || item.category.toLowerCase().includes(q) || item.skills.some(function(s) { return s.toLowerCase().includes(q); });
+    return skillMatch && textMatch;
+  }).sort(function(a, b) {
+    const aScore = skills.length ? a.skills.filter(function(s) { return skills.includes(s); }).length : 0;
+    const bScore = skills.length ? b.skills.filter(function(s) { return skills.includes(s); }).length : 0;
+    return bScore - aScore;
+  });
+  const grid = document.getElementById('about-results-grid');
+  const noResults = document.getElementById('about-no-results');
+  if (!results || !grid) return;
+  results.style.display = 'block';
+  if (!matches.length) {
+    grid.innerHTML = '';
+    if (noResults) noResults.style.display = 'block';
+    return;
+  }
+  if (noResults) noResults.style.display = 'none';
+  grid.innerHTML = matches.slice(0, 9).map(function(item) {
+    return '<button onclick="goToPage(\'' + item.page + '\')" class="card text-left about-card-lift p-5" style="background:#fff">' +
+      '<div class="label-small mb-2" style="color:' + item.accent + '">' + item.category + '</div>' +
+      '<h3 class="font-heading font-semibold text-sm mb-2" style="color:#1C1C1E">' + item.title + '</h3>' +
+      '<p class="text-xs leading-relaxed mb-3" style="color:#5C5C5C">' + item.description + '</p>' +
+      '<div class="flex flex-wrap gap-1">' + item.skills.slice(0, 3).map(function(s) { return '<span class="tag">' + s + '</span>'; }).join('') + '</div>' +
+      '</button>';
+  }).join('');
+  if (window.lucide) lucide.createIcons();
+}
+
 function aboutOverviewInitPage() {
   var el = document.getElementById('page-about-overview');
   if (!el) return;
@@ -17,6 +115,8 @@ function aboutOverviewInitPage() {
        @keyframes about-tl-pulse{0%{box-shadow:0 0 0 0 rgba(30,58,95,.55),0 0 0 3px #FAFAF8,0 0 0 5px #1E3A5F}70%{box-shadow:0 0 0 12px rgba(30,58,95,0),0 0 0 3px #FAFAF8,0 0 0 5px #1E3A5F}100%{box-shadow:0 0 0 0 rgba(30,58,95,0),0 0 0 3px #FAFAF8,0 0 0 5px #1E3A5F}}
        .about-card-lift{transition:transform .22s ease,box-shadow .22s ease}
        .about-card-lift:hover{transform:translateY(-4px);box-shadow:0 20px 56px rgba(0,0,0,0.14)!important}
+       @keyframes about-twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.15;transform:scale(.5)}}
+       @keyframes about-float{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 8px))}}
      </style>
 
      <!-- ═══ 1. HERO PROFILE HEADER ═══ -->
@@ -58,13 +158,6 @@ function aboutOverviewInitPage() {
           <span style="background:rgba(139,115,85,0.2);color:#C4A875;padding:5px 14px;border-radius:999px;font-size:.72rem;border:1px solid rgba(139,115,85,0.25);font-weight:500">Creative Direction</span>
          </div>
         </div>
-       </div>
-       <div class="flex gap-0 border-t" style="border-color:rgba(255,255,255,0.08)">
-        <button onclick="goToPage('expertise')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Expertise</button>
-        <button onclick="goToPage('experience')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Experience</button>
-        <button onclick="goToPage('skillset')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Skillset</button>
-        <button onclick="goToPage('education')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Education</button>
-        <button onclick="goToPage('contact')" style="color:rgba(255,255,255,0.45);font-size:.75rem;font-weight:500;padding:14px 20px;border-bottom:2px solid transparent;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.02em" onmouseover="this.style.color='#fff';this.style.borderBottomColor='#8B7355';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.color='rgba(255,255,255,0.45)';this.style.borderBottomColor='transparent';this.style.background='transparent'">Contact</button>
        </div>
       </div>
      </div>
@@ -157,12 +250,9 @@ function aboutOverviewInitPage() {
      <!-- ═══ 4. EXPERIENCE TIMELINE ═══ -->
      <div style="padding:72px 24px;background:#FAFAF8">
       <div class="max-w-6xl mx-auto">
-       <div class="flex items-center justify-between mb-4 flex-wrap gap-4">
-        <div>
-         <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Career Timeline</span></div>
-         <h2 class="font-heading font-bold text-3xl" style="color:#1C1C1E">Professional Experience</h2>
-        </div>
-        <button onclick="goToPage('experience')" class="btn-outline text-sm px-5 py-2.5 rounded-full inline-flex items-center gap-2">Full Timeline <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
+       <div class="mb-4">
+        <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Career Timeline</span></div>
+        <h2 class="font-heading font-bold text-3xl" style="color:#1C1C1E">Professional Experience</h2>
        </div>
        <p class="text-sm mb-12" style="color:#5C5C5C;max-width:520px">3+ years in international higher education — building partnerships, leading mobility programs, and supporting global students across Surabaya.</p>
        <div class="relative">
@@ -400,9 +490,6 @@ function aboutOverviewInitPage() {
          <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(28,28,30,0.06)"><i data-lucide="network" style="width:18px;height:18px;color:#1C1C1E"></i></div><div><h3 class="font-heading font-semibold text-sm mb-1" style="color:#1C1C1E">Systems Thinking</h3><p class="text-xs leading-relaxed" style="color:#5C5C5C">Connecting education, digital design, and creative strategy into integrated frameworks</p></div></div>
         </div>
        </div>
-       <div class="mt-8">
-        <button onclick="goToPage('expertise')" class="btn-outline text-sm px-6 py-2.5 rounded-full inline-flex items-center gap-2">Full Expertise Detail <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
-       </div>
       </div>
      </div>
 
@@ -435,7 +522,6 @@ function aboutOverviewInitPage() {
          </div>
         </div>
        </div>
-       <button onclick="goToPage('education')" class="btn-outline text-sm px-6 py-2.5 rounded-full inline-flex items-center gap-2">Full Academic Profile <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
       </div>
      </div>
 
@@ -445,8 +531,12 @@ function aboutOverviewInitPage() {
        <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Featured Work</span></div>
        <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">Selected Projects</h2>
        <p class="text-sm mb-10" style="color:#5C5C5C;max-width:480px">International education programs, digital platforms, and creative initiatives that define my practice.</p>
-       <div class="grid md:grid-cols-2 gap-6">
-        <button onclick="goToPage('amerta')" class="card text-left group overflow-hidden" style="background:#fff">
+
+       <!-- 2×2 grid: AMERTA · ACI · International Office Website · Partnership Dashboard -->
+       <div class="grid md:grid-cols-2 gap-6 mb-6">
+
+        <!-- AMERTA -->
+        <button onclick="goToPage('amerta')" class="card text-left group overflow-hidden about-card-lift" style="background:#fff">
          <div class="h-40 relative overflow-hidden">
           <img loading="lazy" src="assets/images/student-services/tailor-made/griffith-unair-2.JPEG" alt="AMERTA" class="w-full h-full object-cover">
          </div>
@@ -458,45 +548,96 @@ function aboutOverviewInitPage() {
           <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#1E3A5F">View case study <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
          </div>
         </button>
-        <button onclick="goToPage('aero')" class="card text-left group overflow-hidden" style="background:#fff">
+
+        <!-- ACI -->
+        <button onclick="goToPage('aci')" class="card text-left group overflow-hidden about-card-lift" style="background:#fff">
          <div class="h-40 relative overflow-hidden">
-          <img loading="lazy" src="assets/images/aero/aero-header-1.JPEG" alt="AERO" class="w-full h-full object-cover" style="object-position:center 30%">
+          <img loading="lazy" src="assets/images/aci/aci-4.JPEG" alt="ACI Cultural Immersion" class="w-full h-full object-cover" style="object-position:center 30%">
          </div>
          <div class="p-6">
-          <div class="label-small mb-2" style="color:#6B4F32">Exhibition · Airlangga</div>
-          <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">AERO</h3>
-          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Annual exhibition showcasing global partnerships — 50+ stakeholders, full logistics &amp; vendor coordination.</p>
-          <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">International Partnership</span><span class="tag">Branding</span><span class="tag">Creative Direction</span></div>
+          <div class="label-small mb-2" style="color:#6B4F32">Cultural Immersion · Airlangga</div>
+          <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">ACI</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Structured engagement program connecting international and local students through cultural experience.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">Student Support</span><span class="tag">Project Management</span><span class="tag">Cross-Cultural</span></div>
           <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#6B4F32">View case study <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
          </div>
         </button>
-        <button onclick="goToPage('pcu-global')" class="card text-left group overflow-hidden" style="background:#fff">
-         <div class="h-40 flex items-center justify-center relative overflow-hidden" style="background:linear-gradient(135deg,#003087,#1a56a0)">
-          <div class="absolute inset-0" style="background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.2),transparent)"></div>
-          <i data-lucide="globe" style="width:44px;height:44px;color:rgba(255,255,255,0.6)"></i>
+
+        <!-- International Office Website -->
+        <button onclick="goToPage('web-pcu-global-intl')" class="card text-left group overflow-hidden about-card-lift" style="background:#fff">
+         <div class="h-40 relative overflow-hidden" style="background:#f0f4f8">
+          <iframe src="https://international-office-website.vercel.app/" style="position:absolute;top:0;left:0;width:300%;height:420px;transform:scale(0.333);transform-origin:top left;border:none;pointer-events:none" loading="lazy" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="PCU International Office Website preview"></iframe>
+          <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 55%,rgba(255,255,255,0.92))"></div>
          </div>
          <div class="p-6">
           <div class="label-small mb-2" style="color:#003087">Web Platform · PCU</div>
-          <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">PCU Global</h3>
+          <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">International Office Website</h3>
           <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">Rebuilding PCU's International Office digital presence — for inbound students, outbound programs, and partners.</p>
           <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">Web Development</span><span class="tag">UI/UX Design</span><span class="tag">Digital Strategy</span></div>
           <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#003087">View case study <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
          </div>
         </button>
-        <button onclick="goToPage('croissantsmoon')" class="card text-left group overflow-hidden" style="background:#1C1C1E;border-color:#1C1C1E">
-         <div class="h-40 flex items-center justify-center relative overflow-hidden" style="background:linear-gradient(135deg,#1C1C1E,#2a2418)">
-          <div class="absolute inset-0" style="background:radial-gradient(circle at 50% 50%,rgba(139,115,85,0.15),transparent)"></div>
-          <i data-lucide="moon" style="width:44px;height:44px;color:rgba(139,115,85,0.7)"></i>
+
+        <!-- Partnership Dashboard -->
+        <button onclick="goToPage('web-dashboard-partnership')" class="card text-left group overflow-hidden about-card-lift" style="background:#fff">
+         <div class="h-40 relative overflow-hidden" style="background:linear-gradient(135deg,#1E3A5F 0%,#2C4A72 100%)">
+          <div class="absolute inset-0 flex flex-col justify-center px-6 gap-2.5">
+           <div style="height:5px;background:rgba(255,255,255,0.45);border-radius:3px;width:78%"></div>
+           <div style="height:5px;background:rgba(255,255,255,0.25);border-radius:3px;width:55%"></div>
+           <div style="height:5px;background:rgba(255,255,255,0.35);border-radius:3px;width:88%"></div>
+           <div style="height:5px;background:rgba(139,115,85,0.65);border-radius:3px;width:43%"></div>
+           <div style="height:5px;background:rgba(255,255,255,0.2);border-radius:3px;width:66%"></div>
+          </div>
+          <i data-lucide="bar-chart-2" style="position:absolute;right:20px;bottom:16px;width:40px;height:40px;color:rgba(255,255,255,0.18)"></i>
+          <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 60%,rgba(30,58,95,0.5))"></div>
          </div>
          <div class="p-6">
-          <div class="label-small mb-2" style="color:rgba(139,115,85,0.7)">Creative Identity · In Development</div>
-          <h3 class="font-heading font-bold text-lg mb-2 font-editorial" style="color:#fff;font-style:italic">CroissantsMoon</h3>
-          <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.55)">A boutique creative studio — editorial design, brand systems, and curated digital experiences.</p>
-          <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag" style="color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.1)">Branding</span><span class="tag" style="color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.1)">Creative Direction</span><span class="tag" style="color:rgba(255,255,255,0.4);border-color:rgba(255,255,255,0.1)">UI/UX</span></div>
-          <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#8B7355">Explore <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
+          <div class="label-small mb-2" style="color:#1E3A5F">Dashboard · PCU</div>
+          <h3 class="font-heading font-bold text-lg mb-2" style="color:#1C1C1E">Partnership Dashboard</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C">A data dashboard for visualising and managing PCU's international partnership network and grants pipeline.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4"><span class="tag">Data Visualization</span><span class="tag">UI/UX Design</span><span class="tag">Digital Strategy</span></div>
+          <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#1E3A5F">View case study <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
          </div>
         </button>
+
        </div>
+
+       <!-- Big CroissantsMoon card — celestial theme -->
+       <button onclick="goToPage('croissantsmoon')" class="card w-full text-left group overflow-hidden about-card-lift" style="background:#071126;border-color:rgba(111,168,255,0.14)">
+        <div class="flex flex-col md:flex-row">
+         <!-- Celestial visual panel -->
+         <div class="h-56 md:h-auto md:w-72 lg:w-80 relative overflow-hidden flex-shrink-0" style="background:linear-gradient(145deg,#071126 0%,#0B1E3A 55%,#183B6B 100%)">
+          <!-- Stars -->
+          <div style="position:absolute;width:3px;height:3px;border-radius:50%;background:#D9E6FF;top:18%;left:22%;animation:about-twinkle 2.2s ease-in-out infinite"></div>
+          <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:#8FA8D6;top:35%;left:68%;animation:about-twinkle 3.5s ease-in-out infinite .6s"></div>
+          <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:#D9E6FF;top:62%;left:38%;animation:about-twinkle 2.7s ease-in-out infinite 1.1s"></div>
+          <div style="position:absolute;width:1px;height:1px;border-radius:50%;background:#6FA8FF;top:72%;left:78%;animation:about-twinkle 1.9s ease-in-out infinite .4s"></div>
+          <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:#D4B15A;top:22%;left:58%;animation:about-twinkle 3.1s ease-in-out infinite .9s"></div>
+          <div style="position:absolute;width:1px;height:1px;border-radius:50%;background:#D9E6FF;top:50%;left:15%;animation:about-twinkle 2.5s ease-in-out infinite 1.5s"></div>
+          <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:#8FA8D6;top:82%;left:52%;animation:about-twinkle 3.8s ease-in-out infinite .2s"></div>
+          <!-- Moon -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#D9E6FF 0%,#8FA8D6 50%,#4A6B8A 100%);box-shadow:0 0 40px rgba(217,230,255,0.2),0 0 80px rgba(111,168,255,0.1);animation:about-float 4.5s ease-in-out infinite"></div>
+          <!-- Shadow that makes crescent -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-32%,-50%);width:76px;height:76px;border-radius:50%;background:#071126;box-shadow:inset -2px -2px 0 rgba(212,177,90,0.2)"></div>
+          <!-- Radial glow -->
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(212,177,90,0.06),transparent 65%)"></div>
+         </div>
+         <!-- Content -->
+         <div class="p-8 flex flex-col justify-center">
+          <div class="label-small mb-3" style="color:rgba(212,177,90,0.65);letter-spacing:.12em">Creative Identity · In Development</div>
+          <h3 class="font-heading font-bold mb-3 font-editorial" style="color:#D9E6FF;font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-.01em;line-height:1.1">CroissantsMoon</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color:#8FA8D6;max-width:420px">A boutique creative studio — editorial design, brand systems, and curated digital experiences. Where craft meets the cosmos.</p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+           <span class="tag" style="color:rgba(217,230,255,0.45);border-color:rgba(111,168,255,0.15)">Branding</span>
+           <span class="tag" style="color:rgba(217,230,255,0.45);border-color:rgba(111,168,255,0.15)">Creative Direction</span>
+           <span class="tag" style="color:rgba(217,230,255,0.45);border-color:rgba(111,168,255,0.15)">UI/UX</span>
+           <span class="tag" style="color:rgba(217,230,255,0.45);border-color:rgba(111,168,255,0.15)">Web Development</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all" style="color:#D4B15A">Explore the studio <i data-lucide="arrow-right" style="width:14px;height:14px"></i></div>
+         </div>
+        </div>
+       </button>
+
        <div class="mt-8 text-center">
         <button onclick="goToPage('projects-overview')" class="btn-outline text-sm px-6 py-2.5 rounded-full inline-flex items-center gap-2">All Projects <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
        </div>
@@ -506,53 +647,74 @@ function aboutOverviewInitPage() {
      <!-- ═══ 8. SKILL ECOSYSTEM ═══ -->
      <div style="padding:72px 24px;background:#FAFAF8">
       <div class="max-w-6xl mx-auto">
-       <div class="flex items-center gap-3 mb-4"><span class="accent-line"></span><span class="label-small">Skill Ecosystem</span></div>
-       <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">Professional Skill Map</h2>
-       <p class="text-sm mb-10" style="color:#5C5C5C;max-width:480px">A full view of competencies spanning international education, digital craft, and creative practice.</p>
-       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div>
-         <div class="flex items-center gap-2 mb-3"><span style="width:8px;height:8px;border-radius:50%;background:#1E3A5F;display:inline-block"></span><span class="label-small" style="color:#1E3A5F">International Education</span></div>
-         <div class="flex flex-wrap gap-2">
-          <span class="skill-tag cat-education" style="cursor:default">International Partnership</span>
-          <span class="skill-tag cat-education" style="cursor:default">Student Mobility</span>
-          <span class="skill-tag cat-education" style="cursor:default">MoU/MoA Coordination</span>
-          <span class="skill-tag cat-education" style="cursor:default">Internationalization</span>
-          <span class="skill-tag cat-education" style="cursor:default">Student Support</span>
-          <span class="skill-tag cat-education" style="cursor:default">Cross-Cultural Communication</span>
+       <div class="grid lg:grid-cols-5 gap-12 items-start">
+
+        <!-- Sticky heading + search -->
+        <div class="lg:col-span-2" style="position:sticky;top:80px">
+         <div class="flex items-center gap-3 mb-5"><span class="accent-line"></span><span class="label-small">Skill Ecosystem</span></div>
+         <h2 class="font-heading font-bold text-3xl mb-2" style="color:#1C1C1E">Professional Skill Map</h2>
+         <p class="text-sm leading-relaxed mb-4" style="color:#5C5C5C;max-width:300px">Click a skill tag to explore related work, or type a keyword to find any project.</p>
+         <ol class="mb-6" style="max-width:300px;list-style:none;padding:0;font-size:.75rem;color:#767676;line-height:1.7">
+          <li style="display:flex;gap:8px;align-items:flex-start"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#1E3A5F;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:2px">1</span><span>Pick a skill or type a keyword</span></li>
+          <li style="display:flex;gap:8px;align-items:flex-start"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#1E3A5F;color:#fff;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:2px">2</span><span>See matching work below</span></li>
+         </ol>
+         <!-- Search bar -->
+         <div style="position:relative;margin-top:4px">
+          <div id="about-search-box" style="display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:#fff;border:1.5px solid rgba(28,28,30,0.12);border-radius:14px;padding:8px 8px 8px 14px;min-height:52px;cursor:text" onclick="document.getElementById('about-search-input').focus()">
+           <input id="about-search-input" type="text" placeholder="Search projects, skills…"
+            style="border:none;outline:none;background:transparent;font-size:.83rem;color:#1C1C1E;flex:1 1 80px;min-width:80px;padding:3px 0;font-family:'DM Sans',sans-serif;line-height:1.4"
+            oninput="aboutRunSearch()"
+            onkeydown="if(event.key==='Escape')aboutClearSearch()"
+            onfocus="document.getElementById('about-search-box').style.borderColor='#1E3A5F';document.getElementById('about-search-box').style.boxShadow='0 0 0 3px rgba(30,58,95,0.1)'"
+            onblur="document.getElementById('about-search-box').style.borderColor='rgba(28,28,30,0.12)';document.getElementById('about-search-box').style.boxShadow='none'"
+           />
+           <button onclick="aboutRunSearch()" style="background:#1C1C1E;color:#fff;border:none;cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;margin-left:2px" onmouseover="this.style.background='#1E3A5F'" onmouseout="this.style.background='#1C1C1E'"><i data-lucide="search" style="width:15px;height:15px"></i></button>
+          </div>
+         </div>
+         <button id="about-clear-btn" onclick="aboutClearSearch()" class="text-sm mt-3 inline-block" style="color:#767676;display:none">Clear all</button>
+        </div>
+
+        <!-- Tag cloud -->
+        <div class="lg:col-span-3">
+         <!-- Legend -->
+         <div class="flex flex-wrap gap-4 mb-6">
+          <div class="flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:#1E3A5F;display:inline-block"></span><span class="label-small" style="color:#1E3A5F">Intl. Education</span></div>
+          <div class="flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:#1C1C1E;display:inline-block"></span><span class="label-small">Leadership</span></div>
+          <div class="flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:#6B4F32;display:inline-block"></span><span class="label-small" style="color:#6B4F32">Creative &amp; Digital</span></div>
+          <div class="flex items-center gap-2"><span style="width:8px;height:8px;border-radius:50%;background:#4A5235;display:inline-block"></span><span class="label-small" style="color:#4A5235">Technology</span></div>
+         </div>
+         <!-- Skill tags -->
+         <div id="about-skill-tags" class="flex flex-wrap gap-2.5 mb-8">
+          <button class="skill-tag cat-education" data-skill="International Partnership" onclick="aboutToggleSkill(this)">International Partnership</button>
+          <button class="skill-tag cat-education" data-skill="Student Mobility" onclick="aboutToggleSkill(this)">Student Mobility</button>
+          <button class="skill-tag cat-education" data-skill="MoU/MoA Coordination" onclick="aboutToggleSkill(this)">MoU/MoA Coordination</button>
+          <button class="skill-tag cat-education" data-skill="Internationalization" onclick="aboutToggleSkill(this)">Internationalization</button>
+          <button class="skill-tag cat-education" data-skill="Student Support" onclick="aboutToggleSkill(this)">Student Support</button>
+          <button class="skill-tag cat-education" data-skill="Cross-Cultural Communication" onclick="aboutToggleSkill(this)">Cross-Cultural Communication</button>
+          <button class="skill-tag cat-leadership" data-skill="Project Management" onclick="aboutToggleSkill(this)">Project Management</button>
+          <button class="skill-tag cat-leadership" data-skill="Strategic Planning" onclick="aboutToggleSkill(this)">Strategic Planning</button>
+          <button class="skill-tag cat-leadership" data-skill="Leadership" onclick="aboutToggleSkill(this)">Leadership</button>
+          <button class="skill-tag cat-leadership" data-skill="Systems Thinking" onclick="aboutToggleSkill(this)">Systems Thinking</button>
+          <button class="skill-tag cat-leadership" data-skill="Stakeholder Management" onclick="aboutToggleSkill(this)">Stakeholder Management</button>
+          <button class="skill-tag cat-creative" data-skill="UI/UX Design" onclick="aboutToggleSkill(this)">UI/UX Design</button>
+          <button class="skill-tag cat-creative" data-skill="Branding" onclick="aboutToggleSkill(this)">Branding</button>
+          <button class="skill-tag cat-creative" data-skill="Creative Direction" onclick="aboutToggleSkill(this)">Creative Direction</button>
+          <button class="skill-tag cat-creative" data-skill="Digital Strategy" onclick="aboutToggleSkill(this)">Digital Strategy</button>
+          <button class="skill-tag cat-creative" data-skill="Writing" onclick="aboutToggleSkill(this)">Writing</button>
+          <button class="skill-tag cat-tech" data-skill="Full-Stack Development" onclick="aboutToggleSkill(this)">Full-Stack Development</button>
+          <button class="skill-tag cat-tech" data-skill="Front-End Development" onclick="aboutToggleSkill(this)">Front-End Development</button>
+          <button class="skill-tag cat-tech" data-skill="Web Experience" onclick="aboutToggleSkill(this)">Web Experience</button>
+          <button class="skill-tag cat-tech" data-skill="Responsive Design" onclick="aboutToggleSkill(this)">Responsive Design</button>
+         </div>
+
+         <!-- Results area (shown when skill or text is active) -->
+         <div id="about-skill-results" style="display:none">
+          <div class="flex items-center gap-3 mb-5"><span style="width:20px;height:1px;background:rgba(28,28,30,0.15);display:inline-block"></span><span class="label-small">Related Work</span></div>
+          <div id="about-results-grid" class="grid sm:grid-cols-2 gap-4"></div>
+          <p id="about-no-results" class="text-sm py-8" style="color:#767676;display:none">No matching items found. Try a different keyword or skill.</p>
          </div>
         </div>
-        <div>
-         <div class="flex items-center gap-2 mb-3"><span style="width:8px;height:8px;border-radius:50%;background:#1C1C1E;display:inline-block"></span><span class="label-small">Leadership</span></div>
-         <div class="flex flex-wrap gap-2">
-          <span class="skill-tag cat-leadership" style="cursor:default">Project Management</span>
-          <span class="skill-tag cat-leadership" style="cursor:default">Strategic Planning</span>
-          <span class="skill-tag cat-leadership" style="cursor:default">Leadership</span>
-          <span class="skill-tag cat-leadership" style="cursor:default">Systems Thinking</span>
-          <span class="skill-tag cat-leadership" style="cursor:default">Stakeholder Management</span>
-         </div>
-        </div>
-        <div>
-         <div class="flex items-center gap-2 mb-3"><span style="width:8px;height:8px;border-radius:50%;background:#6B4F32;display:inline-block"></span><span class="label-small" style="color:#6B4F32">Creative &amp; Digital</span></div>
-         <div class="flex flex-wrap gap-2">
-          <span class="skill-tag cat-creative" style="cursor:default">UI/UX Design</span>
-          <span class="skill-tag cat-creative" style="cursor:default">Branding</span>
-          <span class="skill-tag cat-creative" style="cursor:default">Creative Direction</span>
-          <span class="skill-tag cat-creative" style="cursor:default">Digital Strategy</span>
-          <span class="skill-tag cat-creative" style="cursor:default">Writing</span>
-         </div>
-        </div>
-        <div>
-         <div class="flex items-center gap-2 mb-3"><span style="width:8px;height:8px;border-radius:50%;background:#4A5235;display:inline-block"></span><span class="label-small" style="color:#4A5235">Technology</span></div>
-         <div class="flex flex-wrap gap-2">
-          <span class="skill-tag cat-tech" style="cursor:default">Full-Stack Development</span>
-          <span class="skill-tag cat-tech" style="cursor:default">Front-End Development</span>
-          <span class="skill-tag cat-tech" style="cursor:default">Web Experience</span>
-          <span class="skill-tag cat-tech" style="cursor:default">Responsive Design</span>
-         </div>
-        </div>
-       </div>
-       <div class="mt-8">
-        <button onclick="goToPage('skillset')" class="btn-outline text-sm px-6 py-2.5 rounded-full inline-flex items-center gap-2">Full Skillset <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
+
        </div>
       </div>
      </div>
